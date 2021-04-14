@@ -5,16 +5,10 @@
  */
 package dk.group6.commonweapon;
 
-import dk.group6.common.data.Entity;
-import dk.group6.common.data.GameData;
-
-
 /**
  *
  * @author peter
  */
-public interface IWeaponSPI {
-    public Weapon createWeapon();
-    public void attack(Weapon weapon);
-    public void destroyWeapon(Weapon weapon);
+public class Weapon {
+    
 }
