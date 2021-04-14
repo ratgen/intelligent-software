@@ -24,7 +24,7 @@
     <module>Weapon</module>
     <module>Map</module>
     <module>Core</module>
-      
+    <module>CommonPlayer</module>
   </modules>
     
 
