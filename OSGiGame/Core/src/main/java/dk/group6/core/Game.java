@@ -13,7 +13,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.services.IPostEntityProcessingService;
-import dk.group6.core.managers.GameInputProcessor;
+import dk.group6.core.managers.InputProcessor;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -53,7 +53,7 @@ public class Game implements ApplicationListener {
 
         sr = new ShapeRenderer();
 
-        Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
+        Gdx.input.setInputProcessor(new InputProcessor(gameData));
 
     }
 

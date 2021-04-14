@@ -5,14 +5,15 @@ import com.badlogic.gdx.InputAdapter;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
 
-public class GameInputProcessor extends InputAdapter {
+public class InputProcessor extends InputAdapter {
     private final GameData gameData;
 
-    public GameInputProcessor(GameData gameData) {
+    public InputProcessor(GameData gameData) {
         this.gameData = gameData;
     }
 
     public boolean keyDown(int key) {
+        
         if(key == Keys.UP) {
             gameData.getKeys().setKey(GameKeys.UP, true);
         }
@@ -37,10 +38,12 @@ public class GameInputProcessor extends InputAdapter {
         if(key == Keys.SHIFT_LEFT || key == Keys.SHIFT_RIGHT) {
             gameData.getKeys().setKey(GameKeys.SHIFT, true);
         }
+        
         return true;
     }
 	
     public boolean keyUp(int key) {
+        
         if(key == Keys.UP) {
             gameData.getKeys().setKey(GameKeys.UP, false);
         }
@@ -65,6 +68,7 @@ public class GameInputProcessor extends InputAdapter {
         if(key == Keys.SHIFT_LEFT || key == Keys.SHIFT_RIGHT) {
             gameData.getKeys().setKey(GameKeys.SHIFT, false);
         }
+        
         return true;
     }
 }

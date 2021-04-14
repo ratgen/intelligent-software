@@ -1,4 +1,4 @@
-package dk.group6.common.player;
+package dk.group6.commonplayer.player;
 
 import dk.group6.common.data.Entity;
 
