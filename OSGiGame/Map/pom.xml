@@ -36,8 +36,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>dk.group6.map.Activator</Bundle-Activator>
-                        <Export-Package />
                     </instructions>
                 </configuration>
             </plugin>
