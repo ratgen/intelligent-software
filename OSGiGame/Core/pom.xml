@@ -101,8 +101,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>dk.group6.core.Activator</Bundle-Activator>
-                        <Export-Package />
+
                     </instructions>
                 </configuration>
             </plugin>

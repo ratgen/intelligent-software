@@ -13,7 +13,7 @@ public class InputProcessor extends InputAdapter {
     }
 
     public boolean keyDown(int key) {
-        
+        /*
         if(key == Keys.UP) {
             gameData.getKeys().setKey(GameKeys.UP, true);
         }
@@ -38,12 +38,13 @@ public class InputProcessor extends InputAdapter {
         if(key == Keys.SHIFT_LEFT || key == Keys.SHIFT_RIGHT) {
             gameData.getKeys().setKey(GameKeys.SHIFT, true);
         }
-        
+        */
         return true;
+        
     }
 	
     public boolean keyUp(int key) {
-        
+        /*
         if(key == Keys.UP) {
             gameData.getKeys().setKey(GameKeys.UP, false);
         }
@@ -68,7 +69,7 @@ public class InputProcessor extends InputAdapter {
         if(key == Keys.SHIFT_LEFT || key == Keys.SHIFT_RIGHT) {
             gameData.getKeys().setKey(GameKeys.SHIFT, false);
         }
-        
+        */
         return true;
     }
 }

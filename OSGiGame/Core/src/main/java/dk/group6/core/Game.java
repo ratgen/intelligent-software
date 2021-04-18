@@ -44,6 +44,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
+        /*
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
@@ -54,11 +55,12 @@ public class Game implements ApplicationListener {
         sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new InputProcessor(gameData));
-
+        */
     }
 
     @Override
     public void render() {
+        /*
         // clear screen to black
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -68,6 +70,7 @@ public class Game implements ApplicationListener {
 
         update();
         draw();
+        */
     }
 
     private void update() {
@@ -83,6 +86,7 @@ public class Game implements ApplicationListener {
     }
 
     private void draw() {
+        /*
         for (Entity entity : world.getEntities()) {
             sr.setColor(1, 1, 1, 1);
 
@@ -100,6 +104,7 @@ public class Game implements ApplicationListener {
 
             sr.end();
         }
+        */
     }
 
     @Override
