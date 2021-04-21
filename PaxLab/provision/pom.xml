@@ -12,7 +12,7 @@
     <groupId>dk.group6.build</groupId>
     <artifactId>provision</artifactId>
 
-    <name>PaxAteroids - imported bundles</name>
+    <name>OSGiGame - imported bundles</name>
 
     <packaging>pom</packaging>
 
