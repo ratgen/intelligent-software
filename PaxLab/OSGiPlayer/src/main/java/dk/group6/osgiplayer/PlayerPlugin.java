@@ -1,13 +1,13 @@
 package dk.group6.osgiplayer;
 
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.group6.common.data.Entity;
+import dk.group6.common.data.GameData;
+import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.LifePart;
+import dk.group6.common.data.entityparts.MovingPart;
+import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.Player;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.group6.common.services.IGamePluginService;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
