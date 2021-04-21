@@ -1,6 +1,6 @@
-package dk.sdu.mmmi.cbse.common.data;
+package dk.group6.common.data;
 
-import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
+import dk.group6.common.data.entityparts.EntityPart;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;

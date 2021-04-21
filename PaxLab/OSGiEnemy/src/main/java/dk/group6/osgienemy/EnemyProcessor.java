@@ -1,17 +1,15 @@
-package dk.sdu.mmmi.cbse.osgienemy;
+package dk.group6.osgienemy;
 
-import dk.sdu.mmmi.cbse.common.bullet.BulletSPI;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.enemy.Enemy;
-import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.group6.common.data.Entity;
+import dk.group6.common.data.GameData;
+import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.MovingPart;
+import dk.group6.common.data.entityparts.PositionPart;
+import dk.group6.common.enemy.Enemy;
+import dk.group6.common.services.IEntityProcessingService;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
-    private BulletSPI bulletService;
 
 
     @Override
@@ -26,10 +24,6 @@ public class EnemyProcessor implements IEntityProcessingService {
             movingPart.setRight(random > 0.3 && random < 0.5);
             movingPart.setUp(random > 0.7 && random < 0.9);
             
-            if (random > 0.98 && bulletService != null) {
-                Entity bullet = bulletService.createBullet(entity, gameData);
-                world.addEntity(bullet);
-            }
             
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);            
@@ -62,12 +56,4 @@ public class EnemyProcessor implements IEntityProcessingService {
         entity.setShapeY(shapey);
     }
 
-    //TODO: Dependency injection via Declarative Services
-    public void setBulletService(BulletSPI bulletService) {
-        this.bulletService = bulletService;
-    }
-
-    public void removeBulletService(BulletSPI bulletService) {
-        this.bulletService = null;
-    }
 }

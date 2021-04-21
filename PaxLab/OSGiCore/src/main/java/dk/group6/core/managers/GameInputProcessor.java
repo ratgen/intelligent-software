@@ -1,9 +1,9 @@
-package dk.sdu.mmmi.cbse.core.managers;
+package dk.group6.core.managers;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.GameKeys;
+import dk.group6.common.data.GameData;
+import dk.group6.common.data.GameKeys;
 
 public class GameInputProcessor extends InputAdapter {
     private final GameData gameData;
