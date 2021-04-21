@@ -6,7 +6,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
-import dk.group6.Player;
+import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
 
 public class PlayerPlugin implements IGamePluginService {
