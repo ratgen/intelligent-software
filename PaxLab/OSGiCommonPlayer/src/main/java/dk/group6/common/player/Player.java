@@ -1,6 +1,6 @@
 package dk.group6.common.player;
 
-import dk.sdu.mmmi.cbse.common.data.Entity;
+import dk.group6.common.data.Entity;
 
 /**
  *

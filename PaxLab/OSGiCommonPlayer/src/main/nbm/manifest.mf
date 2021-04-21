@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/common/player/Bundle.properties
+OpenIDE-Module-Localizing-Bundle: dk/group6/common/player/Bundle.properties
 
