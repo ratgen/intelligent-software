@@ -31,7 +31,7 @@
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx</artifactId>
             <version>${libGDX.version}</version>

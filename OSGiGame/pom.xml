@@ -26,6 +26,9 @@
     <module>Map</module>
     <module>Core</module>
     <module>CommonPlayer</module>
+    <module>OSGiLibGDX</module>
+    <module>poms</module>
+    <module>provision</module>
   </modules>
     
     <build>
@@ -60,7 +63,7 @@
             <param>--platform=felix</param>
                                                 
             
-            <param>--vmOptions="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"</param>
+            <param>--vmOptions="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5006"</param>
                                             
           
           </provision>

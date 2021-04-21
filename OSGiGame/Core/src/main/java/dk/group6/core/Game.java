@@ -7,6 +7,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -26,6 +29,8 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList();
+    private TiledMap map;
+    private OrthogonalTiledMapRenderer renderer;
 
     public Game(){
         init();
@@ -40,11 +45,17 @@ public class Game implements ApplicationListener {
         cfg.resizable = false;
 
         new LwjglApplication(this, cfg);
+        
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! MEOW\n");
+        
+        map = new TmxMapLoader().load("DemoMap.tmx");
+        renderer = new OrthogonalTiledMapRenderer(map);
+        
     }
 
     @Override
     public void create() {
-        /*
+        
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
@@ -52,14 +63,15 @@ public class Game implements ApplicationListener {
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
 
-        sr = new ShapeRenderer();
+        //sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new InputProcessor(gameData));
-        */
+        
     }
 
     @Override
     public void render() {
+        renderer.render();
         /*
         // clear screen to black
         Gdx.gl.glClearColor(0, 0, 0, 1);
