@@ -19,9 +19,11 @@ import dk.group6.common.services.IPostEntityProcessingService;
 import dk.group6.core.managers.GameInputProcessor;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import dk.group6.osgicommonmap.MapSPI;
 
 public class Game implements ApplicationListener {
 
+   
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
     private final GameData gameData = new GameData();
@@ -29,8 +31,8 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
-    private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;
+    
+    private MapSPI map;
     
     public Game(){
         init();
@@ -45,8 +47,6 @@ public class Game implements ApplicationListener {
         cfg.resizable = false;
 
         new LwjglApplication(this, cfg);
-        
-        
     }
 
     @Override
@@ -54,17 +54,15 @@ public class Game implements ApplicationListener {
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
-        map = new TmxMapLoader().load(Gdx.files.internal("assets/map/newmap.tmx").file().getAbsolutePath());
-        renderer = new OrthogonalTiledMapRenderer(map);
-
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
-        cam.update();
+        cam.update();        
 
         sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
-
+        
+        map.createMap();
     }
 
     @Override
@@ -77,8 +75,13 @@ public class Game implements ApplicationListener {
         gameData.getKeys().update();
 
         cam.update();
-        renderer.setView(cam);
-        renderer.render();
+
+        try {
+          map.getRenderer().setView(cam);
+          map.getRenderer().render();
+        }
+        catch (Exception e){
+        }
 
         update();
         draw();
@@ -158,5 +161,12 @@ public class Game implements ApplicationListener {
         this.gamePluginList.remove(plugin);
         plugin.stop(gameData, world);
     }
-
+    
+    public void setMap(MapSPI map){
+        this.map = map;
+    }
+    
+    public void removeMap(MapSPI map) {
+        this.map = null;
+    }
 }
