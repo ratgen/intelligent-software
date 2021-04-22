@@ -18,13 +18,13 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-        Entity enemy = createEnemyShip(gameData);
+        Entity enemy = createEnemy(gameData);
         enemyID = world.addEntity(enemy);
         
     }
 
-    private Entity createEnemyShip(GameData gameData) {
-        Entity enemyShip = new Enemy();
+    private Entity createEnemy(GameData gameData) {
+        Entity enemy = new Enemy();
 
         float deacceleration = 10;
         float acceleration = 200;
@@ -33,12 +33,12 @@ public class EnemyPlugin implements IGamePluginService {
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;
         float radians = 3.1415f / 2;
-        enemyShip.add(new LifePart(3));
-        enemyShip.setRadius(4);
-        enemyShip.add(new MovingPart());
-        enemyShip.add(new PositionPart(x, y));
+        enemy.add(new LifePart(3));
+        enemy.setRadius(4);
+        enemy.add(new MovingPart());
+        enemy.add(new PositionPart(x, y));
         
-        return enemyShip;
+        return enemy;
     }
 
     @Override

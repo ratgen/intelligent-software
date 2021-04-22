@@ -18,22 +18,22 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-        Entity player = createPlayerShip(gameData);
+        Entity player = createPlayer(gameData);
         playerID = world.addEntity(player);
         
     }
 
-    private Entity createPlayerShip(GameData gameData) {
-        Entity playerShip = new Player();
+    private Entity createPlayer(GameData gameData) {
+        Entity player = new Player();
 
-        float x = gameData.getDisplayWidth() / 2;
-        float y = gameData.getDisplayHeight() / 2;
-        playerShip.add(new LifePart(3));
-        playerShip.setRadius(4);
-        playerShip.add(new MovingPart());
-        playerShip.add(new PositionPart(x, y));
+        float x = gameData.getDisplayWidth() / 3;
+        float y = gameData.getDisplayHeight() / 3;
+        player.add(new LifePart(3));
+        player.setRadius(4);
+        player.add(new MovingPart());
+        player.add(new PositionPart(x, y));
         
-        return playerShip;
+        return player;
     }
 
     @Override
