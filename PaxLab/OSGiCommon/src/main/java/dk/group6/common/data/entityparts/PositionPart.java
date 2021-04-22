@@ -18,7 +18,7 @@ public class PositionPart implements EntityPart {
     private float y;
     private float radians;
 
-    public PositionPart(float x, float y, float radians) {
+    public PositionPart(float x, float y) {
         this.x = x;
         this.y = y;
         this.radians = radians;
