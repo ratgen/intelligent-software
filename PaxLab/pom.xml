@@ -32,7 +32,9 @@
         <module>OSGiCommonPlayer</module>
     <module>OSGiMap</module>
     <module>OSGICommonMap</module>
-  </modules>
+        <module>OSGiEnemy</module>
+        <module>OSGiCommonEnemy</module>
+    </modules>
 
     <build>
         <plugins>

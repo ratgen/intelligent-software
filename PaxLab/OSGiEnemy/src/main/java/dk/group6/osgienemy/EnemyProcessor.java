@@ -1,5 +1,6 @@
 package dk.group6.osgienemy;
 
+
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
