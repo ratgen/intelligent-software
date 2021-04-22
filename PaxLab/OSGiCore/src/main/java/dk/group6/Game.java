@@ -54,7 +54,7 @@ public class Game implements ApplicationListener {
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
-        map = new TmxMapLoader().load(Gdx.files.internal("assets/map/DemoMap.tmx").file().getAbsolutePath());
+        map = new TmxMapLoader().load(Gdx.files.internal("assets/map/newmap.tmx").file().getAbsolutePath());
         renderer = new OrthogonalTiledMapRenderer(map);
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
