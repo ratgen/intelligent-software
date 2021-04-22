@@ -46,8 +46,6 @@ public class Game implements ApplicationListener {
 
         new LwjglApplication(this, cfg);
         
-        map = new TmxMapLoader().load("map/DemoMap.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
         
     }
 
@@ -55,6 +53,9 @@ public class Game implements ApplicationListener {
     public void create() {
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
+
+        map = new TmxMapLoader().load(Gdx.files.internal("assets/map/DemoMap.tmx").file().getAbsolutePath());
+        renderer = new OrthogonalTiledMapRenderer(map);
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
@@ -75,9 +76,12 @@ public class Game implements ApplicationListener {
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         gameData.getKeys().update();
 
+        cam.update();
+        renderer.setView(cam);
+        renderer.render();
+
         update();
         draw();
-        renderer.render();
     }
 
     private void update() {
