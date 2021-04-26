@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import dk.group6.osgicommonmap.MapSPI;
+import dk.group6.common.map.MapSPI;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

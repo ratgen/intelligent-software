@@ -19,7 +19,7 @@ import dk.group6.common.services.IPostEntityProcessingService;
 import dk.group6.core.managers.GameInputProcessor;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import dk.group6.osgicommonmap.MapSPI;
+import dk.group6.common.map.MapSPI;
 
 public class Game implements ApplicationListener {
 
