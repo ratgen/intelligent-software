@@ -63,7 +63,6 @@
             <param>--platform=felix</param>
                                                 
             
-            <param>--vmOptions="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5006"</param>
                                             
           
           </provision>

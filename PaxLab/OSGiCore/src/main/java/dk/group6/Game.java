@@ -6,10 +6,10 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -23,7 +23,6 @@ import dk.group6.osgicommonmap.MapSPI;
 
 public class Game implements ApplicationListener {
 
-   
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
     private final GameData gameData = new GameData();
@@ -31,10 +30,14 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
-    
+
+    private SpriteBatch spriteBatch;
+    private Texture texture;
+    private Sprite sprite;
+
     private MapSPI map;
-    
-    public Game(){
+
+    public Game() {
         init();
     }
 
@@ -55,14 +58,21 @@ public class Game implements ApplicationListener {
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
-        cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
-        cam.update();        
+        cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
+        cam.update();
 
         sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
-        
+
         map.createMap();
+
+        texture = new Texture(Gdx.files.internal("player.png"));
+        sprite = new Sprite(texture, 0, 0, 640, 640);
+        sprite.setPosition(300, -300);
+        sprite.setSize(500, 500);
+        sprite.setRotation(0);
+        spriteBatch = new SpriteBatch();
     }
 
     @Override
@@ -77,14 +87,22 @@ public class Game implements ApplicationListener {
         cam.update();
 
         try {
-          map.getRenderer().setView(cam);
-          map.getRenderer().render();
+            map.getRenderer().setView(cam);
+            map.getRenderer().render();
+        } catch (Exception e) {
         }
-        catch (Exception e){
+
+        try {
+            spriteBatch.begin();
+            sprite.draw(spriteBatch);
+            spriteBatch.end();
+        } catch (Exception e) {
+            System.out.println("Error in sprite");
+            e.printStackTrace();
         }
 
         update();
-        draw();
+        //draw();
     }
 
     private void update() {
@@ -133,6 +151,9 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
+        spriteBatch.dispose();
+        texture.dispose();
+        sr.dispose();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {
@@ -161,11 +182,11 @@ public class Game implements ApplicationListener {
         this.gamePluginList.remove(plugin);
         plugin.stop(gameData, world);
     }
-    
-    public void setMap(MapSPI map){
+
+    public void setMap(MapSPI map) {
         this.map = map;
     }
-    
+
     public void removeMap(MapSPI map) {
         this.map = null;
     }

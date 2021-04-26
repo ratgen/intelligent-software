@@ -1,5 +1,6 @@
 package dk.group6.osgiplayer;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -24,7 +25,8 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-        Entity player = new Player();
+        Sprite sprite = new Sprite();
+        Entity player = new Player(sprite);
 
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;
