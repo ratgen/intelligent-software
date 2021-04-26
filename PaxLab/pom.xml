@@ -5,11 +5,11 @@
       
   <groupId>dk.group6</groupId>
       
-  <artifactId>OSGiGame</artifactId>
+  <artifactId>Game</artifactId>
       
   <version>1.0-SNAPSHOT</version>
       
-  <name>OSGiGame</name>
+  <name>Game</name>
       
   <description>Generated using Pax-Construct</description>
       
@@ -33,26 +33,17 @@
             
     <module>provision</module>
             
-    <module>OSGiCore</module>
-            
-    <module>OSGiCommon</module>
-            
     <module>OSGiLibGDX</module>
-            
-    <module>OSGiPlayer</module>
-            
-    <module>OSGiCommonPlayer</module>
-            
-    <module>OSGiMap</module>
-            
-    <module>OSGICommonMap</module>
-            
-    <module>OSGiEnemy</module>
-            
-    <module>OSGiCommonEnemy</module>
           
     <module>CommonWeapon</module>
-      
+    <module>Common</module>
+    <module>CommonEnemy</module>
+    <module>CommonMap</module>
+    <module>CommonPlayer</module>
+    <module>Core</module>
+    <module>Enemy</module>
+    <module>Map</module>
+    <module>Player</module>
   </modules>
       
   <build>
