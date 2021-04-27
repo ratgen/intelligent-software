@@ -32,8 +32,6 @@ public class Game implements ApplicationListener {
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
     private SpriteBatch spriteBatch;
-    private Texture texture;
-    private Sprite sprite;
 
     private MapSPI map;
 
@@ -67,12 +65,6 @@ public class Game implements ApplicationListener {
 
         map.createMap();
 
-        texture = new Texture(Gdx.files.internal("player.png"));
-        sprite = new Sprite(texture, 0, 0, 640, 640);
-        sprite.setPosition(300, -300);
-        sprite.setSize(500, 500);
-        sprite.setRotation(0);
-        spriteBatch = new SpriteBatch();
     }
 
     @Override
@@ -90,16 +82,7 @@ public class Game implements ApplicationListener {
             map.getRenderer().setView(cam);
             map.getRenderer().render();
         } catch (Exception e) {
-        }
-
-        try {
-            spriteBatch.begin();
-            sprite.draw(spriteBatch);
-            spriteBatch.end();
-        } catch (Exception e) {
-            System.out.println("Error in sprite");
-            e.printStackTrace();
-        }
+        } 
 
         update();
         //draw();
@@ -118,23 +101,14 @@ public class Game implements ApplicationListener {
     }
 
     private void draw() {
+        spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
-            sr.setColor(1, 1, 1, 1);
-
-            sr.begin(ShapeRenderer.ShapeType.Line);
-
-            float[] shapex = entity.getShapeX();
-            float[] shapey = entity.getShapeY();
-
-            for (int i = 0, j = shapex.length - 1;
-                    i < shapex.length;
-                    j = i++) {
-
-                sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
-            }
-
-            sr.end();
+            
+            Sprite sprite = entity.getSprite();
+            
+            sprite.draw(spriteBatch);          
         }
+        spriteBatch.end();
     }
 
     @Override
@@ -151,9 +125,9 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
-        spriteBatch.dispose();
-        texture.dispose();
-        sr.dispose();
+//        spriteBatch.dispose();
+//        texture.dispose();
+//        sr.dispose();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {
