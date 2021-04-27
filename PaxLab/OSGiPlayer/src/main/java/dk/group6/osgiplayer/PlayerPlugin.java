@@ -30,7 +30,7 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-        texture = new Texture(Gdx.files.internal("../OSGiPlayer/src/main/resources/assets/player.png"));
+        texture = new Texture(Gdx.files.internal("player.png"));
         sprite = new Sprite(texture, 0, 0, 640, 640);
         sprite.setPosition(300, -300);
         sprite.setSize(500, 500);

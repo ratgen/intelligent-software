@@ -85,7 +85,7 @@ public class Game implements ApplicationListener {
         } 
 
         update();
-        //draw();
+        draw();
     }
 
     private void update() {
@@ -101,9 +101,10 @@ public class Game implements ApplicationListener {
     }
 
     private void draw() {
+        spriteBatch = new SpriteBatch();
         spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
-            
+            System.out.println("printing");
             Sprite sprite = entity.getSprite();
             
             sprite.draw(spriteBatch);          
