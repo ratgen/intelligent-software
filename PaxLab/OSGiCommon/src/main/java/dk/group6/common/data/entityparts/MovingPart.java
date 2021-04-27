@@ -36,20 +36,24 @@ public class MovingPart implements EntityPart {
 
         // turning
         if (left) {
-            positionPart.setX(positionPart.getX() - 1); 
+            positionPart.setX(positionPart.getX() - 1);
+            entity.getSprite().setX(entity.getSprite().getX()-1);
         }
 
         if (right) {
            positionPart.setX(positionPart.getX() + 1);
+           entity.getSprite().setX(entity.getSprite().getX()+1);
         }
 
         // accelerating            
         if (up) {
-            positionPart.setY(positionPart.getY() + 1);              
+            positionPart.setY(positionPart.getY() + 1);
+            entity.getSprite().setY(entity.getSprite().getY()+1);
         } 
         
         if (down){
-            positionPart.setY(positionPart.getY() - 1);  
+            positionPart.setY(positionPart.getY() - 1);
+            entity.getSprite().setY(entity.getSprite().getY()-1);
         }
     }
 
