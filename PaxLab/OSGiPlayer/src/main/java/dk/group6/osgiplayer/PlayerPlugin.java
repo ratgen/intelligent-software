@@ -31,7 +31,7 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-        FileHandle fH = Gdx.files.internal("player.png");
+        FileHandle fH = Gdx.files.internal("../OSGiPlayer/src/main/resources/assets/player.png");
         Entity player = new Player(fH);
 
         float x = gameData.getDisplayWidth() / 3;
