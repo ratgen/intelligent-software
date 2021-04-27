@@ -1,6 +1,7 @@
 package dk.group6.osgiplayer;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -30,12 +31,8 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-        texture = new Texture(Gdx.files.internal("player.png"));
-        sprite = new Sprite(texture, 0, 0, 640, 640);
-        sprite.setPosition(300, -300);
-        sprite.setSize(500, 500);
-        sprite.setRotation(0);
-        Entity player = new Player(sprite);
+        FileHandle fH = Gdx.files.internal("player.png");
+        Entity player = new Player(fH);
 
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;

@@ -32,6 +32,7 @@ public class Game implements ApplicationListener {
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
     private SpriteBatch spriteBatch;
+    private Texture texture;
 
     private MapSPI map;
 
@@ -104,8 +105,8 @@ public class Game implements ApplicationListener {
         spriteBatch = new SpriteBatch();
         spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
-            System.out.println("printing");
-            Sprite sprite = entity.getSprite();
+            texture = new Texture(entity.getfH());
+            Sprite sprite = new Sprite(texture,0, 0, 640, 640);
             
             sprite.draw(spriteBatch);          
         }
@@ -126,9 +127,9 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
-//        spriteBatch.dispose();
-//        texture.dispose();
-//        sr.dispose();
+        spriteBatch.dispose();
+        texture.dispose();
+        sr.dispose();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {

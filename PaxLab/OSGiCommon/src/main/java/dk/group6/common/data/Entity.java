@@ -1,5 +1,7 @@
 package dk.group6.common.data;
 
+
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.entityparts.EntityPart;
 import java.io.Serializable;
@@ -16,6 +18,7 @@ public class Entity implements Serializable {
     private float radius;
     private Map<Class, EntityPart> parts;
     private Sprite sprite;
+    private FileHandle fH;
     
     
        
@@ -27,11 +30,20 @@ public class Entity implements Serializable {
         this();
         this.sprite = sprite;
     }
+    
+    public Entity(FileHandle fH) {
+        this();
+        this.fH = fH;
+    }
 
     public Sprite getSprite() {
         return sprite;
     }
-
+    
+    public FileHandle getfH() {
+        return fH;
+    }
+    
     public void setSprite(Sprite sprite) {
         this.sprite = sprite;
     }
