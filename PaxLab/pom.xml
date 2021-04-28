@@ -70,9 +70,7 @@
     <module>Map</module>
         
     <module>Player</module>
-        
     <module>CommonAI</module>
-      
   </modules>
         
   
