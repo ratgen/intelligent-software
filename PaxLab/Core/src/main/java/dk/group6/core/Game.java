@@ -14,6 +14,7 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.services.IPostEntityProcessingService;
@@ -66,7 +67,10 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-
+        
+        for (Entity e : world.getEntities()) {
+            //e.add(new SpritePart("../Player/src/main/resources/assets/player.png"));
+        }
     }
 
     @Override
@@ -106,16 +110,9 @@ public class Game implements ApplicationListener {
         spriteBatch = new SpriteBatch();
         spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
-            try {
-              PositionPart pp = entity.getPart(PositionPart.class);
-              texture = new Texture(entity.getfH());
-              Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1280, 720);
-              
-              sprite.draw(spriteBatch);          
-            }
-            catch (NullPointerException e) {
-              System.out.println("positionpart not found " + entity.getClass() );
-            }
+              SpritePart sp = entity.getPart(SpritePart.class);
+              Sprite sprite = sp.getSprite();
+              sprite.draw(spriteBatch);       
         }
         spriteBatch.end();
     }
