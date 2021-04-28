@@ -14,6 +14,6 @@
                interface="dk.group6.common.services.IGamePluginService"
                name="IGamePluginService" policy="dynamic" unbind="removeGamePluginService"/>
     <reference bind="setMap" cardinality="1..1"
-            interface="dk.group6.osgicommonmap.MapSPI"
+            interface="dk.group6.common.map.MapSPI"
             name="MapSPI" policy="dynamic" unbind="removeMap"/>
 </scr:component>

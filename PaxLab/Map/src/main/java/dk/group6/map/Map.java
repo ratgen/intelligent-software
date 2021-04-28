@@ -1,4 +1,4 @@
-package dk.group6.osgimap;
+package dk.group6.map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.tiled.TiledMap;

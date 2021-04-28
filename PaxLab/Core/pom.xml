@@ -30,18 +30,18 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>dk.group6.build</groupId>
-            <artifactId>OSGiCommon</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>OSGiLibGDX</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiCommonMap</artifactId>
+            <artifactId>CommonMap</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

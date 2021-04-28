@@ -1,4 +1,4 @@
-package dk.group6;
+package dk.group6.core;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
