@@ -23,8 +23,14 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiCommonPlayer</artifactId>
+            <artifactId>CommonPlayer</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx</artifactId>
+            <version>1.9.10</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 

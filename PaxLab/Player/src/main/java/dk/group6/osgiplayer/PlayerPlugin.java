@@ -1,5 +1,10 @@
 package dk.group6.osgiplayer;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -11,7 +16,7 @@ import dk.group6.common.services.IGamePluginService;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
-
+    
     public PlayerPlugin() {
     }
 
@@ -20,11 +25,11 @@ public class PlayerPlugin implements IGamePluginService {
         // Add entities to the world
         Entity player = createPlayer(gameData);
         playerID = world.addEntity(player);
-        
     }
 
     private Entity createPlayer(GameData gameData) {
-        Entity player = new Player();
+        FileHandle fH = Gdx.files.internal("../Player/src/main/resources/assets/player.png");
+        Entity player = new Player(fH);
 
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;

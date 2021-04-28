@@ -16,7 +16,7 @@
     <name>Map</name>
 
     <properties>
-        <bundle.symbolicName>dk.group6.osgimap</bundle.symbolicName>
+        <bundle.symbolicName>dk.group6.mao</bundle.symbolicName>
         <bundle.namespace>dk.group6</bundle.namespace>
     </properties>
     <dependencies>

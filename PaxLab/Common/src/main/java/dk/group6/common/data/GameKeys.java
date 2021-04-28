@@ -1,7 +1,7 @@
 package dk.group6.common.data;
 
 /*
-Author: Jan Soerensen
+Author: Jan Srensen
 */
 
 

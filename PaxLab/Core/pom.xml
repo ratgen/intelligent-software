@@ -19,7 +19,7 @@
 
     <name>Core</name>
     <dependencies>
-        <dependency>
+      <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
             <optional>true</optional>
@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>dk.group6.build</groupId>
-            <artifactId>OSGiCommon</artifactId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -40,8 +40,8 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiCommonMap</artifactId>
+            <groupId>dk.group6.build</groupId>
+            <artifactId>CommonMap</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

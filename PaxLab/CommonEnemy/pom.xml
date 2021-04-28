@@ -17,7 +17,12 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiCommon</artifactId>
+            <artifactId>Common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>OSGiLibGDX</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
