@@ -17,8 +17,4 @@ public class Player extends Entity {
     public Player(FileHandle fH) {
         super(fH);
     }
-     
-    public Player(Sprite sprite) {
-        super(sprite);
-    }
 }

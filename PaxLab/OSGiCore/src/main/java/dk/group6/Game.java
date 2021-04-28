@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.services.IPostEntityProcessingService;
@@ -105,8 +106,9 @@ public class Game implements ApplicationListener {
         spriteBatch = new SpriteBatch();
         spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
+            PositionPart pp = entity.getPart(PositionPart.class);
             texture = new Texture(entity.getfH());
-            Sprite sprite = new Sprite(texture,0, 0, 640, 640);
+            Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1280, 720);
             
             sprite.draw(spriteBatch);          
         }
