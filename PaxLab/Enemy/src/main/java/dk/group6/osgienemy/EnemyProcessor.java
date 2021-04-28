@@ -23,7 +23,8 @@ public class EnemyProcessor implements IEntityProcessingService {
             double random = Math.random();
             movingPart.setLeft(random < 0.2);
             movingPart.setRight(random > 0.3 && random < 0.5);
-            movingPart.setUp(random > 0.7 && random < 0.9);
+            movingPart.setUp(random > 0.7 && random < 0.85);
+            movingPart.setDown(random > 0.85 && random < 1);
             
             
             movingPart.process(gameData, entity);
