@@ -1,3 +1,0 @@
-Bundle-SymbolicName: OSGiMap
-Bundle-ActivationPolicy: lazy
-Service-Component: META-INF/mapservice.xml

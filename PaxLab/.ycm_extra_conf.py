@@ -1,0 +1,8 @@
+{ 
+    'java': { 
+        'maven': 
+        { 
+            'downloadSources': True 
+        } 
+    } 
+}

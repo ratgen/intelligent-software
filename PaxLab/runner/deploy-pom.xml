@@ -2,11 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>dk.group6.OSGiGame.build</groupId>
+  <groupId>dk.group6.Game.build</groupId>
   <artifactId>deployment</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>OSGiGame</name>
+  <name>Game</name>
   <description>Generated using Pax-Construct</description>
   <properties>
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
@@ -20,13 +20,6 @@
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.scr</artifactId>
       <version>1.8.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommon</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -56,7 +49,34 @@
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonMap</artifactId>
+      <artifactId>Common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.group6.build</groupId>
+      <artifactId>CommonWeapon</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.group6.build</groupId>
+      <artifactId>Common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.group6.build</groupId>
+      <artifactId>CommonEnemy</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.group6.build</groupId>
+      <artifactId>CommonMap</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
@@ -69,67 +89,54 @@
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCore</artifactId>
+      <artifactId>CommonPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommon</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonMap</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonPlayer</artifactId>
+      <artifactId>Core</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiPlayer</artifactId>
+      <artifactId>CommonMap</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.group6.build</groupId>
+      <artifactId>Enemy</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonPlayer</artifactId>
+      <artifactId>CommonEnemy</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6</groupId>
-      <artifactId>OSGiMap</artifactId>
+      <artifactId>Map</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonEnemy</artifactId>
+      <artifactId>Player</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiEnemy</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.group6.build</groupId>
-      <artifactId>OSGiCommonEnemy</artifactId>
+      <artifactId>CommonPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
