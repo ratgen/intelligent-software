@@ -16,3 +16,4 @@ nb-configuration.xml
 *.ear
 
 */target/*
+runner/
