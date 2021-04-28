@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiCommonPlayer</artifactId>
+            <artifactId>CommonPlayer</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

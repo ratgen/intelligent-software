@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.Game">
-    <implementation class="dk.group6.Game"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.core.Game">
+    <implementation class="dk.group6.core.Game"/>
 
     <reference bind="addPostEntityProcessingService" cardinality="0..n"
                interface="dk.group6.common.services.IPostEntityProcessingService"
@@ -13,6 +13,7 @@
     <reference bind="addGamePluginService" cardinality="0..n"
                interface="dk.group6.common.services.IGamePluginService"
                name="IGamePluginService" policy="dynamic" unbind="removeGamePluginService"/>
+    
     <reference bind="setMap" cardinality="1..1"
             interface="dk.group6.common.map.MapSPI"
             name="MapSPI" policy="dynamic" unbind="removeMap"/>

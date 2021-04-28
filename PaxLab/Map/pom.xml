@@ -16,7 +16,7 @@
     <name>Map</name>
 
     <properties>
-        <bundle.symbolicName>dk.group6.osgimap</bundle.symbolicName>
+        <bundle.symbolicName>dk.group6.mao</bundle.symbolicName>
         <bundle.namespace>dk.group6</bundle.namespace>
     </properties>
     <dependencies>
@@ -33,7 +33,7 @@
         </dependency>
         <dependency>
             <groupId>dk.group6.build</groupId>
-            <artifactId>OSGiCommon</artifactId>
+            <artifactId>Common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

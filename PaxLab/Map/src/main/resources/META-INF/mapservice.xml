@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.osgimap">
-    <implementation class="dk.group6.osgimap.Map"/>
+    <implementation class="dk.group6.map.Map"/>
    <service>
-       <provide interface="dk.group6.osgicommonmap.MapSPI"/>
+       <provide interface="dk.group6.common.map.MapSPI"/>
    </service>
 </scr:component>
