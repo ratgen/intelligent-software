@@ -28,7 +28,7 @@ public class EnemyProcessor implements IEntityProcessingService {
             
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);            
-            updateShape(entity);
+            //updateShape(entity);
 
         }
     }

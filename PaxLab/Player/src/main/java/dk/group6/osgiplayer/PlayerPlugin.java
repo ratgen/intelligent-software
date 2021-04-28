@@ -16,9 +16,6 @@ import dk.group6.common.services.IGamePluginService;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
-    private Sprite sprite;
-    Texture texture;
-    SpriteBatch spriteBatch;
     
     public PlayerPlugin() {
     }
