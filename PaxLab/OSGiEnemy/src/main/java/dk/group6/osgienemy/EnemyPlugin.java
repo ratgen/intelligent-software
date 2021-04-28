@@ -1,5 +1,7 @@
 package dk.group6.osgienemy;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -24,15 +26,11 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemy(GameData gameData) {
-        Entity enemy = new Enemy();
+        FileHandle fH = Gdx.files.internal("../OSGiEnemy/src/main/resources/assets/enemy.png");
+        Entity enemy = new Enemy(fH);
 
-        float deacceleration = 10;
-        float acceleration = 200;
-        float maxSpeed = 300;
-        float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;
-        float radians = 3.1415f / 2;
         enemy.add(new LifePart(3));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
