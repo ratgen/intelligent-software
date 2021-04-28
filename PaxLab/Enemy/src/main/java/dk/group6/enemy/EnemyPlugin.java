@@ -1,4 +1,4 @@
-package dk.group6.osgienemy;
+package dk.group6.enemy;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -26,7 +26,7 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemy(GameData gameData) {
-        FileHandle fH = Gdx.files.internal("../OSGiEnemy/src/main/resources/assets/enemy.png");
+        FileHandle fH = Gdx.files.internal("../Enemy/src/main/resources/assets/enemy.png");
         Entity enemy = new Enemy(fH);
 
         float x = gameData.getDisplayWidth() / 3;

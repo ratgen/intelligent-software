@@ -1,4 +1,4 @@
-package dk.group6.osgienemy;
+package dk.group6.enemy;
 
 
 import dk.group6.common.data.Entity;

@@ -106,11 +106,16 @@ public class Game implements ApplicationListener {
         spriteBatch = new SpriteBatch();
         spriteBatch.begin();
         for (Entity entity : world.getEntities()) {
-            PositionPart pp = entity.getPart(PositionPart.class);
-            texture = new Texture(entity.getfH());
-            Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1280, 720);
-            
-            sprite.draw(spriteBatch);          
+            try {
+              PositionPart pp = entity.getPart(PositionPart.class);
+              texture = new Texture(entity.getfH());
+              Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1280, 720);
+              
+              sprite.draw(spriteBatch);          
+            }
+            catch (NullPointerException e) {
+              System.out.println("positionpart not found " + entity.getClass() );
+            }
         }
         spriteBatch.end();
     }
