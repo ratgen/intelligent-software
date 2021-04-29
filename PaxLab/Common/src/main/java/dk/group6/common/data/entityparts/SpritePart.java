@@ -12,13 +12,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URL;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -43,7 +39,6 @@ public class SpritePart implements EntityPart {
         URL url = bundle.getResource(image);
         try {
             file = File.createTempFile(image, "tmp");
-            System.out.println("created file");
             
             FileOutputStream fs = new FileOutputStream(file);
             BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());

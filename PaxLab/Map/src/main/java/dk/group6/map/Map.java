@@ -33,6 +33,8 @@ public class Map implements MapSPI {
     public OrthogonalTiledMapRenderer getRenderer() {
         return renderer;
     }
+    
+    
 
 
 
