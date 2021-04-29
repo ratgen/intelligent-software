@@ -13,6 +13,8 @@ import java.awt.Image;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 import sun.awt.image.URLImageSource;
 
 public class PlayerPlugin implements IGamePluginService {
@@ -38,14 +40,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(x, y));
-        try {
-            URL ss = this.getClass().getClassLoader().getResource("assets/player.png");
-            InputStream in = ss.openStream();
-            player.add(new SpritePart(this.getClass().getClassLoader().getResource("assets/player.png").toURI()));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        player.add(new SpritePart("assets/player.png"));
         
         return player;
     }
