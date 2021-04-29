@@ -44,7 +44,7 @@ public class Game implements ApplicationListener {
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "Corona Mortal Combat";
-        cfg.width = 1280;
+        cfg.width = 1080;
         cfg.height = 720;
         cfg.useGL30 = false;
         cfg.resizable = false;
@@ -109,7 +109,7 @@ public class Game implements ApplicationListener {
             try {
               PositionPart pp = entity.getPart(PositionPart.class);
               texture = new Texture(entity.getfH());
-              Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1280, 720);
+              Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1080, 720);
               
               sprite.draw(spriteBatch);          
             }
