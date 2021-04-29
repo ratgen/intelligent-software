@@ -67,10 +67,6 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-        
-        for (Entity e : world.getEntities()) {
-            //e.add(new SpritePart("../Player/src/main/resources/assets/player.png"));
-        }
     }
 
     @Override
