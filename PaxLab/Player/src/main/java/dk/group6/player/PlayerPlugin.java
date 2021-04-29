@@ -9,13 +9,6 @@ import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
-import java.awt.Image;
-import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.FrameworkUtil;
-import sun.awt.image.URLImageSource;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
@@ -40,7 +33,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(x, y));
-        player.add(new SpritePart("assets/player.png"));
+        player.add(new SpritePart("assets/player.png", player));
         
         return player;
     }
@@ -48,6 +41,10 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
+        System.out.println("remong");
+        Entity player = world.getEntity(playerID);
+        SpritePart sp = player.getPart(SpritePart.class);
+        sp.dispose();
         world.removeEntity(playerID);
     }
 

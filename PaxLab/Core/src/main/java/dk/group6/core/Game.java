@@ -34,8 +34,6 @@ public class Game implements ApplicationListener {
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
     private SpriteBatch spriteBatch;
-    private Texture texture;
-
     private MapSPI map;
 
     public Game() {
@@ -67,6 +65,7 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
+        spriteBatch = new SpriteBatch();
     }
 
     @Override
@@ -102,15 +101,24 @@ public class Game implements ApplicationListener {
         }
     }
 
+       private long ff = 0;
     private void draw() {
-        spriteBatch = new SpriteBatch();
         spriteBatch.begin();
+        ff++;
         for (Entity entity : world.getEntities()) {
-              SpritePart sp = entity.getPart(SpritePart.class);
-              Sprite sprite = sp.getSprite();
-              sprite.draw(spriteBatch);       
+            SpritePart spritePart = entity.getPart(SpritePart.class);
+            Sprite sprite = spritePart.getSprite();
+            sprite.draw(spriteBatch);       
+            if (ff % 100 == 0) {
+              System.out.println(entity.getClass());
+              System.out.println(spritePart);
+              System.out.println(sprite.getX() + " " + sprite.getY());
+            }
         }
         spriteBatch.end();
+        if (ff % 100 == 0) {
+              System.out.println("drawcalls + " + spriteBatch.renderCalls);
+            }
     }
 
     @Override
@@ -128,7 +136,6 @@ public class Game implements ApplicationListener {
     @Override
     public void dispose() {
         spriteBatch.dispose();
-        texture.dispose();
         sr.dispose();
     }
 

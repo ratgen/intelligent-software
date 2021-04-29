@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
-import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,8 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -35,34 +32,53 @@ public class SpritePart implements EntityPart {
 
     public static final int DEFAULT_BUFFER_SIZE = 8192;
     String image;
-    Texture texture;
+    Texture texture = null;
     Sprite sprite;
-
-
+    File file;
     
-    public SpritePart(String image) {
+    public SpritePart(String image, Entity entity) {
         this.image = image; 
+        BundleContext context = FrameworkUtil.getBundle( entity.getClass() ).getBundleContext();
+        Bundle bundle = context.getBundle();
+        URL url = bundle.getResource(image);
+        try {
+            file = File.createTempFile(image, "tmp");
+            System.out.println("created file");
+            
+            FileOutputStream fs = new FileOutputStream(file);
+            BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
+            while (input.available() > 0 ){
+                int bytes = input.read();
+                fs.write(bytes);
+            }
+            fs.close();
+            input.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @Override
     public void process(GameData gameData, Entity entity) {
-        BundleContext context = FrameworkUtil.getBundle( entity.getClass() ).getBundleContext();
-        Bundle bundle = context.getBundle();
-        URL imagepath = bundle.getResource(image);
-        
-        System.out.println(imagepath);
-        
-        FileHandle fh = new FileHandle(new File(""));
-        texture = new Texture(fh);
         PositionPart ps = entity.getPart(PositionPart.class);
-        sprite = new Sprite(texture,  (int) ps.getX(), (int) ps.getY(), 1280, 720);
-        
-      
-       
+        if (texture == null) {
+            FileHandle fh = new FileHandle(file);
+            texture = new Texture(fh);
+        }
+        if (sprite == null) {
+            sprite = new Sprite(texture, 1280, 720);
+        }
+        sprite.setX(ps.getX());
+        sprite.setY(ps.getY());
+    }
+    
+    public void dispose(){
+        texture.dispose();
     }
     
     public Sprite getSprite(){
         return sprite;
     }
-    
 }

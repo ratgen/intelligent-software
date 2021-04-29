@@ -1,0 +1,346 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for dk.group6.build:shared-plugin-settings:pom:1.0-SNAPSHOT
+[WARNING] 'parent.relativePath' of POM dk.group6.build:shared-plugin-settings:1.0-SNAPSHOT (/home/peter/documents/intelligent-software/PaxLab/poms/pom.xml) points at dk.group6:Game instead of dk.group6:OSGiGame, please verify your project structure @ line 5, column 11
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] OSGiGame - plugin configuration                                    [pom]
+[INFO] OSGiGame - wrapper instructions                                    [pom]
+[INFO] OSGiGame - bundle instructions                                     [pom]
+[INFO] OSGiGame - imported bundles                                        [pom]
+[INFO] OSGiLibGDX                                                      [bundle]
+[INFO] Common                                                          [bundle]
+[INFO] CommonWeapon                                                    [bundle]
+[INFO] CommonEnemy                                                     [bundle]
+[INFO] CommonMap                                                       [bundle]
+[INFO] CommonPlayer                                                    [bundle]
+[INFO] Core                                                            [bundle]
+[INFO] Enemy                                                           [bundle]
+[INFO] Map                                                             [bundle]
+[INFO] Player                                                          [bundle]
+[INFO] CommonAI                                                        [bundle]
+[INFO] Game                                                               [pom]
+[INFO] 
+[INFO] ---------------------------< dk.group6:Game >---------------------------
+[INFO] Building Game 1.0-SNAPSHOT                                        [1/16]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:provision (default-cli) @ Game ---
+[WARNING] Skipping non-bundle artifact org.codehaus.mojo:animal-sniffer-annotations:jar:1.9:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-backend-lwjgl:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-windows:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-linux:2.9.1:compile
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl-platform:jar:natives-osx:2.9.1:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput:jar:2.0.5:compile
+[WARNING] Skipping non-bundle artifact net.java.jutils:jutils:jar:1.0.0:compile
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-linux:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-windows:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact net.java.jinput:jinput-platform:jar:natives-osx:2.0.5:runtime
+[WARNING] Skipping non-bundle artifact org.lwjgl.lwjgl:lwjgl_util:jar:2.9.1:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.jlayer:jlayer:jar:1.0.1-gdx:compile
+[WARNING] Skipping non-bundle artifact org.jcraft:jorbis:jar:0.0.17:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-box2d-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-freetype-platform:jar:natives-desktop:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx-jnigen:jar:1.5.0:compile
+[WARNING] Skipping non-bundle artifact com.google.code.javaparser:javaparser:jar:1.0.8:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[WARNING] Skipping non-bundle artifact com.badlogicgames.gdx:gdx:jar:1.9.10:compile
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/runner/deploy-pom.xml to /home/peter/.m2/repository/dk/group6/Game/build/deployment/1.0-SNAPSHOT/deployment-1.0-SNAPSHOT.pom
+__________                 __________                                 
+\______   \_____  ___  ___ \______   \__ __  ____   ____   ___________
+|     ___/\__  \ \  \/  /  |       _/  |  \/    \ /    \_/ __ \_  __ \
+|    |     / __ \_>    <   |    |   \  |  /   |  \   |  \  ___/|  | \/
+|____|    (____  /__/\_ \  |____|_  /____/|___|  /___|  /\___  >__|   
+               \/      \/         \/           \/     \/     \/       
+
+Pax Runner (1.9.0) from OPS4J - http://www.ops4j.org
+----------------------------------------------------
+
+ -> Using only arguments from command line
+ -> Scan bundles from [/home/peter/documents/intelligent-software/PaxLab/runner/deploy-pom.xml]
+ -> Scan bundles from [scan-pom:file:/home/peter/documents/intelligent-software/PaxLab/runner/deploy-pom.xml]
+ -> Provision bundle [mvn:org.apache.felix/org.apache.felix.scr/1.8.0, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/OSGiLibGDX/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:org.osgi/org.osgi.core/4.3.0, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.misc/0.0.0, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.reflect/0.0.0, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/Common/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/CommonWeapon/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/CommonEnemy/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/CommonMap/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/CommonPlayer/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/Core/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/Enemy/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6/Map/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6.build/Player/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Provision bundle [mvn:dk.group6/CommonAI/1.0-SNAPSHOT, at default start level, bundle will be started, bundle will be loaded from the cache]
+ -> Preparing framework [Felix 5.4.0]
+ -> Downloading bundles...
+ -> mvn:org.apache.felix/org.apache.felix.scr/1.8.0 : connecting... -> mvn:org.apache.felix/org.apache.felix.scr/1.8.0 : 265145 bytes @ [ 265145kBps ]
+ -> mvn:dk.group6.build/OSGiLibGDX/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/OSGiLibGDX/1.0-SNAPSHOT : 11410738 bytes @ [ 1630105kBps ]
+ -> mvn:org.osgi/org.osgi.core/4.3.0 : connecting... -> mvn:org.osgi/org.osgi.core/4.3.0 : 346533 bytes @ [ 346533kBps ]
+ -> mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.misc/0.0.0 : connecting... -> mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.misc/0.0.0 : 414 bytes @ [ 414kBps ]
+ -> mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.reflect/0.0.0 : connecting... -> mvn:com.diffplug.osgi/com.diffplug.osgi.extension.sun.reflect/0.0.0 : 418 bytes @ [ 418kBps ]
+ -> mvn:dk.group6.build/Common/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/Common/1.0-SNAPSHOT : 14987 bytes @ [ 14987kBps ]
+ -> mvn:dk.group6.build/CommonWeapon/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/CommonWeapon/1.0-SNAPSHOT : 3224 bytes @ [ 3224kBps ]
+ -> mvn:dk.group6.build/CommonEnemy/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/CommonEnemy/1.0-SNAPSHOT : 3289 bytes @ [ 3289kBps ]
+ -> mvn:dk.group6.build/CommonMap/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/CommonMap/1.0-SNAPSHOT : 2823 bytes @ [ 2823kBps ]
+ -> mvn:dk.group6.build/CommonPlayer/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/CommonPlayer/1.0-SNAPSHOT : 3229 bytes @ [ 3229kBps ]
+ -> mvn:dk.group6.build/Core/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/Core/1.0-SNAPSHOT : 20681 bytes @ [ 20681kBps ]
+ -> mvn:dk.group6.build/Enemy/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/Enemy/1.0-SNAPSHOT : 21729 bytes @ [ 21729kBps ]
+ -> mvn:dk.group6/Map/1.0-SNAPSHOT : connecting... -> mvn:dk.group6/Map/1.0-SNAPSHOT : 14775445 bytes @ [ 777655kBps ]
+ -> mvn:dk.group6.build/Player/1.0-SNAPSHOT : connecting... -> mvn:dk.group6.build/Player/1.0-SNAPSHOT : 23587 bytes @ [ 23587kBps ]
+ -> mvn:dk.group6/CommonAI/1.0-SNAPSHOT : connecting... -> mvn:dk.group6/CommonAI/1.0-SNAPSHOT : 2737 bytes @ [ 2737kBps ]
+ -> Using execution environment [J2SE-1.8]
+ -> Runner has successfully finished his job!
+
+____________________________
+Welcome to Apache Felix Gogo
+
+g! created file
+created file
+Working Directory = /home/peter/documents/intelligent-software/PaxLab/runner
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+2.0 -2.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+-8.0 -30.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+8.0 -2.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+54.0 -130.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+4.0 1.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+154.0 -230.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+-5.0 11.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+193.0 -269.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+-3.0 4.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+258.0 -265.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+-4.0 -5.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+358.0 -265.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+7.0 -3.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+458.0 -265.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+2.0 -6.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+558.0 -265.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+1.0 -10.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+658.0 -235.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+-7.0 -1.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+642.0 -222.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+8.0 0.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+621.0 -199.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+14.0 3.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+627.0 -194.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+8.0 7.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+632.0 -194.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+20.0 3.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+626.0 -194.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+33.0 13.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+636.0 -194.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+25.0 13.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+647.0 -194.0
+drawcalls + 2
+class dk.group6.common.enemy.Enemy
+dk.group6.common.data.entityparts.SpritePart@6e68b7a1
+29.0 18.0
+class dk.group6.common.player.Player
+dk.group6.common.data.entityparts.SpritePart@565a3178
+647.0 -194.0
+drawcalls + 2
