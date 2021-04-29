@@ -19,8 +19,7 @@ public class Entity implements Serializable {
     private Map<Class, EntityPart> parts;
     private Sprite sprite;
     private FileHandle fH;
-    
-    
+    private Map<String, Integer> gridLocation;
        
     public Entity() {
         parts = new ConcurrentHashMap<>();
@@ -34,6 +33,16 @@ public class Entity implements Serializable {
     public Entity(FileHandle fH) {
         this();
         this.fH = fH;
+    }
+
+    public Map<String, Integer> getGridLocation() {
+        return gridLocation;
+    }
+
+    public void setGridLocation(int x, int y) {
+        this.gridLocation.clear();
+        this.gridLocation.put("x", x);
+        this.gridLocation.put("y", y);
     }
 
     public Sprite getSprite() {
