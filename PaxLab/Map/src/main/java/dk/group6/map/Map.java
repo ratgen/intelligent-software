@@ -39,11 +39,9 @@ public class Map implements MapSPI {
                         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-                        
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}                    
     };
-    
+    /*
     private int[][] generateMap() {
         for (int x = 0; x < 16; x++) {
             for (int y = 0; y < 24; y++) {
@@ -51,23 +49,34 @@ public class Map implements MapSPI {
             }
         }
         return null;
-    }
+    }*/
     
     @Override
     public void createMap() {
-        Tile[][] generatedMap = new Tile[16][24];
+        
+        //Following code creates a 2D Array containing Tile Objects, based on the enumArray
+        Tile[][] generatedMap = new Tile[enumArray.length][enumArray[0].length];
+        float xCoordinate;
+        float yCoordinate = 697.5f;
+        
         
         int tileID = 0;
         for (int x = 0; x < 16; x++) {
+            xCoordinate = 22.5f;
             for (int y = 0; y < 24; y++) {
-             Tile tile = new Tile(enumArray[x][y], tileID);
+             float[] coordinates = {xCoordinate, yCoordinate};
+             Tile tile = new Tile(enumArray[x][y], tileID, coordinates); 
              generatedMap[x][y] = tile;
+             xCoordinate += 45;
              tileID++;
             }
+            yCoordinate -= 45;
         }
+        
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);    
+    
     }
 
 

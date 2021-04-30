@@ -7,15 +7,13 @@ import dk.group6.common.services.IGamePluginService;
 public class Tile {
 
     enum TileEnum {
-        WALL("wall.png", true, 0),
-        FLOOR("grass.png", false, 1);
+        WALL(true, 0),
+        FLOOR(false, 1);
 
         private boolean isWall;
-        private String imagePath;
         private int enumID;
 
-        private TileEnum(String imagePath, boolean isWall, int enumID) {
-            this.imagePath = imagePath;
+        private TileEnum(boolean isWall, int enumID) {
             this.isWall = isWall;
             this.enumID = enumID;
         }
@@ -28,11 +26,13 @@ public class Tile {
     private int width, height = 45;
     private int tileID;
     private TileEnum type;
+    private final float[] tileCoordinates;
 
 
-    public Tile(int enumID, int tileID) {
+    public Tile(int enumID, int tileID, float[] tileCoordinates) {
         this.type = getTileEnum(enumID);
         this.tileID = tileID;
+        this.tileCoordinates = tileCoordinates;
     }
     
     private void setEnum(TileEnum e) {
@@ -43,14 +43,14 @@ public class Tile {
         return this.type.isWall;
     }
 
-    private String getImagePath() {
-        return this.type.imagePath;
+    public float[] getTileCoordinates() {
+        return tileCoordinates;
     }
     
     private TileEnum getTileEnum(int enumID) {
-        /*
-        * Used in the 2D Array for Map to get TileEnum by ID.
-        */
+
+        //Used in the 2D Array for Map to get TileEnum by ID.
+
         for (TileEnum e : TileEnum.values()) {
             if (e.getEnumID() == enumID) {
                return e;
