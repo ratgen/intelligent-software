@@ -13,5 +13,5 @@ import dk.group6.common.data.World;
  * @author peter
  */
 public interface IPathFinderSPI {
-    float track(Entity from, Entity to, World world);
+    String[] track(Entity from, Entity to, World world);
 }
