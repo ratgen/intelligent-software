@@ -33,7 +33,9 @@ public class MovingPart implements EntityPart {
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
-
+        boolean finishedMove = true;
+        // Conditional statement to handle "animation" and prevent multiple inputs
+        if(finishedMove == true) {
         // turning
         if (left) {
             positionPart.setX(positionPart.getX() - 1);
@@ -50,6 +52,7 @@ public class MovingPart implements EntityPart {
         
         if (down){
             positionPart.setY(positionPart.getY() - 1);
+        }
         }
     }
 
