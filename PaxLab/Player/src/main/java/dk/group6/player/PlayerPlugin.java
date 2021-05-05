@@ -32,7 +32,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new LifePart(3));
         player.setRadius(4);
         player.add(new MovingPart());
-        player.add(new PositionPart(x, y));
+        player.add(new PositionPart(0, 0));
         player.add(new SpritePart("assets/player.png", player));
         
         return player;

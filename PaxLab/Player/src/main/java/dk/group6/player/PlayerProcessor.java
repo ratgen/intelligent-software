@@ -29,7 +29,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             movingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
             movingPart.process(gameData, entity);
-            positionPart.process(gameData, entity); 
+            positionPart.process(gameData, entity);  
             spritePart.process(gameData, entity);
         }
     }

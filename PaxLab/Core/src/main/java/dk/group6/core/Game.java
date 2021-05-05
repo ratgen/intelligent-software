@@ -30,7 +30,7 @@ public class Game implements ApplicationListener {
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
-    private Batch batch;
+    private SpriteBatch batch;
     private MapSPI map;
 
     public Game() {
@@ -61,7 +61,7 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-        batch = map.getRenderer().getBatch();
+        batch = new SpriteBatch();
     }
 
     @Override
@@ -95,24 +95,14 @@ public class Game implements ApplicationListener {
         }
     }
     
-    private long ff = 0;
     private void draw() {
         batch.begin();
-        ff++;
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             Sprite sprite = spritePart.getSprite();
             sprite.draw(batch);       
-            if (ff % 100 == 101) {
-              System.out.println(entity.getClass());
-              System.out.println(spritePart);
-              System.out.println(sprite.getX() + " " + sprite.getY());
-            }
         }
         batch.end();
-        if (ff % 100 == 101) {
-              System.out.println("drawcalls + " + batch);
-            }
     }
 
     @Override
