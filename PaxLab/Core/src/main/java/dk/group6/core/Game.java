@@ -60,11 +60,12 @@ public class Game implements ApplicationListener {
         cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
         cam.update();
 
-
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
+        
         batch = new SpriteBatch();
+        
     }
 
     @Override
@@ -84,11 +85,6 @@ public class Game implements ApplicationListener {
         TiledMap tmap = map.getMap();
         sdf = (TiledMapTileLayer) tmap.getLayers().get("Tile Layer 1");
         
-    
-        
-        
-        
-        
         update();
         draw();
     }
@@ -107,25 +103,26 @@ public class Game implements ApplicationListener {
         private long ff = 0;
 
     private void draw() {
-         ff++;
-
+        ff++;
+        
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
             Sprite sprite = spritePart.getSprite();
+            sprite.draw(batch);
+            
             float tileHeight = sdf.getTileHeight();
             float tileWidth = sdf.getTileWidth();
-            
             //if (ff % 100 == 1) {;
-                System.out.println(entity.getClass());
-                System.out.println(sprite.getX() + " " + sprite.getY());
-                System.out.println(sdf.getCell(
-                    Math.round(Math.abs(sprite.getX()) / tileWidth),
-                    Math.round(Math.abs(sprite.getY()) / tileHeight)
-                ).getTile().getId());
+            System.out.println(entity.getClass());
+            System.out.println(positionPart.getX() + " " + positionPart.getY());
+            System.out.println(sprite.getX() + " " + sprite.getY());
+            System.out.println(sdf.getCell(
+                Math.round(Math.abs(sprite.getX()) / tileWidth),
+                Math.round(Math.abs(sprite.getY()) / tileHeight)
+            ).getTile().getId());
             //}            
-            sprite.draw(batch);       
         }
         batch.end();
     }

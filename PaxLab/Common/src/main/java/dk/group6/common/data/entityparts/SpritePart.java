@@ -63,9 +63,7 @@ public class SpritePart implements EntityPart {
             FileHandle fh = new FileHandle(file);
             texture = new Texture(fh);
         }
-        if (sprite == null) {
-            sprite = new Sprite(texture, 1280, 720);
-        }
+        sprite = new Sprite(texture, 1280, 720);
         sprite.setX(ps.getX());
         sprite.setY(ps.getY());
         sprite.setScale(scale);

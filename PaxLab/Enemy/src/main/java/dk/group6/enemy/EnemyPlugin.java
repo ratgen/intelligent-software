@@ -29,8 +29,6 @@ public class EnemyPlugin implements IGamePluginService {
     private Entity createEnemy(GameData gameData) {
         Entity enemy = new Enemy();
 
-        float x = gameData.getDisplayWidth() / 3;
-        float y = -(gameData.getDisplayHeight() / 3);
         enemy.add(new LifePart(3));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
