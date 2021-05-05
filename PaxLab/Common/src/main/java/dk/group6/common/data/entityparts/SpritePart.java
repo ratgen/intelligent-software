@@ -64,11 +64,10 @@ public class SpritePart implements EntityPart {
             texture = new Texture(fh);
         }
         if (sprite == null) {
-            sprite = new Sprite(texture, texture.getWidth(), texture.getHeight());
+            sprite = new Sprite(texture);
         }
+        //sprite.setScale(scale);
         sprite.setPosition(ps.getX(), ps.getY());
-        sprite.setScale(scale);
-        sprite.setOriginCenter();
         sprite.setRotation((float) ((float) ps.getRadians() * 180/Math.PI));
     }
     

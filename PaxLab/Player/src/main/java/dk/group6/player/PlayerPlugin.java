@@ -32,7 +32,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new MovingPart());
         player.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
         SpritePart sprite = new SpritePart("assets/player.png", player);
-        sprite.setScale(0.1f);
+        sprite.setScale(1f);
         player.add(sprite);
         
         return player;
