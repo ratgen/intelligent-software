@@ -8,6 +8,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.services.IGamePluginService;
 
@@ -26,15 +27,15 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemy(GameData gameData) {
-        FileHandle fH = Gdx.files.internal("../Enemy/src/main/resources/assets/enemy.png");
-        Entity enemy = new Enemy(fH);
+        Entity enemy = new Enemy();
 
         float x = gameData.getDisplayWidth() / 3;
-        float y = gameData.getDisplayHeight() / 3;
+        float y = -(gameData.getDisplayHeight() / 3);
         enemy.add(new LifePart(3));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
-        enemy.add(new PositionPart(x, y));
+        enemy.add(new PositionPart(0,0));
+        enemy.add(new SpritePart("assets/enemy.png", enemy));
         
         return enemy;
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.player">
-    <implementation class="dk.group6.player.PlayerProcessor"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.weapon">
+    <implementation class="dk.group6.weapon.WeaponProcessor"/>
     <service>
         <provide interface="dk.group6.common.services.IEntityProcessingService"/>
     </service>
+
 </scr:component>

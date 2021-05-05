@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package dk.group6.common.weapon;
-import dk.group6.common.data.GameData;
-import dk.group6.common.data.World;
+
+import dk.group6.common.data.Entity;
 
 /**
  *
  * @author peter
  */
-public interface IWeaponSPI {
-    Weapon createWeapon(GameData gameData);
-    void attack(Weapon weapon);
-    void destroyWeapon(Weapon weapon, World world);
+public class Weapon extends Entity {
+    
 }

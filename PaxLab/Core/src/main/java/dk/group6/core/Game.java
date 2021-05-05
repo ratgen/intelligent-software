@@ -6,14 +6,12 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
-import dk.group6.common.data.entityparts.PositionPart;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.services.IPostEntityProcessingService;
@@ -25,16 +23,13 @@ import dk.group6.common.map.MapSPI;
 public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
-    private ShapeRenderer sr;
     private final GameData gameData = new GameData();
     private static World world = new World();
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
-    private SpriteBatch spriteBatch;
-    private Texture texture;
-
+    private SpriteBatch batch;
     private MapSPI map;
 
     public Game() {
@@ -61,12 +56,11 @@ public class Game implements ApplicationListener {
         cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
         cam.update();
 
-        sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-
+        batch = new SpriteBatch();
     }
 
     @Override
@@ -80,12 +74,10 @@ public class Game implements ApplicationListener {
 
         cam.update();
 
-        try {
-            map.getRenderer().setView(cam);
-            map.getRenderer().render();
-        } catch (Exception e) {
-        } 
+        map.getRenderer().setView(cam);
+        map.getRenderer().render();
 
+        
         update();
         draw();
     }
@@ -101,23 +93,15 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-
+    
     private void draw() {
-        spriteBatch = new SpriteBatch();
-        spriteBatch.begin();
+        batch.begin();
         for (Entity entity : world.getEntities()) {
-            try {
-              PositionPart pp = entity.getPart(PositionPart.class);
-              texture = new Texture(entity.getfH());
-              Sprite sprite = new Sprite(texture, (int) pp.getX(), (int) pp.getY(), 1080, 720);
-              
-              sprite.draw(spriteBatch);          
-            }
-            catch (NullPointerException e) {
-              System.out.println("positionpart not found " + entity.getClass() );
-            }
+            SpritePart spritePart = entity.getPart(SpritePart.class);
+            Sprite sprite = spritePart.getSprite();
+            sprite.draw(batch);       
         }
-        spriteBatch.end();
+        batch.end();
     }
 
     @Override
@@ -134,9 +118,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
-        spriteBatch.dispose();
-        texture.dispose();
-        sr.dispose();
+        batch.dispose();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {

@@ -3,18 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.group6.common.weapon;
+package dk.group6.weapon;
 
 import dk.group6.common.data.Entity;
 import com.badlogic.gdx.files.FileHandle;
-import dk.group6.commonWeapon.src.main.java.dk.group6.common.weapon.IWeaponSPI;
+import dk.group6.common.weapon.IWeaponSPI;
+import dk.group6.common.weapon.Weapon;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import com.badlogic.gdx.Gdx;
+import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.weapon.IWeaponSPI;
+import dk.group6.common.weapon.Weapon;
 
-public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginService {
+public class WeaponPlugin implements IWeaponSPI, IGamePluginService {
     private String weaponID;
     private FileHandle fH;
     private int damage;
@@ -28,21 +32,11 @@ public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginServi
 
     @Override
     public void start(GameData gameData, World world) {
-        Entity weapon = createWeapon(gameData);
+        Entity weapon = (Entity) createWeapon(gameData);
         weaponID = world.addEntity(weapon);
     }
 
-    @Override
-    public Entity createWeapon(GameData gameData) {
-        FileHandle fH = Gdx.files.internal("../CommonWeapon/src/main/resources/assets/pistol.png");
-        Entity weapon = new Weapon(10, 2, fH);
-
-        float x = gameData.getDisplayWidth() / 3;
-        float y = gameData.getDisplayHeight() / 3;
-        weapon.add(new PositionPart(26.5f, 26.5f));
-
-        return weapon;
-    }
+    
 
     @Override
     public void stop(GameData gameData, World world) {
@@ -59,8 +53,8 @@ public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginServi
     }
 
     @Override
-    public void destroyWeapon(Weapon weapon) {
-        stop();
+    public void destroyWeapon(Weapon weapon, World world) {
+        world.removeEntity(weapon);
     }
 
     public int getAmmo() {
@@ -68,7 +62,7 @@ public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginServi
     }
 
     public int getDamage() {
-        return this.damage
+        return this.damage;
     }
 
     public void setAmmo(int ammo) {
@@ -78,5 +72,16 @@ public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginServi
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    @Override
+    public Weapon createWeapon(GameData gameData) {
+        Weapon weapon = new Weapon();
+        
+        weapon.add(new PositionPart(0,0));
+        weapon.add(new SpritePart("assets/pistol.png", weapon));
+        
+        return weapon;    
+    }
+
 
 }
