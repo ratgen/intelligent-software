@@ -44,6 +44,13 @@ public class Entity implements Serializable {
         this.gridLocation.put("x", x);
         this.gridLocation.put("y", y);
     }
+    
+    public void stepInGrid(String axis, int steps) {
+        //this.gridLocation.clear();
+        gridLocation.put(axis, gridLocation.get(axis) + steps);
+        //this.gridLocation.put("x", x);
+        //this.gridLocation.put("y", y);
+    }
 
     public Sprite getSprite() {
         return sprite;
