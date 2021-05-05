@@ -100,6 +100,8 @@
     <module>CommonAI</module>
         
     <module>Weapon</module>
+    
+    <module>AStar</module>
       
   </modules>
           
