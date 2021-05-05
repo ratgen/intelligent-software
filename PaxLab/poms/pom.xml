@@ -12,7 +12,7 @@
   <groupId>dk.group6.build</groupId>
   <artifactId>shared-plugin-settings</artifactId>
 
-  <name>OSGiGame - plugin configuration</name>
+  <name>Game - plugin configuration</name>
 
   <packaging>pom</packaging>
 

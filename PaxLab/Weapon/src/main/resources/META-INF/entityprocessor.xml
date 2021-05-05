@@ -1,0 +1,7 @@
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.weapon">
+    <implementation class="dk.group6.weapon.WeaponProcessor"/>
+    <service>
+        <provide interface="dk.group6.common.services.IEntityProcessingService"/>
+    </service>
+
+</scr:component>

@@ -1,16 +1,12 @@
-package dk.group6.osgiplayer;
+package dk.group6.player;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
 
@@ -28,15 +24,16 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-        FileHandle fH = Gdx.files.internal("../Player/src/main/resources/assets/player.png");
-        Entity player = new Player(fH);
+        
+        Entity player = new Player();
 
         float x = gameData.getDisplayWidth() / 3;
         float y = gameData.getDisplayHeight() / 3;
         player.add(new LifePart(3));
         player.setRadius(4);
         player.add(new MovingPart());
-        player.add(new PositionPart(22.5f, 22.5f));
+        player.add(new PositionPart(0, 0));
+        player.add(new SpritePart("assets/player.png", player));
         
         return player;
     }
@@ -44,6 +41,9 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
+        System.out.println("remong");
+        Entity player = world.getEntity(playerID);
+        SpritePart sp = player.getPart(SpritePart.class);
         world.removeEntity(playerID);
     }
 
