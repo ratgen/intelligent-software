@@ -18,7 +18,7 @@ public class WeaponPlugin implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-        Entity weapon = (Entity) createWeapon(gameData);
+        Entity weapon = createWeapon(gameData);
         weaponID = world.addEntity(weapon);
     }
 
@@ -30,9 +30,13 @@ public class WeaponPlugin implements IGamePluginService {
     protected static Weapon createWeapon(GameData gameData) {
         Weapon weapon = new Weapon();
         
-        weapon.add(new PositionPart(100, -200));
-        weapon.add(new SpritePart("assets/pistol.png", weapon));
-        
+        PositionPart positionPart = new PositionPart(0, 0);
+        positionPart.setRadians(3f);
+        weapon.add(positionPart);
+        SpritePart spritePart = new SpritePart("assets/syringe.png", weapon);
+        spritePart.setScale(0.25f);
+        weapon.add(spritePart);
+
         return weapon;    
     }
 }

@@ -31,6 +31,7 @@ public class SpritePart implements EntityPart {
     Texture texture = null;
     Sprite sprite;
     File file;
+    float scale = 1;
     
     public SpritePart(String image, Entity entity) {
         this.image = image; 
@@ -67,6 +68,12 @@ public class SpritePart implements EntityPart {
         }
         sprite.setX(ps.getX());
         sprite.setY(ps.getY());
+        sprite.setScale(scale);
+        sprite.setRotation((float) ((float) ps.getRadians() * 180/Math.PI));
+    }
+    
+    public void setScale(float scale) {
+        this.scale = scale;
     }
     
     public void dispose(){

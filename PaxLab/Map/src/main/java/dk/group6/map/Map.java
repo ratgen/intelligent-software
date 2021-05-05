@@ -85,8 +85,10 @@ public class Map implements MapSPI {
         return renderer;
     }
     
-    
-
+    @Override
+    public TiledMap getMap() {
+        return map;
+    }
 
 
 }

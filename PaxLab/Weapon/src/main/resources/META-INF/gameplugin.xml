@@ -3,6 +3,5 @@
     <implementation class="dk.group6.weapon.WeaponPlugin"/>
     <service>
         <provide interface="dk.group6.common.services.IGamePluginService"/>
-        <provide interface="dk.group6.common.weapon.IWeaponSPI"/>
     </service>
 </scr:component>

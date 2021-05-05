@@ -33,7 +33,9 @@ public class PlayerPlugin implements IGamePluginService {
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(0, 0));
-        player.add(new SpritePart("assets/player.png", player));
+        SpritePart sprite = new SpritePart("assets/player.png", player);
+        sprite.setScale(0.05f);
+        player.add(sprite);
         
         return player;
     }

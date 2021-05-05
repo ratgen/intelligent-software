@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -32,6 +34,7 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private MapSPI map;
+    private TiledMapTileLayer sdf;
 
     public Game() {
         init();
@@ -77,7 +80,14 @@ public class Game implements ApplicationListener {
 
         map.getRenderer().setView(cam);
         map.getRenderer().render();
-
+        
+        TiledMap tmap = map.getMap();
+        sdf = (TiledMapTileLayer) tmap.getLayers().get("Tile Layer 1");
+        
+    
+        
+        
+        
         
         update();
         draw();
@@ -94,14 +104,27 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-    
+        private long ff = 0;
+
     private void draw() {
+         ff++;
+
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
-            System.out.println(positionPart.getX() + " " + positionPart.getY());
             Sprite sprite = spritePart.getSprite();
+            float tileHeight = sdf.getTileHeight();
+            float tileWidth = sdf.getTileWidth();
+            
+            //if (ff % 100 == 1) {;
+                System.out.println(entity.getClass());
+                System.out.println(sprite.getX() + " " + sprite.getY());
+                System.out.println(sdf.getCell(
+                    Math.round(Math.abs(sprite.getX()) / tileWidth),
+                    Math.round(Math.abs(sprite.getY()) / tileHeight)
+                ).getTile().getId());
+            //}            
             sprite.draw(batch);       
         }
         batch.end();
