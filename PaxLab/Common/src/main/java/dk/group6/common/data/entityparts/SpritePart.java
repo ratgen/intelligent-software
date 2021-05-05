@@ -39,11 +39,11 @@ public class SpritePart implements EntityPart {
         Bundle bundle = context.getBundle();
         URL url = bundle.getResource(image);
         try {
+            //check if destroyed on unload
             file = File.createTempFile(image, "tmp");
-            
             FileOutputStream fs = new FileOutputStream(file);
             BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
-            while (input.available() > 0 ){
+            while (input.available() > 0 ) {
                 int bytes = input.read();
                 fs.write(bytes);
             }
