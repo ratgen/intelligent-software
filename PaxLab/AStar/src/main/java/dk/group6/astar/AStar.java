@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 
-public class AStar implements IPathFinderSPI{
+public class AStar implements IPathFinderSPI {
     Node n;
     @Override
     public String[] track(Entity from, Entity to, World world) {
