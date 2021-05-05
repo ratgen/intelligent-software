@@ -94,14 +94,21 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-    
+        private long ff = 0;
+
     private void draw() {
+         ff++;
+
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
-            System.out.println(positionPart.getX() + " " + positionPart.getY());
             Sprite sprite = spritePart.getSprite();
+            //if (ff % 100 == 1) {
+            //  System.out.println(entity.getClass());
+            //  System.out.println(spritePart);
+             // System.out.println(sprite.getX() + " " + sprite.getY());
+            //}            
             sprite.draw(batch);       
         }
         batch.end();
