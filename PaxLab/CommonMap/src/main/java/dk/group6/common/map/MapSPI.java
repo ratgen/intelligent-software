@@ -6,6 +6,7 @@
 package dk.group6.common.map;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 
@@ -18,4 +19,6 @@ public interface MapSPI {
     void createMap();    
     OrthogonalTiledMapRenderer getRenderer();
     TiledMap getMap();
+    TiledMapTileLayer getMapTileLayer();
+    Boolean isWall(int x, int y);
 }
