@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.services.IGamePluginService;
@@ -98,6 +99,8 @@ public class Game implements ApplicationListener {
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
+            PositionPart positionPart = entity.getPart(PositionPart.class);
+            System.out.println(positionPart.getX() + " " + positionPart.getY());
             Sprite sprite = spritePart.getSprite();
             sprite.draw(batch);       
         }
