@@ -49,5 +49,11 @@
             <artifactId>CommonMap</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-backend-lwjgl</artifactId>
+            <version>1.9.10</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

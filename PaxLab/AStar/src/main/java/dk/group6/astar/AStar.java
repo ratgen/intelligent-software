@@ -21,7 +21,7 @@ public class AStar implements IPathFinderSPI{
         
         while(!path.isEmpty()){
             Node current = path.remove(0);
-            if (current.coordinates == goal){
+            if (current.coordinates.equals(goal)){
                 return current.getPath(current);
             }
             Node[] ways = n.expand(current, goal);

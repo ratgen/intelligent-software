@@ -27,12 +27,6 @@ public class Node {
     this.distance = distance;
     }
     
-    public Node (Map<String, Integer> coordinates, Node previous, double distance, String direction) {
-        this.coordinates = coordinates;
-        this.previous = previous;
-        this.distance = distance;
-        this.direction = direction;
-    }
     
     public double getTotal (){
         return this.total;
@@ -88,14 +82,14 @@ public class Node {
         String[] adj = getAdjacent(n);
         
         for (int i = 0; i < adj.length; i++) {
-            nA[i] = new Node(n.setCoordinates(coordinates, adj[i]), adj[i]);
+            nA[i] = new Node(n.setCoordinates(n.coordinates, adj[i]), adj[i]);
         }
         return nA;
     }
     
     
     public String[] getAdjacent (Node n) {
-        String[] sA = {"Left", "Down"};
+        String[] sA = {"Left", "Down", "Up", "Right"};
         return sA;
     }
     
