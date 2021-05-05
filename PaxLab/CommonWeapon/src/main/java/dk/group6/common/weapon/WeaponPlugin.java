@@ -12,14 +12,15 @@ import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
+import com.badlogic.gdx.Gdx;
 
-public class Weapon extends Entity implements IWeaponSPI, IGamePluginService {
+public class WeaponPlugin extends Entity implements IWeaponSPI, IGamePluginService {
     private String weaponID;
     private FileHandle fH;
     private int damage;
     private int ammo;
 
-    public Weapon(int ammo, int damage, FileHandle fH) {
+    public WeaponPlugin(int ammo, int damage, FileHandle fH) {
         this.damage = damage;
         this.ammo = ammo;
         this.fH = fH;
@@ -32,7 +33,7 @@ public class Weapon extends Entity implements IWeaponSPI, IGamePluginService {
     }
 
     @Override
-    public Weapon createWeapon(GameData gameData) {
+    public Entity createWeapon(GameData gameData) {
         FileHandle fH = Gdx.files.internal("../CommonWeapon/src/main/resources/assets/pistol.png");
         Entity weapon = new Weapon(10, 2, fH);
 

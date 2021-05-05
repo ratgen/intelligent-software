@@ -1,11 +1,10 @@
-package dk.group6.osgiplayer;
+package dk.group6.common.weapon;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
-import dk.group6.common.player.Player;
 import dk.group6.common.services.IEntityProcessingService;
 
 public class WeaponProcessor implements IEntityProcessingService {
