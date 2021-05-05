@@ -32,7 +32,7 @@ public class EnemyPlugin implements IGamePluginService {
         enemy.add(new LifePart(3));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
-        enemy.add(new PositionPart(0,0));
+        enemy.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
         enemy.add(new SpritePart("assets/enemy.png", enemy));
         
         return enemy;

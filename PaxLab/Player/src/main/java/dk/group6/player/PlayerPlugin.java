@@ -30,9 +30,9 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new LifePart(3));
         player.setRadius(4);
         player.add(new MovingPart());
-        player.add(new PositionPart(0, 0));
+        player.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
         SpritePart sprite = new SpritePart("assets/player.png", player);
-        sprite.setScale(0.05f);
+        sprite.setScale(0.1f);
         player.add(sprite);
         
         return player;

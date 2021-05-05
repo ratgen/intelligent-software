@@ -33,7 +33,6 @@ public class EnemyProcessor implements IEntityProcessingService {
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
-
         }
     }
 }

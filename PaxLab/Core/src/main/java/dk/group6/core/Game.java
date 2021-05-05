@@ -57,7 +57,8 @@ public class Game implements ApplicationListener {
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
-        cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
+        cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
+        
         cam.update();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
@@ -65,6 +66,7 @@ public class Game implements ApplicationListener {
         map.createMap();
         
         batch = new SpriteBatch();
+        batch.setProjectionMatrix(cam.combined);
         
     }
 
@@ -77,13 +79,7 @@ public class Game implements ApplicationListener {
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         gameData.getKeys().update();
 
-        cam.update();
-
-        map.getRenderer().setView(cam);
-        map.getRenderer().render();
         
-        TiledMap tmap = map.getMap();
-        sdf = (TiledMapTileLayer) tmap.getLayers().get("Tile Layer 1");
         
         update();
         draw();
@@ -100,10 +96,15 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-        private long ff = 0;
-
+    private long ff = 0;
     private void draw() {
-        ff++;
+        cam.update();
+
+        map.getRenderer().setView(cam);
+        map.getRenderer().render();
+        
+        TiledMap tmap = map.getMap();
+        sdf = (TiledMapTileLayer) tmap.getLayers().get("Tile Layer 1");
         
         batch.begin();
         for (Entity entity : world.getEntities()) {
@@ -116,11 +117,12 @@ public class Game implements ApplicationListener {
             float tileWidth = sdf.getTileWidth();
             //if (ff % 100 == 1) {;
             System.out.println(entity.getClass());
+            System.out.println(tileHeight + " widht: " + tileWidth);
             System.out.println(positionPart.getX() + " " + positionPart.getY());
             System.out.println(sprite.getX() + " " + sprite.getY());
             System.out.println(sdf.getCell(
-                Math.round(Math.abs(sprite.getX()) / tileWidth),
-                Math.round(Math.abs(sprite.getY()) / tileHeight)
+                (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
+                (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
             ).getTile().getId());
             //}            
         }

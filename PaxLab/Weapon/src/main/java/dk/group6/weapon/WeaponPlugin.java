@@ -30,7 +30,8 @@ public class WeaponPlugin implements IGamePluginService {
     protected static Weapon createWeapon(GameData gameData) {
         Weapon weapon = new Weapon();
         
-        PositionPart positionPart = new PositionPart(0, 0);
+        PositionPart positionPart = new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2);
+
         positionPart.setRadians(3f);
         weapon.add(positionPart);
         SpritePart spritePart = new SpritePart("assets/syringe.png", weapon);
