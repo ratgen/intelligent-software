@@ -34,7 +34,7 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private MapSPI map;
-    private TiledMapTileLayer sdf;
+    //private TiledMapTileLayer sdf;
 
     public Game() {
         init();
@@ -80,6 +80,7 @@ public class Game implements ApplicationListener {
         gameData.getKeys().update();
 
         
+        TiledMap tmap = map.getMap();
         
         update();
         draw();
@@ -96,22 +97,17 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-    private long ff = 0;
-    private void draw() {
-        cam.update();
+        private long ff = 0;
 
-        map.getRenderer().setView(cam);
+    private void draw() {
         map.getRenderer().render();
-        
-        TiledMap tmap = map.getMap();
-        sdf = (TiledMapTileLayer) tmap.getLayers().get("Tile Layer 1");
-        
+        map.getRenderer().setView(cam);
+        TiledMapTileLayer sdf = map.getMapTileLayer();
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
             Sprite sprite = spritePart.getSprite();
-            sprite.draw(batch);
             
             float tileHeight = sdf.getTileHeight();
             float tileWidth = sdf.getTileWidth();
@@ -132,6 +128,7 @@ public class Game implements ApplicationListener {
                 (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
             ).getTile().getId());
             //}            
+            sprite.draw(batch);
         }
         batch.end();
     }
