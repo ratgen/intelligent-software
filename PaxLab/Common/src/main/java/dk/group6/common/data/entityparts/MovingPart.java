@@ -6,6 +6,7 @@ import dk.group6.common.data.GameData;
 public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down;
+    private String[] movement;
 
     public MovingPart() {
     }
@@ -25,7 +26,15 @@ public class MovingPart implements EntityPart {
     public void setDown(boolean down) {
         this.down = down;
     }
-
+    
+    public void setMovement(String[] sA){
+        this.movement = sA;
+    }
+    
+    public String[] getMovement(){
+        return this.movement;
+    }
+    
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart positionPart = entity.getPart(PositionPart.class);

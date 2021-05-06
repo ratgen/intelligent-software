@@ -3,7 +3,7 @@ package dk.group6.astar;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Node {
+public class Node implements Comparable{
     Map<String, Integer> coordinates;
     Node previous;
     double distance;
@@ -113,4 +113,17 @@ public class Node {
         }
         return m;
     }
+    
+    public int compare(Node o1, Node o2) {
+        if (o1.total < o2.total) return -1;
+        if (o1.total > o2.total) return 1;
+        return 0;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int compareTotal = (int) ((Node)o).total;
+        return (int) (this.total-compareTotal);
+    }
+
 }

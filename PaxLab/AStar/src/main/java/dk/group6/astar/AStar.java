@@ -2,17 +2,20 @@ package dk.group6.astar;
 
 import dk.group6.common.ai.IPathFinderSPI;
 import dk.group6.common.data.Entity;
-import dk.group6.common.data.World;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.Map;
 
-public class AStar implements IPathFinderSPI {
+
+public class AStar implements IPathFinderSPI{
     Node n;
+    
     @Override
-    public String[] track(Entity from, Entity to, World world) {
+    public String[] track(Entity from, Entity to) {
+        System.out.println("123123123ndeodoe");
         ArrayList<Node> path = new ArrayList<>();
+        
         
         Node start = new Node(from.getGridLocation(), n.calcDistance(from.getGridLocation(), to.getGridLocation()));
         Map<String, Integer> goal = to.getGridLocation();
@@ -27,7 +30,8 @@ public class AStar implements IPathFinderSPI {
             Node[] ways = n.expand(current, goal);
             
             path.addAll(Arrays.asList(ways));
-            path.sort(Comparator.comparing(Node::getTotal));
+            Collections.sort(path);
+            System.out.println(path);
         }
         
         String[] failed = {"fail"};
