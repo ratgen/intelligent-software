@@ -15,6 +15,11 @@ import dk.group6.common.data.GameData;
 public class WeaponPart implements EntityPart {
     private int damage;
     private int ammo;
+    private boolean enter;
+    
+    public void setEnter(boolean enter) {
+        this.enter = enter;
+    }
     
     public WeaponPart(int ammo, int damage) {
         this.damage = damage;
@@ -47,6 +52,8 @@ public class WeaponPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (enter) {
+            // implement shoot
+        }
     }
 }
