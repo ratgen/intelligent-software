@@ -112,6 +112,7 @@ public class Game implements ApplicationListener {
             
             float tileHeight = sdf.getTileHeight();
             float tileWidth = sdf.getTileWidth();
+            System.out.println(entity.getClass());
             System.out.println("bottom left: " + sdf.getCell(
                 (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
                 (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
