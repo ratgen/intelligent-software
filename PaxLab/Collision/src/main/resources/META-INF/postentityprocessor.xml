@@ -1,0 +1,7 @@
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.collision">
+    <implementation class="dk.group6.collision.CollisionSystem"/>
+    <service>
+        <provide interface="dk.group6.common.services.IPostEntityProcessingService"/>
+    </service>
+
+</scr:component>

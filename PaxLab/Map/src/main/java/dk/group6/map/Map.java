@@ -1,6 +1,7 @@
 package dk.group6.map;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -101,6 +102,42 @@ public class Map implements MapSPI {
     @Override
     public Boolean isWall(int x, int y){
         return mapTileLayer.getCell(x, y).getTile().getProperties().containsKey("Wall");
+    }
+
+    @Override
+    public Boolean isRightWall(Sprite sprite) {
+        int x = (int)(sprite.getX()+sprite.getWidth());
+        int bottomY = (int)sprite.getY();
+        int topY = (int)(sprite.getY()+sprite.getHeight());
+        
+        return (this.isWall(x+1, bottomY) || this.isWall(x+1, topY));
+    }
+
+    @Override
+    public Boolean isLeftWall(Sprite sprite) {
+        int x = (int)sprite.getX();
+        int bottomY = (int)sprite.getY();
+        int topY = (int)(sprite.getY()+sprite.getHeight());
+        
+        return (this.isWall(x-1, bottomY) || this.isWall(x-1, topY));
+    }
+
+    @Override
+    public Boolean isUpWall(Sprite sprite) {
+        int y = (int)(sprite.getY()+sprite.getHeight());
+        int leftX = (int)sprite.getX();
+        int rightX = (int)(sprite.getX()+sprite.getWidth());
+        
+        return (this.isWall(leftX, y+1) || this.isWall(rightX, y+1));
+    }
+
+    @Override
+    public Boolean isDownWall(Sprite sprite) {
+        int y = (int)sprite.getY();
+        int leftX = (int)sprite.getX();
+        int rightX = (int)(sprite.getX()+sprite.getWidth());
+        
+        return (this.isWall(leftX, y-1) || this.isWall(rightX, y-1));
     }
 
 }

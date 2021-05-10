@@ -39,29 +39,45 @@ public class Entity implements Serializable {
         return gridLocation;
     }
 
-    public void setGridLocation(int x, int y) {
-        this.gridLocation.clear();
-        this.gridLocation.put("x", x);
-        this.gridLocation.put("y", y);
-    }
-    
-    public void stepInGrid(String axis, int steps) {
-        //this.gridLocation.clear();
-        //gridLocation.put(axis, gridLocation.get(axis) + steps);
-        //this.gridLocation.put("x", x);
-        //this.gridLocation.put("y", y);
-    }
-
     public Sprite getSprite() {
         return sprite;
     }
     
-    public FileHandle getfH() {
-        return fH;
-    }
-    
     public void setSprite(Sprite sprite) {
         this.sprite = sprite;
+    }
+       
+    //OVERVEJ AT LAVE EXTENDING SPRITE KLASSE?
+    public float[] getSpriteLeftBottom() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX();
+        coordinates[1] = sprite.getY();
+        return coordinates;
+    }
+    
+    public float[] getSpriteRightBottom() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX() + sprite.getWidth();
+        coordinates[1] = sprite.getY();
+        return coordinates;
+    }
+    
+    public float[] getSpriteLeftTop() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX();
+        coordinates[1] = sprite.getY() + sprite.getHeight();
+        return coordinates;
+    }
+    
+    public float[] getSpriteRightTop() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX() + sprite.getWidth();
+        coordinates[1] = sprite.getY() + sprite.getHeight();
+        return coordinates;
+    }
+    
+    public FileHandle getfH() {
+        return fH;
     }
 
     public void add(EntityPart part) {
