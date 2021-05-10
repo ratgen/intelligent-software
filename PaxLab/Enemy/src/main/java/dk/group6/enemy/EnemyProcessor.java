@@ -13,8 +13,8 @@ import dk.group6.common.services.IEntityProcessingService;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
-    IPathFinderSPI pathFinder;
-    String[] strA;
+    private IPathFinderSPI pathFinder;
+    private String[] strA;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -67,4 +67,12 @@ public class EnemyProcessor implements IEntityProcessingService {
         entity.setShapeY(shapey);
     }
 
+    public void setPathFinder(IPathFinderSPI pathFinder){
+        this.pathFinder = pathFinder;
+    }
+    
+    public void removePathFinder(IPathFinderSPI pathFinder){
+        this.pathFinder = null;
+    }
+    
 }

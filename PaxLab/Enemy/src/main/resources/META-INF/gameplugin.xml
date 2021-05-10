@@ -4,4 +4,5 @@
     <service>
         <provide interface="dk.group6.common.services.IGamePluginService"/>
     </service>
+    
 </scr:component>

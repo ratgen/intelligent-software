@@ -4,5 +4,7 @@
     <service>
         <provide interface="dk.group6.common.services.IEntityProcessingService"/>
     </service>
-
+    <reference bind="setPathFinder" cardinality="0..1"
+                   interface="dk.group6.common.ai.IPathFinderSPI"
+                   name="IPathFinderSPI" policy="dynamic" unbind="removePathFinder"/>
 </scr:component>

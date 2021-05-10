@@ -2,6 +2,7 @@ package dk.group6.astar;
 
 import dk.group6.common.ai.IPathFinderSPI;
 import dk.group6.common.data.Entity;
+import dk.group6.common.data.World;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
