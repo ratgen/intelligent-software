@@ -44,6 +44,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 }
                 if (r1.overlaps(r2)) {
                     System.out.println("Collision between entities!");
+                    // TODO collision handling
                 }
             }
         }
@@ -67,17 +68,5 @@ public class CollisionLogic implements IPostEntityProcessingService {
             }
 
         }
-    }
-
-    public Boolean Collides(Entity entity, Entity entity2) {
-        PositionPart entMov = entity.getPart(PositionPart.class);
-        PositionPart entMov2 = entity2.getPart(PositionPart.class);
-        float dx = (float) entMov.getX() - (float) entMov2.getX();
-        float dy = (float) entMov.getY() - (float) entMov2.getY();
-        float distance = (float) Math.sqrt(dx * dx + dy * dy);
-        if (distance < (entity.getRadius() + entity2.getRadius())) {
-            return true;
-        }
-        return false;
     }
 }
