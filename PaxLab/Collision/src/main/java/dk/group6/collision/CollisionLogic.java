@@ -43,24 +43,32 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 }
                 if (r1.overlaps(r2)) {
                     System.out.println("Collision between entities!");
-                    // TODO collision handling
+                    // Player & Weapon
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))){
-                        System.out.println("player sees a weapon");
+                        System.out.println("PLAYER touches a WEAPON");
                     }
-                    // Implementer collision handling for enemy/bullet
+                    // Player & Enemy
+                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Enemy"))){
+                        System.out.println("PLAYER touches a ENEMY");
+                    }
+                    // Enemy & Bullet
+                    if ((entity1.getClass().toString().contains("Bullet") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Bullet") && entity1.getClass().toString().contains("Enemy"))){
+                        System.out.println("BULLET touches a ENEMY");
+                        // NOT IMPLEMENTED YET
+                    }
                 }
             }
         }
     }
     
-    // Crasher ved 24 p� x-aksen, og 16 p� y-aksen
     public void wallCollision(World world) {
         for (Entity entity : world.getEntities()) {
             
             sdf = world.getMapTileLayer();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-
+            
+            // Bottom    
             if (sdf.getCell(((int)spritePart.getSpriteLeftBottom()[0]+1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
                     sdf.getCell(((int)spritePart.getSpriteRightBottom()[0]-1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall")) {
                 pp.setY(pp.getY()+1);
