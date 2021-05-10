@@ -15,10 +15,11 @@ import dk.group6.common.data.GameData;
 public class WeaponPart implements EntityPart {
     private int damage;
     private int ammo;
-    private boolean enter;
+    private boolean space;
+    private boolean playerHasWeapon = false;
     
-    public void setEnter(boolean enter) {
-        this.enter = enter;
+    public void setSpace(boolean space) {
+        this.space = space;
     }
     
     public WeaponPart(int ammo, int damage) {
@@ -50,9 +51,18 @@ public class WeaponPart implements EntityPart {
         this.damage = damage;
     }
 
+    public boolean hasWeapon() {
+        return playerHasWeapon;
+    }
+
+    public void playerHasWeapon(boolean hasWeapon) {
+        this.playerHasWeapon = hasWeapon;
+    }
+
     @Override
     public void process(GameData gameData, Entity entity) {
-        if (enter) {
+        if (space) {
+            System.out.println("shoot");
             // implement shoot
         }
     }
