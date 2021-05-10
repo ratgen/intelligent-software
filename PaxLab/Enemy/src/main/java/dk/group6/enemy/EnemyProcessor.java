@@ -1,6 +1,7 @@
 package dk.group6.enemy;
 
 
+import dk.group6.common.ai.IPathFinderSPI;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -12,32 +13,36 @@ import dk.group6.common.services.IEntityProcessingService;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
-
+    IPathFinderSPI pathFinder;
+    String[] strA;
 
     @Override
     public void process(GameData gameData, World world) {
+        Entity player = world.getEntities().iterator().next();
 
         for (Entity entity : world.getEntities(Enemy.class)) {
 
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
-            SpritePart spritePart = entity.getPart(SpritePart.class);
-
-            double random = Math.random();
-            movingPart.setLeft(random < 0.2);
-            movingPart.setRight(random > 0.3 && random < 0.5);
-            movingPart.setUp(random > 0.7 && random < 0.85);
-            movingPart.setDown(random > 0.85 && random < 1);
+            SpritePart spritePart = entity.getPart(SpritePart.class);      
             
+            strA = getTrack(entity, player);
+            
+            movingPart.setMovement(strA[0]);
             
             movingPart.process(gameData, entity);
+            movingPart.reset();
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
             //updateShape(entity);
 
         }
     }
-
+    
+    private String[] getTrack(Entity e, Entity p){
+        return pathFinder.track(e, p);
+    }
+    
     private void updateShape(Entity entity) {
         float[] shapex = entity.getShapeX();
         float[] shapey = entity.getShapeY();

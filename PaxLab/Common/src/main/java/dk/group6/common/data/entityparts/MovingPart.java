@@ -27,8 +27,28 @@ public class MovingPart implements EntityPart {
         this.down = down;
     }
     
-    public void setMovement(String[] sA){
-        this.movement = sA;
+    public void reset(){
+        this.down = false;
+        this.up = false;
+        this.left = false;
+        this.right = false;
+    }
+    
+    public void setMovement(String direction){
+        switch (direction){
+                case "Up":
+                    this.up = true;
+                    break;
+                case "Left":
+                    this.left = true;
+                    break;
+                case "Right":
+                    this.right = true;
+                    break;
+                case "Down":
+                    this.down = true;
+                    break;
+            }
     }
     
     public String[] getMovement(){
