@@ -104,6 +104,7 @@ public class Map implements MapSPI {
         return mapTileLayer.getCell(x, y).getTile().getProperties().containsKey("Wall");
     }
 
+/*
     @Override
     public Boolean isRightWall(Sprite sprite) {
         int x = (int)(sprite.getX()+sprite.getWidth());
@@ -138,6 +139,6 @@ public class Map implements MapSPI {
         int rightX = (int)(sprite.getX()+sprite.getWidth());
         
         return (this.isWall(leftX, y-1) || this.isWall(rightX, y-1));
-    }
+    }*/
 
 }

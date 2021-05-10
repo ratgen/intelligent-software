@@ -49,24 +49,37 @@ public class CollisionLogic implements IPostEntityProcessingService {
             }
         }
     }
-
-    // Crasher ved 24 på x-aksen, og 16 på y-aksen
+    
+    // Crasher ved 24 pï¿½ x-aksen, og 16 pï¿½ y-aksen
     public void wallCollision(World world) {
         for (Entity entity : world.getEntities()) {
+            
             sdf = world.getMapTileLayer();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
-            if (sdf.getCell((int) spritePart.getSpriteLeftBottom()[0] / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) spritePart.getSpriteLeftTop()[0] / 45, (int) spritePart.getSpriteLeftTop()[1] / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setX(pp.getX() + 1);
+            if (sdf.getCell(((int)spritePart.getSpriteLeftBottom()[0]+1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
+                    sdf.getCell(((int)spritePart.getSpriteRightBottom()[0]-1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall")) {
+                pp.setY(pp.getY()+1);
             }
-
-            if (sdf.getCell((int) spritePart.getSpriteRightBottom()[0] / 45, (int) spritePart.getSpriteRightBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) spritePart.getSpriteRightTop()[0] / 45, (int) spritePart.getSpriteRightTop()[1] / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setX(pp.getX() - 1);
+            
+            // Right
+            if (sdf.getCell((int)spritePart.getSpriteRightBottom()[0]/45, ((int)spritePart.getSpriteRightBottom()[1]+1)/45).getTile().getProperties().containsKey("Wall") ||
+                    sdf.getCell((int)spritePart.getSpriteRightTop()[0]/45, ((int)spritePart.getSpriteRightTop()[1]-1)/45).getTile().getProperties().containsKey("Wall")) {
+                pp.setX(pp.getX()-1);
             }
-
+            
+            // Top
+            if (sdf.getCell(((int)spritePart.getSpriteLeftTop()[0]+1)/45, (int)spritePart.getSpriteLeftTop()[1]/45).getTile().getProperties().containsKey("Wall") ||
+                    sdf.getCell(((int)spritePart.getSpriteRightTop()[0]-1)/45, ((int)spritePart.getSpriteRightTop()[1])/45).getTile().getProperties().containsKey("Wall")) {
+                pp.setY(pp.getY()-1);
+            }
+            
+            // Left
+            if (sdf.getCell((int)spritePart.getSpriteLeftTop()[0]/45, ((int)spritePart.getSpriteLeftTop()[1]-1)/45).getTile().getProperties().containsKey("Wall") ||
+                    sdf.getCell((int)spritePart.getSpriteLeftBottom()[0]/45, ((int)spritePart.getSpriteLeftBottom()[1]+1)/45).getTile().getProperties().containsKey("Wall")) {
+                pp.setX(pp.getX()+1);
+            }            
         }
     }
 }
