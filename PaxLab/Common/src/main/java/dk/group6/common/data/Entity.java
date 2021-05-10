@@ -93,4 +93,8 @@ public class Entity implements Serializable {
     public void setShapeY(float[] shapeY) {
         this.shapeY = shapeY;
     }
+    
+    public void hasCollided(Class col) {
+        
+    }
 }

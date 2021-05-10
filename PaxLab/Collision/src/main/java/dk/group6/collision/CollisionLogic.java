@@ -10,10 +10,9 @@ import com.badlogic.gdx.math.Rectangle;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
-import dk.group6.common.data.entityparts.LifePart;
-import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.services.IPostEntityProcessingService;
 
 /**
@@ -45,6 +44,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 if (r1.overlaps(r2)) {
                     System.out.println("Collision between entities!");
                     // TODO collision handling
+                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))){
+                        System.out.println("player sees a weapon");
+                    }
+                    // Implementer collision handling for enemy/bullet
                 }
             }
         }
