@@ -20,6 +20,11 @@ public class WeaponProcessor implements IEntityProcessingService {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             WeaponPart weaponPart = entity.getPart(WeaponPart.class);
 
+            if (gameData.getKeys().isDown(GameKeys.ENTER) && weaponPart.hasWeapon() == false) {
+                spritePart.dispose();
+                weaponPart.playerHasWeapon(true);
+            }
+
             if (weaponPart.hasWeapon() == true) {
                 weaponPart.setSpace(gameData.getKeys().isDown(GameKeys.SPACE));
             }
