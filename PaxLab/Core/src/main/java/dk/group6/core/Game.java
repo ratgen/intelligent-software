@@ -131,7 +131,6 @@ public class Game implements ApplicationListener {
                 (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
                 (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
             ).getTile().getId());
-            //}            
         }
         batch.end();
     }
