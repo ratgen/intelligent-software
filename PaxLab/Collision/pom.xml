@@ -11,11 +11,13 @@
         <bundle.namespace>dk.group6</bundle.namespace>
     </properties>
     
+    
     <modelVersion>4.0.0</modelVersion>
     <artifactId>Collision</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Collision</name>
+    
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -26,6 +28,11 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.group6.build</groupId>
+            <artifactId>Common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

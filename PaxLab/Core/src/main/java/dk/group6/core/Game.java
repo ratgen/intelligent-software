@@ -94,6 +94,7 @@ public class Game implements ApplicationListener {
         }
 
         // Post Update
+        System.out.println(postEntityProcessorList);
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
@@ -112,7 +113,9 @@ public class Game implements ApplicationListener {
             
             float tileHeight = sdf.getTileHeight();
             float tileWidth = sdf.getTileWidth();
-            System.out.println(entity.getClass());
+            //System.out.println("GAME: H: " + sdf.getHeight() + " | W: " + sdf.getWidth());
+            
+            /*System.out.println(entity.getClass());
             System.out.println("bottom left: " + sdf.getCell(
                 (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
                 (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
@@ -129,7 +132,7 @@ public class Game implements ApplicationListener {
                 (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
                 (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
             ).getTile().getId());
-            //}            
+            //}*/            
             sprite.draw(batch);
         }
         batch.end();
