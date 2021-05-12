@@ -64,7 +64,6 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-        world.setMapTileLayer(map.getMapTileLayer());
         
         batch = new SpriteBatch();
         batch.setProjectionMatrix(cam.combined);
@@ -94,7 +93,7 @@ public class Game implements ApplicationListener {
         }
 
         // Post Update
-        System.out.println(postEntityProcessorList);
+        //System.out.println(postEntityProcessorList);
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }

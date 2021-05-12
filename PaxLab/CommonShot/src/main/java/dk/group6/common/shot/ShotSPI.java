@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.group6.common.weapon;
-import dk.group6.common.data.GameData;
+package dk.group6.common.shot;
+
+import dk.group6.common.data.Entity;
 import dk.group6.common.data.World;
 
 /**
  *
  * @author peter
  */
-public interface IWeaponSPI {
-    String createWeapon(GameData gameData);
-    void attack(Weapon weapon, World world);
-    void destroyWeapon(Weapon weapon, World world);
+public interface ShotSPI {
+    Entity shoot(int x, int y, float radian, World world);
 }

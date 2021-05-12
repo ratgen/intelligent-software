@@ -40,5 +40,4 @@ public class MovingPart implements EntityPart {
             positionPart.setY(positionPart.getY() - 1);
         }
     }
-
 }

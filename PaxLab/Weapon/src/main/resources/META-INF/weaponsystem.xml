@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.weapon.system">
+    <implementation class="dk.group6.weapon.WeaponSystem"/>
+    <service>
+        <provide interface="dk.group6.common.weapon.IWeaponSPI"/>
+    </service>
+    
+    <reference bind="setShot" cardinality="0..1"
+               interface="dk.group6.common.shot.ShotSPI"
+               name="ShotSPI" policy="dynamic" unbind="removeShot"/>
+
+</scr:component>

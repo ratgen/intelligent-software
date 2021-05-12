@@ -11,7 +11,8 @@ import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.data.GameKeys;
 
 public class WeaponProcessor implements IEntityProcessingService {
-
+    WeaponSystem weaponSystem = new WeaponSystem();
+    
     @Override
     public void process(GameData gameData, World world) {
 
@@ -23,6 +24,11 @@ public class WeaponProcessor implements IEntityProcessingService {
             if (gameData.getKeys().isDown(GameKeys.ENTER) && weaponPart.hasWeapon() == false) {
                 spritePart.dispose();
                 weaponPart.playerHasWeapon(true);
+                weaponSystem.attack((Weapon) entity, world);
+            }
+            
+            if (gameData.getKeys().isDown(GameKeys.SPACE)) {
+                weaponSystem.attack((Weapon) entity, world);
             }
 
             if (weaponPart.hasWeapon() == true) {

@@ -19,8 +19,8 @@ public class WeaponPlugin implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-        Entity weapon = createWeapon(gameData);
-        weaponID = world.addEntity(weapon);
+        //Entity weapon = createWeapon(gameData);
+        //weaponID = world.addEntity(weapon);
     }
 
     @Override

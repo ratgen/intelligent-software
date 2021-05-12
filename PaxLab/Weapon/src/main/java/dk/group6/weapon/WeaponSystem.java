@@ -10,6 +10,7 @@ import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.shot.ShotSPI;
 import dk.group6.common.weapon.IWeaponSPI;
 import dk.group6.common.weapon.Weapon;
 
@@ -19,10 +20,13 @@ import dk.group6.common.weapon.Weapon;
  * @author peter
  */
 public class WeaponSystem implements IWeaponSPI {
+    ShotSPI shotSPI;
 
     @Override
-    public void attack(Weapon weapon) {
+    public void attack(Weapon weapon, World world) {
+        PositionPart posPart = weapon.getPart(PositionPart.class);
         
+        shotSPI.shoot((int) posPart.getX(), (int) posPart.getY(), posPart.getRadians(), world);
     }
 
     @Override
@@ -33,9 +37,17 @@ public class WeaponSystem implements IWeaponSPI {
     
 
     @Override
-    public Weapon createWeapon(GameData gameData) {
+    public String createWeapon(GameData gameData) {
         Weapon weapon = WeaponPlugin.createWeapon(gameData);
         
-        return weapon;
+        return weapon.getID();
+    }
+    
+    public void setShot(ShotSPI shotSPI){
+        this.shotSPI = shotSPI;
+    }
+    
+    public void removeShot(ShotSPI shotSPI){
+        this.shotSPI = null;
     }
 }
