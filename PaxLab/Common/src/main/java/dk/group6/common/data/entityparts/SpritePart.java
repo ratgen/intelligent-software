@@ -33,11 +33,15 @@ public class SpritePart implements EntityPart {
     File file;
     float scale = 1;
     
-    public SpritePart(String image, Entity entity) {
+    public SpritePart(String image, Class entity) {
+        System.out.println("Contructing spritePart of " + entity + " with img: " + image);
         this.image = image; 
-        BundleContext context = FrameworkUtil.getBundle( entity.getClass() ).getBundleContext();
+        BundleContext context = FrameworkUtil.getBundle( entity ).getBundleContext();
+        System.out.println(context);
         Bundle bundle = context.getBundle();
+        System.out.println(bundle);
         URL url = bundle.getResource(image);
+        System.out.println(url);
         try {
             //check if destroyed on unload
             file = File.createTempFile(image, "tmp");
@@ -53,7 +57,6 @@ public class SpritePart implements EntityPart {
         catch (IOException e) {
             e.printStackTrace();
         }
-        
     }
     
     @Override

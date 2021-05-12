@@ -26,12 +26,12 @@ public class ShotSystem implements ShotSPI {
         return (Entity) shot;
     }
     
-    private static Shot createShot(int x, int y, float radian){
+    private Shot createShot(int x, int y, float radian){
         Shot shot = new Shot();
         
         shot.add(new PositionPart((float) x, (float) y));
         shot.add(new MovingPart());
-        shot.add(new SpritePart("assets/spritshot.png", shot));
+        shot.add(new SpritePart("assets/spritshot.png", this.getClass()));
         
         PositionPart positionPart = shot.getPart(PositionPart.class);
         positionPart.setRadians(radian);

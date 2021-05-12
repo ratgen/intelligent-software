@@ -21,8 +21,8 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-        Entity enemy = createEnemy(gameData);
-        enemyID = world.addEntity(enemy);
+        //Entity enemy = createEnemy(gameData);
+        //enemyID = world.addEntity(enemy);
     }
 
     private Entity createEnemy(GameData gameData) {
@@ -32,7 +32,7 @@ public class EnemyPlugin implements IGamePluginService {
         enemy.setRadius(4);
         enemy.add(new MovingPart());
         enemy.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
-        enemy.add(new SpritePart("assets/enemy.png", enemy));
+        enemy.add(new SpritePart("assets/enemy.png", this.getClass()));
         
         return enemy;
     }

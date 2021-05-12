@@ -34,7 +34,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             
             if (gameData.getKeys().isDown(GameKeys.ENTER)){
                 System.out.println("pressed enter");
-                createWeapon(entity, gameData);
+                createWeapon(entity, gameData, world);
             }
             
             if (gameData.getKeys().isDown(GameKeys.SPACE)) {
@@ -51,9 +51,9 @@ public class PlayerProcessor implements IEntityProcessingService {
         }
     }
     
-    private void createWeapon(Entity entity, GameData gameData){
+    private void createWeapon(Entity entity, GameData gameData, World world){
         WeaponPart weaponPart = entity.getPart(WeaponPart.class);
-        weaponPart.addWeapon(weaponSystem.createWeapon(gameData));
+        weaponPart.addWeapon(weaponSystem.createWeapon(gameData, world));
     }
     
     public void setWeaponSPI(IWeaponSPI weaponSystem) {

@@ -10,6 +10,7 @@ import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.shot.ShotSPI;
 import dk.group6.common.weapon.IWeaponSPI;
 import dk.group6.common.weapon.Weapon;
@@ -25,7 +26,6 @@ public class WeaponSystem implements IWeaponSPI {
     @Override
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
-        
         shotSPI.shoot((int) posPart.getX(), (int) posPart.getY(), posPart.getRadians(), world);
     }
 
@@ -37,9 +37,9 @@ public class WeaponSystem implements IWeaponSPI {
     
 
     @Override
-    public String createWeapon(GameData gameData) {
-        Weapon weapon = WeaponPlugin.createWeapon(gameData);
-        
+    public String createWeapon(GameData gameData, World world) {
+        Weapon weapon = weapon(gameData);
+        world.addEntity(weapon);
         return weapon.getID();
     }
     
@@ -49,5 +49,20 @@ public class WeaponSystem implements IWeaponSPI {
     
     public void removeShot(ShotSPI shotSPI){
         this.shotSPI = null;
+    }
+    
+    private Weapon weapon(GameData gameData) {
+        Weapon weapon = new Weapon();
+        
+        PositionPart positionPart = new PositionPart(50 ,100);
+
+        positionPart.setRadians(3f);
+        weapon.add(positionPart);
+        weapon.add(new WeaponPart(1,1));
+        SpritePart spritePart = new SpritePart("assets/syringe.png", this.getClass());
+        spritePart.setScale(0.25f);
+        weapon.add(spritePart);
+
+        return weapon;    
     }
 }

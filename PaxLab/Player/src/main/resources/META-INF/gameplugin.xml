@@ -4,7 +4,4 @@
     <service>
         <provide interface="dk.group6.common.services.IGamePluginService"/>
     </service>
-    <reference bind="setWeaponSPI" cardinality="0..1"
-             interface="dk.group6.common.weapon.IWeaponSPI"
-             name="IWeaponSPI" policy="dynamic" unbind="removeWeaponSPI"/>
 </scr:component>

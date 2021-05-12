@@ -14,7 +14,6 @@ import dk.group6.common.weapon.IWeaponSPI;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
-    private IWeaponSPI weaponSystem;
     
     public PlayerPlugin() {
     }
@@ -34,7 +33,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
-        SpritePart sprite = new SpritePart("assets/player.png", player);
+        SpritePart sprite = new SpritePart("assets/player.png", this.getClass());
         WeaponPart weaponPart = new WeaponPart(1000, 1);
         player.add(weaponPart);
         sprite.setScale(1f);
@@ -51,13 +50,4 @@ public class PlayerPlugin implements IGamePluginService {
         SpritePart sp = player.getPart(SpritePart.class);
         world.removeEntity(playerID);
     }
-    
-    public void setWeaponSPI(IWeaponSPI weaponSystem) {
-        this.weaponSystem = weaponSystem;
-    }
-    
-    public void removeWeaponSPI(IWeaponSPI weaponSystem) {
-        this.weaponSystem = null;
-    }
-
 }

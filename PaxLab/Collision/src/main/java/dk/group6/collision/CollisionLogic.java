@@ -25,10 +25,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        entityCollision(world);
-        wallCollision(world);
+        //entityCollision(world);
+        //wallCollision(world);
     }
-
+    /*
     public void entityCollision(World world) {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
@@ -67,7 +67,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
             sdf = world.getMapTileLayer();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            
+            /**
             // Bottom    
             if (sdf.getCell(((int)spritePart.getSpriteLeftBottom()[0]+1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
                     sdf.getCell(((int)spritePart.getSpriteRightBottom()[0]-1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall")) {
@@ -90,6 +90,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     sdf.getCell((int)spritePart.getSpriteLeftBottom()[0]/45, ((int)spritePart.getSpriteLeftBottom()[1]+1)/45).getTile().getProperties().containsKey("Wall")) {
                 pp.setX(pp.getX()+1);
             }            
+            
         }
-    }
+    }*/
 }
