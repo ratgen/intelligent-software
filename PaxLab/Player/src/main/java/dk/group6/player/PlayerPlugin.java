@@ -32,12 +32,12 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new LifePart(3));
         player.setRadius(4);
         player.add(new MovingPart());
-        player.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
+        player.add(new PositionPart(360,540));
         SpritePart sprite = new SpritePart("assets/player.png", this.getClass());
-        WeaponPart weaponPart = new WeaponPart(1000, 1);
-        player.add(weaponPart);
         sprite.setScale(1f);
         player.add(sprite);
+        WeaponPart weaponPart = new WeaponPart(1000, 1);
+        player.add(weaponPart);
         
         return player;
     }
