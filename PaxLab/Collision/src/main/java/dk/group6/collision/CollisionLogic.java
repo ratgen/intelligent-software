@@ -37,7 +37,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
             for (Entity entity1 : world.getEntities()) {
                 SpritePart spritePart1 = entity1.getPart(SpritePart.class);
                 Rectangle r2 = spritePart1.getSprite().getBoundingRectangle();
-
+                // skips if entities are the same
                 if (entity.getID().equals(entity1.getID()) && spritePart.getSprite().equals(spritePart1.getSprite())) {
                     continue;
                 }
@@ -54,11 +54,11 @@ public class CollisionLogic implements IPostEntityProcessingService {
                         if (entityLife.getLife() > 0) {
                             entityLife.setLife(entityLife.getLife() - 1);
                             entityLife.setIsHit(true);
-                            System.out.println("Entity lost a life!");
+                            System.out.println("Entity lost a life! - " + entity.getClass().toString());
                             break;
                         } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
                             world.removeEntity(entity);
-                            System.out.println("Entity dead");
+                            System.out.println("Entity dead - " + entity.getClass().toString());
                         }
                     }
                     // Enemy & Bullet
