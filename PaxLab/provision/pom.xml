@@ -12,7 +12,7 @@
     <groupId>dk.group6.build</groupId>
     <artifactId>provision</artifactId>
 
-    <name>OSGiGame - imported bundles</name>
+    <name>Game - imported bundles</name>
 
     <packaging>pom</packaging>
 

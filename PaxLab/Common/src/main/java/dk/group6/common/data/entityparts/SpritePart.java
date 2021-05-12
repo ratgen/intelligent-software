@@ -39,11 +39,11 @@ public class SpritePart implements EntityPart {
         Bundle bundle = context.getBundle();
         URL url = bundle.getResource(image);
         try {
+            //check if destroyed on unload
             file = File.createTempFile(image, "tmp");
-            
             FileOutputStream fs = new FileOutputStream(file);
             BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
-            while (input.available() > 0 ){
+            while (input.available() > 0 ) {
                 int bytes = input.read();
                 fs.write(bytes);
             }
@@ -64,11 +64,10 @@ public class SpritePart implements EntityPart {
             texture = new Texture(fh);
         }
         if (sprite == null) {
-            sprite = new Sprite(texture, 1280, 720);
+            sprite = new Sprite(texture);
         }
-        sprite.setX(ps.getX());
-        sprite.setY(ps.getY());
         sprite.setScale(scale);
+        sprite.setPosition(ps.getX(), ps.getY());
         sprite.setRotation((float) ((float) ps.getRadians() * 180/Math.PI));
     }
     
@@ -82,5 +81,33 @@ public class SpritePart implements EntityPart {
     
     public Sprite getSprite(){
         return sprite;
+    }
+    
+    public float[] getSpriteLeftBottom() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX();
+        coordinates[1] = sprite.getY();
+        return coordinates;
+    }
+    
+    public float[] getSpriteRightBottom() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX() + sprite.getWidth();
+        coordinates[1] = sprite.getY();
+        return coordinates;
+    }
+    
+    public float[] getSpriteLeftTop() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX();
+        coordinates[1] = sprite.getY() + sprite.getHeight();
+        return coordinates;
+    }
+    
+    public float[] getSpriteRightTop() {
+        float[] coordinates = new float[2];
+        coordinates[0] = sprite.getX() + sprite.getWidth();
+        coordinates[1] = sprite.getY() + sprite.getHeight();
+        return coordinates;
     }
 }

@@ -7,15 +7,17 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <properties>
-        <bundle.symbolicName>dk.group6.enemy</bundle.symbolicName>
+        <bundle.symbolicName>dk.group6.collision</bundle.symbolicName>
         <bundle.namespace>dk.group6</bundle.namespace>
     </properties>
     
+    
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>Enemy</artifactId>
+    <artifactId>Collision</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>Enemy</name>
+    <name>Collision</name>
+    
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -24,14 +26,13 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>CommonEnemy</artifactId>
+            <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>dk.group6.build</groupId>
-            <artifactId>CommonAI</artifactId>
+            <artifactId>Common</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
 
