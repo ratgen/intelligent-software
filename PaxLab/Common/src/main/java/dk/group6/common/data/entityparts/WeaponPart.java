@@ -15,6 +15,12 @@ import dk.group6.common.data.GameData;
 public class WeaponPart implements EntityPart {
     private int damage;
     private int ammo;
+    private boolean space;
+    private boolean playerHasWeapon = false;
+    
+    public void setSpace(boolean space) {
+        this.space = space;
+    }
     
     public WeaponPart(int ammo, int damage) {
         this.damage = damage;
@@ -45,8 +51,19 @@ public class WeaponPart implements EntityPart {
         this.damage = damage;
     }
 
+    public boolean hasWeapon() {
+        return playerHasWeapon;
+    }
+
+    public void playerHasWeapon(boolean hasWeapon) {
+        this.playerHasWeapon = hasWeapon;
+    }
+
     @Override
     public void process(GameData gameData, Entity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (space) {
+            System.out.println("shoot");
+            // implement shoot
+        }
     }
 }
