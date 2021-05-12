@@ -30,7 +30,7 @@ public class EnemyPlugin implements IGamePluginService {
         int[] spawnPoint = spawnPoints[(int)(Math.random()*(3 - 0)) + 0];
         Entity enemy = new Enemy();
 
-        enemy.add(new LifePart(3));
+        enemy.add(new LifePart(1));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
         enemy.add(new PositionPart(spawnPoint[0] ,spawnPoint[1]));
