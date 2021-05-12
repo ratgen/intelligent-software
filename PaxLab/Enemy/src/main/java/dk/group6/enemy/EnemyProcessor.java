@@ -15,6 +15,7 @@ public class EnemyProcessor implements IEntityProcessingService {
 
     private IPathFinderSPI pathFinder;
     private String[] strA;
+    boolean spawned = false;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -24,18 +25,34 @@ public class EnemyProcessor implements IEntityProcessingService {
 
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
-            SpritePart spritePart = entity.getPart(SpritePart.class);      
-            
+            SpritePart spritePart = entity.getPart(SpritePart.class);
+            if (!spawned) {
+                positionPart.setX(300);
+                positionPart.setY(-300);
+                
+                spawned = true;
+            }
             strA = getTrack(entity, player);
             
-            movingPart.setMovement(strA[0]);
-            
-            movingPart.process(gameData, entity);
-            movingPart.reset();
-            positionPart.process(gameData, entity);
-            spritePart.process(gameData, entity);
-            //updateShape(entity);
-
+            for (int i = 0; i < strA.length; i++) {
+                switch (strA[i]){
+                case "Up":
+                    movingPart.setUp(true);
+                    break;
+                case "Right":
+                    movingPart.setRight(true);
+                    break;
+                case "Left":
+                    movingPart.setLeft(true);
+                    break;
+                case "Down":
+                    movingPart.setDown(true);
+                    break;
+            }
+                movingPart.process(gameData, entity);
+                positionPart.process(gameData, entity);
+                spritePart.process(gameData, entity);
+            }
         }
     }
     

@@ -2,41 +2,43 @@ package dk.group6.astar;
 
 import dk.group6.common.ai.IPathFinderSPI;
 import dk.group6.common.data.Entity;
-import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.PositionPart;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Map;
 
 
 public class AStar implements IPathFinderSPI{
-    Node n;
-    
+    Node n = new Node();
+    int c = 0;
     @Override
     public String[] track(Entity from, Entity to) {
-        System.out.println("123123123ndeodoe");
+        PositionPart pF = from.getPart(PositionPart.class);
+        PositionPart pT = to.getPart(PositionPart.class);
+        
         ArrayList<Node> path = new ArrayList<>();
         
-        
-        Node start = new Node(from.getGridLocation(), n.calcDistance(from.getGridLocation(), to.getGridLocation()));
-        Map<String, Integer> goal = to.getGridLocation();
+        Node start = new Node(pF.getX(), pF.getY(), n.calcDistance(pF.getX(),pF.getY(),pT.getX(),pT.getY()));
+        Node goal = new Node(true, 0, 0);
         
         path.add(start);
         
         while(!path.isEmpty()){
             Node current = path.remove(0);
-            if (current.coordinates.equals(goal)){
-                return current.getPath(current);
+            if (current.getDistance() == 0.0){
+                String[] st = current.getPath(current);
+                System.out.println(st[0]);
+                return st;
             }
-            Node[] ways = n.expand(current, goal);
+            ArrayList<Node> ways = n.expand(current);
             
-            path.addAll(Arrays.asList(ways));
-            Collections.sort(path);
-            System.out.println(path);
+            path.addAll(ways);
+            Collections.sort(path, new CompareDistance());
+            c++;
         }
+
+        String[] temp = {"Right", "Up"};
         
-        String[] failed = {"fail"};
-        return failed;
+        return temp;
     }
 
 }

@@ -12,17 +12,23 @@ import dk.group6.common.services.IEntityProcessingService;
 
 public class PlayerProcessor implements IEntityProcessingService {
 
-
+    boolean spawned = false;
 
     @Override
     public void process(GameData gameData, World world) {
-
         for (Entity entity : world.getEntities(Player.class)) {
 
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-
+            
+            if (!spawned) {
+                positionPart.setX(300);
+                positionPart.setY(-100);
+                
+                spawned = true;
+            }
+            
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
