@@ -94,7 +94,6 @@ public class Game implements ApplicationListener {
         }
 
         // Post Update
-        System.out.println(postEntityProcessorList);
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
