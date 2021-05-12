@@ -8,8 +8,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
@@ -34,7 +32,6 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private MapSPI map;
-    //private TiledMapTileLayer sdf;
 
     public Game() {
         init();
@@ -57,18 +54,14 @@ public class Game implements ApplicationListener {
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
-        cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
-        
+        cam.position.set(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2, 0);
         cam.update();
+
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-        world.setMapTileLayer(map.getMapTileLayer());
-        
         batch = new SpriteBatch();
-        batch.setProjectionMatrix(cam.combined);
-        
     }
 
     @Override
@@ -80,8 +73,11 @@ public class Game implements ApplicationListener {
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         gameData.getKeys().update();
 
-        
-        TiledMap tmap = map.getMap();
+        cam.update();
+
+        map.getRenderer().setView(cam);
+        map.getRenderer().render();
+
         
         update();
         draw();
@@ -101,38 +97,19 @@ public class Game implements ApplicationListener {
         private long ff = 0;
 
     private void draw() {
-        map.getRenderer().render();
-        map.getRenderer().setView(cam);
-        TiledMapTileLayer sdf = map.getMapTileLayer();
+         ff++;
+
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
             Sprite sprite = spritePart.getSprite();
-            
-            float tileHeight = sdf.getTileHeight();
-            float tileWidth = sdf.getTileWidth();
-            //System.out.println("GAME: H: " + sdf.getHeight() + " | W: " + sdf.getWidth());
-            
-            /*System.out.println(entity.getClass());
-            System.out.println("bottom left: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("bottom right: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("top left: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("top right: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
-            ).getTile().getId());
-            //}*/            
-            sprite.draw(batch);
+            //if (ff % 100 == 1) {
+            //  System.out.println(entity.getClass());
+            //  System.out.println(spritePart);
+             // System.out.println(sprite.getX() + " " + sprite.getY());
+            //}            
+            sprite.draw(batch);       
         }
         batch.end();
     }

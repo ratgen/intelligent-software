@@ -1,6 +1,5 @@
 package dk.group6.common.data;
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,12 +8,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
- * @author group6
+ * @author jcs
  */
 public class World {
-    private TiledMapTileLayer mapTileLayer;
+
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
-    
+
     public String addEntity(Entity entity) {
         entityMap.put(entity.getID(), entity);
         return entity.getID();
@@ -44,13 +43,6 @@ public class World {
         return r;
     }
     
-    public void setMapTileLayer(TiledMapTileLayer tileLayer) {
-        mapTileLayer = tileLayer;
-    }
-    
-    public TiledMapTileLayer getMapTileLayer() {
-        return this.mapTileLayer;
-    }
     // TODO LAV METODE FOR AT HENTE ALLE EKSISTERENDE TILES SAMME MÅDE SOM getEntities()
 
     public Entity getEntity(String ID) {

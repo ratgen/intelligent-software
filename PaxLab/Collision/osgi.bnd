@@ -1,3 +1,0 @@
-Bundle-SymbolicName: Collision
-Bundle-ActivationPolicy: lazy
-Service-Component: META-INF/postentityprocessor.xml

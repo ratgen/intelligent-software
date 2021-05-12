@@ -11,7 +11,6 @@ import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.weapon.Weapon;
 
 public class WeaponPlugin implements IGamePluginService {
@@ -31,11 +30,9 @@ public class WeaponPlugin implements IGamePluginService {
     protected static Weapon createWeapon(GameData gameData) {
         Weapon weapon = new Weapon();
         
-        PositionPart positionPart = new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2);
-
+        PositionPart positionPart = new PositionPart(0, 0);
         positionPart.setRadians(3f);
         weapon.add(positionPart);
-        weapon.add(new WeaponPart(1,1));
         SpritePart spritePart = new SpritePart("assets/syringe.png", weapon);
         spritePart.setScale(0.25f);
         weapon.add(spritePart);

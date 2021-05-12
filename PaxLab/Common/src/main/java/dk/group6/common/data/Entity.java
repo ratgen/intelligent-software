@@ -1,5 +1,6 @@
 package dk.group6.common.data;
 
+
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.entityparts.EntityPart;
@@ -19,7 +20,7 @@ public class Entity implements Serializable {
     private Sprite sprite;
     private FileHandle fH;
     private Map<String, Integer> gridLocation;
-
+       
     public Entity() {
         parts = new ConcurrentHashMap<>();
     }
@@ -28,7 +29,7 @@ public class Entity implements Serializable {
         this();
         this.sprite = sprite;
     }
-
+    
     public Entity(FileHandle fH) {
         this();
         this.fH = fH;
@@ -62,13 +63,13 @@ public class Entity implements Serializable {
     public Sprite getSprite() {
         return sprite;
     }
-
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
-    }
-
+    
     public FileHandle getfH() {
         return fH;
+    }
+    
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
     }
 
     public void add(EntityPart part) {
@@ -81,10 +82,6 @@ public class Entity implements Serializable {
 
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
-    }
-
-    public boolean hasPart(Class partClass) {
-        return parts.containsKey(partClass);
     }
 
     public void setRadius(float r) {
@@ -113,9 +110,5 @@ public class Entity implements Serializable {
 
     public void setShapeY(float[] shapeY) {
         this.shapeY = shapeY;
-    }
-    
-    public void hasCollided(Class col) {
-        
     }
 }
