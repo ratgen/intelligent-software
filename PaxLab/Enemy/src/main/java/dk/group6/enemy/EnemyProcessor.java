@@ -59,4 +59,12 @@ public class EnemyProcessor implements IEntityProcessingService {
     private String[] getTrack(Entity e, Entity p){
         return pathFinder.track(e, p);
     } 
+    
+    public void setPathFinder(IPathFinderSPI pathFinder){
+        this.pathFinder = pathFinder;
+    }
+
+    public void removePathFinder(IPathFinderSPI pathFinder){
+        this.pathFinder = null;
+    }
 }
