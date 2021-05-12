@@ -7,8 +7,10 @@ import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
+import dk.group6.common.weapon.IWeaponSPI;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;
@@ -30,11 +32,12 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new LifePart(3));
         player.setRadius(4);
         player.add(new MovingPart());
-        //player.add(new PositionPart(gameData.getDisplayWidth() / 2 ,gameData.getDisplayHeight()/ 2));
         player.add(new PositionPart(360,540));
-        SpritePart sprite = new SpritePart("assets/player.png", player);
+        SpritePart sprite = new SpritePart("assets/player.png", this.getClass());
         sprite.setScale(1f);
         player.add(sprite);
+        WeaponPart weaponPart = new WeaponPart(1000, 1);
+        player.add(weaponPart);
         
         return player;
     }
@@ -47,5 +50,4 @@ public class PlayerPlugin implements IGamePluginService {
         SpritePart sp = player.getPart(SpritePart.class);
         world.removeEntity(playerID);
     }
-
 }

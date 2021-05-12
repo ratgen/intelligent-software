@@ -33,9 +33,9 @@ public class SpritePart implements EntityPart {
     File file;
     float scale = 1;
     
-    public SpritePart(String image, Entity entity) {
+    public SpritePart(String image, Class entity) {
         this.image = image; 
-        BundleContext context = FrameworkUtil.getBundle( entity.getClass() ).getBundleContext();
+        BundleContext context = FrameworkUtil.getBundle( entity ).getBundleContext();
         Bundle bundle = context.getBundle();
         URL url = bundle.getResource(image);
         try {
@@ -53,7 +53,6 @@ public class SpritePart implements EntityPart {
         catch (IOException e) {
             e.printStackTrace();
         }
-        
     }
     
     @Override
@@ -77,6 +76,7 @@ public class SpritePart implements EntityPart {
     
     public void dispose(){
         texture.dispose();
+        file.delete();
     }
     
     public Sprite getSprite(){

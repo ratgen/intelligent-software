@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="dk.group6.shot.shotsystem">
+    <implementation class="dk.group6.shot.ShotSystem"/>
+    <service>
+        <provide interface="dk.group6.common.shot.ShotSPI"/>
+    </service>
+</scr:component>

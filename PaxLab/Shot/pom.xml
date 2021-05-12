@@ -7,15 +7,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <properties>
-        <bundle.symbolicName>dk.group6.enemy</bundle.symbolicName>
+        <bundle.symbolicName>dk.group6.shot</bundle.symbolicName>
         <bundle.namespace>dk.group6</bundle.namespace>
     </properties>
-    
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>Enemy</artifactId>
+    <artifactId>Shot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>Enemy</name>
+    <name>Shot</name>
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -24,17 +23,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiLibGDX</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>CommonEnemy</artifactId>
+            <artifactId>CommonShot</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

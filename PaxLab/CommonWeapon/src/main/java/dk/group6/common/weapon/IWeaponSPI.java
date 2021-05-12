@@ -12,7 +12,7 @@ import dk.group6.common.data.World;
  * @author peter
  */
 public interface IWeaponSPI {
-    Weapon createWeapon(GameData gameData);
-    void attack(Weapon weapon);
+    String createWeapon(GameData gameData, World world);
+    void attack(Weapon weapon, World world);
     void destroyWeapon(Weapon weapon, World world);
 }

@@ -7,6 +7,7 @@ package dk.group6.common.data.entityparts;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,8 @@ public class WeaponPart implements EntityPart {
     private int ammo;
     private boolean space;
     private boolean playerHasWeapon = false;
+    private ArrayList<String> weapons; 
+    
     
     public void setSpace(boolean space) {
         this.space = space;
@@ -25,6 +28,7 @@ public class WeaponPart implements EntityPart {
     public WeaponPart(int ammo, int damage) {
         this.damage = damage;
         this.ammo = ammo;
+        weapons = new ArrayList();
     }
     
     public void attack() {
@@ -32,6 +36,22 @@ public class WeaponPart implements EntityPart {
             // shoot, need bullet system here
         } else {
             System.out.println("No Ammo in weapon");
+        }
+    }
+    
+    public ArrayList<String> getWeapons() {
+        return weapons;
+    }
+    
+    public void addWeapon(String weaponID){
+        weapons.add(weaponID);
+    }
+    
+    public void removeWeapon(String weaponID){
+        for (String id : weapons){
+            if (id == weaponID){
+                weapons.remove(id);
+            }
         }
     }
     
