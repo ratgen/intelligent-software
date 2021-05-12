@@ -25,10 +25,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        //entityCollision(world);
-        //wallCollision(world);
+        entityCollision(world);
+        wallCollision(world);
     }
-    /*
+    
     public void entityCollision(World world) {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
@@ -67,10 +67,21 @@ public class CollisionLogic implements IPostEntityProcessingService {
             sdf = world.getMapTileLayer();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            /**
+            
+            if (spritePart == null) {
+                throw new NullPointerException("sprite part is null");
+            }
+            
+            if (sdf == null) {
+                throw new NullPointerException("sdf is null");
+            }
+            
             // Bottom    
-            if (sdf.getCell(((int)spritePart.getSpriteLeftBottom()[0]+1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
-                    sdf.getCell(((int)spritePart.getSpriteRightBottom()[0]-1)/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall")) {
+            if (sdf.getCell(
+                    ((int)spritePart.getSpriteLeftBottom()[0]+1)/45, 
+                    (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
+                    sdf.getCell(((int)spritePart.getSpriteRightBottom()[0]-1)/45, 
+                    (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall")) {
                 pp.setY(pp.getY()+1);
             }
             
@@ -92,5 +103,5 @@ public class CollisionLogic implements IPostEntityProcessingService {
             }            
             
         }
-    }*/
+    }
 }

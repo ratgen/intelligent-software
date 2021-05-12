@@ -22,6 +22,8 @@ public class WeaponProcessor implements IEntityProcessingService {
             positionPart.process(gameData, entity);            
             spritePart.process(gameData, entity);
             weaponPart.process(gameData, entity);
+            
+           
         }
     }
 }

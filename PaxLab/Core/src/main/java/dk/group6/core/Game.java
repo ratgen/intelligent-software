@@ -65,6 +65,8 @@ public class Game implements ApplicationListener {
 
         map.createMap();
         
+        world.setMapTileLayer(map.getMapTileLayer());
+        
         batch = new SpriteBatch();
         batch.setProjectionMatrix(cam.combined);
         

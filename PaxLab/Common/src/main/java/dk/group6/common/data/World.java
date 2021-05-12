@@ -49,7 +49,7 @@ public class World {
     }
     
     public TiledMapTileLayer getMapTileLayer() {
-        return this.mapTileLayer;
+        return mapTileLayer;
     }
     // TODO LAV METODE FOR AT HENTE ALLE EKSISTERENDE TILES SAMME MÅDE SOM getEntities()
 
