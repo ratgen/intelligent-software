@@ -22,6 +22,7 @@ import dk.group6.common.services.IPostEntityProcessingService;
 public class CollisionLogic implements IPostEntityProcessingService {
 
     TiledMapTileLayer sdf;
+    Rectangle r1, r2;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -32,11 +33,11 @@ public class CollisionLogic implements IPostEntityProcessingService {
     public void entityCollision(World world) {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            Rectangle r1 = spritePart.getSprite().getBoundingRectangle();
+            r1 = new Rectangle(spritePart.getSprite().getBoundingRectangle());
 
             for (Entity entity1 : world.getEntities()) {
                 SpritePart spritePart1 = entity1.getPart(SpritePart.class);
-                Rectangle r2 = spritePart1.getSprite().getBoundingRectangle();
+                r2 = new Rectangle(spritePart1.getSprite().getBoundingRectangle());
                 // skips if entities are the same
                 if (entity.getID().equals(entity1.getID()) && spritePart.getSprite().equals(spritePart1.getSprite())) {
                     continue;
