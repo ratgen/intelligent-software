@@ -27,7 +27,7 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemy(GameData gameData) {
-        int[] spawnPoint = spawnPoints[(int)(Math.random()*(3 - 0)) + 0];
+        int[] spawnPoint = spawnPoints[2];
         Entity enemy = new Enemy();
 
         enemy.add(new LifePart(3));

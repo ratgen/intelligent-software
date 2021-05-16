@@ -11,32 +11,36 @@ public class AStar implements IPathFinderSPI{
     Node n = new Node();
     int c = 0;
     @Override
-    public String[] track(Entity from, Entity to) {
+    public ArrayList<String> track(Entity from, Entity to) {
         PositionPart pF = from.getPart(PositionPart.class);
         PositionPart pT = to.getPart(PositionPart.class);
         
         ArrayList<Node> path = new ArrayList<>();
         
-        Node start = new Node(pF.getX(), pF.getY(), n.calcDistance(pF.getX(),pF.getY(),pT.getX(),pT.getY()));
-        Node goal = new Node(true, 0, 0);
+        Node goal = new Node(true, 700, 629);
+        Node start = new Node(pF.getX(), pF.getY(), n.calcDistance(pF.getX(),pF.getY(),goal.getGoalX(),goal.getGoalY()));
         
         path.add(start);
         
         while(!path.isEmpty()){
-            Node current = path.remove(0);
-            if (current.getDistance() == 0.0){
-                String[] st = current.getPath(current);
-                System.out.println(st[0]);
+            Node current = path.remove(0); 
+            System.out.println(current.getDistance());
+            if (current.getDistance() < 10){
+                System.out.println("works??=?");
+                ArrayList<String> st = current.getPath(current);
                 return st;
             }
-            ArrayList<Node> ways = n.expand(current);
+            ArrayList<Node> ways = current.expand(current, goal);
             
             path.addAll(ways);
             Collections.sort(path, new CompareDistance());
             c++;
         }
 
-        String[] temp = {"Right", "Up"};
+        ArrayList<String> temp = new ArrayList<>();
+        
+        temp.add("Down");
+        System.out.println("failed");
         
         return temp;
     }

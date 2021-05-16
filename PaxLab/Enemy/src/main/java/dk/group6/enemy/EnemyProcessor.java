@@ -10,32 +10,25 @@ import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.services.IEntityProcessingService;
+import java.util.ArrayList;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
     private IPathFinderSPI pathFinder;
-    private String[] strA;
-    boolean spawned = false;
-
     @Override
     public void process(GameData gameData, World world) {
         Entity player = world.getEntities().iterator().next();
-
+        
         for (Entity entity : world.getEntities(Enemy.class)) {
 
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            if (!spawned) {
-                positionPart.setX(300);
-                positionPart.setY(-300);
-                
-                spawned = true;
-            }
-            strA = getTrack(entity, player);
+
+            ArrayList<String> strA = getTrack(entity, player);
+            System.out.println("eP: "+strA.get(0));
             
-            for (int i = 0; i < strA.length; i++) {
-                switch (strA[i]){
+                switch (strA.get(0)){
                 case "Up":
                     movingPart.setUp(true);
                     break;
@@ -49,14 +42,17 @@ public class EnemyProcessor implements IEntityProcessingService {
                     movingPart.setDown(true);
                     break;
             }
-                movingPart.process(gameData, entity);
-                positionPart.process(gameData, entity);
-                spritePart.process(gameData, entity);
-            }
+            
+            movingPart.setA(0.3f);
+            movingPart.process(gameData, entity);
+            positionPart.process(gameData, entity);
+            spritePart.process(gameData, entity);
+            movingPart.reset();
+
         }
     }
     
-    private String[] getTrack(Entity e, Entity p){
+    private ArrayList<String> getTrack(Entity e, Entity p){
         return pathFinder.track(e, p);
     } 
     

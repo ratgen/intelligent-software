@@ -37,6 +37,12 @@
             <artifactId>CommonEnemy</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>dk.group6.build</groupId>
+            <artifactId>CommonAI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>

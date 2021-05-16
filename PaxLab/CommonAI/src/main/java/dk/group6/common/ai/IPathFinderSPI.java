@@ -6,11 +6,12 @@
 package dk.group6.common.ai;
 
 import dk.group6.common.data.Entity;
+import java.util.ArrayList;
 
 /**
  *
  * @author peter
  */
 public interface IPathFinderSPI {
-    String[] track(Entity from, Entity to);
+    ArrayList<String> track(Entity from, Entity to);
 }

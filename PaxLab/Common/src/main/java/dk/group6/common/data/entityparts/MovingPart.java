@@ -6,6 +6,31 @@ import dk.group6.common.data.GameData;
 public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down;
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
+    public boolean isDown() {
+        return down;
+    }
+    private float a = 1;
+
+    public float getA() {
+        return a;
+    }
+
+    public void setA(float a) {
+        this.a = a;
+    }
     private String[] movement;
 
     public MovingPart() {
@@ -28,29 +53,29 @@ public class MovingPart implements EntityPart {
     }
     
     public void reset(){
-        this.down = false;
-        this.up = false;
-        this.left = false;
-        this.right = false;
+        down = false;
+        up = false;
+        left = false;
+        right = false;
     }
     
     
     public String[] getMovement(){
         return this.movement;
     }
-    
+
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         if (left) {
-            positionPart.setX(positionPart.getX() - 1);
+            positionPart.setX(positionPart.getX() - a);
         } else if (right) {
-            positionPart.setX(positionPart.getX() + 1);
+            positionPart.setX(positionPart.getX() + a);
         } // accelerating            
         else if (up) {
-            positionPart.setY(positionPart.getY() + 1);
+            positionPart.setY(positionPart.getY() + a);
         } else if (down) {
-            positionPart.setY(positionPart.getY() - 1);
+            positionPart.setY(positionPart.getY() - a);
         }
     }
 }
