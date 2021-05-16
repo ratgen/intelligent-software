@@ -32,12 +32,12 @@ public class PlayerProcessor implements IEntityProcessingService {
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
-            if (gameData.getKeys().isDown(GameKeys.ENTER)){
+            if (gameData.getKeys().isPressed(GameKeys.ENTER)){
                 System.out.println("pressed enter");
                 createWeapon(entity, gameData, world);
             }
             
-            if (gameData.getKeys().isDown(GameKeys.SPACE)) {
+            if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
                 System.out.println("Pressed space");
                 for (String weaponID: weaponPart.getWeapons()){
                     Weapon weapon = (Weapon) world.getEntity (weaponID);
