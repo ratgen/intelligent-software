@@ -9,7 +9,6 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.MovingPart;
-import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.shot.Shot;
@@ -23,7 +22,6 @@ public class ShotProcessor implements IEntityProcessingService{
     @Override
     public void process(GameData gameData, World world) {
         for (Entity shot : world.getEntities(Shot.class)){
-            PositionPart positionPart = shot.getPart(PositionPart.class);
             MovingPart movingPart = shot.getPart(MovingPart.class);
             SpritePart spritePart = shot.getPart(SpritePart.class);
             movingPart.process(gameData, shot);

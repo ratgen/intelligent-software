@@ -26,7 +26,14 @@ public class WeaponSystem implements IWeaponSPI {
     @Override
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
-        shotSPI.shoot((int) posPart.getX(), (int) posPart.getY(), posPart.getRadians(), world);
+        int x_offset = 80;
+        int y_offset = 20;
+        shotSPI.shoot(
+                (int) posPart.getX() + x_offset, 
+                (int) posPart.getY() + y_offset, 
+                posPart.getRadians() + 3.14f, 
+                world
+        );
     }
 
     @Override

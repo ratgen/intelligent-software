@@ -31,13 +31,14 @@ public class ShotSystem implements ShotSPI {
         
         shot.add(new PositionPart((float) x, (float) y));
         shot.add(new MovingPart());
-        shot.add(new SpritePart("assets/spritshot.png", this.getClass()));
+        SpritePart sp = new SpritePart("assets/spritshot.png", this.getClass());
+        shot.add(sp);
         
         PositionPart positionPart = shot.getPart(PositionPart.class);
-        positionPart.setRadians(radian);
+        positionPart.setRadians((float) (radian + (Math.PI/2)));
         
         MovingPart movingPart = shot.getPart(MovingPart.class);
-        movingPart.setUp(true);
+        movingPart.setStraight(true);
         
         
         
