@@ -15,6 +15,7 @@ import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IPostEntityProcessingService;
 import java.util.ArrayList;
+import dk.group6.common.shot.Shot;
 
 /**
  *
@@ -81,6 +82,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
+            if (entity.getClass() == Shot.class) {
+                continue;
+            }
+            
             // Bottom    
             if (sdf.getCell(((int) spritePart.getSpriteLeftBottom()[0] + 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall") 
                     || sdf.getCell(((int) spritePart.getSpriteRightBottom()[0] - 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")) {

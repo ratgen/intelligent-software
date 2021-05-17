@@ -66,7 +66,7 @@ public class SpritePart implements EntityPart {
         }
         sprite.setScale(scale);
         sprite.setPosition(ps.getX(), ps.getY());
-        sprite.setRotation((float) ((float) ps.getRadians() * 180/Math.PI));
+        sprite.setRotation((float) (((float) ps.getRadians() ) * (180/Math.PI)));
     }
     
     public void setScale(float scale) {

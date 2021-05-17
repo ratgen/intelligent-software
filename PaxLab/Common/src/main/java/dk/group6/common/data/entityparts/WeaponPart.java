@@ -81,9 +81,5 @@ public class WeaponPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-        if (space) {
-            System.out.println("shoot");
-            // implement shoot
-        }
     }
 }
