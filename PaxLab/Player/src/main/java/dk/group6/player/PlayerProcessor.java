@@ -50,16 +50,22 @@ public class PlayerProcessor implements IEntityProcessingService {
                 PositionPart ps = weapon.getPart(PositionPart.class);
                 if (gameData.getKeys().isDown(GameKeys.LEFT)) {
                     ps.setRadians((float) (Math.PI/2f - Math.PI/4)) ;
+                     ps.setX(positionPart.getX()- 140f );
+                   ps.setY(positionPart.getY() - 90f );
                 } else if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
                    ps.setRadians((float) (Math.PI/4 + Math.PI)) ;
+                   ps.setX(positionPart.getX()- 40f);
+                   ps.setY(positionPart.getY() - 90f );
                 } else if (gameData.getKeys().isDown(GameKeys.UP)){
                    ps.setRadians((float) (Math.PI/4 - Math.PI/2)) ;
+                   ps.setX(positionPart.getX()- 90f);
+                   ps.setY(positionPart.getY() - 40f );
                 } else if (gameData.getKeys().isDown(GameKeys.DOWN)){
                    ps.setRadians((float) (Math.PI/4 + Math.PI/2)) ;
-
+                   ps.setX(positionPart.getX()- 90f);
+                   ps.setY(positionPart.getY() - 140f );
                 }
-                ps.setX(positionPart.getX()- 90f);
-                ps.setY(positionPart.getY() - 40f );
+                
             }
             
             movingPart.process(gameData, entity);
