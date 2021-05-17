@@ -9,7 +9,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
+import dk.group6.common.data.entityparts.WeaponContainerPart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IEntityProcessingService;
 import dk.group6.common.weapon.IWeaponSPI;
@@ -27,7 +27,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            WeaponPart weaponPart = entity.getPart(WeaponPart.class);
+            WeaponContainerPart weaponPart = entity.getPart(WeaponContainerPart.class);
 
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
@@ -39,14 +39,14 @@ public class PlayerProcessor implements IEntityProcessingService {
             }
             
             if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
-                for (String weaponID: weaponPart.getWeapons()){
-                    Weapon weapon = (Weapon) world.getEntity (weaponID);
-                    weaponSystem.attack(weapon, world);
-                }
+		    if (weaponPart.getWeapon() != null) {
+			    Weapon weapon = (Weapon) world.getEntity(weaponPart.getWeapon());
+			    weaponSystem.attack(weapon, world);
+		    }
             }
+	    if (weaponPart.getWeapon() != null) {
             
-            for (String weaponID: weaponPart.getWeapons()){
-                Weapon weapon = (Weapon) world.getEntity (weaponID);
+                Weapon weapon = (Weapon) world.getEntity(weaponPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
                 if (gameData.getKeys().isDown(GameKeys.LEFT)) {
@@ -66,7 +66,7 @@ public class PlayerProcessor implements IEntityProcessingService {
                     ps.setX(positionPart.getX() + (spritePart.getSprite().getWidth() / 2) - (sp.getSprite().getOriginX()));
                     ps.setY(positionPart.getY() - (spritePart.getSprite().getHeight()));
                 }
-            }
+	    }
             
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);  
@@ -76,7 +76,7 @@ public class PlayerProcessor implements IEntityProcessingService {
     
     private void createWeapon(Entity entity, GameData gameData, World world){
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        WeaponPart weaponPart = entity.getPart(WeaponPart.class);
+        WeaponContainerPart weaponPart = entity.getPart(WeaponContainerPart.class);
         String weaponID = weaponSystem.createWeapon(gameData, world);
         weaponPart.addWeapon(weaponID);
         Entity weapon = world.getEntity(weaponID);

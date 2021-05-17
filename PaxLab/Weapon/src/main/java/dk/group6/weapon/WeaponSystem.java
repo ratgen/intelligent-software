@@ -10,7 +10,7 @@ import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
+import dk.group6.common.data.entityparts.WeaponContainerPart;
 import dk.group6.common.shot.ShotSPI;
 import dk.group6.common.weapon.IWeaponSPI;
 import dk.group6.common.weapon.Weapon;
@@ -29,14 +29,49 @@ public class WeaponSystem implements IWeaponSPI {
         SpritePart sp = weapon.getPart(SpritePart.class);
         int x_offset = (int) sp.getSprite().getOriginX();
         int y_offset = (int) sp.getSprite().getHeight();
-        float radian_offset = 0;
-        System.out.println("new shot at x: " + posPart.getX() + " y: " + posPart.getY());
-        shotSPI.shoot(
-                (int) posPart.getX() + x_offset, 
-                (int) posPart.getY() + y_offset, 
-                posPart.getRadians() + radian_offset, 
-                world
-        );
+        int degrees = (int) (posPart.getRadians() * (180f/Math.PI)) ;
+	    switch (degrees) {
+	    	    case 0:
+			    //up position
+			    shotSPI.shoot(
+				    (int) posPart.getX() + x_offset / 2,
+				    (int) posPart.getY() + y_offset,
+				    posPart.getRadians() ,
+				    world
+			    );
+			    break;
+	    	    case 90:
+			    //left positoin
+			    shotSPI.shoot(
+				    (int) posPart.getX() - y_offset/2,
+				    (int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+				    posPart.getRadians(),
+				    world
+			    );		    
+			    break;
+	    	    case -90:
+			    //right position
+			    shotSPI.shoot(
+				    (int) posPart.getX() + y_offset/2,
+				    (int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+				    posPart.getRadians(),
+				    world
+			    );
+			    break;
+		    case 180:
+			    //down position
+			    shotSPI.shoot(
+				    (int) posPart.getX() + x_offset / 2,
+				    (int) posPart.getY(),
+				    posPart.getRadians(),
+				    world
+			    );
+			    break;
+	    	    default:
+			    break;
+	    }
+           
+        
     }
 
     @Override
@@ -67,8 +102,8 @@ public class WeaponSystem implements IWeaponSPI {
         PositionPart positionPart = new PositionPart(50 ,100);
         positionPart.setRadians(0);
         weapon.add(positionPart);
-        weapon.add(new WeaponPart(1,1));
-        SpritePart spritePart = new SpritePart("assets/black.png", this.getClass());
+        weapon.add(new WeaponContainerPart());
+        SpritePart spritePart = new SpritePart("assets/syringesmall.png", this.getClass());
         weapon.add(spritePart);
 
         return weapon;    

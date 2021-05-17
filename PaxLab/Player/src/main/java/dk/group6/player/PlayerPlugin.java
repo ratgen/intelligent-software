@@ -7,7 +7,7 @@ import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
+import dk.group6.common.data.entityparts.WeaponContainerPart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
 
@@ -34,7 +34,7 @@ public class PlayerPlugin implements IGamePluginService {
         player.add(new PositionPart(360,540));
         SpritePart sprite = new SpritePart("assets/player.png", this.getClass());
         player.add(sprite);
-        WeaponPart weaponPart = new WeaponPart(1000, 1);
+        WeaponContainerPart weaponPart = new WeaponContainerPart();
         player.add(weaponPart);
         
         return player;
