@@ -29,7 +29,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         entityCollision(world);
-        wallCollision(world);
+        //wallCollision(world);
         setValidDirections(world);
     }
 
@@ -115,8 +115,12 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
     public void setValidDirections(World world) {
         sdf = world.getMapTileLayer();
-
+        
         for (Entity entity : world.getEntities()) {
+            
+            if (entity.getClass().toString().contains("Shot") || entity.getClass().toString().contains("Weapon") ) {
+                continue;
+            }
             ArrayList<String> directions = new ArrayList();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);

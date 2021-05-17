@@ -31,7 +31,8 @@ public class ShotSystem implements ShotSPI {
         
         shot.add(new PositionPart((float) x, (float) y));
         shot.add(new MovingPart());
-        SpritePart sp = new SpritePart("assets/spritshot.png", this.getClass());
+        //SpritePart sp = new SpritePart("assets/spritshot.png", this.getClass());
+        SpritePart sp = new SpritePart("assets/testshot.png", this.getClass());
         shot.add(sp);
         
         PositionPart positionPart = shot.getPart(PositionPart.class);
