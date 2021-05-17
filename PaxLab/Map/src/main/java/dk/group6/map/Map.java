@@ -50,6 +50,6 @@ public class Map implements MapSPI {
 
     @Override
     public Boolean isWall(int x, int y){
-        return mapTileLayer.getCell(x, y).getTile().getProperties().containsKey("Wall");
+        return mapTileLayer.getCell(x/45, y/45).getTile().getProperties().containsKey("Wall");
     }
 }

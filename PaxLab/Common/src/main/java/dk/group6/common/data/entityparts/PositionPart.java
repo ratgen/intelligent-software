@@ -17,6 +17,12 @@ public class PositionPart implements EntityPart {
     private float x;
     private float y;
     private float radians;
+    
+    String[] directions;
+
+    public String[] getDirections() {
+        return directions;
+    }
 
     public PositionPart(float x, float y) {
         this.x = x;

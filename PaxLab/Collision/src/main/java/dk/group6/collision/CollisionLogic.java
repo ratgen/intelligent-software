@@ -14,6 +14,7 @@ import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IPostEntityProcessingService;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +29,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     public void process(GameData gameData, World world) {
         entityCollision(world);
         wallCollision(world);
+        setValidDirections(world);
     }
 
     public void entityCollision(World world) {
@@ -79,20 +81,9 @@ public class CollisionLogic implements IPostEntityProcessingService {
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
-            if (spritePart == null) {
-                throw new NullPointerException("sprite part is null");
-            }
-
-            if (sdf == null) {
-                throw new NullPointerException("sdf is null");
-            }
-
             // Bottom    
-            if (sdf.getCell(
-                    ((int) spritePart.getSpriteLeftBottom()[0] + 1) / 45,
-                    (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) spritePart.getSpriteRightBottom()[0] - 1) / 45,
-                            (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")) {
+            if (sdf.getCell(((int) spritePart.getSpriteLeftBottom()[0] + 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall") 
+                    || sdf.getCell(((int) spritePart.getSpriteRightBottom()[0] - 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")) {
                 pp.setY(pp.getY() + 1);
             }
 
@@ -112,7 +103,36 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     || sdf.getCell((int) spritePart.getSpriteLeftBottom()[0] / 45, ((int) spritePart.getSpriteLeftBottom()[1] + 1) / 45).getTile().getProperties().containsKey("Wall")) {
                 pp.setX(pp.getX() + 1);
             }
-
         }
+    }
+
+    public ArrayList<String> setValidDirections(World world) {
+        ArrayList<String> directions = new ArrayList();
+        
+        for (Entity entity : world.getEntities()) {
+            PositionPart pp = entity.getPart(PositionPart.class);
+            SpritePart sp = entity.getPart(SpritePart.class);
+                
+            if (!(sdf.getCell((int) sp.getSpriteLeftBottom()[0] / 45, ((int) sp.getSpriteLeftBottom()[1])-1 / 45).getTile().getProperties().containsKey("Wall") 
+                    || sdf.getCell((int) sp.getSpriteRightBottom()[0] / 45, ((int) sp.getSpriteLeftBottom()[1])-1 / 45).getTile().getProperties().containsKey("Wall"))) {
+                directions.add("down");
+            }
+            
+            if (!(sdf.getCell(((int) sp.getSpriteRightBottom()[0])+1 / 45, (int) sp.getSpriteRightBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
+                    || sdf.getCell(((int) sp.getSpriteRightTop()[0])+1 / 45, (int) sp.getSpriteRightTop()[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+                directions.add("right");
+            }
+            
+            if (!(sdf.getCell((int) sp.getSpriteLeftTop()[0] / 45, (int)(sp.getSpriteLeftTop()[1])+1 / 45).getTile().getProperties().containsKey("Wall")
+                    || sdf.getCell((int) sp.getSpriteRightTop()[0]/ 45, ((int) sp.getSpriteRightTop()[1])+1 / 45).getTile().getProperties().containsKey("Wall"))) {
+                directions.add("up");
+            }
+            
+            if (!(sdf.getCell(((int) sp.getSpriteLeftTop()[0])-1 / 45, (int) sp.getSpriteLeftTop()[1] / 45).getTile().getProperties().containsKey("Wall")
+                    || sdf.getCell(((int) sp.getSpriteLeftBottom()[0])-1 / 45, (int) sp.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+                directions.add("left");
+            }
+        }
+        return directions;
     }
 }
