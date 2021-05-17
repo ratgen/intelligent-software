@@ -26,8 +26,9 @@ public class WeaponSystem implements IWeaponSPI {
     @Override
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
-        int x_offset = 0;
-        int y_offset = 0;
+        SpritePart sp = weapon.getPart(SpritePart.class);
+        int x_offset = (int) sp.getSprite().getOriginX();
+        int y_offset = (int) sp.getSprite().getHeight();
         float radian_offset = 0;
         System.out.println("new shot at x: " + posPart.getX() + " y: " + posPart.getY());
         shotSPI.shoot(
@@ -67,7 +68,7 @@ public class WeaponSystem implements IWeaponSPI {
         positionPart.setRadians(0);
         weapon.add(positionPart);
         weapon.add(new WeaponPart(1,1));
-        SpritePart spritePart = new SpritePart("assets/syringesmall.png", this.getClass());
+        SpritePart spritePart = new SpritePart("assets/black.png", this.getClass());
         weapon.add(spritePart);
 
         return weapon;    
