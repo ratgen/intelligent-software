@@ -5,6 +5,7 @@ import dk.group6.common.data.GameData;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
+import java.util.ArrayList;
 
 public class MovingPart implements EntityPart {
 
@@ -39,14 +40,16 @@ public class MovingPart implements EntityPart {
         float delta = gameData.getDelta();
         
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        if (left) {
+        ArrayList<String> validDirections = positionPart.getDirections();
+        
+        if (left && validDirections.contains("left")) {
             positionPart.setX(positionPart.getX() - 1);
-        } else if (right) {
+        } else if (right && validDirections.contains("right")) {
             positionPart.setX(positionPart.getX() + 1);
         } // accelerating            
-        else if (up) {
+        else if (up && validDirections.contains("up")) {
             positionPart.setY(positionPart.getY() + 1);
-        } else if (down) {
+        } else if (down && validDirections.contains("down")) {
             positionPart.setY(positionPart.getY() - 1);
         }
         else if (straight) {

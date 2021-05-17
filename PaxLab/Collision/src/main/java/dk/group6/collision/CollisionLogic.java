@@ -76,6 +76,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     }
 
     public void wallCollision(World world) {
+        /*
         for (Entity entity : world.getEntities()) {
 
             sdf = world.getMapTileLayer();
@@ -109,13 +110,14 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 pp.setX(pp.getX() + 1);
             }
         }
+         */
     }
 
-    public ArrayList<String> setValidDirections(World world) {
-        ArrayList<String> directions = new ArrayList();
+    public void setValidDirections(World world) {
         sdf = world.getMapTileLayer();
 
         for (Entity entity : world.getEntities()) {
+            ArrayList<String> directions = new ArrayList();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);
 
@@ -138,7 +140,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     || sdf.getCell(((int) sp.getSpriteLeftBottom()[0] - 1) / 45, (int) sp.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("left");
             }
+            pp.setDirections(directions);
         }
-        return directions;
     }
 }
