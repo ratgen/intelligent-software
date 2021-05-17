@@ -27,13 +27,13 @@ public class ShotProcessor implements IEntityProcessingService{
             movingPart.process(gameData, shot);
             spritePart.process(gameData, shot);
             
+            //Checks if bullet collides with wall
             if (world.getMapTileLayer().getCell((int)spritePart.getSpriteLeftBottom()[0]/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
                     world.getMapTileLayer().getCell((int)spritePart.getSpriteRightBottom()[0]/45, (int)spritePart.getSpriteRightBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
                     world.getMapTileLayer().getCell((int)spritePart.getSpriteLeftTop()[0]/45, (int)spritePart.getSpriteLeftTop()[1]/45).getTile().getProperties().containsKey("Wall") ||
                     world.getMapTileLayer().getCell((int)spritePart.getSpriteRightTop()[0]/45, (int)spritePart.getSpriteRightTop()[1]/45).getTile().getProperties().containsKey("Wall")
                     ) {
                 world.removeEntity(shot);
-                System.out.println("!!! OUT !!!");
             }
         }
     }
