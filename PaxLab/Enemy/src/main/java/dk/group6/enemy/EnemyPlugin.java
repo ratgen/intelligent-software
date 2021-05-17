@@ -13,7 +13,7 @@ import dk.group6.common.services.IGamePluginService;
 public class EnemyPlugin implements IGamePluginService {
 
     private String enemyID;
-    int[][] spawnPoints = {{314, 135}, {584, 135}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}};
+    int[][] spawnPoints = {{46, 629}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}};
 
     public EnemyPlugin() {
     }
@@ -21,14 +21,15 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-        for (int i = 0; i < 4; i++) {
-            Entity enemy = createEnemy(gameData);
+        for (int i = 0; i < 2; i++) {
+            Entity enemy = createEnemy(gameData, i);
             enemyID = world.addEntity(enemy);
         }
     }
 
-    private Entity createEnemy(GameData gameData) {
-        int[] spawnPoint = spawnPoints[(int) (Math.random() * (4 - 0)) + 0];
+    private Entity createEnemy(GameData gameData, int i) {
+        int[] spawnPoint = spawnPoints[i];
+        
         Entity enemy = new Enemy();
         
         enemy.add(new LifePart(1));

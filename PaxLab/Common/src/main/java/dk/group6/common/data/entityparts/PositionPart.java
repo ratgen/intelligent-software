@@ -7,6 +7,7 @@ package dk.group6.common.data.entityparts;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,12 +18,16 @@ public class PositionPart implements EntityPart {
     private float y;
     private float radians;
     
-    String[] directions;
+    ArrayList<String> directions;
 
-    public String[] getDirections() {
+    public ArrayList<String> getDirections() {
         return directions;
     }
-
+    
+    public void setDirections(ArrayList<String> a) {
+        this.directions = a;
+    }
+    
     public PositionPart(float x, float y) {
         this.x = x;
         this.y = y;
