@@ -46,50 +46,38 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     continue;
                 }
                 if (r1.overlaps(r2)) {
-                    // Player & Weapon
-                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))) {
-                        System.out.println("PLAYER touches a WEAPON");
-                    }
                     // Player & Enemy
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Enemy"))) {
-                        System.out.println("PLAYER touches a ENEMY");
                         LifePart entityLife = entity.getPart(LifePart.class);
 
                         if (entityLife.getLife() > 0) {
                             entityLife.setLife(entityLife.getLife() - 1);
                             entityLife.setIsHit(true);
-                            System.out.println("Entity lost a life! - " + entity.getClass().toString());
                             break;
                         } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
                             world.removeEntity(entity);
-                            System.out.println("Entity dead - " + entity.getClass().toString());
                         }
                     }
                     // Enemy & Bullet
-                    if ((entity1.getClass().toString().contains("Bullet") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Bullet") && entity1.getClass().toString().contains("Enemy"))) {
-                        System.out.println("BULLET touches a ENEMY");
+                    if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
                         if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
-                            System.out.println("Enemy hit!");
                             // If bullet hits any entity, it looses a life
                             LifePart entityLife = entity.getPart(LifePart.class);
 
-                            if (entityLife.getLife() > 0 && entity.getClass().toString().contains("Enemy")) {
+                            if (entityLife.getLife() > 0) {
                                 entityLife.setLife(entityLife.getLife() - 1);
                                 entityLife.setIsHit(true);
-                                System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
-                                break;
-                            } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
                                 world.removeEntity(entity);
-                                System.out.println("Entity dead - " + entity.getClass().toString());
+                                System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
+
+                                break;
                             }
                         }
-                    }
                     }
                 }
             }
         }
-
-    
+    }
 
     public void wallCollision(World world) {
         /*

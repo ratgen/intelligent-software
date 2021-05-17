@@ -7,6 +7,7 @@ package dk.group6.shot;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
@@ -31,6 +32,7 @@ public class ShotSystem implements ShotSPI {
         
         shot.add(new PositionPart((float) x, (float) y));
         shot.add(new MovingPart());
+        shot.add(new LifePart(1));
         //SpritePart sp = new SpritePart("assets/spritshot.png", this.getClass());
         SpritePart sp = new SpritePart("assets/testshot.png", this.getClass());
         shot.add(sp);
