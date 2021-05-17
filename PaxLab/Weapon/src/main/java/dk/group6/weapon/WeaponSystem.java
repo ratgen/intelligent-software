@@ -56,10 +56,10 @@ public class WeaponSystem implements IWeaponSPI {
         
         PositionPart positionPart = new PositionPart(50 ,100);
 
-        positionPart.setRadians(3f);
+        positionPart.setRadians((float) -Math.PI/4);
         weapon.add(positionPart);
         weapon.add(new WeaponPart(1,1));
-        SpritePart spritePart = new SpritePart("assets/syringe.png", this.getClass());
+        SpritePart spritePart = new SpritePart("assets/syringesmall.png", this.getClass());
         spritePart.setScale(0.25f);
         weapon.add(spritePart);
 

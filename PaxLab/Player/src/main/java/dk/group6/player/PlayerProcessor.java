@@ -3,6 +3,8 @@ package dk.group6.player;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
+import static dk.group6.common.data.GameKeys.ENTER;
+import static dk.group6.common.data.GameKeys.SPACE;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
@@ -32,13 +34,13 @@ public class PlayerProcessor implements IEntityProcessingService {
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
-            if (gameData.getKeys().isDown(GameKeys.ENTER)){
+            if (gameData.getKeys().isPressed(ENTER)){
                 System.out.println("pressed enter");
                 createWeapon(entity, gameData, world);
-            }
-            
-            if (gameData.getKeys().isDown(GameKeys.SPACE)) {
-                System.out.println("Pressed space");
+            } 
+            if (gameData.getKeys().isPressed(SPACE)) {
+                System.out.println("Pressed space is pressed "
+                        + "");
                 for (String weaponID: weaponPart.getWeapons()){
                     Weapon weapon = (Weapon) world.getEntity (weaponID);
                     weaponSystem.attack(weapon, world);

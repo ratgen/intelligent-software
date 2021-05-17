@@ -42,7 +42,6 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     continue;
                 }
                 if (r1.overlaps(r2)) {
-                    System.out.println("Collision between entities!");
                     // Player & Weapon
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))){
                         System.out.println("PLAYER touches a WEAPON");
