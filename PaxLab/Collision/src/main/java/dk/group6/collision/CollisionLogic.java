@@ -68,12 +68,28 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     // Enemy & Bullet
                     if ((entity1.getClass().toString().contains("Bullet") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Bullet") && entity1.getClass().toString().contains("Enemy"))) {
                         System.out.println("BULLET touches a ENEMY");
-                        // NOT IMPLEMENTED YET
+                        if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
+                            System.out.println("Enemy hit!");
+                            // If bullet hits any entity, it looses a life
+                            LifePart entityLife = entity.getPart(LifePart.class);
+
+                            if (entityLife.getLife() > 0 && entity.getClass().toString().contains("Enemy")) {
+                                entityLife.setLife(entityLife.getLife() - 1);
+                                entityLife.setIsHit(true);
+                                System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
+                                break;
+                            } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
+                                world.removeEntity(entity);
+                                System.out.println("Entity dead - " + entity.getClass().toString());
+                            }
+                        }
+                    }
                     }
                 }
             }
         }
-    }
+
+    
 
     public void wallCollision(World world) {
         /*
@@ -115,10 +131,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
     public void setValidDirections(World world) {
         sdf = world.getMapTileLayer();
-        
+
         for (Entity entity : world.getEntities()) {
-            
-            if (entity.getClass().toString().contains("Shot") || entity.getClass().toString().contains("Weapon") ) {
+
+            if (entity.getClass().toString().contains("Shot") || entity.getClass().toString().contains("Weapon")) {
                 continue;
             }
             ArrayList<String> directions = new ArrayList();
