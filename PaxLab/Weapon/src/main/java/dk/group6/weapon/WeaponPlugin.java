@@ -9,13 +9,9 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
-import dk.group6.common.data.entityparts.PositionPart;
-import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.weapon.Weapon;
 
 public class WeaponPlugin implements IGamePluginService {
-    private String weaponID;
 
     @Override
     public void start(GameData gameData, World world) {
@@ -24,8 +20,8 @@ public class WeaponPlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        world.removeEntity(weaponID);
+        for (Entity weapon : world.getEntities(Weapon.class)){
+            world.removeEntity(weapon);
+        }
     }
-    
-    
 }

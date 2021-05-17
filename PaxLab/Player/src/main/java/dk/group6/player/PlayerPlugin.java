@@ -10,7 +10,6 @@ import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
-import dk.group6.common.weapon.IWeaponSPI;
 
 public class PlayerPlugin implements IGamePluginService {
     private String playerID;

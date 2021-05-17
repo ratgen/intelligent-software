@@ -10,7 +10,6 @@ import dk.group6.common.data.GameData;
 
 /**
  *
- * @author Alexander
  */
 public class PositionPart implements EntityPart {
 
@@ -18,6 +17,12 @@ public class PositionPart implements EntityPart {
     private float y;
     private float radians;
     
+    String[] directions;
+
+    public String[] getDirections() {
+        return directions;
+    }
+
     public PositionPart(float x, float y) {
         this.x = x;
         this.y = y;
