@@ -5,14 +5,9 @@
  */
 package dk.group6.weapon;
 
-import dk.group6.common.data.Entity;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
-import dk.group6.common.data.entityparts.PositionPart;
-import dk.group6.common.data.entityparts.SpritePart;
-import dk.group6.common.data.entityparts.WeaponPart;
-import dk.group6.common.weapon.Weapon;
 
 public class WeaponPlugin implements IGamePluginService {
     private String weaponID;

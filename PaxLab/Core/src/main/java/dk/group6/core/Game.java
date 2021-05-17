@@ -80,9 +80,11 @@ public class Game implements ApplicationListener {
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         
+        TiledMap tmap = map.getMap();
+        
         update();
-        draw();
         gameData.getKeys().update();
+        draw();
 
     }
 

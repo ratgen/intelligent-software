@@ -10,7 +10,6 @@ import dk.group6.common.data.GameData;
 
 /**
  *
- * @author Alexander
  */
 public class PositionPart implements EntityPart {
 
