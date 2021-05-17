@@ -35,16 +35,31 @@ public class PlayerProcessor implements IEntityProcessingService {
             movingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
             
             if (gameData.getKeys().isPressed(GameKeys.ENTER)){
-                System.out.println("pressed enter");
                 createWeapon(entity, gameData, world);
             }
             
             if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
-                System.out.println("Pressed space");
                 for (String weaponID: weaponPart.getWeapons()){
                     Weapon weapon = (Weapon) world.getEntity (weaponID);
                     weaponSystem.attack(weapon, world);
                 }
+            }
+            
+            for (String weaponID: weaponPart.getWeapons()){
+                Weapon weapon = (Weapon) world.getEntity (weaponID);
+                PositionPart ps = weapon.getPart(PositionPart.class);
+                if (gameData.getKeys().isDown(GameKeys.LEFT)) {
+                    ps.setRadians((float) (Math.PI/2f - Math.PI/4)) ;
+                } else if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
+                   ps.setRadians((float) (Math.PI/4 + Math.PI)) ;
+                } else if (gameData.getKeys().isDown(GameKeys.UP)){
+                   ps.setRadians((float) (Math.PI/4 - Math.PI/2)) ;
+                } else if (gameData.getKeys().isDown(GameKeys.DOWN)){
+                   ps.setRadians((float) (Math.PI/4 + Math.PI/2)) ;
+
+                }
+                ps.setX(positionPart.getX()- 90f);
+                ps.setY(positionPart.getY() - 40f );
             }
             
             movingPart.process(gameData, entity);
