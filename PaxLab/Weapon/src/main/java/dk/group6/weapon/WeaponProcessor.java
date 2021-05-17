@@ -17,11 +17,9 @@ public class WeaponProcessor implements IEntityProcessingService {
         for (Entity entity : world.getEntities(Weapon.class)) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
-            WeaponContainerPart weaponPart = entity.getPart(WeaponContainerPart.class);
             
             positionPart.process(gameData, entity);            
             spritePart.process(gameData, entity);
-            weaponPart.process(gameData, entity);
         }
     }
 }

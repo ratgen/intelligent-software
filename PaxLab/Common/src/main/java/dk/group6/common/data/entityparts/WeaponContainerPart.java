@@ -7,7 +7,6 @@ package dk.group6.common.data.entityparts;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
-import java.util.ArrayList;
 
 /**
  *
@@ -18,9 +17,10 @@ public class WeaponContainerPart implements EntityPart {
     
     
     public WeaponContainerPart() {
+
     }
     
-    public String getWeapon() {
+    public String getWeapon () {
         return weapon;
     }
     
@@ -34,5 +34,6 @@ public class WeaponContainerPart implements EntityPart {
     
     @Override
     public void process(GameData gameData, Entity entity) {
+
     }
 }

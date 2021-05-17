@@ -17,8 +17,8 @@ public class WeaponPart implements EntityPart {
     private int ammo;
 
     public WeaponPart(int damage, int ammo) {
-	this.damage = damage;
-   	this.ammo = ammo;
+		this.damage = damage;
+		this.ammo = ammo;
     }
     	
 
@@ -41,5 +41,13 @@ public class WeaponPart implements EntityPart {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+	public boolean canFire() {
+		return ammo > 0;
+	}
+	
+	public void fire() {
+		ammo--;
+	} 
 	
 }

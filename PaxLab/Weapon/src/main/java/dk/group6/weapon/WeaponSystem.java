@@ -11,6 +11,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.data.entityparts.WeaponContainerPart;
+import dk.group6.common.data.entityparts.WeaponPart;
 import dk.group6.common.shot.ShotSPI;
 import dk.group6.common.weapon.IWeaponSPI;
 import dk.group6.common.weapon.Weapon;
@@ -27,51 +28,58 @@ public class WeaponSystem implements IWeaponSPI {
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
         SpritePart sp = weapon.getPart(SpritePart.class);
-        int x_offset = (int) sp.getSprite().getOriginX();
-        int y_offset = (int) sp.getSprite().getHeight();
-        int degrees = (int) (posPart.getRadians() * (180f/Math.PI)) ;
-	    switch (degrees) {
-	    	    case 0:
-			    //up position
-			    shotSPI.shoot(
-				    (int) posPart.getX() + x_offset / 2,
-				    (int) posPart.getY() + y_offset,
-				    posPart.getRadians() ,
-				    world
-			    );
-			    break;
-	    	    case 90:
-			    //left positoin
-			    shotSPI.shoot(
-				    (int) posPart.getX() - y_offset/2,
-				    (int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
-				    posPart.getRadians(),
-				    world
-			    );		    
-			    break;
-	    	    case -90:
-			    //right position
-			    shotSPI.shoot(
-				    (int) posPart.getX() + y_offset/2,
-				    (int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
-				    posPart.getRadians(),
-				    world
-			    );
-			    break;
-		    case 180:
-			    //down position
-			    shotSPI.shoot(
-				    (int) posPart.getX() + x_offset / 2,
-				    (int) posPart.getY(),
-				    posPart.getRadians(),
-				    world
-			    );
-			    break;
-	    	    default:
-			    break;
-	    }
-           
-        
+		WeaponPart wp = weapon.getPart(WeaponPart.class);
+		if (wp.canFire()) {
+			int x_offset = (int) sp.getSprite().getOriginX();
+			int y_offset = (int) sp.getSprite().getHeight();
+			int degrees = (int) (posPart.getRadians() * (180f/Math.PI)) ;
+			switch (degrees) {
+				case 0:
+					//up position
+					shotSPI.shoot(
+						(int) posPart.getX() + x_offset / 2,
+						(int) posPart.getY() + y_offset,
+						posPart.getRadians() ,
+						world
+					);
+					wp.fire();
+					break;
+				case 90:
+					//left positoin
+					shotSPI.shoot(
+						(int) posPart.getX() - y_offset/2,
+						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+						posPart.getRadians(),
+						world
+					);		    
+					wp.fire();
+					break;
+				case -90:
+					//right position
+					shotSPI.shoot(
+						(int) posPart.getX() + y_offset/2,
+						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+						posPart.getRadians(),
+						world
+					);
+					wp.fire();
+					break;
+				case 180:
+					//down position
+					shotSPI.shoot(
+						(int) posPart.getX() + x_offset / 2,
+						(int) posPart.getY(),
+						posPart.getRadians(),
+						world
+					);
+					wp.fire();
+					break;
+					default:
+					break;
+			}
+		System.out.println("ammo left: " + wp.getAmmo());
+
+		}
     }
 
     @Override
@@ -102,7 +110,7 @@ public class WeaponSystem implements IWeaponSPI {
         PositionPart positionPart = new PositionPart(50 ,100);
         positionPart.setRadians(0);
         weapon.add(positionPart);
-        weapon.add(new WeaponContainerPart());
+        weapon.add(new WeaponPart(3, 100));
         SpritePart spritePart = new SpritePart("assets/syringesmall.png", this.getClass());
         weapon.add(spritePart);
 

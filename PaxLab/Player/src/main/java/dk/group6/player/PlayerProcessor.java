@@ -45,7 +45,6 @@ public class PlayerProcessor implements IEntityProcessingService {
 		    }
             }
 	    if (weaponPart.getWeapon() != null) {
-            
                 Weapon weapon = (Weapon) world.getEntity(weaponPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
@@ -81,8 +80,8 @@ public class PlayerProcessor implements IEntityProcessingService {
         weaponPart.addWeapon(weaponID);
         Entity weapon = world.getEntity(weaponID);
         PositionPart ps = weapon.getPart(PositionPart.class);
-        ps.setRadians((float) (Math.PI/4 + Math.PI/2)) ;
-        ps.setX(positionPart.getX()- 90f);
+        ps.setRadians((float) (Math.PI / 4 + Math.PI / 2)) ;
+        ps.setX(positionPart.getX() - 90f);
         ps.setY(positionPart.getY() - 140f );
     }
     
