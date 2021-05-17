@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down, straight;
-    private final float acceleration = 200;
 
     public MovingPart() {
     }
@@ -61,8 +60,8 @@ public class MovingPart implements EntityPart {
 
             float vec = (float) sqrt(dx * dx + dy * dy);
 
-            dx = (dx / vec) * 10;
-            dy = (dy / vec) * 10;
+            dx = (dx / vec) * 5;
+            dy = (dy / vec) * 5;
             
             float x = positionPart.getX() + dx;
             float y = positionPart.getY() + dy;
