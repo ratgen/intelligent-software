@@ -31,14 +31,14 @@ public class WeaponSystem implements IWeaponSPI {
 		if (wp.canFire()) {
 			int x_offset = (int) sp.getSprite().getOriginX();
 			int y_offset = (int) sp.getSprite().getHeight();
-			int degrees = (int) (posPart.getRadians() * (180f/Math.PI)) ;
+			int degrees = (int) (posPart.getRadians() * (180/Math.PI)) ;
 			switch (degrees) {
 				case 0:
 					//up position
 					shotSPI.shoot(
 						(int) posPart.getX() + x_offset / 2,
 						(int) posPart.getY() + y_offset,
-						posPart.getRadians() ,
+						0,
 						world
 					);
 					wp.fire();
@@ -48,7 +48,7 @@ public class WeaponSystem implements IWeaponSPI {
 					shotSPI.shoot(
 						(int) posPart.getX() - y_offset/2,
 						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
-						posPart.getRadians(),
+						Math.PI/2,
 						world
 					);		    
 					wp.fire();
@@ -58,7 +58,7 @@ public class WeaponSystem implements IWeaponSPI {
 					shotSPI.shoot(
 						(int) posPart.getX() + y_offset/2,
 						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
-						posPart.getRadians(),
+						-Math.PI/2,
 						world
 					);
 					wp.fire();
@@ -68,7 +68,7 @@ public class WeaponSystem implements IWeaponSPI {
 					shotSPI.shoot(
 						(int) posPart.getX() + x_offset / 2,
 						(int) posPart.getY(),
-						posPart.getRadians(),
+						Math.PI,
 						world
 					);
 					wp.fire();

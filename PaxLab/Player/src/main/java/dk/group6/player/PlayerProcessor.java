@@ -43,12 +43,8 @@ public class PlayerProcessor implements IEntityProcessingService {
                     weaponSystem.attack(weapon, world);
                 }
             }
-            //System.out.println("weapon ID: " + containerPart.getWeapon());
-            //System.out.println("sprite : " + world.getEntity(containerPart.getWeapon()).getPart(SpritePart.class));
 
-            //
             if (containerPart.getWeapon() != null) {
-
                 Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);

@@ -30,8 +30,6 @@ public class EnemyProcessor implements IEntityProcessingService {
                 
                 ArrayList<String> strA = getTrack(entity, player, world);
 
-                System.out.println("eP: " + strA.get(0));
-
                 if (strA.get(1) != null) {
                     switch (strA.get(1)) {
                         case "up":

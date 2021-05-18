@@ -37,8 +37,8 @@ public class ShotSystem implements ShotSPI {
         SpritePart sp = new SpritePart("assets/testshot.png", this.getClass());
         shot.add(sp);
         PositionPart positionPart = shot.getPart(PositionPart.class);
-        float offset = (float) Math.PI/2;
-        positionPart.setRadians((radian  + offset));
+        double offset = Math.PI/2;
+        positionPart.setRadians((radian + offset));
         MovingPart movingPart = shot.getPart(MovingPart.class);
         movingPart.setStraight(true);
         

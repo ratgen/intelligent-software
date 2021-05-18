@@ -162,7 +162,6 @@ public class Node {
         ArrayList<Node> neighbours = getNeighbours(current, world);
         
         for (Node neighbour : neighbours) {
-           System.out.println(neighbour.direction); 
             if (!AStar.explored.contains(neighbour)) {
                 Node w = new Node(neighbour.getX(), neighbour.getY(), current, neighbour.direction,
                         calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
@@ -170,12 +169,7 @@ public class Node {
                 w.setTotal(w.getTravel() + w.getDistance());
                 ways.add(w);
                 AStar.explored.add(w);
-            } else {
-                //System.out.println("already exist");
-                //System.out.println("x: " + neighbour.getX());
-                //System.out.println("y: " + neighbour.getY());
-            }
-            
+            }             
         }
         return ways;
     }

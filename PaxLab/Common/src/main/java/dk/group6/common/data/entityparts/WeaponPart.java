@@ -49,5 +49,6 @@ public class WeaponPart implements EntityPart {
 	public void fire() {
 		ammo--;
 	} 
+
 	
 }
