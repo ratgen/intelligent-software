@@ -27,7 +27,7 @@ public class WeaponSystem implements IWeaponSPI {
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
         SpritePart sp = weapon.getPart(SpritePart.class);
-	WeaponPart wp = weapon.getPart(WeaponPart.class);
+		WeaponPart wp = weapon.getPart(WeaponPart.class);
 		if (wp.canFire()) {
 			int x_offset = (int) sp.getSprite().getOriginX();
 			int y_offset = (int) sp.getSprite().getHeight();

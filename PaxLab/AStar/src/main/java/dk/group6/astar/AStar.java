@@ -40,6 +40,7 @@ public class AStar implements IPathFinderSPI {
             
             if (current.getDistance() < 10) {
                 ArrayList<String> st = current.getPath(current);
+		Collections.reverse(st);
                 return st;
             }
             

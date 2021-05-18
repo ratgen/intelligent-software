@@ -183,63 +183,35 @@ public class Node {
     public ArrayList<Node> getNeighbours(Node n, World world) {
         ArrayList<Node> nA = new ArrayList<>();
 	
-	class position {
-		int x;
-		int y;
-		String direction;
-		public position(int x, int y, String direction){
-			this.x = x;
-			this.y = y;
-			this.direction = direction;
-		}
-	}
-
-	ArrayList<position> pos = new ArrayList();       
-
-	pos.add(new position(n.getX()- 10, n.getY(), "left"));
-	pos.add(new position(n.getX()+ 10, n.getY(), "right")  );
-	pos.add(new position(n.getX(), n.getY() + 10, "up")  );
-	pos.add(new position(n.getX(), n.getY() - 10, "down"));
+	ArrayList<Node> pos = new ArrayList();       
 	
-	for (position dd : pos) {
-		if(world.isValidCell(dd.x, dd.y)){
-		    Node a = new Node(dd.x, dd.y, dd.direction );
-		    a.setTravel(n.getTravel());
-		    a.setCoordinates(a, a.getDirection());
-
-		    nA.add(a);
-
+	int offset = 10;
+	int dist = 45;
+	
+	pos.add(new Node(n.getX() - offset, n.getY(), "left"));
+	pos.add(new Node(n.getX(), n.getY() + offset, "up"));
+	pos.add(new Node(n.getX() + offset, n.getY() , "right"));
+	pos.add(new Node(n.getX(), n.getY() - offset, "down"));
+	
+	for (Node node : pos) {
+		int x, y;
+		x = node.getX();
+		y = node.getY();
+		if (world.isValidCell(x, y) //bottom left
+			&& world.isValidCell(x + dist ,y ) //bottom right
+			&& world.isValidCell(x + dist ,y + dist ) //top right
+			&& world.isValidCell(x ,y + dist ) //top right
+			)	
+		{
+			nA.add(node);
+			
 		}
 	}
 
 
-/*
-        for (int i = 0; i < adj.size(); i++) {
-            Node a = new Node(n.getX(), n.getY(), adj.get(i));
-            a.setTravel(n.getTravel());
-            a.setCoordinates(a, a.getDirection());
-
-            nA.add(a);
-        }*/
         return nA;
     }
     
-    public void setCoordinates(Node n, String direction) {
-        switch (direction) {
-            case "Right":
-                n.setX(n.getX() + 10);
-                break;
-            case "Left":
-                n.setX(n.getX() - 10);
-                break;
-            case "Up":
-                n.setY(n.getY() + 10);
-                break;
-            case "Down":
-                n.setY(n.getY() - 10);
-                break;
-        }
-    }
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Node) {

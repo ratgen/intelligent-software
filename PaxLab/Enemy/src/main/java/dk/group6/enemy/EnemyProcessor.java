@@ -32,8 +32,8 @@ public class EnemyProcessor implements IEntityProcessingService {
 
                 System.out.println("eP: " + strA.get(0));
 
-                if (!(strA.get(0) == null)) {
-                    switch (strA.get(0)) {
+                if (strA.get(1) != null) {
+                    switch (strA.get(1)) {
                         case "up":
                             movingPart.setUp(true);
                             break;
