@@ -10,6 +10,7 @@ public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down, straight;
     private final float acceleration = 200;
+    private int a = 1;
 
     public boolean isLeft() {
         return left;
@@ -26,13 +27,12 @@ public class MovingPart implements EntityPart {
     public boolean isDown() {
         return down;
     }
-    private float a = 1;
 
     public float getA() {
         return a;
     }
 
-    public void setA(float a) {
+    public void setA(int a) {
         this.a = a;
     }
     private String[] movement;
@@ -88,21 +88,21 @@ public class MovingPart implements EntityPart {
             positionPart.setY(positionPart.getY() - a);
         }
         else if (straight) {
-            float radians = positionPart.getRadians();
-            float dx, dy;
+            double radians = positionPart.getRadians();
+            double dx, dy;
             
-            dx = (float) (cos(radians) * delta);
-            dy = (float) (sin(radians) * delta);
+            dx = cos(radians) * delta;
+            dy = sin(radians) * delta;
 
             float vec = (float) sqrt(dx * dx + dy * dy);
 
             dx = (dx / vec) * 10;
             dy = (dy / vec) * 10;
             
-            float x = positionPart.getX() + dx;
-            float y = positionPart.getY() + dy;
-            positionPart.setX(x);
-            positionPart.setY(y);
+            double x = positionPart.getX() + dx;
+            double y = positionPart.getY() + dy;
+            positionPart.setX((int) x);
+            positionPart.setY((int) y);
         }
     }
 }

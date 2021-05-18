@@ -1,5 +1,6 @@
 package dk.group6.astar;
 
+import dk.group6.common.data.World;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -8,16 +9,16 @@ public class Node {
     Node previous;
     double distance;
     String direction;
-    float x;
-    float y;
+    int x;
+    int y;
     boolean goal;
-    float goalX;
-    float goalY;
+    int goalX;
+    int goalY;
     int travel;
     double total;
     ArrayList<String> directions;
     
-    private Node(float x, float y, Node previous, String direction, double distance) {
+    private Node(int x, int y, Node previous, String direction, double distance) {
         this.x = x;
         this.y = y;
         this.previous = previous;
@@ -41,11 +42,11 @@ public class Node {
         this.direction = direction;
     }
     
-    public void setX(float x) {
+    public void setX(int x) {
         this.x = x;
     }
     
-    public void setY(float y) {
+    public void setY(int y) {
         this.y = y;
     }
     
@@ -53,11 +54,11 @@ public class Node {
         this.goal = goal;
     }
     
-    public void setGoalX(float goalX) {
+    public void setGoalX(int goalX) {
         this.goalX = goalX;
     }
     
-    public void setGoalY(float goalY) {
+    public void setGoalY(int goalY) {
         this.goalY = goalY;
     }
     
@@ -85,36 +86,36 @@ public class Node {
         return directions;
     }
     
-    public float getGoalX() {
+    public int getGoalX() {
         return goalX;
     }
     
-    public float getGoalY() {
+    public int getGoalY() {
         return goalY;
     }
     
     public Node() {
     }
     
-    public Node(float x, float y, String direction) {
+    public Node(int x, int y, String direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
     }
     
-    public Node(float x, float y, double distance) {
+    public Node(int x, int y, double distance) {
         this.x = x;
         this.y = y;
         this.distance = distance;
     }
     
-    Node(boolean b, float x, float y) {
+    Node(boolean b, int x, int y) {
         this.goal = b;
         this.goalX = x;
         this.goalY = y;
     }
     
-    Node(float x, float y) {
+    Node(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -127,15 +128,15 @@ public class Node {
         return this.total;
     }
     
-    public float getX() {
+    public int getX() {
         return this.x;
     }
     
-    public float getY() {
+    public int getY() {
         return this.y;
     }
     
-    public double calcDistance(float x1, float y1, float x2, float y2) {
+    public double calcDistance(int x1, int y1, int x2, int y2) {
         double d = Math.sqrt(Math.abs(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
         
         return d;
@@ -156,19 +157,20 @@ public class Node {
     
     ArrayList<Node> explored = new ArrayList<>();
     
-    public ArrayList<Node> expand(Node current, Node goal) {
+    public ArrayList<Node> expand(Node current, Node goal, World world) {
         ArrayList<Node> ways = new ArrayList<>();
         
-        ArrayList<Node> neighbours = getNeighbours(current);
+        ArrayList<Node> neighbours = getNeighbours(current, world);
         
         for (Node neighbour : neighbours) {
             
             if (!explored.contains(neighbour)) {
                 Node w = new Node(neighbour.getX(), neighbour.getY(), current, neighbour.direction,
                         calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
+                w.setTravel(neighbour.getTravel()+1);
+                w.setTotal(w.getTravel()+w.getDistance());
                 ways.add(w);
-                explored.add(neighbour);
-                
+                explored.add(w);
             } else {
                 System.out.println("already exist");
                 System.out.println("x: " + neighbour.getX());
@@ -179,14 +181,14 @@ public class Node {
         return ways;
     }
     
-    public ArrayList<Node> getNeighbours(Node n) {
+    public ArrayList<Node> getNeighbours(Node n, World world) {
         ArrayList<Node> nA = new ArrayList<>();
 
-        ArrayList<String> adj = n.getDirections();
+        ArrayList<String> adj = world.getValidDirections(n.getX(), n.getY());
         
         for (int i = 0; i < adj.size(); i++) {
             Node a = new Node(n.getX(), n.getY(), adj.get(i));
-
+            a.setTravel(n.getTravel());
             a.setCoordinates(a, a.getDirection());
 
             nA.add(a);
@@ -197,16 +199,16 @@ public class Node {
     public void setCoordinates(Node n, String direction) {
         switch (direction) {
             case "Right":
-                n.setX(n.getX() + 2);
+                n.setX(n.getX() + 10);
                 break;
             case "Left":
-                n.setX(n.getX() - 2);
+                n.setX(n.getX() - 10);
                 break;
             case "Up":
-                n.setY(n.getY() + 2);
+                n.setY(n.getY() + 10);
                 break;
             case "Down":
-                n.setY(n.getY() - 2);
+                n.setY(n.getY() - 10);
                 break;
         }
     }
@@ -221,10 +223,10 @@ public class Node {
     
 }
 
-class CompareDistance implements Comparator<Node> {
+class CompareTotal implements Comparator<Node> {
 
     @Override
     public int compare(Node n1, Node n2) {
-        return Double.compare(n1.getDistance(), n2.getDistance());
+        return Double.compare(n1.getTotal(), n2.getTotal());
     }
 }

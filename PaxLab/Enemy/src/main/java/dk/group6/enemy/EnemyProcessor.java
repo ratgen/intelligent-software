@@ -23,14 +23,14 @@ public class EnemyProcessor implements IEntityProcessingService {
 
         for (Entity entity : world.getEntities(Enemy.class)) {
 
-            player = getPlayerEntity(world, entity);
-
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
             if (c > 5) {
-                ArrayList<String> strA = getTrack(entity, player);
+                player = getPlayerEntity(world, entity);
+                
+                ArrayList<String> strA = getTrack(entity, player, world);
 
                 System.out.println("eP: " + strA.get(0));
 
@@ -53,7 +53,7 @@ public class EnemyProcessor implements IEntityProcessingService {
                     }
                 }
             }
-            movingPart.setA(1f);
+            movingPart.setA(1);
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
@@ -63,15 +63,16 @@ public class EnemyProcessor implements IEntityProcessingService {
         c++;
     }
 
-    private ArrayList<String> getTrack(Entity e, Entity p) {
-        return pathFinder.track(e, p);
+    private ArrayList<String> getTrack(Entity e, Entity p, World w) {
+        return pathFinder.track(e, p, w);
     }
 
     public Entity getPlayerEntity(World world, Entity enemy) {
         Entity tempEntity = null;
         for (Iterator iterator = world.getEntities().iterator(); iterator.hasNext();) {
             Entity entity = (Entity) iterator.next();
-            if (!entity.equals(enemy)) {
+            MovingPart movingPart = entity.getPart(MovingPart.class);
+            if (movingPart.getA() != 1) {
                 tempEntity = entity;
             }
         }

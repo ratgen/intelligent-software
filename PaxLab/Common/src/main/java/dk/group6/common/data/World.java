@@ -56,5 +56,31 @@ public class World {
     public Entity getEntity(String ID) {
         return entityMap.get(ID);
     }
+    
+    public ArrayList<String> getValidDirections(int x, int y) {
 
+        ArrayList<String> directions = new ArrayList();
+        
+        if (!(this.mapTileLayer.getCell(x / 45, (y - 1) / 45).getTile().getProperties().containsKey("Wall")
+                || this.mapTileLayer.getCell((x + 45) / 45, (y - 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+            directions.add("Down");
+        }
+
+        if (!(this.mapTileLayer.getCell(((x + 45) + 1) / 45, y / 45).getTile().getProperties().containsKey("Wall"))
+                || this.mapTileLayer.getCell(((x + 45) + 1) / 45, (y + 45) / 45).getTile().getProperties().containsKey("Wall")) {
+            directions.add("Right");
+        }
+
+        if (!(this.mapTileLayer.getCell(x / 45, ((y + 45) + 1) / 45).getTile().getProperties().containsKey("Wall"))
+                || this.mapTileLayer.getCell((x + 45) / 45, ((y + 45) + 1) / 45).getTile().getProperties().containsKey("Wall")) {
+            directions.add("Up");
+        }
+
+        if (!(this.mapTileLayer.getCell((x - 1) / 45, (y + 45) / 45).getTile().getProperties().containsKey("Wall")
+                || this.mapTileLayer.getCell((x - 1) / 45, y / 45).getTile().getProperties().containsKey("Wall"))) {
+            directions.add("Left");
+        }
+        
+        return directions;
+    }
 }

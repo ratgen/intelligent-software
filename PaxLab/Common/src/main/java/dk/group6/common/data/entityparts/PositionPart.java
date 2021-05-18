@@ -14,9 +14,9 @@ import java.util.ArrayList;
  */
 public class PositionPart implements EntityPart {
 
-    private float x;
-    private float y;
-    private float radians;
+    private int x;
+    private int y;
+    private double radians;
     
     ArrayList<String> directions;
 
@@ -28,38 +28,38 @@ public class PositionPart implements EntityPart {
         this.directions = a;
     }
     
-    public PositionPart(float x, float y) {
+    public PositionPart(int x, int y) {
         this.x = x;
         this.y = y;
         this.radians = radians;
     }
 
-    public float getX() {
+    public int getX() {
         return x;
     }
 
-    public float getY() {
+    public int getY() {
         return y;
     }
 
-    public float getRadians() {
+    public double getRadians() {
         return radians;
     }
     
-    public void setX(float newX) {
+    public void setX(int newX) {
         this.x = newX;
     }
     
-    public void setY(float newY) {
+    public void setY(int newY) {
         this.y = newY;
     }
 
-    public void setPosition(float newX, float newY) {
+    public void setPosition(int newX, int newY) {
         this.x = newX;
         this.y = newY;
     }
 
-    public void setRadians(float radians) {
+    public void setRadians(double radians) {
         this.radians = radians;
     }
 

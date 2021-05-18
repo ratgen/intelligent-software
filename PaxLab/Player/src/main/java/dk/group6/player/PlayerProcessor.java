@@ -27,7 +27,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
             WeaponPart weaponPart = entity.getPart(WeaponPart.class);
-
+            movingPart.setA(2);
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
@@ -48,21 +48,21 @@ public class PlayerProcessor implements IEntityProcessingService {
                 Weapon weapon = (Weapon) world.getEntity (weaponID);
                 PositionPart ps = weapon.getPart(PositionPart.class);
                 if (gameData.getKeys().isDown(GameKeys.LEFT)) {
-                    ps.setRadians((float) (Math.PI/2f - Math.PI/4)) ;
-                     ps.setX(positionPart.getX()- 140f );
-                   ps.setY(positionPart.getY() - 90f );
+                    ps.setRadians( (Math.PI/2f - Math.PI/4)) ;
+                     ps.setX(positionPart.getX()- 140 );
+                   ps.setY(positionPart.getY() - 90 );
                 } else if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
-                   ps.setRadians((float) (Math.PI/4 + Math.PI)) ;
-                   ps.setX(positionPart.getX()- 40f);
-                   ps.setY(positionPart.getY() - 90f );
+                   ps.setRadians( (Math.PI/4 + Math.PI)) ;
+                   ps.setX(positionPart.getX()- 40);
+                   ps.setY(positionPart.getY() - 90 );
                 } else if (gameData.getKeys().isDown(GameKeys.UP)){
-                   ps.setRadians((float) (Math.PI/4 - Math.PI/2)) ;
-                   ps.setX(positionPart.getX()- 90f);
-                   ps.setY(positionPart.getY() - 40f );
+                   ps.setRadians((Math.PI/4 - Math.PI/2)) ;
+                   ps.setX(positionPart.getX()- 90);
+                   ps.setY(positionPart.getY() - 40 );
                 } else if (gameData.getKeys().isDown(GameKeys.DOWN)){
-                   ps.setRadians((float) (Math.PI/4 + Math.PI/2)) ;
-                   ps.setX(positionPart.getX()- 90f);
-                   ps.setY(positionPart.getY() - 140f );
+                   ps.setRadians((Math.PI/4 + Math.PI/2)) ;
+                   ps.setX(positionPart.getX()- 90);
+                   ps.setY(positionPart.getY() - 140 );
                 }
                 
             }

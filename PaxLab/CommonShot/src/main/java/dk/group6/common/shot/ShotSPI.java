@@ -13,5 +13,5 @@ import dk.group6.common.data.World;
  * @author peter
  */
 public interface ShotSPI {
-    Entity shoot(int x, int y, float radian, World world);
+    Entity shoot(int x, int y, double radian, World world);
 }

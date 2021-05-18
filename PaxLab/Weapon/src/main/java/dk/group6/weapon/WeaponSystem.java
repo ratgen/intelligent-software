@@ -31,7 +31,7 @@ public class WeaponSystem implements IWeaponSPI {
         shotSPI.shoot(
                 (int) posPart.getX() + x_offset, 
                 (int) posPart.getY() + y_offset, 
-                posPart.getRadians() + 3.14f, 
+                (double) posPart.getRadians() + 3.14, 
                 world
         );
     }
