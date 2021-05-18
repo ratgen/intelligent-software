@@ -1,5 +1,6 @@
 package dk.group6.player;
 
+import com.badlogic.gdx.math.Rectangle;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
@@ -31,18 +32,23 @@ public class PlayerProcessor implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setDown(gameData.getKeys().isDown(GameKeys.DOWN));
-            
-            if (gameData.getKeys().isPressed(GameKeys.ENTER)){
+
+            if (containerPart.getWeapon() == null) {
                 createWeapon(entity, gameData, world);
             }
-            
+
             if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
-		    if (containerPart.getWeapon() != null) {
-			    Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
-			    weaponSystem.attack(weapon, world);
-		    }
+                if (containerPart.getWeapon() != null) {
+                    Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
+                    weaponSystem.attack(weapon, world);
+                }
             }
-	    if (containerPart.getWeapon() != null) {
+            //System.out.println("weapon ID: " + containerPart.getWeapon());
+            //System.out.println("sprite : " + world.getEntity(containerPart.getWeapon()).getPart(SpritePart.class));
+
+            //
+            if (containerPart.getWeapon() != null) {
+
                 Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
@@ -63,32 +69,32 @@ public class PlayerProcessor implements IEntityProcessingService {
                     ps.setX((int) (positionPart.getX() + (spritePart.getSprite().getWidth() / 2) - (sp.getSprite().getOriginX())));
                     ps.setY((int) (positionPart.getY() - (spritePart.getSprite().getHeight())));
                 }
-	    }
-            
+	    	}
+
             movingPart.process(gameData, entity);
-            positionPart.process(gameData, entity);  
+            positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
         }
     }
-    
-    private void createWeapon(Entity entity, GameData gameData, World world){
+
+    private void createWeapon(Entity entity, GameData gameData, World world) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        WeaponContainerPart weaponPart = entity.getPart(WeaponContainerPart.class);
+        WeaponContainerPart containerPart = entity.getPart(WeaponContainerPart.class);
         String weaponID = weaponSystem.createWeapon(gameData, world);
-        weaponPart.addWeapon(weaponID);
+        containerPart.addWeapon(weaponID);
         Entity weapon = world.getEntity(weaponID);
         PositionPart ps = weapon.getPart(PositionPart.class);
-        ps.setRadians((float) (Math.PI / 4 + Math.PI / 2)) ;
-        ps.setX((int) (positionPart.getX() - 90));
-        ps.setY( positionPart.getY() - 140 );
+        ps.setRadians((float) (Math.PI / 4 + Math.PI / 2));
+        ps.setX(positionPart.getX() - 90);
+        ps.setY(positionPart.getY() - 140);
     }
-    
+
     public void setWeaponSPI(IWeaponSPI weaponSystem) {
         this.weaponSystem = weaponSystem;
     }
-    
+
     public void removeWeaponSPI(IWeaponSPI weaponSystem) {
         this.weaponSystem = null;
     }
-    
+
 }
