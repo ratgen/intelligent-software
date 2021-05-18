@@ -22,19 +22,19 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-        
-		for (int i = 0; i < 4; i++) {
+
+        for (int i = 0; i < 4; i++) {
             Entity enemy = createEnemy(gameData);
             enemyID = world.addEntity(enemy);
-		}
+        }
     }
 
-    private Entity createEnemy(GameData gameData) {
-		Random rand = new Random();
+    public Entity createEnemy(GameData gameData) {
+        Random rand = new Random();
         int[] spawnPoint = spawnPoints[rand.nextInt(6)];
-        
+
         Entity enemy = new Enemy();
-        
+
         enemy.add(new LifePart(1));
         enemy.setRadius(4);
         enemy.add(new MovingPart());
@@ -47,9 +47,9 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
-		for (Entity enemy : world.getEntities(Enemy.class)) {
-        	world.removeEntity(enemy.getID());
-		}
+        for (Entity enemy : world.getEntities(Enemy.class)) {
+            world.removeEntity(enemy.getID());
+        }
     }
 
 }
