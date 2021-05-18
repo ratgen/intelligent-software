@@ -27,7 +27,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            WeaponContainerPart weaponPart = entity.getPart(WeaponContainerPart.class);
+            WeaponContainerPart containerPart = entity.getPart(WeaponContainerPart.class);
 
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
@@ -39,13 +39,13 @@ public class PlayerProcessor implements IEntityProcessingService {
             }
             
             if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
-		    if (weaponPart.getWeapon() != null) {
-			    Weapon weapon = (Weapon) world.getEntity(weaponPart.getWeapon());
+		    if (containerPart.getWeapon() != null) {
+			    Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
 			    weaponSystem.attack(weapon, world);
 		    }
             }
-	    if (weaponPart.getWeapon() != null) {
-                Weapon weapon = (Weapon) world.getEntity(weaponPart.getWeapon());
+	    if (containerPart.getWeapon() != null) {
+                Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
                 if (gameData.getKeys().isDown(GameKeys.LEFT)) {
