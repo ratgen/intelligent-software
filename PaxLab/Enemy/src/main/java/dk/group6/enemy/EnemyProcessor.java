@@ -34,16 +34,16 @@ public class EnemyProcessor implements IEntityProcessingService {
 
                 if (!(strA.get(0) == null)) {
                     switch (strA.get(0)) {
-                        case "Up":
+                        case "up":
                             movingPart.setUp(true);
                             break;
-                        case "Right":
+                        case "right":
                             movingPart.setRight(true);
                             break;
-                        case "Left":
+                        case "left":
                             movingPart.setLeft(true);
                             break;
-                        case "Down":
+                        case "down":
                             movingPart.setDown(true);
                             break;
                         default:

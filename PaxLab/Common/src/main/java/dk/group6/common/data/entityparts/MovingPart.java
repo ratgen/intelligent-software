@@ -79,10 +79,7 @@ public class MovingPart implements EntityPart {
         
         PositionPart positionPart = entity.getPart(PositionPart.class);
         ArrayList<String> validDirections = positionPart.getDirections();
-	validDirections.add("left");
-	validDirections.add("right");
-	validDirections.add("up");
-	validDirections.add("down");
+	System.out.println("number of valid dirs" + validDirections.size());
         
         if (left && validDirections.contains("left")) {
             positionPart.setX((int ) positionPart.getX() - 1);

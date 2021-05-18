@@ -182,16 +182,45 @@ public class Node {
     
     public ArrayList<Node> getNeighbours(Node n, World world) {
         ArrayList<Node> nA = new ArrayList<>();
+	
+	class position {
+		int x;
+		int y;
+		String direction;
+		public position(int x, int y, String direction){
+			this.x = x;
+			this.y = y;
+			this.direction = direction;
+		}
+	}
 
-        ArrayList<String> adj = world.getValidDirections(n.getX(), n.getY());
-        
+	ArrayList<position> pos = new ArrayList();       
+
+	pos.add(new position(n.getX()- 10, n.getY(), "left"));
+	pos.add(new position(n.getX()+ 10, n.getY(), "right")  );
+	pos.add(new position(n.getX(), n.getY() + 10, "up")  );
+	pos.add(new position(n.getX(), n.getY() - 10, "down"));
+	
+	for (position dd : pos) {
+		if(world.isValidCell(dd.x, dd.y)){
+		    Node a = new Node(dd.x, dd.y, dd.direction );
+		    a.setTravel(n.getTravel());
+		    a.setCoordinates(a, a.getDirection());
+
+		    nA.add(a);
+
+		}
+	}
+
+
+/*
         for (int i = 0; i < adj.size(); i++) {
             Node a = new Node(n.getX(), n.getY(), adj.get(i));
             a.setTravel(n.getTravel());
             a.setCoordinates(a, a.getDirection());
 
             nA.add(a);
-        }
+        }*/
         return nA;
     }
     
