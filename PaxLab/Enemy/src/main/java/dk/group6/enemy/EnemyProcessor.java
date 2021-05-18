@@ -10,7 +10,6 @@ import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.services.IEntityProcessingService;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
@@ -29,8 +28,8 @@ public class EnemyProcessor implements IEntityProcessingService {
                 player = getPlayerEntity(world, entity);
                 
                 ArrayList<String> strA = getTrack(entity, player, world);
-
-                if (strA.get(1) != null) {
+                
+                if (player != null) {
                     switch (strA.get(1)) {
                         case "up":
                             movingPart.setUp(true);
