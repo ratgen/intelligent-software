@@ -109,8 +109,8 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 directions.add("down");
             }
 
-            if (!(sdf.getCell(((int) lb[0] + 1) / 45, 
-		    (int) lb[1] / 45).getTile().getProperties().containsKey("Wall")
+            if (!(sdf.getCell(((int) rb[0] + 1) / 45, 
+		    (int) rb[1] / 45).getTile().getProperties().containsKey("Wall")
                     || 
 		sdf.getCell(((int) rt[0] + 1) / 45, 
 			(int) rt[1] / 45).getTile().getProperties().containsKey("Wall"))) {
