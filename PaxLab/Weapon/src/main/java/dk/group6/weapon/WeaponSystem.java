@@ -26,18 +26,62 @@ public class WeaponSystem implements IWeaponSPI {
     @Override
     public void attack(Weapon weapon, World world) {
         PositionPart posPart = weapon.getPart(PositionPart.class);
-        int x_offset = 80;
-        int y_offset = 20;
-        shotSPI.shoot(
-                (int) posPart.getX() + x_offset, 
-                (int) posPart.getY() + y_offset, 
-                (double) posPart.getRadians() + 3.14, 
-                world
-        );
+        SpritePart sp = weapon.getPart(SpritePart.class);
+	WeaponPart wp = weapon.getPart(WeaponPart.class);
+		if (wp.canFire()) {
+			int x_offset = (int) sp.getSprite().getOriginX();
+			int y_offset = (int) sp.getSprite().getHeight();
+			int degrees = (int) (posPart.getRadians() * (180f/Math.PI)) ;
+			switch (degrees) {
+				case 0:
+					//up position
+					shotSPI.shoot(
+						(int) posPart.getX() + x_offset / 2,
+						(int) posPart.getY() + y_offset,
+						posPart.getRadians() ,
+						world
+					);
+					wp.fire();
+					break;
+				case 90:
+					//left positoin
+					shotSPI.shoot(
+						(int) posPart.getX() - y_offset/2,
+						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+						posPart.getRadians(),
+						world
+					);		    
+					wp.fire();
+					break;
+				case -90:
+					//right position
+					shotSPI.shoot(
+						(int) posPart.getX() + y_offset/2,
+						(int) posPart.getY() + (int) sp.getSprite().getOriginY() - x_offset / 2,
+						posPart.getRadians(),
+						world
+					);
+					wp.fire();
+					break;
+				case 180:
+					//down position
+					shotSPI.shoot(
+						(int) posPart.getX() + x_offset / 2,
+						(int) posPart.getY(),
+						posPart.getRadians(),
+						world
+					);
+					wp.fire();
+					break;
+					default:
+					break;
+			}
+		System.out.println("ammo left: " + wp.getAmmo());
+
+		}
     }
 
-    @Override
-    public void destroyWeapon(Weapon weapon, World world) {
+    @Override public void destroyWeapon(Weapon weapon, World world) {
         world.removeEntity(weapon);
     }
 
@@ -62,12 +106,10 @@ public class WeaponSystem implements IWeaponSPI {
         Weapon weapon = new Weapon();
         
         PositionPart positionPart = new PositionPart(50 ,100);
-
-        positionPart.setRadians((float) - Math.PI/4);
+        positionPart.setRadians(0);
         weapon.add(positionPart);
-        weapon.add(new WeaponPart(1,1));
+        weapon.add(new WeaponPart(3, 100));
         SpritePart spritePart = new SpritePart("assets/syringesmall.png", this.getClass());
-        spritePart.setScale(0.25f);
         weapon.add(spritePart);
 
         return weapon;    

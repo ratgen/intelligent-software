@@ -15,7 +15,6 @@ import java.util.Iterator;
 public class EnemyProcessor implements IEntityProcessingService {
 
     private IPathFinderSPI pathFinder;
-    int c = 0;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -27,7 +26,6 @@ public class EnemyProcessor implements IEntityProcessingService {
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
-            if (c > 5) {
                 player = getPlayerEntity(world, entity);
                 
                 ArrayList<String> strA = getTrack(entity, player, world);
@@ -51,7 +49,6 @@ public class EnemyProcessor implements IEntityProcessingService {
                         default:
                             break;
                     }
-                }
             }
             movingPart.setA(1);
             movingPart.process(gameData, entity);
@@ -60,7 +57,6 @@ public class EnemyProcessor implements IEntityProcessingService {
             movingPart.reset();
 
         }
-        c++;
     }
 
     private ArrayList<String> getTrack(Entity e, Entity p, World w) {
@@ -69,12 +65,10 @@ public class EnemyProcessor implements IEntityProcessingService {
 
     public Entity getPlayerEntity(World world, Entity enemy) {
         Entity tempEntity = null;
-        for (Iterator iterator = world.getEntities().iterator(); iterator.hasNext();) {
-            Entity entity = (Entity) iterator.next();
-            MovingPart movingPart = entity.getPart(MovingPart.class);
-            if (movingPart.getA() != 1) {
-                tempEntity = entity;
-            }
+        for (Entity entity: world.getEntities()) {
+	    if (entity.getClass().toString().contains("Player")){
+		return entity;
+	    }
         }
         return tempEntity;
     }

@@ -18,7 +18,7 @@ public class PositionPart implements EntityPart {
     private int y;
     private double radians;
     
-    ArrayList<String> directions;
+    private ArrayList<String> directions = new ArrayList();
 
     public ArrayList<String> getDirections() {
         return directions;
@@ -33,6 +33,7 @@ public class PositionPart implements EntityPart {
         this.y = y;
         this.radians = radians;
     }
+
 
     public int getX() {
         return x;

@@ -10,10 +10,19 @@ import java.util.Collections;
 public class AStar implements IPathFinderSPI {
 
     Node current = new Node();
+    protected static ArrayList<Node> explored = new ArrayList<>();
 
     @Override
     public ArrayList<String> track(Entity from, Entity to, World world) {
-        int c = 0;
+	explored.clear();
+	
+	if (to == null) {
+		System.out.println("entity to is null");
+		ArrayList<String> dd = new ArrayList<>();
+		dd.add("Left");
+		return dd;
+	}
+
         PositionPart pF = from.getPart(PositionPart.class);
         PositionPart pT = to.getPart(PositionPart.class);
 
@@ -30,7 +39,6 @@ public class AStar implements IPathFinderSPI {
             current.setDirections(pF.getDirections());
             
             if (current.getDistance() < 10) {
-                System.out.println("working::::::::::::::::::::::::::::::::::::");
                 ArrayList<String> st = current.getPath(current);
                 return st;
             }
@@ -38,9 +46,8 @@ public class AStar implements IPathFinderSPI {
             ArrayList<Node> ways = current.expand(current, goal, world);
 
             path.addAll(ways);
-            System.out.println("state_space.size: "+path.size());
+           // System.out.println("state_space.size: "+path.size());
             Collections.sort(path, new CompareTotal());
-            c++;
         }
 
         ArrayList<String> temp = new ArrayList<>();
@@ -50,5 +57,4 @@ public class AStar implements IPathFinderSPI {
 
         return temp;
     }
-
 }

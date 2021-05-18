@@ -29,7 +29,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         entityCollision(world);
-        wallCollision(world);
+        //wallCollision(world);
         setValidDirections(world);
     }
 
@@ -48,27 +48,37 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 if (r1.overlaps(r2)) {
                     // Player & Weapon
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))) {
-                        System.out.println("PLAYER touches a WEAPON");
+                      //  System.out.println("PLAYER touches a WEAPON");
                     }
                     // Player & Enemy
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Enemy"))) {
-                        System.out.println("PLAYER touches a ENEMY");
+                     //   System.out.println("PLAYER touches a ENEMY");
+
                         LifePart entityLife = entity.getPart(LifePart.class);
 
                         if (entityLife.getLife() > 0) {
                             entityLife.setLife(entityLife.getLife() - 1);
                             entityLife.setIsHit(true);
-                            System.out.println("Entity lost a life! - " + entity.getClass().toString());
                             break;
                         } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
                             world.removeEntity(entity);
-                            System.out.println("Entity dead - " + entity.getClass().toString());
                         }
                     }
                     // Enemy & Bullet
-                    if ((entity1.getClass().toString().contains("Bullet") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Bullet") && entity1.getClass().toString().contains("Enemy"))) {
-                        System.out.println("BULLET touches a ENEMY");
-                        // NOT IMPLEMENTED YET
+                    if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
+                        if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
+                            // If bullet hits any entity, it looses a life
+                            LifePart entityLife = entity.getPart(LifePart.class);
+
+                            if (entityLife.getLife() > 0) {
+                                entityLife.setLife(entityLife.getLife() - 1);
+                                entityLife.setIsHit(true);
+                                world.removeEntity(entity);
+                                System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
+
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -76,6 +86,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     }
 
     public void wallCollision(World world) {
+        /*
         for (Entity entity : world.getEntities()) {
 
             sdf = world.getMapTileLayer();
@@ -109,6 +120,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 pp.setX(pp.getX() + 1);
             }
         }
+         */
     }
 
     public void setValidDirections(World world) {
