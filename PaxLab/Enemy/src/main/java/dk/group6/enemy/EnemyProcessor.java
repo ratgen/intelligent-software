@@ -29,7 +29,7 @@ public class EnemyProcessor implements IEntityProcessingService {
 			
 			ArrayList<String> strA = getTrack(entity, player, world);
 				
-			if (player != null && strA.size() > 1) {
+			if (player != null && strA != null && strA.size() > 1) {
 				switch (strA.get(1)) {
 					case "up":
 						movingPart.setUp(true);

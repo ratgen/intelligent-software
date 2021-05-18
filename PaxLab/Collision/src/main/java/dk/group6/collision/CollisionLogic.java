@@ -102,7 +102,8 @@ public class CollisionLogic implements IPostEntityProcessingService {
 					(int) lb[0] / 45, 
 		    		((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
                 || 
-				sdf.getCell((int) rb[0] / 45, 
+				sdf.getCell(
+					(int) rb[0] / 45, 
 					((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall"))
 				) {
                 directions.add("down");
@@ -116,12 +117,18 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 directions.add("right");
             }
 
-            if (!(sdf.getCell((int) lt[0] / 45, ((int) lt[1] + 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) rt[0] / 45, ((int) rt[1] + 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+            if (!(sdf.getCell((int) lt[0] / 45, 
+					((int) lt[1] + 1) / 45)
+					.getTile().getProperties().containsKey("Wall")
+                    || 
+				sdf.getCell((int) rt[0] / 45, 
+						((int) rt[1] + 1) / 45
+				).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("up");
             }
 
-            if (!(sdf.getCell(((int) lt[0] - 1) / 45, (int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
+            if (!(sdf.getCell(((int) lt[0] - 1) / 45, 
+					(int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
                     || sdf.getCell(((int) lb[0] - 1) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("left");
             }

@@ -177,31 +177,29 @@ public class Node {
     public ArrayList<Node> getNeighbours(Node n, World world) {
         ArrayList<Node> nA = new ArrayList<>();
 	
-	ArrayList<Node> pos = new ArrayList();       
-	
-	int offset = 10;
-	int dist = 45;
-	
-	pos.add(new Node(n.getX() - offset, n.getY(), "left"));
-	pos.add(new Node(n.getX(), n.getY() + offset, "up"));
-	pos.add(new Node(n.getX() + offset, n.getY() , "right"));
-	pos.add(new Node(n.getX(), n.getY() - offset, "down"));
-	
-	for (Node node : pos) {
-		int x, y;
-		x = node.getX();
-		y = node.getY();
-		if (world.isValidCell(x, y) //bottom left
-			&& world.isValidCell(x + dist ,y ) //bottom right
-			&& world.isValidCell(x + dist ,y + dist ) //top right
-			&& world.isValidCell(x ,y + dist ) //top right
-			)	
-		{
-			nA.add(node);
-			
+		ArrayList<Node> pos = new ArrayList();       
+		
+		int offset = 10;
+		int dist = 45;
+		
+		pos.add(new Node(n.getX() - offset, n.getY(), "left"));
+		pos.add(new Node(n.getX(), n.getY() + offset, "up"));
+		pos.add(new Node(n.getX() + offset, n.getY() , "right"));
+		pos.add(new Node(n.getX(), n.getY() - offset, "down"));
+		
+		for (Node node : pos) {
+			int x, y;
+			x = node.getX();
+			y = node.getY();
+			if (world.isValidCell(x, y) //bottom left
+				&& world.isValidCell(x + dist ,y ) //bottom right
+				&& world.isValidCell(x + dist ,y + dist ) //top right
+				&& world.isValidCell(x ,y + dist ) //top right
+				)	
+			{
+				nA.add(node);
+			}
 		}
-	}
-
 
         return nA;
     }
