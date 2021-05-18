@@ -81,14 +81,14 @@ public class MovingPart implements EntityPart {
         ArrayList<String> validDirections = positionPart.getDirections();
         
         if (left && validDirections.contains("left")) {
-            positionPart.setX((int ) positionPart.getX() - 1);
+            positionPart.setX((int ) positionPart.getX() - a);
         } else if (right && validDirections.contains("right")) {
-            positionPart.setX((int) positionPart.getX() + 1);
+            positionPart.setX((int) positionPart.getX() + a);
         } // accelerating            
         else if (up && validDirections.contains("up")) {
-            positionPart.setY(positionPart.getY() + 1);
+            positionPart.setY(positionPart.getY() + a);
         } else if (down && validDirections.contains("down")) {
-            positionPart.setY(positionPart.getY() - 1);
+            positionPart.setY(positionPart.getY() - a);
         }
         else if (straight) {
             double radians = positionPart.getRadians();
