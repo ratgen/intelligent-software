@@ -15,7 +15,6 @@ import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IPostEntityProcessingService;
 import java.util.ArrayList;
-import dk.group6.common.shot.Shot;
 
 /**
  *
@@ -85,44 +84,6 @@ public class CollisionLogic implements IPostEntityProcessingService {
         }
     }
 
-    public void wallCollision(World world) {
-        /*
-        for (Entity entity : world.getEntities()) {
-
-            sdf = world.getMapTileLayer();
-            PositionPart pp = entity.getPart(PositionPart.class);
-            SpritePart spritePart = entity.getPart(SpritePart.class);
-
-            if (entity.getClass() == Shot.class) {
-                continue;
-            }
-
-            // Bottom    
-            if (sdf.getCell(((int) spritePart.getSpriteLeftBottom()[0] + 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) spritePart.getSpriteRightBottom()[0] - 1) / 45, (int) spritePart.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setY(pp.getY() + 1);
-            }
-
-            // Right
-            if (sdf.getCell((int) spritePart.getSpriteRightBottom()[0] / 45, ((int) spritePart.getSpriteRightBottom()[1] + 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) spritePart.getSpriteRightTop()[0] / 45, ((int) spritePart.getSpriteRightTop()[1] - 1) / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setX(pp.getX() - 1);
-            }
-            // Top
-            if (sdf.getCell(((int) spritePart.getSpriteLeftTop()[0] + 1) / 45, (int) spritePart.getSpriteLeftTop()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) spritePart.getSpriteRightTop()[0] - 1) / 45, ((int) spritePart.getSpriteRightTop()[1]) / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setY(pp.getY() - 1);
-            }
-
-            // Left
-            if (sdf.getCell((int) spritePart.getSpriteLeftTop()[0] / 45, ((int) spritePart.getSpriteLeftTop()[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) spritePart.getSpriteLeftBottom()[0] / 45, ((int) spritePart.getSpriteLeftBottom()[1] + 1) / 45).getTile().getProperties().containsKey("Wall")) {
-                pp.setX(pp.getX() + 1);
-            }
-        }
-         */
-    }
-
     public void setValidDirections(World world) {
         sdf = world.getMapTileLayer();
 
@@ -131,29 +92,37 @@ public class CollisionLogic implements IPostEntityProcessingService {
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);
 
-            if (!(sdf.getCell((int) sp.getSpriteLeftBottom()[0] / 45, 
-		    ((int) sp.getSpriteLeftBottom()[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || 
-		sdf.getCell((int) sp.getSpriteRightBottom()[0] / 45, 
-			((int) sp.getSpriteLeftBottom()[1] - 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+			float[] lb = sp.getSpriteLeftBottom();
+			float[] lt = sp.getSpriteLeftTop();
+			float[] rb = sp.getSpriteRightBottom();
+			float[] rt = sp.getSpriteRightTop();
+			
+            if (!(
+				sdf.getCell(
+					(int) lb[0] / 45, 
+		    		((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
+                || 
+				sdf.getCell((int) rb[0] / 45, 
+					((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall"))
+				) {
                 directions.add("down");
             }
 
-            if (!(sdf.getCell(((int) sp.getSpriteRightBottom()[0] + 1) / 45, 
-		    (int) sp.getSpriteRightBottom()[1] / 45).getTile().getProperties().containsKey("Wall")
+            if (!(sdf.getCell(((int) lb[0] + 1) / 45, 
+		    (int) lb[1] / 45).getTile().getProperties().containsKey("Wall")
                     || 
-		sdf.getCell(((int) sp.getSpriteRightTop()[0] + 1) / 45, 
-			(int) sp.getSpriteRightTop()[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+		sdf.getCell(((int) rt[0] + 1) / 45, 
+			(int) rt[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("right");
             }
 
-            if (!(sdf.getCell((int) sp.getSpriteLeftTop()[0] / 45, ((int) sp.getSpriteLeftTop()[1] + 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) sp.getSpriteRightTop()[0] / 45, ((int) sp.getSpriteRightTop()[1] + 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+            if (!(sdf.getCell((int) lt[0] / 45, ((int) lt[1] + 1) / 45).getTile().getProperties().containsKey("Wall")
+                    || sdf.getCell((int) rt[0] / 45, ((int) rt[1] + 1) / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("up");
             }
 
-            if (!(sdf.getCell(((int) sp.getSpriteLeftTop()[0] - 1) / 45, (int) sp.getSpriteLeftTop()[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) sp.getSpriteLeftBottom()[0] - 1) / 45, (int) sp.getSpriteLeftBottom()[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+            if (!(sdf.getCell(((int) lt[0] - 1) / 45, (int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
+                    || sdf.getCell(((int) lb[0] - 1) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("left");
             }
             pp.setDirections(directions);

@@ -25,34 +25,34 @@ public class EnemyProcessor implements IEntityProcessingService {
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
 
-                player = getPlayerEntity(world, entity);
-                
-                ArrayList<String> strA = getTrack(entity, player, world);
-                
-                if (player != null) {
-                    switch (strA.get(1)) {
-                        case "up":
-                            movingPart.setUp(true);
-                            break;
-                        case "right":
-                            movingPart.setRight(true);
-                            break;
-                        case "left":
-                            movingPart.setLeft(true);
-                            break;
-                        case "down":
-                            movingPart.setDown(true);
-                            break;
-                        default:
-                            break;
-                    }
-            }
+			player = getPlayerEntity(world, entity);
+			
+			ArrayList<String> strA = getTrack(entity, player, world);
+				
+			if (player != null && strA.size() > 1) {
+				switch (strA.get(1)) {
+					case "up":
+						movingPart.setUp(true);
+						break;
+					case "right":
+						movingPart.setRight(true);
+						break;
+					case "left":
+						movingPart.setLeft(true);
+						break;
+					case "down":
+						movingPart.setDown(true);
+						break;
+					default:
+						break;
+				}
+			}
+
             movingPart.setA(1);
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
             movingPart.reset();
-
         }
     }
 

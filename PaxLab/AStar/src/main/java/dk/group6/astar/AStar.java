@@ -7,21 +7,22 @@ import dk.group6.common.data.entityparts.PositionPart;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AStar implements IPathFinderSPI {
+/**
+ *
+ * @author peter
+ */
+public class AStar implements IPathFinderSPI  {
 
     Node current = new Node();
     protected static ArrayList<Node> explored = new ArrayList<>();
 
     @Override
-    public ArrayList<String> track(Entity from, Entity to, World world) {
+    public ArrayList<String> track(Entity from, Entity to, World world) throws NullPointerException {
 	explored.clear();
 	
-	if (to == null) {
-		System.out.println("entity to is null");
-		ArrayList<String> dd = new ArrayList<>();
-		dd.add("Left");
-		return dd;
-	}
+		if (to == null) {
+			throw new NullPointerException("The entity to be found does not exist");
+		}
 
         PositionPart pF = from.getPart(PositionPart.class);
         PositionPart pT = to.getPart(PositionPart.class);
@@ -40,7 +41,7 @@ public class AStar implements IPathFinderSPI {
             
             if (current.getDistance() < 10) {
                 ArrayList<String> st = current.getPath(current);
-		Collections.reverse(st);
+				Collections.reverse(st);
                 return st;
             }
             
@@ -51,11 +52,6 @@ public class AStar implements IPathFinderSPI {
             Collections.sort(path, new CompareTotal());
         }
 
-        ArrayList<String> temp = new ArrayList<>();
-
-        temp.add("Down");
-        System.out.println("failed");
-
-        return temp;
+		throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
     }
 }
