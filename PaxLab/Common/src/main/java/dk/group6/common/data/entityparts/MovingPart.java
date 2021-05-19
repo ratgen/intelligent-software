@@ -66,6 +66,10 @@ public class MovingPart implements EntityPart {
 			wallDistance.put("down", dist);
 		} 
 	}
+	public int getDist(String direction) throws NullPointerException {
+		return wallDistance.get(direction);
+	}
+
 
 
     public float getAcceleration() {

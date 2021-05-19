@@ -24,17 +24,36 @@ public class ShotProcessor implements IEntityProcessingService{
         for (Entity shot : world.getEntities(Shot.class)){
             MovingPart movingPart = shot.getPart(MovingPart.class);
             SpritePart spritePart = shot.getPart(SpritePart.class);
+
+			int left, up, right, down;
+			try {
+				left = movingPart.getDist("left"); 
+				up = movingPart.getDist("up"); 
+				right = movingPart.getDist("right");
+				down = movingPart.getDist("down");
+				if (left < 2) {
+					world.removeEntity(shot);
+					return;
+				} 
+				if (up < 2) {
+					world.removeEntity(shot);
+					return;
+				} 
+				if (right < 2) {
+					world.removeEntity(shot);
+					return;
+				} 
+				if (down < 2) {
+					world.removeEntity(shot);
+					return;
+				}
+			} 
+			catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+
             movingPart.process(gameData, shot);
             spritePart.process(gameData, shot);
-            
-            //Checks if bullet collides with wall
-            if (world.getMapTileLayer().getCell((int)spritePart.getSpriteLeftBottom()[0]/45, (int)spritePart.getSpriteLeftBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
-                    world.getMapTileLayer().getCell((int)spritePart.getSpriteRightBottom()[0]/45, (int)spritePart.getSpriteRightBottom()[1]/45).getTile().getProperties().containsKey("Wall") ||
-                    world.getMapTileLayer().getCell((int)spritePart.getSpriteLeftTop()[0]/45, (int)spritePart.getSpriteLeftTop()[1]/45).getTile().getProperties().containsKey("Wall") ||
-                    world.getMapTileLayer().getCell((int)spritePart.getSpriteRightTop()[0]/45, (int)spritePart.getSpriteRightTop()[1]/45).getTile().getProperties().containsKey("Wall")
-                    ) {
-                world.removeEntity(shot);
-            }
         }
     }
 }
