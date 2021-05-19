@@ -52,6 +52,7 @@ public class AStar implements IPathFinderSPI  {
             Collections.sort(path, new CompareTotal());
         }
 
-		throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
+		//throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
+		return null;
     }
 }

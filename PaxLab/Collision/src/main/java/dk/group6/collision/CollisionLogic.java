@@ -12,6 +12,7 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
+import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IPostEntityProcessingService;
@@ -111,11 +112,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
         sdf = world.getMapTileLayer();
 
         for (Entity entity : world.getEntities()) {
-            ArrayList<String> directions = new ArrayList();
-            PositionPart pp = entity.getPart(PositionPart.class);
+            MovingPart mp = entity.getPart(MovingPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);
 
-			if (sp.getSprite() == null) {
+			if (sp.getSprite() == null || mp == null) {
 				continue;
 			}
 
@@ -123,30 +123,60 @@ public class CollisionLogic implements IPostEntityProcessingService {
             float[] lt = sp.getSpriteLeftTop();
             float[] rb = sp.getSpriteRightBottom();
             float[] rt = sp.getSpriteRightTop();
-
-			int offset = 0;
-			
-			boolean lb_wall = sdf.getCell((int) (lb[0] - offset)  / 45, (int) (lb[1] - offset) / 45).getTile().getProperties().containsKey("Wall");
-			boolean lt_wall = sdf.getCell((int) (lt[0] - offset)  / 45, (int) (lt[1] + offset) / 45).getTile().getProperties().containsKey("Wall");
-			boolean rb_wall = sdf.getCell((int) (rb[0] + offset) / 45, (int) (rb[1] - offset) / 45).getTile().getProperties().containsKey("Wall");
-			boolean rt_wall = sdf.getCell((int) (rt[0] + offset) / 45, (int) (rt[1] + offset) / 45).getTile().getProperties().containsKey("Wall");
-
-
-            if (!(lb_wall || rb_wall)) {
-                directions.add("down");
-            }
-
-            if (!(rb_wall || rt_wall )) {
-                directions.add("right");
-            }
-            if (!(lt_wall || rt_wall )) {
-                directions.add("up");
-            }
-            if (!(lt_wall || lb_wall )) {
-                directions.add("left");
-            }
-
-            pp.setDirections(directions);
+			int[] intarr = {1, 2, 3, 5, 8, 13, 21, 34, 55};
+				
+			for (int INT : intarr ) {
+				//left
+				if(check_left(lb, INT, world) && check_left(lt, INT, world)){
+					System.out.println("left found at " + INT);
+					mp.setLeftDistance(INT);
+					break;
+				} else {
+					mp.setLeftDistance(55);
+				} 
+			}
+			for (int INT : intarr ) {
+				//up
+				if(check_up(lt, INT, world) && check_up(rt, INT, world)){
+					System.out.println("up found at " + INT);
+					mp.setUpDistance(INT);
+					break;
+				} else {
+					mp.setUpDistance(55);
+				} 
+			}
+			for (int INT : intarr ) {
+				//right
+				if(check_right(rt, INT, world) && check_right(rb, INT, world)){
+					System.out.println("right found at " + INT);
+					mp.setRightDistance(INT);
+					break;
+				} else {
+					mp.setRightDistance(55);
+				} 
+			}
+			for (int INT : intarr ) {
+				//down
+				if(check_down(rb, INT, world) && check_down(lb, INT, world)){
+					System.out.println("down found at " + INT);
+					mp.setDownDistance(INT);
+					break;
+				} else {
+					mp.setDownDistance(55);
+				} 
+			}
         }
     }
+	private boolean check_left(float[] point, int offset, World world) {
+		return world.isValidCell((int) (point[0] - offset) / 45, (int) (point[1]) / 45);
+	}
+	private boolean check_up(float[] point, int offset, World world) {
+		return world.isValidCell((int) (point[0] ) / 45, (int) (point[1] + offset) / 45);
+	}
+	private boolean check_right(float[] point, int offset, World world) {
+		return world.isValidCell((int) (point[0] + offset) / 45, (int) (point[1]) / 45);
+	}
+	private boolean check_down(float[] point, int offset, World world) {
+		return world.isValidCell((int) (point[0] ) / 45, (int) (point[1] - offset) / 45);
+	}
 }

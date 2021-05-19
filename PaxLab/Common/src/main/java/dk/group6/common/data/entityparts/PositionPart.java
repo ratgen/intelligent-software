@@ -31,7 +31,6 @@ public class PositionPart implements EntityPart {
     public PositionPart(int x, int y) {
         this.x = x;
         this.y = y;
-        this.radians = radians;
     }
 
 

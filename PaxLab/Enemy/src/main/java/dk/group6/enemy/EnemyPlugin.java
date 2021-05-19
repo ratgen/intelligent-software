@@ -12,8 +12,6 @@ import dk.group6.common.services.IGamePluginService;
 import java.util.Random;
 
 public class EnemyPlugin implements IGamePluginService {
-
-    private String enemyID;
     int[][] spawnPoints = {{46, 629}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}};
 
     public EnemyPlugin() {
@@ -25,7 +23,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         for (int i = 0; i < 4; i++) {
             Entity enemy = createEnemy(gameData);
-            enemyID = world.addEntity(enemy);
+            world.addEntity(enemy);
         }
     }
 
@@ -37,7 +35,9 @@ public class EnemyPlugin implements IGamePluginService {
 
         enemy.add(new LifePart(1));
         enemy.setRadius(4);
-        enemy.add(new MovingPart());
+		MovingPart movingPart = new MovingPart();
+        movingPart.setAcceleration(1);
+        enemy.add(movingPart);
         enemy.add(new PositionPart(spawnPoint[0], spawnPoint[1]));
         enemy.add(new SpritePart("assets/enemy.png", this.getClass()));
 

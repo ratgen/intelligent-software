@@ -5,65 +5,81 @@ import dk.group6.common.data.GameData;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down, straight;
-    private final float acceleration = 200;
-    private int a = 1;
+    private int acceleration = 1;
+	private HashMap<String, Integer> wallDistance = new HashMap();
 
     public boolean isLeft() {
         return left;
     }
-
     public boolean isRight() {
         return right;
     }
-
     public boolean isUp() {
         return up;
     }
-
     public boolean isDown() {
         return down;
     }
-
-    public float getA() {
-        return a;
+    public void setLeft(boolean left) {
+        this.left = left;
+    }
+    public void setRight(boolean right) {
+        this.right = right;
+    }
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+    public void setDown(boolean down) {
+        this.down = down;
     }
 
-    public void setA(int a) {
-        this.a = a;
+	public void setLeftDistance(int dist){
+		if (wallDistance.containsKey("left")) {
+			wallDistance.replace("left", dist);
+		} else {
+			wallDistance.put("left", dist);
+		} 
+	}
+	public void setRightDistance(int dist){
+		if (wallDistance.containsKey("right")) {
+			wallDistance.replace("right", dist);
+		} else {
+			wallDistance.put("right", dist);
+		} 
+	}
+	public void setUpDistance(int dist){
+		if (wallDistance.containsKey("up")) {
+			wallDistance.replace("up", dist);
+		} else {
+			wallDistance.put("up", dist);
+		} 
+	}
+	public void setDownDistance(int dist){
+		if (wallDistance.containsKey("down")) {
+			wallDistance.replace("down", dist);
+		} else {
+			wallDistance.put("down", dist);
+		} 
+	}
+
+
+    public float getAcceleration() {
+        return acceleration;
+    }
+
+    public void setAcceleration(int acceleration) {
+        this.acceleration = acceleration;
     }
     private String[] movement;
 
     public MovingPart() {
     }
 
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
-    }
-
-    public void setDown(boolean down) {
-        this.down = down;
-    }
-    
-    public void reset(){
-        down = false;
-        up = false;
-        left = false;
-        right = false;
-    }
-    
     
     public String[] getMovement(){
         return this.movement;
@@ -78,17 +94,30 @@ public class MovingPart implements EntityPart {
         float delta = gameData.getDelta();
         
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        ArrayList<String> validDirections = positionPart.getDirections();
+		//System.out.println(wallDistance.toString());
         
-        if (left && validDirections.contains("left")) {
-            positionPart.setX((int ) positionPart.getX() - a);
-        } else if (right && validDirections.contains("right")) {
-            positionPart.setX((int) positionPart.getX() + a);
+        if (left && wallDistance.containsKey("left")) {
+			System.out.println("checking left");
+			if (wallDistance.get("left") > acceleration){
+				int move = (int ) positionPart.getX() - acceleration;
+            	positionPart.setX(move);
+			}
+        } else if (right && wallDistance.containsKey("right")) {
+			if (wallDistance.get("right") > acceleration){
+				int move =  (int) positionPart.getX() + acceleration ;
+            	positionPart.setX(move);
+			}
         } // accelerating            
-        else if (up && validDirections.contains("up")) {
-            positionPart.setY(positionPart.getY() + a);
-        } else if (down && validDirections.contains("down")) {
-            positionPart.setY(positionPart.getY() - a);
+        else if (up && wallDistance.containsKey("up")) {
+			if (wallDistance.get("up") > acceleration){
+				int move = positionPart.getY() + acceleration;
+            	positionPart.setY(move);
+			}
+        } else if (down && wallDistance.containsKey("down")) {
+			if (wallDistance.get("down") > acceleration){
+				int move = positionPart.getY() - acceleration ;
+            	positionPart.setY(move);
+			}
         }
         else if (straight) {
             double radians = positionPart.getRadians();
@@ -107,5 +136,9 @@ public class MovingPart implements EntityPart {
             positionPart.setX((int) x);
             positionPart.setY((int) y);
         }
+		up = false;
+		down = false;
+		right = false;
+		left = false;
     }
 }
