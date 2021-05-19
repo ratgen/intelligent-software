@@ -57,18 +57,18 @@ public class Game implements ApplicationListener {
 
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
-        
+
         cam.update();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
         map.createMap();
-        
+
         world.setMapTileLayer(map.getMapTileLayer());
-        
+
         batch = new SpriteBatch();
         batch.setProjectionMatrix(cam.combined);
-        
+
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Game implements ApplicationListener {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
-        
+
         update();
         gameData.getKeys().update();
         draw();
@@ -95,6 +95,11 @@ public class Game implements ApplicationListener {
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
+        
+        // Checks if game is lost
+        if (gameData.isGameLost()) {
+            map.gameLost();
+        }
     }
 
     private void draw() {
@@ -104,10 +109,10 @@ public class Game implements ApplicationListener {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             Sprite sprite = spritePart.getSprite();
-			
-			if (sprite == null) {
-				continue;
-			}
+
+            if (sprite == null) {
+                continue;
+            }
 
             sprite.draw(batch);
         }
@@ -154,15 +159,15 @@ public class Game implements ApplicationListener {
         this.map = null;
     }
 
-	@Override
-	public void resize(int i, int i1) {
-	}
+    @Override
+    public void resize(int i, int i1) {
+    }
 
-	@Override
-	public void pause() {
-	}
+    @Override
+    public void pause() {
+    }
 
-	@Override
-	public void resume() {
-	}
+    @Override
+    public void resume() {
+    }
 }

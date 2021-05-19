@@ -12,6 +12,25 @@ public class GameData {
     private int displayHeight;
     private final GameKeys keys = new GameKeys();
     private List<Event> events = new CopyOnWriteArrayList<>();
+    private boolean gameIsWon = false;
+    private boolean gameIsLost = false;
+
+    public boolean isGameWon() {
+        return gameIsWon;
+    }
+
+    public void setGameIsWon(boolean gameIsWon) {
+        this.gameIsWon = gameIsWon;
+    }
+
+    public boolean isGameLost() {
+        return gameIsLost;
+    }
+
+    public void setGameIsLost(boolean gameIsLost) {
+        this.gameIsLost = gameIsLost;
+    }
+    
 
     public void addEvent(Event e) {
         events.add(e);

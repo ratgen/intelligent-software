@@ -51,4 +51,18 @@ public class Map implements MapSPI {
     public Boolean isWall(int x, int y){
         return mapTileLayer.getCell(x/45, y/45).getTile().getProperties().containsKey("Wall");
     }
+
+    @Override
+    public void gameLost() {
+        this.map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/Gameover.tmx");
+        mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+        renderer.setMap(map);
+    }
+    
+    @Override
+    public void gameWon() {
+        this.map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/Won.tmx");
+        mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+        renderer.setMap(map);
+    }
 }

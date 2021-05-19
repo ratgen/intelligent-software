@@ -23,6 +23,9 @@ public interface MapSPI {
     TiledMap getMap();
     TiledMapTileLayer getMapTileLayer();
     Boolean isWall(int x, int y);
+    
+    void gameLost();
+    void gameWon();
     /*
     Boolean isRightWall(Sprite sprite);
     Boolean isLeftWall(Sprite sprite);

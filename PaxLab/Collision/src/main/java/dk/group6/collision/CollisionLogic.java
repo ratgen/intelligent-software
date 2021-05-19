@@ -32,8 +32,8 @@ public class CollisionLogic implements IPostEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         entityCollision(world);
-        //wallCollision(world);
         setWallDistance(world);
+        this.gameData = gameData; 
     }
 
     public void entityCollision(World world) {
@@ -63,10 +63,6 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     continue;
                 }
                 if (r1.overlaps(r2)) {
-                    // Player & Weapon
-                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))) {
-                        //  System.out.println("PLAYER touches a WEAPON");
-                    }
                     // Player & Enemy
                     if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Enemy"))) {
                         //   System.out.println("PLAYER touches a ENEMY");
@@ -78,6 +74,9 @@ public class CollisionLogic implements IPostEntityProcessingService {
                             entityLife.setIsHit(true);
                             break;
                         } else if (entityLife.getLife() <= 0 && entitySprite != entity1Sprite) {
+                            if (entity.getClass().toString().contains("Player")) {
+                                gameData.setGameIsLost(true);
+                            }
                             world.removeEntity(entity);
                         }
                     }
