@@ -123,35 +123,36 @@ public class CollisionLogic implements IPostEntityProcessingService {
             float[] lt = sp.getSpriteLeftTop();
             float[] rb = sp.getSpriteRightBottom();
             float[] rt = sp.getSpriteRightTop();
-
+            int offset = 2;
+            
             if (!(sdf.getCell(
                     (int) lb[0] / 45,
-                    ((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
+                    (int) ((lb[1] - offset)-1) / 45).getTile().getProperties().containsKey("Wall")
                     || sdf.getCell(
                             (int) rb[0] / 45,
-                            ((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+                            (int) ((rb[1] - offset)-1) / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("down");
             }
-
-            if (!(sdf.getCell(((int) rb[0] + 1) / 45,
+            
+            if (!(sdf.getCell(((int) rb[0] + offset) / 45,
                     (int) rb[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) rt[0] + 1) / 45,
+                    || sdf.getCell(((int) rt[0] + offset) / 45,
                             (int) rt[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("right");
             }
 
             if (!(sdf.getCell((int) lt[0] / 45,
-                    ((int) lt[1] + 1) / 45)
+                    ((int) lt[1] + offset) / 45)
                     .getTile().getProperties().containsKey("Wall")
                     || sdf.getCell((int) rt[0] / 45,
-                            ((int) rt[1] + 1) / 45
+                            ((int) rt[1] + offset) / 45
                     ).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("up");
             }
 
-            if (!(sdf.getCell(((int) lt[0] - 1) / 45,
+            if (!(sdf.getCell(((int) lt[0] - offset) / 45,
                     (int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) lb[0] - 1) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+                    || sdf.getCell(((int) lb[0] - offset) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
                 directions.add("left");
             }
             pp.setDirections(directions);
