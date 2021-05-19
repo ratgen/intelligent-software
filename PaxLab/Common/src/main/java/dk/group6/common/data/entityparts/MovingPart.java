@@ -94,10 +94,8 @@ public class MovingPart implements EntityPart {
         float delta = gameData.getDelta();
         
         PositionPart positionPart = entity.getPart(PositionPart.class);
-		//System.out.println(wallDistance.toString());
         
         if (left && wallDistance.containsKey("left")) {
-			System.out.println("checking left");
 			if (wallDistance.get("left") > acceleration){
 				int move = (int ) positionPart.getX() - acceleration;
             	positionPart.setX(move);
