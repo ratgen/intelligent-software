@@ -43,7 +43,17 @@ public class EnemyPlugin implements IGamePluginService {
 
         return enemy;
     }
-
+ public void respawnEnemies(GameData gameData, World world){
+        
+        int level = 1;
+        
+        for (int i = 0; i < 4 + level; i++) {
+            Entity enemy = createEnemy(gameData);
+            world.addEntity(enemy);
+            level++;
+        }
+        
+    }
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
