@@ -6,6 +6,18 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import dk.group6.common.map.MapSPI;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 
 
 
@@ -27,7 +39,37 @@ public class Map implements MapSPI {
     
     @Override
     public void createMap() {
-        map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/test.tmx");
+		String mapPath = "assets/map/test.tmx";
+        try {
+			BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
+			Bundle bundle = context.getBundle();
+			URL url = bundle.getResource(mapPath);
+			//create temp dir to hold the files	
+			Path dir = Files.createTempDirectory("assets");
+			File dirFile = dir.toFile();
+			
+			//read the map file
+			File mapFile = new File(dirFile, "map");
+            FileOutputStream fs = new FileOutputStream(mapFile);
+            BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
+            while (input.available() > 0 ) {
+                int bytes = input.read();
+                fs.write(bytes);
+            }
+            fs.close();
+            input.close();
+
+
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        map = new TmxMapLoader().load();
         renderer = new OrthogonalTiledMapRenderer(map);   
         mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
     }
