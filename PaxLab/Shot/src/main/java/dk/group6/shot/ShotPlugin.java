@@ -8,6 +8,7 @@ package dk.group6.shot;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.shot.Shot;
 
@@ -24,6 +25,8 @@ public class ShotPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         for (Entity shot : world.getEntities(Shot.class)){
+			SpritePart sp = shot.getPart(SpritePart.class);
+			sp.dispose();
             world.removeEntity(shot);
         }
     }

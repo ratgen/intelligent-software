@@ -3,8 +3,6 @@ package dk.group6.player;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
-import static dk.group6.common.data.GameKeys.ENTER;
-import static dk.group6.common.data.GameKeys.SPACE;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;

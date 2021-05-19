@@ -69,7 +69,6 @@ public class SpritePart implements EntityPart {
     }
     
     public void dispose(){
-        texture.dispose();
         file.delete();
     }
     

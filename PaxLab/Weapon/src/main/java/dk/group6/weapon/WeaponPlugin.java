@@ -9,6 +9,7 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.services.IGamePluginService;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
+import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.weapon.Weapon;
 
 public class WeaponPlugin implements IGamePluginService {
@@ -21,6 +22,8 @@ public class WeaponPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         for (Entity weapon : world.getEntities(Weapon.class)){
+			SpritePart sp = weapon.getPart(SpritePart.class);
+			sp.dispose();
             world.removeEntity(weapon);
         }
     }
