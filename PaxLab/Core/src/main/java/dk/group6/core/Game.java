@@ -34,7 +34,6 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private MapSPI map;
-    //private TiledMapTileLayer sdf;
 
     public Game() {
         init();
@@ -80,8 +79,6 @@ public class Game implements ApplicationListener {
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         
-        TiledMap tmap = map.getMap();
-        
         update();
         gameData.getKeys().update();
         draw();
@@ -99,16 +96,13 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-        private long ff = 0;
 
     private void draw() {
         map.getRenderer().render();
         map.getRenderer().setView(cam);
-        TiledMapTileLayer sdf = map.getMapTileLayer();
         batch.begin();
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            PositionPart positionPart = entity.getPart(PositionPart.class);
             Sprite sprite = spritePart.getSprite();
 			
 			if (sprite == null) {
@@ -118,18 +112,6 @@ public class Game implements ApplicationListener {
             sprite.draw(batch);
         }
         batch.end();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
-    public void pause() {
-    }
-
-    @Override
-    public void resume() {
     }
 
     @Override
@@ -171,4 +153,16 @@ public class Game implements ApplicationListener {
     public void removeMap(MapSPI map) {
         this.map = null;
     }
+
+	@Override
+	public void resize(int i, int i1) {
+	}
+
+	@Override
+	public void pause() {
+	}
+
+	@Override
+	public void resume() {
+	}
 }
