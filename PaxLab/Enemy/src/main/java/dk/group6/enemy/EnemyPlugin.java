@@ -48,6 +48,8 @@ public class EnemyPlugin implements IGamePluginService {
     public void stop(GameData gameData, World world) {
         // Remove entities
         for (Entity enemy : world.getEntities(Enemy.class)) {
+			SpritePart sp = enemy.getPart(SpritePart.class);
+			sp.dispose();
             world.removeEntity(enemy.getID());
         }
     }

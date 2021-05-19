@@ -45,6 +45,7 @@ public class PlayerPlugin implements IGamePluginService {
         // Remove entities
         Entity player = world.getEntity(playerID);
         SpritePart sp = player.getPart(SpritePart.class);
+		sp.dispose();
         world.removeEntity(playerID);
     }
 }

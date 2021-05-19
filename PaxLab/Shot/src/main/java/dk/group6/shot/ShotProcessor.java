@@ -49,7 +49,6 @@ public class ShotProcessor implements IEntityProcessingService{
 				}
 			} 
 			catch (NullPointerException e) {
-				e.printStackTrace();
 			}
 
             movingPart.process(gameData, shot);
