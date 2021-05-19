@@ -1,6 +1,5 @@
 package dk.group6.player;
 
-import com.badlogic.gdx.math.Rectangle;
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.GameKeys;
@@ -44,27 +43,36 @@ public class PlayerProcessor implements IEntityProcessingService {
                     weaponSystem.attack(weapon, world);
                 }
             }
-
+            
             if (containerPart.getWeapon() != null) {
                 Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
-                if (gameData.getKeys().isDown(GameKeys.LEFT)) {
-                    ps.setRadians((float) (Math.PI/2)) ;
-                    ps.setX((int) (positionPart.getX() - sp.getSprite().getOriginX() - (sp.getSprite().getHeight() / 2)));
+                
+                int offset = 2;
+                
+                if (gameData.getKeys().isDown(GameKeys.LEFT) && spritePart.getSprite().getBoundingRectangle().overlaps(sp.getSprite().getBoundingRectangle())) {
+                    ps.setRadians((float) (Math.PI/2));
+                    ps.setX((int) (positionPart.getX() - sp.getSprite().getOriginX() - (sp.getSprite().getHeight() / 2))+offset);
                     ps.setY(positionPart.getY());
-                } else if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
+                } else if (gameData.getKeys().isDown(GameKeys.RIGHT) && spritePart.getSprite().getBoundingRectangle().overlaps(sp.getSprite().getBoundingRectangle())) {
                     ps.setRadians((float) (-Math.PI/2));
-                    ps.setX((int) (positionPart.getX() + ( spritePart.getSprite().getWidth() - sp.getSprite().getOriginX() ) + (sp.getSprite().getHeight() / 2)));
+                    ps.setX((int) (positionPart.getX() + ( spritePart.getSprite().getWidth() - sp.getSprite().getOriginX() ) + (sp.getSprite().getHeight() / 2))-offset);
                     ps.setY(positionPart.getY());
-                } else if (gameData.getKeys().isDown(GameKeys.UP)){
+                } else if (gameData.getKeys().isDown(GameKeys.UP) && spritePart.getSprite().getBoundingRectangle().overlaps(sp.getSprite().getBoundingRectangle())){
                     ps.setRadians((float) (0)) ;
                     ps.setX((int) (positionPart.getX() + (spritePart.getSprite().getWidth() / 2) - (sp.getSprite().getOriginX())));
-                    ps.setY((int) (positionPart.getY() + (spritePart.getSprite().getHeight())));
-                } else if (gameData.getKeys().isDown(GameKeys.DOWN)){
+                    ps.setY((int) (positionPart.getY() + (spritePart.getSprite().getHeight()))-offset);
+                } else if (gameData.getKeys().isDown(GameKeys.DOWN) && spritePart.getSprite().getBoundingRectangle().overlaps(sp.getSprite().getBoundingRectangle())){
                     ps.setRadians((float) (Math.PI)) ;
                     ps.setX((int) (positionPart.getX() + (spritePart.getSprite().getWidth() / 2) - (sp.getSprite().getOriginX())));
-                    ps.setY((int) (positionPart.getY() - (spritePart.getSprite().getHeight())));
+                    ps.setY((int) (positionPart.getY() - (spritePart.getSprite().getHeight()))+offset);
+                }
+                
+                if (gameData.getKeys().isPressed(GameKeys.ENTER) && spritePart.getSprite().getBoundingRectangle().overlaps(sp.getSprite().getBoundingRectangle())) {
+                    ps.setRadians((float) (Math.PI/4)) ;
+                    ps.setX((int)(positionPart.getX() + (spritePart.getSprite().getWidth() / 2) - (sp.getSprite().getOriginX()))+45);
+                    ps.setY((int) (positionPart.getY() - (spritePart.getSprite().getHeight()))+45);
                 }
 	    	}
 
