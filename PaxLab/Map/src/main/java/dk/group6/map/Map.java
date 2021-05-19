@@ -27,7 +27,6 @@ public class Map implements MapSPI {
     
     @Override
     public void createMap() {
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/test.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);   
         mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");

@@ -124,36 +124,28 @@ public class CollisionLogic implements IPostEntityProcessingService {
             float[] rb = sp.getSpriteRightBottom();
             float[] rt = sp.getSpriteRightTop();
 
-            if (!(sdf.getCell(
-                    (int) lb[0] / 45,
-                    ((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(
-                            (int) rb[0] / 45,
-                            ((int) lb[1] - 1) / 45).getTile().getProperties().containsKey("Wall"))) {
+			int offset = 0;
+			
+			boolean lb_wall = sdf.getCell((int) (lb[0] - offset)  / 45, (int) (lb[1] - offset) / 45).getTile().getProperties().containsKey("Wall");
+			boolean lt_wall = sdf.getCell((int) (lt[0] - offset)  / 45, (int) (lt[1] + offset) / 45).getTile().getProperties().containsKey("Wall");
+			boolean rb_wall = sdf.getCell((int) (rb[0] + offset) / 45, (int) (rb[1] - offset) / 45).getTile().getProperties().containsKey("Wall");
+			boolean rt_wall = sdf.getCell((int) (rt[0] + offset) / 45, (int) (rt[1] + offset) / 45).getTile().getProperties().containsKey("Wall");
+
+
+            if (!(lb_wall || rb_wall)) {
                 directions.add("down");
             }
 
-            if (!(sdf.getCell(((int) rb[0] + 1) / 45,
-                    (int) rb[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) rt[0] + 1) / 45,
-                            (int) rt[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+            if (!(rb_wall || rt_wall )) {
                 directions.add("right");
             }
-
-            if (!(sdf.getCell((int) lt[0] / 45,
-                    ((int) lt[1] + 1) / 45)
-                    .getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) rt[0] / 45,
-                            ((int) rt[1] + 1) / 45
-                    ).getTile().getProperties().containsKey("Wall"))) {
+            if (!(lt_wall || rt_wall )) {
                 directions.add("up");
             }
-
-            if (!(sdf.getCell(((int) lt[0] - 1) / 45,
-                    (int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) lb[0] - 1) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
+            if (!(lt_wall || lb_wall )) {
                 directions.add("left");
             }
+
             pp.setDirections(directions);
         }
     }

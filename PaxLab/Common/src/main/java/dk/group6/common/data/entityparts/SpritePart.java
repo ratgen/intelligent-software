@@ -81,6 +81,7 @@ public class SpritePart implements EntityPart {
         float[] coordinates = new float[2];
         coordinates[0] = sprite.getX();
         coordinates[1] = sprite.getY();
+		System.out.println(coordinates[0]  + " " + coordinates[1]);
         return coordinates;
     }
     
@@ -88,6 +89,7 @@ public class SpritePart implements EntityPart {
         float[] coordinates = new float[2];
         coordinates[0] = sprite.getX() + sprite.getWidth();
         coordinates[1] = sprite.getY();
+		System.out.println(coordinates[0]  + " " + coordinates[1]);
         return coordinates;
     }
     
@@ -95,6 +97,7 @@ public class SpritePart implements EntityPart {
         float[] coordinates = new float[2];
         coordinates[0] = sprite.getX();
         coordinates[1] = sprite.getY() + sprite.getHeight();
+		System.out.println(coordinates[0]  + " " + coordinates[1]);
         return coordinates;
     }
     
@@ -102,6 +105,7 @@ public class SpritePart implements EntityPart {
         float[] coordinates = new float[2];
         coordinates[0] = sprite.getX() + sprite.getWidth();
         coordinates[1] = sprite.getY() + sprite.getHeight();
+		System.out.println(coordinates[0]  + " " + coordinates[1]);
         return coordinates;
     }
 }
