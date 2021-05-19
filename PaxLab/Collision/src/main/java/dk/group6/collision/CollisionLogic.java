@@ -89,7 +89,9 @@ public class CollisionLogic implements IPostEntityProcessingService {
                             if (entityLife.getLife() > 0) {
                                 entityLife.setLife(entityLife.getLife() - 1);
                                 entityLife.setIsHit(true);
+                                //remove enemy and bullet as well
                                 world.removeEntity(entity);
+                                world.removeEntity(entity1);
                                 System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
 
                                 //spawn enemy if another dies (gives nullpointer @ Line:44)
