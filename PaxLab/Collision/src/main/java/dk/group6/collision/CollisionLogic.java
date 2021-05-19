@@ -15,7 +15,11 @@ import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
+import dk.group6.common.enemy.Enemy;
+import dk.group6.common.player.Player;
 import dk.group6.common.services.IPostEntityProcessingService;
+import dk.group6.common.shot.Shot;
+import dk.group6.common.weapon.Weapon;
 import dk.group6.enemy.EnemyPlugin;
 import java.util.ArrayList;
 
@@ -64,12 +68,12 @@ public class CollisionLogic implements IPostEntityProcessingService {
                 }
                 if (r1.overlaps(r2)) {
                     // Player & Weapon
-                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Weapon")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Weapon"))) {
-                        //  System.out.println("PLAYER touches a WEAPON");
+                    if ((entity1.getClass() == Player.class && entity.getClass() == Weapon.class) ||
+							(entity.getClass() == Player.class && entity1.getClass() == Weapon.class )) {
                     }
                     // Player & Enemy
-                    if ((entity1.getClass().toString().contains("Player") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Player") && entity1.getClass().toString().contains("Enemy"))) {
-                        //   System.out.println("PLAYER touches a ENEMY");
+                    if ((entity1.getClass() == Player.class && entity.getClass() == Enemy.class) ||
+							(entity.getClass() == Player.class && entity1.getClass() == Enemy.class )) {
 
                         LifePart entityLife = entity.getPart(LifePart.class);
 
@@ -82,29 +86,21 @@ public class CollisionLogic implements IPostEntityProcessingService {
                         }
                     }
                     // Enemy & Bullet
-                    if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
-                        if ((entity1.getClass().toString().contains("Shot") && entity.getClass().toString().contains("Enemy")) || (entity.getClass().toString().contains("Shot") && entity1.getClass().toString().contains("Enemy"))) {
-                            // If bullet hits any entity, it looses a life
-                            LifePart entityLife = entity.getPart(LifePart.class);
+                    if ((entity1.getClass() == Shot.class && entity.getClass() == Enemy.class) ||
+							(entity.getClass() == Shot.class && entity1.getClass() == Enemy.class )) {
+						// If bullet hits any entity, it looses a life
+						LifePart entityLife = entity.getPart(LifePart.class);
 
-                            if (entityLife.getLife() > 0) {
-                                entityLife.setLife(entityLife.getLife() - 1);
-                                entityLife.setIsHit(true);
-                                //remove enemy and bullet as well
-                                world.removeEntity(entity);
-                                world.removeEntity(entity1);
-                                System.out.println("Enemy got hit by a bullet! - " + entity.getClass().toString());
+						if (entityLife.getLife() > 0) {
+							entityLife.setLife(entityLife.getLife() - 1);
+							entityLife.setIsHit(true);
+							//remove enemy and bullet as well
+							world.removeEntity(entity);
+							world.removeEntity(entity1);
 
-                                //spawn enemy if another dies (gives nullpointer @ Line:44)
-                                /* r3 = new Rectangle(spritePart.getSprite().getBoundingRectangle());
-                                EnemyPlugin enemy1 = new EnemyPlugin();
-                                Entity enemy11 = enemy1.createEnemy(gameData);
-                                world.addEntity(enemy11);
-                                 */
-                                break;
-                            }
-                        }
-                    }
+							break;
+						}
+					}
                 }
             }
         }
