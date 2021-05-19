@@ -39,6 +39,11 @@ public class PlayerProcessor implements IEntityProcessingService {
 
             if (containerPart.getWeapon() != null) {
                 Weapon weapon = (Weapon) world.getEntity(containerPart.getWeapon());
+				if (weapon == null) {
+					containerPart.addWeapon(null);
+					continue;
+				}
+
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
 
@@ -81,13 +86,15 @@ public class PlayerProcessor implements IEntityProcessingService {
     private void createWeapon(Entity entity, GameData gameData, World world) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         WeaponContainerPart containerPart = entity.getPart(WeaponContainerPart.class);
-        String weaponID = weaponSystem.createWeapon(gameData, world);
-        containerPart.addWeapon(weaponID);
-        Entity weapon = world.getEntity(weaponID);
-        PositionPart ps = weapon.getPart(PositionPart.class);
-        ps.setRadians((float) (Math.PI / 4 + Math.PI / 2));
-        ps.setX(positionPart.getX() - 90);
-        ps.setY(positionPart.getY() - 140);
+		if (weaponSystem != null) {
+			String weaponID = weaponSystem.createWeapon(gameData, world);
+			containerPart.addWeapon(weaponID);
+			Entity weapon = world.getEntity(weaponID);
+			PositionPart ps = weapon.getPart(PositionPart.class);
+			ps.setRadians((float) (Math.PI / 4 + Math.PI / 2));
+			ps.setX(positionPart.getX() - 90);
+			ps.setY(positionPart.getY() - 140);
+		}
     }
 
     public void setWeaponSPI(IWeaponSPI weaponSystem) {
