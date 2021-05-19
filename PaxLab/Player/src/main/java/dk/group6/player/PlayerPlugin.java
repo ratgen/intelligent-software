@@ -43,7 +43,6 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
-        System.out.println("remong");
         Entity player = world.getEntity(playerID);
         SpritePart sp = player.getPart(SpritePart.class);
         world.removeEntity(playerID);

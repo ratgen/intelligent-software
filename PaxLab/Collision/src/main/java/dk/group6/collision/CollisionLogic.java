@@ -12,6 +12,7 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
+import dk.group6.common.data.entityparts.MovingPart;
 import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.services.IPostEntityProcessingService;
@@ -32,7 +33,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
     public void process(GameData gameData, World world) {
         entityCollision(world);
         //wallCollision(world);
-        setValidDirections(world);
+        setWallDistance(world);
     }
 
     public void entityCollision(World world) {
@@ -109,55 +110,69 @@ public class CollisionLogic implements IPostEntityProcessingService {
         }
     }
 
-    public void setValidDirections(World world) {
-        sdf = world.getMapTileLayer();
-
+    public void setWallDistance(World world) {
         for (Entity entity : world.getEntities()) {
-            ArrayList<String> directions = new ArrayList();
-            PositionPart pp = entity.getPart(PositionPart.class);
+            MovingPart mp = entity.getPart(MovingPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);
 
-			if (sp.getSprite() == null) {
+			if (sp.getSprite() == null || mp == null) {
 				continue;
 			}
 
-            float[] lb = sp.getSpriteLeftBottom();
-            float[] lt = sp.getSpriteLeftTop();
-            float[] rb = sp.getSpriteRightBottom();
-            float[] rt = sp.getSpriteRightTop();
-            int offset = 2;
-            
-            if (!(sdf.getCell(
-                    (int) lb[0] / 45,
-                    (int) ((lb[1] - offset)-1) / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(
-                            (int) rb[0] / 45,
-                            (int) ((rb[1] - offset)-1) / 45).getTile().getProperties().containsKey("Wall"))) {
-                directions.add("down");
-            }
-            
-            if (!(sdf.getCell(((int) rb[0] + offset) / 45,
-                    (int) rb[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) rt[0] + offset) / 45,
-                            (int) rt[1] / 45).getTile().getProperties().containsKey("Wall"))) {
-                directions.add("right");
-            }
-
-            if (!(sdf.getCell((int) lt[0] / 45,
-                    ((int) lt[1] + offset) / 45)
-                    .getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell((int) rt[0] / 45,
-                            ((int) rt[1] + offset) / 45
-                    ).getTile().getProperties().containsKey("Wall"))) {
-                directions.add("up");
-            }
-
-            if (!(sdf.getCell(((int) lt[0] - offset) / 45,
-                    (int) lt[1] / 45).getTile().getProperties().containsKey("Wall")
-                    || sdf.getCell(((int) lb[0] - offset) / 45, (int) lb[1] / 45).getTile().getProperties().containsKey("Wall"))) {
-                directions.add("left");
-            }
-            pp.setDirections(directions);
+            int[] lb = sp.getSpriteLeftBottom();
+            int[] lt = sp.getSpriteLeftTop();
+            int[] rb = sp.getSpriteRightBottom();
+            int[] rt = sp.getSpriteRightTop();
+			int[] intarr = {1, 2, 3, 5, 8, 13, 21, 34, 55};
+				
+			for (int INT : intarr ) {
+				//left
+				if(check_left(lb, INT, world) && check_left(lt, INT, world)){
+					mp.setLeftDistance(55);
+				} else {
+					mp.setLeftDistance(INT);
+					break;
+				} 
+			}
+			for (int INT : intarr ) {
+				//up
+				if(check_up(lt, INT, world) && check_up(rt, INT, world)){
+					mp.setUpDistance(55);
+				} else {
+					mp.setUpDistance(INT);
+					break;
+				} 
+			}
+			for (int INT : intarr ) {
+				//right
+				if(check_right(rt, INT, world) && check_right(rb, INT, world)){
+					mp.setRightDistance(55);
+				} else {
+					mp.setRightDistance(INT);
+					break;
+				} 
+			}
+			for (int INT : intarr ) {
+				//down
+				if(check_down(rb, INT, world) && check_down(lb, INT, world)){
+					mp.setDownDistance(55);
+				} else {
+					mp.setDownDistance(INT);
+					break;
+				} 
+			}
         }
     }
+	private boolean check_left(int[] point, int offset, World world) {
+		return world.isValidCell(point[0] - offset , (point[1]) );
+	}
+	private boolean check_up(int[] point, int offset, World world) {
+		return world.isValidCell(point[0] , point[1] + offset );
+	}
+	private boolean check_right(int[] point, int offset, World world) {
+		return world.isValidCell( point[0] + offset , point[1] );
+	}
+	private boolean check_down(int[] point, int offset, World world) {
+		return world.isValidCell(point[0], point[1] - offset );
+	}
 }

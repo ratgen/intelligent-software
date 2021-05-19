@@ -57,13 +57,16 @@ public class World {
         return entityMap.get(ID);
     }
     
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @return false if the cell is a wall
+	 */
     public Boolean isValidCell(int x, int y) {
-
-        ArrayList<String> directions = new ArrayList();
-        
         if (this.mapTileLayer.getCell(x / 45, y / 45).getTile().getProperties().containsKey("Wall")) {
-		return false;
-	}
+			return false;
+		}
         return true;
     }
 }

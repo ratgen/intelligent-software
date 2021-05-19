@@ -27,7 +27,7 @@ public class PlayerProcessor implements IEntityProcessingService {
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
             WeaponContainerPart containerPart = entity.getPart(WeaponContainerPart.class);
-            movingPart.setA(2);
+            movingPart.setAcceleration(2);
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
