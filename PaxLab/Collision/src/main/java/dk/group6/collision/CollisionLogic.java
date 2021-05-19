@@ -13,15 +13,12 @@ import dk.group6.common.data.GameData;
 import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.LifePart;
 import dk.group6.common.data.entityparts.MovingPart;
-import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IPostEntityProcessingService;
 import dk.group6.common.shot.Shot;
 import dk.group6.common.weapon.Weapon;
-import dk.group6.enemy.EnemyPlugin;
-import java.util.ArrayList;
 
 /**
  *
