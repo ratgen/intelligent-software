@@ -110,29 +110,11 @@ public class Game implements ApplicationListener {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             PositionPart positionPart = entity.getPart(PositionPart.class);
             Sprite sprite = spritePart.getSprite();
-            
-            float tileHeight = sdf.getTileHeight();
-            float tileWidth = sdf.getTileWidth();
-            //System.out.println("GAME: H: " + sdf.getHeight() + " | W: " + sdf.getWidth());
-            
-            /*System.out.println(entity.getClass());
-            System.out.println("bottom left: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("bottom right: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("top left: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
-            ).getTile().getId());
-             System.out.println("top right: " + sdf.getCell(
-                (int) Math.floor(Math.abs(sprite.getX() + sprite.getWidth()) / tileWidth),
-                (int) Math.floor(Math.abs(sprite.getY() + sprite.getHeight()) / tileHeight)
-            ).getTile().getId());
-            //}*/            
+			
+			if (sprite == null) {
+				continue;
+			}
+
             sprite.draw(batch);
         }
         batch.end();

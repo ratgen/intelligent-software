@@ -5,6 +5,7 @@
  */
 package dk.group6.collision;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import dk.group6.common.data.Entity;
@@ -37,13 +38,27 @@ public class CollisionLogic implements IPostEntityProcessingService {
     public void entityCollision(World world) {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
-            r1 = new Rectangle(spritePart.getSprite().getBoundingRectangle());
+
+			Sprite entitySprite = spritePart.getSprite();
+
+			if (entitySprite == null) {
+				continue;
+			}
+
+            r1 = new Rectangle(entitySprite.getBoundingRectangle());
 
             for (Entity entity1 : world.getEntities()) {
                 SpritePart spritePart1 = entity1.getPart(SpritePart.class);
-                r2 = new Rectangle(spritePart1.getSprite().getBoundingRectangle());
+
+				Sprite entity1Sprite = spritePart1.getSprite();
+
+				if (entity1Sprite == null) {
+					continue;
+				}
+
+                r2 = new Rectangle(entity1Sprite.getBoundingRectangle());
                 // skips if entities are the same
-                if (entity.getID().equals(entity1.getID()) && spritePart.getSprite().equals(spritePart1.getSprite())) {
+                if (entity.getID().equals(entity1.getID()) && entitySprite.equals(entity1Sprite)) {
                     continue;
                 }
                 if (r1.overlaps(r2)) {
@@ -61,7 +76,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                             entityLife.setLife(entityLife.getLife() - 1);
                             entityLife.setIsHit(true);
                             break;
-                        } else if (entityLife.getLife() <= 0 && spritePart.getSprite() != spritePart1.getSprite()) {
+                        } else if (entityLife.getLife() <= 0 && entitySprite != entity1Sprite) {
                             world.removeEntity(entity);
                         }
                     }
@@ -99,6 +114,10 @@ public class CollisionLogic implements IPostEntityProcessingService {
             ArrayList<String> directions = new ArrayList();
             PositionPart pp = entity.getPart(PositionPart.class);
             SpritePart sp = entity.getPart(SpritePart.class);
+
+			if (sp.getSprite() == null) {
+				continue;
+			}
 
             float[] lb = sp.getSpriteLeftBottom();
             float[] lt = sp.getSpriteLeftTop();
