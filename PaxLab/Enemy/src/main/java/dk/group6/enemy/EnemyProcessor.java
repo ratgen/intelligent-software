@@ -18,7 +18,6 @@ public class EnemyProcessor implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         Entity player = null;
-        Entity enemie = null;
 
         for (Entity entity : world.getEntities(Enemy.class)) {
 
@@ -53,14 +52,16 @@ public class EnemyProcessor implements IEntityProcessingService {
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
             
-            //Check for enemies on map and if empty, call respawnEnmies
-            EnemyPlugin enemyPlugin = new EnemyPlugin();
-                if(world.getEntities(Enemy.class).size()<1) {
-                    enemyPlugin.start(gameData, world);
-                }
+            
+           
                         
 
         }
+        //Check for enemies on map and if empty, respawn enemies
+        EnemyPlugin enemyPlugin = new EnemyPlugin();
+        if(!world.getEntities().toString().contains("Enemy")) {
+            enemyPlugin.start(gameData, world);
+                }
     }
 
     private ArrayList<String> getTrack(Entity e, Entity p, World w) {
