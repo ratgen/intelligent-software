@@ -12,7 +12,6 @@ import dk.group6.common.player.Player;
 import dk.group6.common.services.IGamePluginService;
 
 public class PlayerPlugin implements IGamePluginService {
-    private String playerID;
     
     public PlayerPlugin() {
     }
@@ -21,14 +20,14 @@ public class PlayerPlugin implements IGamePluginService {
     public void start(GameData gameData, World world) {
         // Add entities to the world
         Entity player = createPlayer(gameData);
-        playerID = world.addEntity(player);
+        world.addEntity(player);
     }
 
     private Entity createPlayer(GameData gameData) {
         
         Entity player = new Player();
  
-        player.add(new LifePart(3));
+        player.add(new LifePart(1));
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(360,540));
@@ -43,9 +42,10 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
-        Entity player = world.getEntity(playerID);
-        SpritePart sp = player.getPart(SpritePart.class);
-		sp.dispose();
-        world.removeEntity(playerID);
+		for (Entity player : world.getEntities(Player.class)){
+			SpritePart sp = player.getPart(SpritePart.class);
+			sp.dispose();
+			world.removeEntity(player);
+		}
     }
 }

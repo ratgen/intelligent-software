@@ -43,17 +43,34 @@ public class Map implements MapSPI {
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private TiledMapTileLayer mapTileLayer;
+	File dirFile = null;
+	boolean knownGameOver = false;
     
     @Override
     public void createMap() {
 		String mapPath = "assets/map/";
 		String mapFilePath ="test.tmx";
         try {
-			//create temp dir to hold the files	
-			Path dir = Files.createTempDirectory("assets");
-			File dirFile = dir.toFile();
-			
-			//read the map file
+			File mapFile = loadTmxFile(mapPath, mapFilePath);
+
+			System.out.println("creating map");
+
+			map = new TmxMapLoader().load(mapFile.getAbsolutePath());
+			renderer = new OrthogonalTiledMapRenderer(map);   
+			mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+	private File loadTmxFile(String mapPath, String mapFilePath) throws FileNotFoundException{
+        try {
+			if (dirFile == null) {
+				Path dir = Files.createTempDirectory("assets");
+				dirFile = dir.toFile();
+			}
 
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
       		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -83,18 +100,13 @@ public class Map implements MapSPI {
 					loadFileToDir(dirFile, mapPath, imageDependency);
 				}
 			}
-
-			System.out.println("creating map");
-
-			map = new TmxMapLoader().load(mapFile.getAbsolutePath());
-			renderer = new OrthogonalTiledMapRenderer(map);   
-			mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-
+			return mapFile;
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-    }
+		throw new FileNotFoundException("file could not be found, or loaded");
+	}
 
 	private File loadFileToDir(File folder, String filePath, String fileName) throws FileNotFoundException, IOException {
 		BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
@@ -134,15 +146,41 @@ public class Map implements MapSPI {
 
     @Override
     public void gameLost() {
-        this.map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/Gameover.tmx");
-        mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-        renderer.setMap(map);
+		if (!knownGameOver){
+			try {
+				String filePath = loadTmxFile("assets/map/", "Gameover.tmx").getAbsolutePath();
+				this.map = new TmxMapLoader().load(filePath);
+				mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+				renderer.setMap(map);
+				knownGameOver = true;
+			}
+			catch (Exception e){
+				e.printStackTrace();
+			}
+    	}
     }
     
     @Override
     public void gameWon() {
-        this.map = new TmxMapLoader().load("../Map/src/main/resources/assets/map/Won.tmx");
-        mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-        renderer.setMap(map);
-    }
+		try {
+			String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
+			this.map = new TmxMapLoader().load(filePath);
+			mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+			renderer.setMap(map);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	@Override 
+	public void unload(){
+		System.out.println("unloading map");
+		for (File i : dirFile.listFiles()){
+			System.out.println(i.getName());
+			i.delete();
+		}
+		dirFile.delete();
+	}
+
 }

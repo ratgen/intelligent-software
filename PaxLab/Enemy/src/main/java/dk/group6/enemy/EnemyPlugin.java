@@ -79,5 +79,4 @@ public class EnemyPlugin implements IGamePluginService {
             world.removeEntity(enemy.getID());
         }
     }
-
 }
