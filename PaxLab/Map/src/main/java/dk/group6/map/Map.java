@@ -162,20 +162,25 @@ public class Map implements MapSPI {
     
     @Override
     public void gameWon() {
-			try {
-				String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
-				this.map = new TmxMapLoader().load(filePath);
-				mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-				renderer.setMap(map);
-			}
-			catch (Exception e){
-				e.printStackTrace();
-			}
+		try {
+			String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
+			this.map = new TmxMapLoader().load(filePath);
+			mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+			renderer.setMap(map);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override 
-	public void unLoad(){
-
+	public void unload(){
+		System.out.println("unloading map");
+		for (File i : dirFile.listFiles()){
+			System.out.println(i.getName());
+			i.delete();
+		}
+		dirFile.delete();
 	}
 
 }

@@ -24,5 +24,5 @@ public interface MapSPI {
     
     void gameLost();
     void gameWon();
-	void unLoad();
+	void unload();
 }

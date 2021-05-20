@@ -59,7 +59,8 @@ public class EnemyProcessor implements IEntityProcessingService {
                         if(enemie == null){
                             enemyPlugin.respawnEnemies(gameData, world);
                         }
-*/
+			*/
+			
         }
     }
 

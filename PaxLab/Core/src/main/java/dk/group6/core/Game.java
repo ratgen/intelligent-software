@@ -119,6 +119,7 @@ public class Game implements ApplicationListener {
     @Override
     public void dispose() {
         batch.dispose();
+		map.unload();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {
