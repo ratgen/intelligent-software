@@ -11,7 +11,7 @@ public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down, straight;
     private int acceleration = 1;
-	private HashMap<String, Integer> wallDistance = new HashMap();
+	private final HashMap<String, Integer> wallDistance = new HashMap();
 
     public boolean isLeft() {
         return left;
