@@ -28,7 +28,7 @@ public class PlayerPlugin implements IGamePluginService {
         
         Entity player = new Player();
  
-        player.add(new LifePart(3));
+        player.add(new LifePart(1));
         player.setRadius(4);
         player.add(new MovingPart());
         player.add(new PositionPart(360,540));
