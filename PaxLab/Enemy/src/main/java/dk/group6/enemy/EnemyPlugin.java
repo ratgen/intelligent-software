@@ -43,6 +43,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         return enemy;
     }
+
  public void respawnEnemies(GameData gameData, World world){
         
         int level = 1;

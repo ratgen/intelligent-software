@@ -54,11 +54,12 @@ public class EnemyProcessor implements IEntityProcessingService {
             spritePart.process(gameData, entity);
             
             //Check for enemies on map and if empty, call respawnEnmies
-            EnemyPlugin enemyPlugin = new EnemyPlugin();
+            /*jEnemyPlugin enemyPlugin = new EnemyPlugin();
                 enemie = getEnemieEntity(world, entity);
                         if(enemie == null){
                             enemyPlugin.respawnEnemies(gameData, world);
                         }
+*/
         }
     }
 
