@@ -29,6 +29,39 @@ public class Node {
     public void setDirections(ArrayList<String> directions) {
         this.directions = directions;
     }
+    
+    public void setPrevious(Node previous) {
+        this.previous = previous;
+    }
+    
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+    
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+    
+    public void setX(int x) {
+        this.x = x;
+    }
+    
+    public void setY(int y) {
+        this.y = y;
+    }
+    
+    public void setGoal(boolean goal) {
+        this.goal = goal;
+    }
+    
+    public void setGoalX(int goalX) {
+        this.goalX = goalX;
+    }
+    
+    public void setGoalY(int goalY) {
+        this.goalY = goalY;
+    }
+    
     public void setTravel(int travel) {
         this.travel = travel;
     }
@@ -47,6 +80,10 @@ public class Node {
     
     public String getDirection() {
         return direction;
+    }
+    
+    public ArrayList<String> getDirections() {
+        return directions;
     }
     
     public int getGoalX() {
@@ -76,6 +113,11 @@ public class Node {
         this.goal = b;
         this.goalX = x;
         this.goalY = y;
+    }
+    
+    Node(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     
     public int getTravel() {
@@ -153,7 +195,8 @@ public class Node {
 				&& world.isValidCell(x + dist ,y ) //bottom right
 				&& world.isValidCell(x + dist ,y + dist ) //top right
 				&& world.isValidCell(x ,y + dist ) //top right
-				){
+				)	
+			{
 				nA.add(node);
 			}
 		}

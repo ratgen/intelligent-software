@@ -6,7 +6,6 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.TreeSet;
 
 /**
@@ -16,19 +15,21 @@ import java.util.TreeSet;
 public class AStar implements IPathFinderSPI  {
 
     Node current = new Node();
-    protected static TreeSet<Node> explored = new TreeSet<>(new CompareTotal());
+    protected static ArrayList<Node> explored = new ArrayList<>();
 
     @Override
     public ArrayList<String> track(Entity from, Entity to, World world) throws NullPointerException {
-	    explored.clear();
+	explored.clear();
 	
 		if (to == null) {
-            return null;
+			// throw new NullPointerException("The entity to be found does not exist");
+                        return null;
 		}
 
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
+        //ArrayList<Node> path = new ArrayList<>();
 		TreeSet<Node> path = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
@@ -37,8 +38,7 @@ public class AStar implements IPathFinderSPI  {
 
         while (!path.isEmpty()) {
             
-            current = path.pollFirst();
-			System.out.println(current.distance);
+            current = path.first();
 
             current.setDirections(positionFrom.getDirections());
             
@@ -49,9 +49,12 @@ public class AStar implements IPathFinderSPI  {
             }
             
             ArrayList<Node> ways = current.expand(current, goal, world);
+
             path.addAll(ways);
+           // System.out.println("state_space.size: "+path.size());
         }
 
+		//throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
 		return null;
     }
 }
