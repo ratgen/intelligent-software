@@ -6,6 +6,7 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.TreeSet;
 
 /**
  *
@@ -28,7 +29,8 @@ public class AStar implements IPathFinderSPI  {
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
-        ArrayList<Node> path = new ArrayList<>();
+        //ArrayList<Node> path = new ArrayList<>();
+		TreeSet<Node> path = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
         Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
@@ -36,7 +38,7 @@ public class AStar implements IPathFinderSPI  {
 
         while (!path.isEmpty()) {
             
-            current = path.remove(0);
+            current = path.first();
 
             current.setDirections(positionFrom.getDirections());
             
@@ -50,7 +52,6 @@ public class AStar implements IPathFinderSPI  {
 
             path.addAll(ways);
            // System.out.println("state_space.size: "+path.size());
-            Collections.sort(path, new CompareTotal());
         }
 
 		//throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
