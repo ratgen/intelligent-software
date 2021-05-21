@@ -3,6 +3,9 @@ package dk.group6.astar;
 import dk.group6.common.data.World;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Node {
 
@@ -156,23 +159,45 @@ public class Node {
     }
     
     
-    public ArrayList<Node> expand(Node current, Node goal, World world) {
+    public ArrayList<Node> expand(Node current, Node goal, World world, HashSet<Node> explored) {
         ArrayList<Node> ways = new ArrayList<>();
         
         ArrayList<Node> neighbours = getNeighbours(current, world);
         
         for (Node neighbour : neighbours) {
-            if (!AStar.explored.contains(neighbour)) {
-                Node w = new Node(neighbour.getX(), neighbour.getY(), current, neighbour.direction,
+            if (!explored.contains(neighbour)) {
+				//System.out.println("neighour is valid");
+                Node w = new Node(neighbour.getX(), neighbour.getY(), current, getDirection(current, neighbour),
                         calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
                 w.setTravel(neighbour.getTravel() + 1);
                 w.setTotal(w.getTravel() + w.getDistance());
                 ways.add(w);
-                AStar.explored.add(w);
+                explored.add(w);
             }             
         }
         return ways;
     }
+
+	public String getDirection (Node current, Node newNode){
+		
+		switch(current.getX() - newNode.getX()){
+			case 10:
+				return "left";
+			case -10:
+				return "right";
+			default:
+				break;
+		}
+
+		switch(current.getY() - newNode.getY()){
+			case -10:
+				return "up";
+			case 10:
+				return "down";
+			default: break;
+		}
+		throw new IllegalArgumentException("one of nodes not valid");
+	}
     
     public ArrayList<Node> getNeighbours(Node n, World world) {
         ArrayList<Node> nA = new ArrayList<>();
@@ -182,10 +207,10 @@ public class Node {
 		int offset = 10;
 		int dist = 45;
 		
-		pos.add(new Node(n.getX() - offset, n.getY(), "left"));
-		pos.add(new Node(n.getX(), n.getY() + offset, "up"));
-		pos.add(new Node(n.getX() + offset, n.getY() , "right"));
-		pos.add(new Node(n.getX(), n.getY() - offset, "down"));
+		pos.add(new Node(n.getX() - offset, n.getY()));
+		pos.add(new Node(n.getX(), n.getY() + offset));
+		pos.add(new Node(n.getX() + offset, n.getY()));
+		pos.add(new Node(n.getX(), n.getY() - offset));
 		
 		for (Node node : pos) {
 			int x, y;
@@ -211,9 +236,13 @@ public class Node {
         }
         return false;
     }
+
+	@Override
+	public int hashCode(){
+		return ((Integer) this.getY()).hashCode() * ((Integer) this.getX()).hashCode();
+	}
     
 }
-
 class CompareTotal implements Comparator<Node> {
 
     @Override

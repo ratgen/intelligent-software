@@ -6,6 +6,8 @@ import dk.group6.common.data.World;
 import dk.group6.common.data.entityparts.PositionPart;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
@@ -15,11 +17,20 @@ import java.util.TreeSet;
 public class AStar implements IPathFinderSPI  {
 
     Node current = new Node();
-    protected static ArrayList<Node> explored = new ArrayList<>();
+    //protected TreeSet<Node> explored = new TreeSet<>((node, node1) -> (Double.compare(node.getX() - node1.getX(), node.getY() - node1.getY())));
+	protected HashSet<Node> explored = new HashSet();
 
     @Override
     public ArrayList<String> track(Entity from, Entity to, World world) throws NullPointerException {
 	explored.clear();
+
+		
+
+		Node n1 = new Node(0, 0);
+		Node n2 = new Node(0, 0);
+
+		explored.add(n1);
+		System.out.println(explored.contains(n2));
 	
 		if (to == null) {
 			return null;
@@ -28,8 +39,8 @@ public class AStar implements IPathFinderSPI  {
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
-        //ArrayList<Node> path = new ArrayList<>();
-		TreeSet<Node> path = new TreeSet<>(new CompareTotal());
+        ArrayList<Node> path = new ArrayList<>();
+		//TreeSet<Node> path = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
         Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
@@ -37,9 +48,9 @@ public class AStar implements IPathFinderSPI  {
 
         while (!path.isEmpty()) {
             
-            current = path.pollFirst();
-
+            current = path.remove(0);
             current.setDirections(positionFrom.getDirections());
+			//System.out.println(current.getDistance());
             
             if (current.getDistance() < 10) {
                 ArrayList<String> st = current.getPath(current);
@@ -47,9 +58,10 @@ public class AStar implements IPathFinderSPI  {
                 return st;
             }
             
-            ArrayList<Node> ways = current.expand(current, goal, world);
+            ArrayList<Node> ways = current.expand(current, goal, world, explored);
 
             path.addAll(ways);
+            Collections.sort(path, new CompareTotal());
            // System.out.println("state_space.size: "+path.size());
         }
 
