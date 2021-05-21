@@ -22,8 +22,7 @@ public class AStar implements IPathFinderSPI  {
 	explored.clear();
 	
 		if (to == null) {
-			// throw new NullPointerException("The entity to be found does not exist");
-                        return null;
+			return null;
 		}
 
         PositionPart positionFrom = from.getPart(PositionPart.class);
@@ -38,7 +37,7 @@ public class AStar implements IPathFinderSPI  {
 
         while (!path.isEmpty()) {
             
-            current = path.first();
+            current = path.pollFirst();
 
             current.setDirections(positionFrom.getDirections());
             
