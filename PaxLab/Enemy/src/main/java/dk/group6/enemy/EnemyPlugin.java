@@ -57,17 +57,12 @@ public class EnemyPlugin implements IGamePluginService {
 
         return enemy;
     }
-
- public void respawnEnemies(GameData gameData, World world){
-        start(this.gameData, this.world);
-    }
  
- public void loadSpawnPoints(){
-     int[][] arr = {{46, 46}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}, {988, 46}, {510, 586}, {722, 404}};
-     for (int[] point : arr) {
-         this.spawnPoints.add(point);
-     }
-
+ 	public void loadSpawnPoints(){
+		int[][] arr = {{46, 46}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}, {988, 46}, {510, 586}, {722, 404}};
+		for (int[] point : arr) {
+			this.spawnPoints.add(point);
+		}
     }
  
     @Override

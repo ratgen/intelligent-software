@@ -18,7 +18,6 @@ public class EnemyProcessor implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         Entity player = null;
-        Entity enemie = null;
 
         for (Entity entity : world.getEntities(Enemy.class)) {
 
@@ -52,15 +51,12 @@ public class EnemyProcessor implements IEntityProcessingService {
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
             spritePart.process(gameData, entity);
-            
-            //Check for enemies on map and if empty, call respawnEnmies
-            /*jEnemyPlugin enemyPlugin = new EnemyPlugin();
-                enemie = getEnemieEntity(world, entity);
-                        if(enemie == null){
-                            enemyPlugin.respawnEnemies(gameData, world);
-                        }
-			*/
-			
+        }
+
+        //Check for enemies on map and if empty, respawn enemies
+        if(world.getEntities(Enemy.class).size() <= 0) {
+        	EnemyPlugin enemyPlugin = new EnemyPlugin();
+            enemyPlugin.start(gameData, world);
         }
     }
 
@@ -78,17 +74,6 @@ public class EnemyProcessor implements IEntityProcessingService {
         return tempEntity;
     }
     
-     public Entity getEnemieEntity(World world, Entity enemy) {
-        Entity tempEntity = null;
-        for (Entity entity: world.getEntities()) {
-	    if (entity.getClass().toString().contains("enemie")){
-		return entity;
-	    }
-        }
-        return tempEntity;
-    }
-    
-
     public void setPathFinder(IPathFinderSPI pathFinder) {
         this.pathFinder = pathFinder;
     }
