@@ -59,9 +59,9 @@ public class EnemyProcessor implements IEntityProcessingService {
         }
         //Check for enemies on map and if empty, respawn enemies
         EnemyPlugin enemyPlugin = new EnemyPlugin();
-        if(!world.getEntities().toString().contains("Enemy")) {
+        if(world.getEntities(Enemy.class).size() <= 0) {
             enemyPlugin.start(gameData, world);
-                }
+        }
     }
 
     private ArrayList<String> getTrack(Entity e, Entity p, World w) {
