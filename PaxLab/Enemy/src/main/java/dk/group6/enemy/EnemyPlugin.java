@@ -33,7 +33,7 @@ public class EnemyPlugin implements IGamePluginService {
         this.gameData = gameData;
         this.world = world;
         for (int i = 0; i < 4 ; i++) {
-            int random = rand.nextInt(-i);
+            int random = rand.nextInt(spawnPoints.size() - 1);
             int[] index = spawnPoints.get(random);
             this.spawnPoints.remove(random);
             Entity enemy = createEnemy(gameData, index);

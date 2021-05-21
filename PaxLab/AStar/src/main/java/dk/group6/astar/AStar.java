@@ -25,20 +25,20 @@ public class AStar implements IPathFinderSPI  {
                         return null;
 		}
 
-        PositionPart pF = from.getPart(PositionPart.class);
-        PositionPart pT = to.getPart(PositionPart.class);
+        PositionPart positionFrom = from.getPart(PositionPart.class);
+        PositionPart positionTo = to.getPart(PositionPart.class);
 
         ArrayList<Node> path = new ArrayList<>();
 
-        Node goal = new Node(true, pT.getX(), pT.getY());
-        Node start = new Node(pF.getX(), pF.getY(), current.calcDistance(pF.getX(), pF.getY(), goal.getGoalX(), goal.getGoalY()));
+        Node goal = new Node(true, positionTo.getX(), positionTo.getY());
+        Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
         path.add(start);
 
         while (!path.isEmpty()) {
             
             current = path.remove(0);
 
-            current.setDirections(pF.getDirections());
+            current.setDirections(positionFrom.getDirections());
             
             if (current.getDistance() < 10) {
                 ArrayList<String> st = current.getPath(current);
