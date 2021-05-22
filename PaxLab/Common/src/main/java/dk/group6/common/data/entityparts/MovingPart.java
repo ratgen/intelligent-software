@@ -95,8 +95,6 @@ public class MovingPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-        float delta = gameData.getDelta();
-        
         PositionPart positionPart = entity.getPart(PositionPart.class);
         
         if (left && wallDistance.containsKey("left")) {
@@ -120,23 +118,6 @@ public class MovingPart implements EntityPart {
 				int move = positionPart.getY() - acceleration ;
             	positionPart.setY(move);
 			}
-        }
-        else if (straight) {
-            double radians = positionPart.getRadians();
-            double dx, dy;
-            
-            dx = cos(radians) * delta;
-            dy = sin(radians) * delta;
-
-            float vec = (float) sqrt(dx * dx + dy * dy);
-
-            dx = (dx / vec) * 5;
-            dy = (dy / vec) * 5;
-            
-            double x = positionPart.getX() + dx;
-            double y = positionPart.getY() + dy;
-            positionPart.setX((int) x);
-            positionPart.setY((int) y);
         }
 		up = false;
 		down = false;

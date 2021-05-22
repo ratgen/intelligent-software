@@ -14,5 +14,5 @@ import java.util.LinkedList;
  * @author peter
  */
 public interface IPathFinderSPI {
-    LinkedList<String> track(Entity from, Entity to, World world);
+    LinkedList<Double> track(Entity from, Entity to, World world);
 }
