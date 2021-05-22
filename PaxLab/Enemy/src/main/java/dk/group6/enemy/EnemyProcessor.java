@@ -28,11 +28,7 @@ public class EnemyProcessor implements IEntityProcessingService {
 			
 			player = getPlayerEntity(world, entity);
 			
-			final long startTime = System.nanoTime();
 			LinkedList<String> strA = getTrack(entity, player, world);
-			final long endTime = System.nanoTime();
-			System.out.println("Total execution time: " + (endTime - startTime));
-			//System.out.println("where to go " + strA);
 				
 			if (player != null && strA != null && strA.size() > 1) {
 				switch (strA.pollFirst()) {
