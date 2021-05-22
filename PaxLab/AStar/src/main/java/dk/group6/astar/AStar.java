@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.TreeSet;
 
 /**
@@ -20,13 +21,16 @@ public class AStar implements IPathFinderSPI  {
 	protected HashSet<Node> explored = new HashSet();
 
     @Override
-    public ArrayList<String> track(Entity from, Entity to, World world) throws NullPointerException {
+    public LinkedList<String> track(Entity from, Entity to, World world) throws NullPointerException {
 		explored.clear();
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
-        ArrayList<Node> fringe = new ArrayList<>();
-		//TreeSet<Node> fringe = new TreeSet<>(new CompareTotal());
+		if (to == null){
+			return null;
+		}
+
+		TreeSet<Node> fringe = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
         Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
@@ -34,27 +38,18 @@ public class AStar implements IPathFinderSPI  {
 
         while (!fringe.isEmpty()) {
 	
-			current = fringe.remove(0);
+			current = fringe.pollFirst();
             current.setDirections(positionFrom.getDirections());
             
             if (current.getDistance() < 10) {
-
-                ArrayList<String> st = current.getPath(current);
-                return st;
+                return current.getPath(current);
             }
             
             ArrayList<Node> ways = current.expand(current, goal, world, explored);
-
-			for (Node n : ways){
-				if (!fringe.add(n)){
-					System.out.println("node n exists in path exists in path: " + n.getX() + " y: " + n.getY() );
-				}
-			}
-           	//System.out.println("state_space.size: " + fringe.size());
-			Collections.sort(fringe, new CompareTotal());
+			
+			fringe.addAll(ways);
         }
 
-		//throw new NullPointerException("A fringe to the to entity could not be found. Something is wrong.");
 		System.out.println("returning null");
 		return null;
     }

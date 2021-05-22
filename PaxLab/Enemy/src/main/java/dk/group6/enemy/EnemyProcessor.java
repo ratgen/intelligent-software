@@ -10,6 +10,7 @@ import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.services.IEntityProcessingService;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class EnemyProcessor implements IEntityProcessingService {
 
@@ -24,14 +25,17 @@ public class EnemyProcessor implements IEntityProcessingService {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-
+			
 			player = getPlayerEntity(world, entity);
 			
-			ArrayList<String> strA = getTrack(entity, player, world);
-			System.out.println("where to go " + strA);
+			final long startTime = System.nanoTime();
+			LinkedList<String> strA = getTrack(entity, player, world);
+			final long endTime = System.nanoTime();
+			System.out.println("Total execution time: " + (endTime - startTime));
+			//System.out.println("where to go " + strA);
 				
 			if (player != null && strA != null && strA.size() > 1) {
-				switch (strA.get(0)) {
+				switch (strA.pollFirst()) {
 					case "up":
 						movingPart.setUp(true);
 						break;
@@ -61,7 +65,7 @@ public class EnemyProcessor implements IEntityProcessingService {
         }
     }
 
-    private ArrayList<String> getTrack(Entity e, Entity p, World w) {
+    private LinkedList<String> getTrack(Entity e, Entity p, World w) {
         return pathFinder.track(e, p, w);
     }
 

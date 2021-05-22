@@ -4,9 +4,8 @@ import dk.group6.common.data.World;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 public class Node {
 
@@ -146,19 +145,17 @@ public class Node {
         return d;
     }
     
-    public ArrayList<String> getPath(Node n) {
-        ArrayList<String> s = new ArrayList<>();
+    public LinkedList<String> getPath(Node n) {
+        LinkedList<String> s = new LinkedList<>();
         
-        s.add(n.getDirection());
+        s.addFirst(n.getDirection());
         
         while (n.getPrevious() != null) {
             n = n.getPrevious();
-            s.add(n.getDirection());
+            s.addFirst(n.getDirection());
         }
 
-		Collections.reverse(s);
 		s.remove(0);
-        
         return s;
     }
     
@@ -170,7 +167,6 @@ public class Node {
         
         for (Node neighbour : neighbours) {
             if (!explored.contains(neighbour)) {
-				System.out.println("neighour is valid");
 				neighbour.setDistance(calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
                 neighbour.setTravel(current.getTravel() + 1);
                 neighbour.setTotal(neighbour.getTravel() + neighbour.getDistance());

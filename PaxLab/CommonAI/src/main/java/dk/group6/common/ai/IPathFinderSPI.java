@@ -7,12 +7,12 @@ package dk.group6.common.ai;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.World;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
  * @author peter
  */
 public interface IPathFinderSPI {
-    ArrayList<String> track(Entity from, Entity to, World world);
+    LinkedList<String> track(Entity from, Entity to, World world);
 }
