@@ -2,6 +2,7 @@ package dk.group6.astar;
 
 import dk.group6.common.data.World;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -154,6 +155,9 @@ public class Node {
             n = n.getPrevious();
             s.add(n.getDirection());
         }
+
+		Collections.reverse(s);
+		s.remove(0);
         
         return s;
     }
@@ -166,13 +170,14 @@ public class Node {
         
         for (Node neighbour : neighbours) {
             if (!explored.contains(neighbour)) {
-				//System.out.println("neighour is valid");
-                Node w = new Node(neighbour.getX(), neighbour.getY(), current, getDirection(current, neighbour),
-                        calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
-                w.setTravel(neighbour.getTravel() + 1);
-                w.setTotal(w.getTravel() + w.getDistance());
-                ways.add(w);
-                explored.add(w);
+				System.out.println("neighour is valid");
+				neighbour.setDistance(calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
+                neighbour.setTravel(current.getTravel() + 1);
+                neighbour.setTotal(neighbour.getTravel() + neighbour.getDistance());
+				neighbour.setDirection(getDirection(current, neighbour));
+				neighbour.setPrevious(current);
+                ways.add(neighbour);
+                explored.add(neighbour);
             }             
         }
         return ways;
@@ -180,19 +185,19 @@ public class Node {
 
 	public String getDirection (Node current, Node newNode){
 		
-		switch(current.getX() - newNode.getX()){
+		switch(newNode.getX() - current.getX()  ){
 			case 10:
-				return "left";
-			case -10:
 				return "right";
+			case -10:
+				return "left";
 			default:
 				break;
 		}
 
-		switch(current.getY() - newNode.getY()){
-			case -10:
-				return "up";
+		switch(newNode.getY() - current.getY()){
 			case 10:
+				return "up";
+			case -10:
 				return "down";
 			default: break;
 		}

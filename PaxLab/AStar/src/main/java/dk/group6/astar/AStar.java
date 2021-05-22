@@ -17,56 +17,45 @@ import java.util.TreeSet;
 public class AStar implements IPathFinderSPI  {
 
     Node current = new Node();
-    //protected TreeSet<Node> explored = new TreeSet<>((node, node1) -> (Double.compare(node.getX() - node1.getX(), node.getY() - node1.getY())));
 	protected HashSet<Node> explored = new HashSet();
 
     @Override
     public ArrayList<String> track(Entity from, Entity to, World world) throws NullPointerException {
-	explored.clear();
-
-		
-
-		Node n1 = new Node(0, 0);
-		Node n2 = new Node(0, 0);
-
-		explored.add(n1);
-		System.out.println(explored.contains(n2));
-	
-		if (to == null) {
-			return null;
-		}
-
+		explored.clear();
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
-        //ArrayList<Node> path = new ArrayList<>();
-		TreeSet<Node> path = new TreeSet<>(new CompareTotal());
+        ArrayList<Node> fringe = new ArrayList<>();
+		//TreeSet<Node> fringe = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
         Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
-        path.add(start);
+        fringe.add(start);
 
-        while (!path.isEmpty()) {
-            
-            //current = path.remove(0);
-			current = path.pollFirst();
+        while (!fringe.isEmpty()) {
+	
+			current = fringe.remove(0);
             current.setDirections(positionFrom.getDirections());
-			//System.out.println(current.getDistance());
             
             if (current.getDistance() < 10) {
+
                 ArrayList<String> st = current.getPath(current);
-				Collections.reverse(st);
                 return st;
             }
             
             ArrayList<Node> ways = current.expand(current, goal, world, explored);
 
-            path.addAll(ways);
-            //Collections.sort(path, new CompareTotal());
-           // System.out.println("state_space.size: "+path.size());
+			for (Node n : ways){
+				if (!fringe.add(n)){
+					System.out.println("node n exists in path exists in path: " + n.getX() + " y: " + n.getY() );
+				}
+			}
+           	//System.out.println("state_space.size: " + fringe.size());
+			Collections.sort(fringe, new CompareTotal());
         }
 
-		//throw new NullPointerException("A path to the to entity could not be found. Something is wrong.");
+		//throw new NullPointerException("A fringe to the to entity could not be found. Something is wrong.");
+		System.out.println("returning null");
 		return null;
     }
 }

@@ -28,9 +28,10 @@ public class EnemyProcessor implements IEntityProcessingService {
 			player = getPlayerEntity(world, entity);
 			
 			ArrayList<String> strA = getTrack(entity, player, world);
+			System.out.println("where to go " + strA);
 				
 			if (player != null && strA != null && strA.size() > 1) {
-				switch (strA.get(1)) {
+				switch (strA.get(0)) {
 					case "up":
 						movingPart.setUp(true);
 						break;
