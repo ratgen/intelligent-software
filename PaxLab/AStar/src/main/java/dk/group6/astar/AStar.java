@@ -39,8 +39,8 @@ public class AStar implements IPathFinderSPI  {
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
 
-        ArrayList<Node> path = new ArrayList<>();
-		//TreeSet<Node> path = new TreeSet<>(new CompareTotal());
+        //ArrayList<Node> path = new ArrayList<>();
+		TreeSet<Node> path = new TreeSet<>(new CompareTotal());
 
         Node goal = new Node(true, positionTo.getX(), positionTo.getY());
         Node start = new Node(positionFrom.getX(), positionFrom.getY(), current.calcDistance(positionFrom.getX(), positionFrom.getY(), goal.getGoalX(), goal.getGoalY()));
@@ -48,7 +48,8 @@ public class AStar implements IPathFinderSPI  {
 
         while (!path.isEmpty()) {
             
-            current = path.remove(0);
+            //current = path.remove(0);
+			current = path.pollFirst();
             current.setDirections(positionFrom.getDirections());
 			//System.out.println(current.getDistance());
             
@@ -61,7 +62,7 @@ public class AStar implements IPathFinderSPI  {
             ArrayList<Node> ways = current.expand(current, goal, world, explored);
 
             path.addAll(ways);
-            Collections.sort(path, new CompareTotal());
+            //Collections.sort(path, new CompareTotal());
            // System.out.println("state_space.size: "+path.size());
         }
 
