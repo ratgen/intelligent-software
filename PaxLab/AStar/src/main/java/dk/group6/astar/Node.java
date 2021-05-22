@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Node {
-
     Node previous;
     double distance;
     double radians;
@@ -19,15 +18,6 @@ public class Node {
     int goalY;
     int travel;
     double total;
-    
-    private Node(int x, int y, Node previous, double direction, double distance) {
-        this.x = x;
-        this.y = y;
-        this.previous = previous;
-        this.radians = direction;
-        this.distance = distance;
-    }
-    
     
     public void setPrevious(Node previous) {
         this.previous = previous;
@@ -151,15 +141,15 @@ public class Node {
         
         ArrayList<Node> neighbours = getNeighbours(current, world);
         
-        for (Node neighbour : neighbours) {
-            if (!explored.contains(neighbour)) {
-				neighbour.setDistance(calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
-                neighbour.setTravel(current.getTravel() + 1);
-                neighbour.setTotal(neighbour.getTravel() + neighbour.getDistance());
-				neighbour.setRadians(getDirection(current, neighbour));
-				neighbour.setPrevious(current);
-                ways.add(neighbour);
-                explored.add(neighbour);
+        for (Node node : neighbours) {
+            if (!explored.contains(node)) {
+				node.setDistance(calcDistance(node.getX(), node.getY(), goal.getGoalX(), goal.getGoalY()));
+                node.setTravel(current.getTravel() + 1);
+                node.setTotal(node.getTravel() + node.getDistance());
+				node.setRadians(getDirection(current, node));
+				node.setPrevious(current);
+                ways.add(node);
+                explored.add(node);
             }             
         }
         return ways;
