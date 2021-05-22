@@ -28,20 +28,25 @@ public class EnemyProcessor implements IEntityProcessingService {
 			
 			player = getPlayerEntity(world, entity);
 			
-			LinkedList<String> strA = getTrack(entity, player, world);
+			LinkedList<Double> strA = pathFinder.track(entity, player, world);
 				
 			if (player != null && strA != null && strA.size() > 1) {
-				switch (strA.pollFirst()) {
-					case "up":
+				double first = strA.pollFirst();
+				int degree = (int) (first * 180/Math.PI);
+				switch (degree) {
+					case 0:
 						movingPart.setUp(true);
 						break;
-					case "right":
+					case 90:
 						movingPart.setRight(true);
 						break;
-					case "left":
+					case -90:
 						movingPart.setLeft(true);
 						break;
-					case "down":
+					case 180:
+						movingPart.setDown(true);
+						break;
+					case -180:
 						movingPart.setDown(true);
 						break;
 					default:
@@ -61,9 +66,6 @@ public class EnemyProcessor implements IEntityProcessingService {
         }
     }
 
-    private LinkedList<String> getTrack(Entity e, Entity p, World w) {
-        return pathFinder.track(e, p, w);
-    }
 
     public Entity getPlayerEntity(World world, Entity enemy) {
         Entity tempEntity = null;

@@ -21,7 +21,7 @@ public class AStar implements IPathFinderSPI  {
 	protected HashSet<Node> explored = new HashSet();
 
     @Override
-    public LinkedList<String> track(Entity from, Entity to, World world) throws NullPointerException {
+    public LinkedList<Double> track(Entity from, Entity to, World world) throws NullPointerException {
 		explored.clear();
         PositionPart positionFrom = from.getPart(PositionPart.class);
         PositionPart positionTo = to.getPart(PositionPart.class);
@@ -39,7 +39,6 @@ public class AStar implements IPathFinderSPI  {
         while (!fringe.isEmpty()) {
 	
 			current = fringe.pollFirst();
-            current.setDirections(positionFrom.getDirections());
             
             if (current.getDistance() < 10) {
                 return current.getPath(current);

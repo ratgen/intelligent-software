@@ -11,7 +11,7 @@ public class Node {
 
     Node previous;
     double distance;
-    String direction;
+    double radians;
     int x;
     int y;
     boolean goal;
@@ -19,19 +19,15 @@ public class Node {
     int goalY;
     int travel;
     double total;
-    ArrayList<String> directions;
     
-    private Node(int x, int y, Node previous, String direction, double distance) {
+    private Node(int x, int y, Node previous, double direction, double distance) {
         this.x = x;
         this.y = y;
         this.previous = previous;
-        this.direction = direction;
+        this.radians = direction;
         this.distance = distance;
     }
     
-    public void setDirections(ArrayList<String> directions) {
-        this.directions = directions;
-    }
     
     public void setPrevious(Node previous) {
         this.previous = previous;
@@ -39,10 +35,6 @@ public class Node {
     
     public void setDistance(double distance) {
         this.distance = distance;
-    }
-    
-    public void setDirection(String direction) {
-        this.direction = direction;
     }
     
     public void setX(int x) {
@@ -81,13 +73,13 @@ public class Node {
         return distance;
     }
     
-    public String getDirection() {
-        return direction;
+    public double getRadians() {
+        return radians;
     }
-    
-    public ArrayList<String> getDirections() {
-        return directions;
-    }
+	
+	public void setRadians(double direction ){
+		this.radians = direction;
+	}
     
     public int getGoalX() {
         return goalX;
@@ -98,12 +90,6 @@ public class Node {
     }
     
     public Node() {
-    }
-    
-    public Node(int x, int y, String direction) {
-        this.x = x;
-        this.y = y;
-        this.direction = direction;
     }
     
     public Node(int x, int y, double distance) {
@@ -145,14 +131,14 @@ public class Node {
         return d;
     }
     
-    public LinkedList<String> getPath(Node n) {
-        LinkedList<String> s = new LinkedList<>();
+    public LinkedList<Double> getPath(Node n) {
+        LinkedList<Double> s = new LinkedList<>();
         
-        s.addFirst(n.getDirection());
+        s.addFirst(n.getRadians());
         
         while (n.getPrevious() != null) {
             n = n.getPrevious();
-            s.addFirst(n.getDirection());
+            s.addFirst(n.getRadians());
         }
 
 		s.remove(0);
@@ -170,7 +156,7 @@ public class Node {
 				neighbour.setDistance(calcDistance(neighbour.getX(), neighbour.getY(), goal.getGoalX(), goal.getGoalY()));
                 neighbour.setTravel(current.getTravel() + 1);
                 neighbour.setTotal(neighbour.getTravel() + neighbour.getDistance());
-				neighbour.setDirection(getDirection(current, neighbour));
+				neighbour.setRadians(getDirection(current, neighbour));
 				neighbour.setPrevious(current);
                 ways.add(neighbour);
                 explored.add(neighbour);
@@ -179,23 +165,24 @@ public class Node {
         return ways;
     }
 
-	public String getDirection (Node current, Node newNode){
+	public double getDirection (Node current, Node newNode){
 		
 		switch(newNode.getX() - current.getX()  ){
 			case 10:
-				return "right";
+				return Math.PI/2;
 			case -10:
-				return "left";
+				return -Math.PI/2;
 			default:
 				break;
 		}
 
 		switch(newNode.getY() - current.getY()){
 			case 10:
-				return "up";
+				return 0;
 			case -10:
-				return "down";
-			default: break;
+				return Math.PI;
+			default: 
+				break;
 		}
 		throw new IllegalArgumentException("one of nodes not valid");
 	}
