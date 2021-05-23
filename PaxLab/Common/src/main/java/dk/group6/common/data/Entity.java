@@ -11,7 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Entity implements Serializable {
 
     private final UUID ID = UUID.randomUUID();
-
     private float radius;
     private Map<Class, EntityPart> parts;
     private Sprite sprite;
