@@ -12,12 +12,9 @@ public class Entity implements Serializable {
 
     private final UUID ID = UUID.randomUUID();
 
-    private float[] shapeX = new float[4];
-    private float[] shapeY = new float[4];
     private float radius;
     private Map<Class, EntityPart> parts;
     private Sprite sprite;
-    private FileHandle fH;
 
     public Entity() {
         parts = new ConcurrentHashMap<>();
@@ -26,23 +23,6 @@ public class Entity implements Serializable {
     public Entity(Sprite sprite) {
         this();
         this.sprite = sprite;
-    }
-
-    public Entity(FileHandle fH) {
-        this();
-        this.fH = fH;
-    }
-
-    public Sprite getSprite() {
-        return sprite;
-    }
-
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
-    }
-
-    public FileHandle getfH() {
-        return fH;
     }
 
     public void add(EntityPart part) {
@@ -71,25 +51,5 @@ public class Entity implements Serializable {
 
     public String getID() {
         return ID.toString();
-    }
-
-    public float[] getShapeX() {
-        return shapeX;
-    }
-
-    public void setShapeX(float[] shapeX) {
-        this.shapeX = shapeX;
-    }
-
-    public float[] getShapeY() {
-        return shapeY;
-    }
-
-    public void setShapeY(float[] shapeY) {
-        this.shapeY = shapeY;
-    }
-    
-    public void hasCollided(Class col) {
-        
     }
 }
