@@ -14,17 +14,16 @@ import dk.group6.common.weapon.Weapon;
 
 public class WeaponPlugin implements IGamePluginService {
 
-    @Override
-    public void start(GameData gameData, World world) {
-        
-    }
+  @Override
+  public void start(GameData gameData, World world) {
+  }
 
-    @Override
-    public void stop(GameData gameData, World world) {
-        for (Entity weapon : world.getEntities(Weapon.class)){
-			SpritePart sp = weapon.getPart(SpritePart.class);
-			sp.dispose();
-            world.removeEntity(weapon);
-        }
+  @Override
+  public void stop(GameData gameData, World world) {
+    for (Entity weapon : world.getEntities(Weapon.class)){
+      SpritePart sp = weapon.getPart(SpritePart.class);
+      sp.dispose();
+      world.removeEntity(weapon);
     }
+  }
 }
