@@ -31,6 +31,13 @@ public class SpritePart implements EntityPart {
     Sprite sprite;
     File file;
     
+    /**
+     * SpritePart constructor
+     *
+     * @param image String: relative path of the image in the component
+     * @param entity Class: class of the entity, which is placed in the component, where
+     * the image is loaded from. 
+     */
     public SpritePart(String image, Class entity) {
         this.image = image; 
         BundleContext context = FrameworkUtil.getBundle( entity ).getBundleContext();
@@ -63,7 +70,7 @@ public class SpritePart implements EntityPart {
         if (sprite == null) {
             sprite = new Sprite(texture);
         }
-        sprite.setPosition((int) ps.getX(), (int) ps.getY());
+        sprite.setPosition(ps.getX(), ps.getY());
         float degrees = (float) (ps.getRadians()  * (180/Math.PI));
         sprite.setRotation(degrees);
     }
