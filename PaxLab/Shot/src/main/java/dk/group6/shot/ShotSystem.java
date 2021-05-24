@@ -20,27 +20,27 @@ import dk.group6.common.shot.ShotSPI;
  */
 public class ShotSystem implements ShotSPI {
 
-  @Override
-  public Entity shoot(int x, int y, double radian, World world) {
-    Shot shot = createShot(x, y, radian);
-    world.addEntity(shot);
-    return (Entity) shot;
-  }
+    @Override
+    public Entity shoot(int x, int y, double radian, World world) {
+        Shot shot = createShot(x, y, radian);
+        world.addEntity(shot);
+        return (Entity) shot;
+    }
 
-  private Shot createShot(int x, int y, double radian){
-    Shot shot = new Shot();
+    private Shot createShot(int x, int y, double radian){
+        Shot shot = new Shot();
 
-    shot.add(new PositionPart(x, y));
-    shot.add(new MovingPart());
-    shot.add(new LifePart(1));
-    SpritePart sp = new SpritePart("assets/testshot.png", this.getClass());
-    shot.add(sp);
-    PositionPart positionPart = shot.getPart(PositionPart.class);
-    double offset = Math.PI/2;
-    positionPart.setRadians((radian + offset));
-    MovingPart movingPart = shot.getPart(MovingPart.class);
-    movingPart.setStraight(true);
+        shot.add(new PositionPart(x, y));
+        shot.add(new MovingPart());
+        shot.add(new LifePart(1));
+        SpritePart sp = new SpritePart("assets/testshot.png", this.getClass());
+        shot.add(sp);
+        PositionPart positionPart = shot.getPart(PositionPart.class);
+        double offset = Math.PI/2;
+        positionPart.setRadians((radian + offset));
+        MovingPart movingPart = shot.getPart(MovingPart.class);
+        movingPart.setStraight(true);
 
-    return shot;
-  }
+        return shot;
+    }
 }

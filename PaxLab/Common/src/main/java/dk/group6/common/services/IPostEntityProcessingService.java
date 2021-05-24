@@ -8,5 +8,5 @@ import dk.group6.common.data.World;
  * @author jcs
  */
 public interface IPostEntityProcessingService  {
-        void process(GameData gameData, World world);
+    void process(GameData gameData, World world);
 }

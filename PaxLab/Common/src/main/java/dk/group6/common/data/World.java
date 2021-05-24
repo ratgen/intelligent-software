@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class World {
     private TiledMapTileLayer mapTileLayer;
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
-    
+
     public String addEntity(Entity entity) {
         entityMap.put(entity.getID(), entity);
         return entity.getID();
@@ -27,7 +27,7 @@ public class World {
     public void removeEntity(Entity entity) {
         entityMap.remove(entity.getID());
     }
-    
+
     public Collection<Entity> getEntities() {
         return entityMap.values();
     }
@@ -43,11 +43,11 @@ public class World {
         }
         return r;
     }
-    
+
     public void setMapTileLayer(TiledMapTileLayer tileLayer) {
         mapTileLayer = tileLayer;
     }
-    
+
     public TiledMapTileLayer getMapTileLayer() {
         return mapTileLayer;
     }
@@ -56,17 +56,17 @@ public class World {
     public Entity getEntity(String ID) {
         return entityMap.get(ID);
     }
-    
-	/**
-	 * 
-	 * @param x
-	 * @param y
-	 * @return false if the cell is a wall
-	 */
+
+    /**
+     * 
+     * @param x
+     * @param y
+     * @return false if the cell is a wall
+     */
     public Boolean isValidCell(int x, int y) {
         if (this.mapTileLayer.getCell(x / 45, y / 45).getTile().getProperties().containsKey("Wall")) {
-			return false;
-		}
+            return false;
+        }
         return true;
     }
 }

@@ -18,16 +18,16 @@ import dk.group6.common.shot.Shot;
  */
 public class ShotPlugin implements IGamePluginService {
 
-  @Override
-  public void start(GameData gameData, World world) {
-  }
-
-  @Override
-  public void stop(GameData gameData, World world) {
-    for (Entity shot : world.getEntities(Shot.class)){
-      SpritePart sp = shot.getPart(SpritePart.class);
-      sp.dispose();
-      world.removeEntity(shot);
+    @Override
+    public void start(GameData gameData, World world) {
     }
-  }
+
+    @Override
+    public void stop(GameData gameData, World world) {
+        for (Entity shot : world.getEntities(Shot.class)){
+            SpritePart sp = shot.getPart(SpritePart.class);
+            sp.dispose();
+            world.removeEntity(shot);
+        }
+    }
 }

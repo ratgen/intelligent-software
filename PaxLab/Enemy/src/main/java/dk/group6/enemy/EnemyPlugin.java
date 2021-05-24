@@ -14,17 +14,17 @@ import java.util.List;
 import java.util.Random;
 
 public class EnemyPlugin implements IGamePluginService {
-  
+
     ArrayList<int[]> spawnPoints;
     GameData gameData;
     World world;
     Random rand = new Random();
-    
+
     public EnemyPlugin() {
     }
-    
-    
-    
+
+
+
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
@@ -42,14 +42,14 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     public Entity createEnemy(GameData gameData, int[] spawn) {
-        
+
         //int[] spawnPoint = spawnPoints[rand.nextInt(6)];
 
         Entity enemy = new Enemy();
 
         enemy.add(new LifePart(1));
         enemy.setRadius(4);
-		MovingPart movingPart = new MovingPart();
+        MovingPart movingPart = new MovingPart();
         movingPart.setAcceleration(1);
         enemy.add(movingPart);
         enemy.add(new PositionPart(spawn[0], spawn[1]));
@@ -57,20 +57,20 @@ public class EnemyPlugin implements IGamePluginService {
 
         return enemy;
     }
- 
- 	public void loadSpawnPoints(){
-		int[][] arr = {{46, 46}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}, {988, 46}, {510, 586}, {722, 404}};
-		for (int[] point : arr) {
-			this.spawnPoints.add(point);
-		}
+
+    public void loadSpawnPoints(){
+        int[][] arr = {{46, 46}, {100, 629}, {675, 495}, {46, 629}, {39, 523}, {55, 232}, {125, 211}, {988, 46}, {510, 586}, {722, 404}};
+        for (int[] point : arr) {
+            this.spawnPoints.add(point);
+        }
     }
- 
+
     @Override
     public void stop(GameData gameData, World world) {
         // Remove entities
         for (Entity enemy : world.getEntities(Enemy.class)) {
-			SpritePart sp = enemy.getPart(SpritePart.class);
-			sp.dispose();
+            SpritePart sp = enemy.getPart(SpritePart.class);
+            sp.dispose();
             world.removeEntity(enemy.getID());
         }
     }

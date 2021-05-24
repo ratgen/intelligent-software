@@ -14,24 +14,24 @@ import dk.group6.common.data.GameData;
  */
 public class WeaponContainerPart implements EntityPart {
     private String weapon; 
-    
-    
+
+
     public WeaponContainerPart() {
 
     }
-    
+
     public String getWeapon () {
         return weapon;
     }
-    
+
     public void addWeapon(String weaponID){
-	    this.weapon = weaponID;
+        this.weapon = weaponID;
     }
-    
+
     public void removeWeapon(String weaponID){
-	    this.weapon = null;
+        this.weapon = null;
     }
-    
+
     @Override
     public void process(GameData gameData, Entity entity) {
 

@@ -30,7 +30,7 @@ public class SpritePart implements EntityPart {
     Texture texture = null;
     Sprite sprite;
     File file;
-    
+
     /**
      * SpritePart constructor
      *
@@ -59,7 +59,7 @@ public class SpritePart implements EntityPart {
             e.printStackTrace();
         }
     }
-    
+
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart ps = entity.getPart(PositionPart.class);
@@ -74,36 +74,36 @@ public class SpritePart implements EntityPart {
         float degrees = (float) (ps.getRadians()  * (180/Math.PI));
         sprite.setRotation(degrees);
     }
-    
+
     public void dispose(){
         file.delete();
     }
-    
+
     public Sprite getSprite(){
         return sprite;
     }
-    
+
     public int[] getSpriteLeftBottom() {
         int[] coordinates = new int[2];
         coordinates[0] = (int) sprite.getX();
         coordinates[1] = (int) sprite.getY();
         return coordinates;
     }
-    
+
     public int[] getSpriteRightBottom() {
         int[] coordinates = new int[2];
         coordinates[0] = (int) (sprite.getX() + sprite.getWidth());
         coordinates[1] = (int) sprite.getY();
         return coordinates;
     }
-    
+
     public int[] getSpriteLeftTop() {
         int[] coordinates = new int[2];
         coordinates[0] = (int) sprite.getX();
         coordinates[1] = (int) (sprite.getY() + sprite.getHeight());
         return coordinates;
     }
-    
+
     public int[] getSpriteRightTop() {
         int[] coordinates = new int[2];
         coordinates[0] = (int) (sprite.getX() + sprite.getWidth());

@@ -6,7 +6,7 @@ Author: Jan Srensen
 
 
 public class GameKeys {
-// TODO 
+    // TODO 
     private static boolean[] keys;
     private static boolean[] pkeys;
 

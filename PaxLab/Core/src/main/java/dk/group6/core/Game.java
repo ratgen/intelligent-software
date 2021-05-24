@@ -93,7 +93,7 @@ public class Game implements ApplicationListener {
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
-        
+
         // Checks if game is lost
         if (gameData.isGameLost()) {
             map.gameLost();
@@ -120,7 +120,7 @@ public class Game implements ApplicationListener {
     @Override
     public void dispose() {
         batch.dispose();
-		map.unload();
+        map.unload();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {

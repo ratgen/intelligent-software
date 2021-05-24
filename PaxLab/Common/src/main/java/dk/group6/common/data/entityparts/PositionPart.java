@@ -17,17 +17,17 @@ public class PositionPart implements EntityPart {
     private int x;
     private int y;
     private double radians;
-    
+
     private ArrayList<String> directions = new ArrayList();
 
     public ArrayList<String> getDirections() {
         return directions;
     }
-    
+
     public void setDirections(ArrayList<String> a) {
         this.directions = a;
     }
-    
+
     public PositionPart(int x, int y) {
         this.x = x;
         this.y = y;
@@ -45,11 +45,11 @@ public class PositionPart implements EntityPart {
     public double getRadians() {
         return radians;
     }
-    
+
     public void setX(int newX) {
         this.x = newX;
     }
-    
+
     public void setY(int newY) {
         this.y = newY;
     }
@@ -66,8 +66,8 @@ public class PositionPart implements EntityPart {
     @Override
     public void process(GameData gameData, Entity entity) {
     }
-    
-    
-    
-    
+
+
+
+
 }

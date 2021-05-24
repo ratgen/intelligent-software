@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
  * @author joaki
  */
 public class PlayerTest {
-    
+
     public PlayerTest() {
     }
 
@@ -34,21 +34,21 @@ public class PlayerTest {
     public void tearDown() throws Exception {
     }
 
-    
-     @Test
-     public void playerTest() {
-		 /*
-        GameData gameData = mock(GameData.class);
-        World world = new World();
-        
-        PlayerPlugin plugin = new PlayerPlugin();
-        plugin.start(gameData, world);
-        
-        Entity player = world.getEntities().iterator().next();
-        
-        PositionPart positionPart = player.getPart(PositionPart.class);
-        assertEquals(positionPart.getX(), 360);
-        assertEquals(positionPart.getY(), 540);
-*/
-     }
+
+    @Test
+    public void playerTest() {
+        /*
+           GameData gameData = mock(GameData.class);
+           World world = new World();
+
+           PlayerPlugin plugin = new PlayerPlugin();
+           plugin.start(gameData, world);
+
+           Entity player = world.getEntities().iterator().next();
+
+           PositionPart positionPart = player.getPart(PositionPart.class);
+           assertEquals(positionPart.getX(), 360);
+           assertEquals(positionPart.getY(), 540);
+           */
+    }
 }

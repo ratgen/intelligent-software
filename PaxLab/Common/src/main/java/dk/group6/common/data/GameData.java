@@ -30,7 +30,7 @@ public class GameData {
     public void setGameIsLost(boolean gameIsLost) {
         this.gameIsLost = gameIsLost;
     }
-    
+
 
     public void addEvent(Event e) {
         events.add(e);
