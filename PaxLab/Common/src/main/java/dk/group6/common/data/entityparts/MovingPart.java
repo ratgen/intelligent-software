@@ -117,6 +117,7 @@ public class MovingPart implements EntityPart {
                 int move = positionPart.getY() - acceleration ;
                 positionPart.setY(move);
             }
+        }
             else if (straight) {
                 double radians = positionPart.getRadians();
                 double dx, dy;
@@ -138,6 +139,5 @@ public class MovingPart implements EntityPart {
             down = false;
             right = false;
             left = false;
-        }
     }
 }
