@@ -36,6 +36,13 @@ public class CollisionLogic implements IPostEntityProcessingService {
         this.gameData = gameData; 
     }
 
+    /**
+     * Detects collision between entities.
+     * Modifies appropriate LifeParts
+     *
+     * @param   world   object containing world data.
+     *
+     */
     public void entityCollision(World world) {
         for (Entity entity : world.getEntities()) {
             SpritePart spritePart = entity.getPart(SpritePart.class);
@@ -50,9 +57,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
             for (Entity entity1 : world.getEntities()) {
                 SpritePart spritePart1 = entity1.getPart(SpritePart.class);
-
                 Sprite entity1Sprite = spritePart1.getSprite();
-
                 if (entity1Sprite == null) {
                     continue;
                 }
@@ -66,7 +71,6 @@ public class CollisionLogic implements IPostEntityProcessingService {
                     // Player & Enemy
                     if ((entity1.getClass() == Player.class && entity.getClass() == Enemy.class) ||
                             (entity.getClass() == Player.class && entity1.getClass() == Enemy.class )) {
-
                         LifePart entityLife = entity.getPart(LifePart.class);
 
                         if (entityLife.getLife() > 0) {
@@ -79,7 +83,7 @@ public class CollisionLogic implements IPostEntityProcessingService {
                             }
                             world.removeEntity(entity);
                         }
-                            }
+                    }
                     // Enemy & Bullet
                     if ((entity1.getClass() == Shot.class && entity.getClass() == Enemy.class) ||
                             (entity.getClass() == Shot.class && entity1.getClass() == Enemy.class )) {
@@ -95,12 +99,18 @@ public class CollisionLogic implements IPostEntityProcessingService {
 
                             break;
                         }
-                            }
+                    }
                 }
             }
         }
     }
 
+    /**
+     * Set the distance to any wall in the entities MovingPart.
+     *
+     * @param   world   World object containing data about the world
+     *
+     */
     public void setWallDistance(World world) {
         for (Entity entity : world.getEntities()) {
             MovingPart mp = entity.getPart(MovingPart.class);
