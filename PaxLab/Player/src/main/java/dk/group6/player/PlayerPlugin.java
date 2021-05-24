@@ -24,7 +24,6 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayer(GameData gameData) {
-
         Entity player = new Player();
 
         player.add(new LifePart(1));

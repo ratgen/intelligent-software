@@ -79,7 +79,6 @@ public class GameData {
                 r.add(event);
             }
         }
-
         return r;
     }
 }

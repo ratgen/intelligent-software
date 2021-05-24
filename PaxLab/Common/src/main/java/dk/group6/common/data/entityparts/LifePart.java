@@ -9,8 +9,7 @@ import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
 
 /**
- *
- * @author Someone
+ * 
  */
 public class LifePart implements EntityPart {
     private boolean dead = false;

@@ -1,12 +1,6 @@
 package dk.group6.common.data;
 
-/*
-Author: Jan Srensen
-*/
-
-
 public class GameKeys {
-    // TODO 
     private static boolean[] keys;
     private static boolean[] pkeys;
 
