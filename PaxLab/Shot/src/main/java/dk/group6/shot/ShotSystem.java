@@ -39,6 +39,7 @@ public class ShotSystem implements ShotSPI {
     double offset = Math.PI/2;
     positionPart.setRadians((radian + offset));
     MovingPart movingPart = shot.getPart(MovingPart.class);
+    movingPart.setStraight(true);
 
     return shot;
   }

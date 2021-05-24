@@ -38,6 +38,7 @@ public class Game implements ApplicationListener {
 
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
+        System.setProperty("org.lwjgl.opengl.Display.allowSoftwareOpenGL", "true");
         cfg.title = "Corona Mortal Combat";
         cfg.width = 1080;
         cfg.height = 720;
