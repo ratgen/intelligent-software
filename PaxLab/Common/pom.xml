@@ -27,10 +27,9 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx</artifactId>
-            <version>1.9.10</version>
-            <type>jar</type>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>OSGiLibGDX</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -40,11 +40,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>dk.group6.build</groupId>
-            <artifactId>CommonMap</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>CommonMap</artifactId>
             <version>${project.version}</version>
