@@ -120,6 +120,12 @@ public class Node {
         return d;
     }
 
+    /**
+     * Returns the path to node n from its parent, and the parent of its parent.
+     *
+     * @param   n   Node from which to get the path
+     * @returns     A linkedList with the path, containing doubles
+     */
     public LinkedList<Double> getPath(Node n) {
         LinkedList<Double> s = new LinkedList<>();
 
@@ -134,7 +140,17 @@ public class Node {
         return s;
     }
 
-
+    /**
+     * Expands a node.
+     * Expanding a node gets the neighbours of the the node current, if they are not already present
+     * in the set of explored nodes. 
+     *
+     * @param   current     is the Node to expand
+     * @param   goal        is the goal Node 
+     * @param   world       is the World, containing entities and data about the map
+     * @param   explored    is a HashSet of explored nodes
+     * @return              ArrayList of the expanded nodes
+     */
     public ArrayList<Node> expand(Node current, Node goal, World world, HashSet<Node> explored) {
         ArrayList<Node> ways = new ArrayList<>();
 
@@ -154,8 +170,16 @@ public class Node {
         return ways;
     }
 
-    public double getDirection (Node current, Node newNode){
-
+    /**
+     * Get the radian value of the direction.
+     * The radian value is gotten from the coordinate difference between the nodes.
+     *
+     * @param   current     the Node from which to calculate from 
+     * @param   newNode     the Node which has moved in some direction
+     * @return              a double, which is the direction
+     *
+     */
+    public double getDirection(Node current, Node newNode){
         switch(newNode.getX() - current.getX()  ){
             case 10:
                 return Math.PI/2;
@@ -176,10 +200,16 @@ public class Node {
         throw new IllegalArgumentException("one of nodes not valid");
     }
 
+    /**
+     * Returns valid neighbours of the node.
+     * 
+     * @param   n           Node from which to calculate the neighbours
+     * @param   world       Object containing data about the map
+     * @return  validNodes  ArrayList containing the neighbour nodes
+     */
     public ArrayList<Node> getNeighbours(Node n, World world) {
-        ArrayList<Node> nA = new ArrayList<>();
-
-        ArrayList<Node> pos = new ArrayList();       
+        ArrayList<Node> validNodes = new ArrayList<>();
+        ArrayList<Node> pos = new ArrayList<>();       
 
         int offset = 10;
         int dist = 45;
@@ -199,11 +229,11 @@ public class Node {
                     && world.isValidCell(x ,y + dist ) //top right
                )	
             {
-                nA.add(node);
+                validNodes.add(node);
             }
         }
 
-        return nA;
+        return validNodes;
     }
 
     @Override
