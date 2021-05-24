@@ -2,16 +2,14 @@ package dk.group6.common.data.entityparts;
 
 import dk.group6.common.data.Entity;
 import dk.group6.common.data.GameData;
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
+import java.lang.Math;
 import java.util.HashMap;
 
 public class MovingPart implements EntityPart {
 
     private boolean left, right, up, down, straight;
     private int acceleration = 1;
-    private HashMap<String, Integer> wallDistance = new HashMap();
+    private HashMap<String, Integer> wallDistance = new HashMap<>();
 
     public boolean isLeft() {
         return left;
@@ -95,16 +93,17 @@ public class MovingPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
+        double delta = gameData.getDelta();
         PositionPart positionPart = entity.getPart(PositionPart.class);
 
         if (left && wallDistance.containsKey("left")) {
             if (wallDistance.get("left") > acceleration){
-                int move = (int ) positionPart.getX() - acceleration;
+                int move = positionPart.getX() - acceleration;
                 positionPart.setX(move);
             }
         } else if (right && wallDistance.containsKey("right")) {
             if (wallDistance.get("right") > acceleration){
-                int move =  (int) positionPart.getX() + acceleration ;
+                int move = positionPart.getX() + acceleration ;
                 positionPart.setX(move);
             }
         } // accelerating            
@@ -122,10 +121,10 @@ public class MovingPart implements EntityPart {
                 double radians = positionPart.getRadians();
                 double dx, dy;
 
-                dx = cos(radians) * delta;
-                dy = sin(radians) * delta;
+                dx =  Math.cos(radians) * delta;
+                dy =  Math.sin(radians) * delta;
 
-                float vec = (float) sqrt(dx * dx + dy * dy);
+                float vec = (float) Math.sqrt(dx * dx + dy * dy);
 
                 dx = (dx / vec) * 5;
                 dy = (dy / vec) * 5;
