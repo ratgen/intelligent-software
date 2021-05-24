@@ -17,10 +17,10 @@ public class Tile {
             this.isWall = isWall;
             this.enumID = enumID;
         }
-        
+
         public int getEnumID() {
             return enumID;
-    }
+        }
     }
 
     private int width, height = 45;
@@ -34,9 +34,9 @@ public class Tile {
         this.tileID = tileID;
         this.tileCoordinates = tileCoordinates;
     }
-    
+
     private void setEnum(TileEnum e) {
-        
+
     }
 
     private boolean getIsWall() {
@@ -46,14 +46,14 @@ public class Tile {
     public float[] getTileCoordinates() {
         return tileCoordinates;
     }
-    
+
     private TileEnum getTileEnum(int enumID) {
 
         //Used in the 2D Array for Map to get TileEnum by ID.
 
         for (TileEnum e : TileEnum.values()) {
             if (e.getEnumID() == enumID) {
-               return e;
+                return e;
             }
         }
         return null;

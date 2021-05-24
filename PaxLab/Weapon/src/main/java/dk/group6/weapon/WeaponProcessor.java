@@ -11,14 +11,14 @@ import dk.group6.common.services.IEntityProcessingService;
 
 public class WeaponProcessor implements IEntityProcessingService {
 
-  @Override
-  public void process(GameData gameData, World world) {
-    for (Entity entity : world.getEntities(Weapon.class)) {
-      SpritePart spritePart = entity.getPart(SpritePart.class);
-      PositionPart positionPart = entity.getPart(PositionPart.class);
+    @Override
+    public void process(GameData gameData, World world) {
+        for (Entity entity : world.getEntities(Weapon.class)) {
+            SpritePart spritePart = entity.getPart(SpritePart.class);
+            PositionPart positionPart = entity.getPart(PositionPart.class);
 
-      positionPart.process(gameData, entity);            
-      spritePart.process(gameData, entity);
+            positionPart.process(gameData, entity);            
+            spritePart.process(gameData, entity);
+        }
     }
-  }
 }

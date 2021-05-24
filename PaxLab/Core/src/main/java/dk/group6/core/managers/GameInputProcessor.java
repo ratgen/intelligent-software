@@ -39,7 +39,7 @@ public class GameInputProcessor extends InputAdapter {
         }
         return true;
     }
-	
+
     public boolean keyUp(int k) {
         if(k == Keys.UP) {
             gameData.getKeys().setKey(GameKeys.UP, false);

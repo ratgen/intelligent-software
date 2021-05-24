@@ -25,34 +25,34 @@ public class EnemyProcessor implements IEntityProcessingService {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             MovingPart movingPart = entity.getPart(MovingPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
-			
-			player = getPlayerEntity(world, entity);
-			
-			LinkedList<Double> strA = pathFinder.track(entity, player, world);
-				
-			if (player != null && strA != null && strA.size() > 1) {
-				double first = strA.pollFirst();
-				int degree = (int) (first * 180/Math.PI);
-				switch (degree) {
-					case 0:
-						movingPart.setUp(true);
-						break;
-					case 90:
-						movingPart.setRight(true);
-						break;
-					case -90:
-						movingPart.setLeft(true);
-						break;
-					case 180:
-						movingPart.setDown(true);
-						break;
-					case -180:
-						movingPart.setDown(true);
-						break;
-					default:
-						break;
-				}
-			}
+
+            player = getPlayerEntity(world, entity);
+
+            LinkedList<Double> strA = pathFinder.track(entity, player, world);
+
+            if (player != null && strA != null && strA.size() > 1) {
+                double first = strA.pollFirst();
+                int degree = (int) (first * 180/Math.PI);
+                switch (degree) {
+                    case 0:
+                        movingPart.setUp(true);
+                        break;
+                    case 90:
+                        movingPart.setRight(true);
+                        break;
+                    case -90:
+                        movingPart.setLeft(true);
+                        break;
+                    case 180:
+                        movingPart.setDown(true);
+                        break;
+                    case -180:
+                        movingPart.setDown(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
@@ -61,7 +61,7 @@ public class EnemyProcessor implements IEntityProcessingService {
 
         //Check for enemies on map and if empty, respawn enemies
         if(world.getEntities(Enemy.class).size() <= 0) {
-        	EnemyPlugin enemyPlugin = new EnemyPlugin();
+            EnemyPlugin enemyPlugin = new EnemyPlugin();
             enemyPlugin.start(gameData, world);
         }
     }
@@ -70,13 +70,13 @@ public class EnemyProcessor implements IEntityProcessingService {
     public Entity getPlayerEntity(World world, Entity enemy) {
         Entity tempEntity = null;
         for (Entity entity: world.getEntities()) {
-	    if (entity.getClass().toString().contains("Player")){
-		return entity;
-	    }
+            if (entity.getClass().toString().contains("Player")){
+                return entity;
+            }
         }
         return tempEntity;
     }
-    
+
     public void setPathFinder(IPathFinderSPI pathFinder) {
         this.pathFinder = pathFinder;
     }

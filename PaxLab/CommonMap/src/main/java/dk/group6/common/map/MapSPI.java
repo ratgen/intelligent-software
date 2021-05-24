@@ -15,13 +15,13 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
  * @author peter
  */
 public interface MapSPI {
-    
+
     void createMap();    
     OrthogonalTiledMapRenderer getRenderer();
     TiledMap getMap();
     TiledMapTileLayer getMapTileLayer();
     Boolean isWall(int x, int y);
-    
+
     void gameLost();
     void gameWon();
     void unload();

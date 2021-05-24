@@ -38,6 +38,7 @@ public class Game implements ApplicationListener {
 
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
+        System.setProperty("org.lwjgl.opengl.Display.allowSoftwareOpenGL", "true");
         cfg.title = "Corona Mortal Combat";
         cfg.width = 1080;
         cfg.height = 720;
@@ -92,7 +93,7 @@ public class Game implements ApplicationListener {
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
-        
+
         // Checks if game is lost
         if (gameData.isGameLost()) {
             map.gameLost();
@@ -119,7 +120,7 @@ public class Game implements ApplicationListener {
     @Override
     public void dispose() {
         batch.dispose();
-		map.unload();
+        map.unload();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {

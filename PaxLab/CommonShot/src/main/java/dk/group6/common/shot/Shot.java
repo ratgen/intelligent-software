@@ -12,5 +12,5 @@ import dk.group6.common.data.Entity;
  * @author peter
  */
 public class Shot extends Entity {
-    
+
 }
