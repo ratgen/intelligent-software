@@ -20,6 +20,15 @@ public class AStar implements IPathFinderSPI  {
     Node current = new Node();
     protected HashSet<Node> explored = new HashSet<>();
 
+    /**
+     * Returns a LinkedList of Doubles for the correct path to the goal entity.
+     * 
+     * @param   from    the entity from which to the to Entity
+     * @param   to      the entity to track
+     * @param   world   contains data about the entites and the map
+     * @return          LinkedList containg the path to the to Entity  
+     *
+     */
     @Override
     public LinkedList<Double> track(Entity from, Entity to, World world) {
         explored.clear();
@@ -52,6 +61,16 @@ public class AStar implements IPathFinderSPI  {
 
 class CompareTotal implements Comparator<Node> {
 
+    /**
+     * Compares one node to another.
+     * This is useful when ordering the nodes, from best to worst.
+     *
+     * @param   n1  node 1 to be compared
+     * @param   n2  node 2 to be compared
+     * @returns     0 if the nodes are equal, less than 0 if n1 less than n2 
+     *                  and greater than 0 if n1 is greater than n2.
+     *
+     */
     @Override
     public int compare(Node n1, Node n2) {
         return Double.compare(n1.getTotal(), n2.getTotal());
