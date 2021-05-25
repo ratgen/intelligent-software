@@ -96,7 +96,12 @@ public class Game implements ApplicationListener {
 
         // Checks if game is lost
         if (gameData.isGameLost()) {
-            map.gameLost();
+			try {
+            	map.gameLost();
+			} catch (Exception e) {
+				System.out.println("map could not be loaded");
+				e.printStackTrace();
+			}
         }
     }
 

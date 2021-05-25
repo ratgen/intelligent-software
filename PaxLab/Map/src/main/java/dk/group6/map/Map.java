@@ -130,7 +130,7 @@ public class Map implements MapSPI {
     @Override
     public TiledMap getMap() {
         return map;
-    }
+}
 
     @Override
     public TiledMapTileLayer getMapTileLayer() {
@@ -143,7 +143,7 @@ public class Map implements MapSPI {
     }
 
     @Override
-    public void gameLost() {
+    public void gameLost() throws Exception {
         if (!knownGameOver){
             try {
                 String filePath = loadTmxFile("assets/map/", "Gameover.tmx").getAbsolutePath();
@@ -159,7 +159,7 @@ public class Map implements MapSPI {
     }
 
     @Override
-    public void gameWon() {
+    public void gameWon() throws Exception {
         try {
             String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
             this.map = new TmxMapLoader().load(filePath);

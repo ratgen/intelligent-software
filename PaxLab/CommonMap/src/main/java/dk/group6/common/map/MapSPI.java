@@ -21,8 +21,7 @@ public interface MapSPI {
     TiledMap getMap();
     TiledMapTileLayer getMapTileLayer();
     Boolean isWall(int x, int y);
-
-    void gameLost();
-    void gameWon();
+    void gameLost() throws Exception;
+    void gameWon() throws Exception;
     void unload();
 }
