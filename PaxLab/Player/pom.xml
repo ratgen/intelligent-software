@@ -37,13 +37,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.peter</groupId>
-            <artifactId>CommonPlayer</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
             <version>7.0.0</version>
@@ -74,12 +67,36 @@
             <artifactId>pax-exam-inject</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>dk.group6.build</groupId>
             <artifactId>OSGiLibGDX</artifactId>
-            <version>${project.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ops4j.pax.exam</groupId>
+			<artifactId>pax-exam-container-native</artifactId>
+			<scope>test</scope>
+			<version>4.13.1</version>
+		</dependency>
     </dependencies>
 
     <build>

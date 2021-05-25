@@ -1,18 +1,15 @@
 package PlayerTest;
 
+import javax.inject.Inject;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.ops4j.pax.exam.CoreOptions.junitBundles;
-import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.*;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.osgi.framework.BundleContext;
-import org.ops4j.pax.exam.Inject;
-
-
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.util.tracker.ServiceTracker;
-
+import org.osgi.framework.BundleException;
 
 /**
  * Documentation for the testing framework:
@@ -27,11 +24,19 @@ public class PlayerTest {
 	@Inject
 	private BundleContext bc;
 
-	public Option[] config() {
-		return options(
-				junitBundles(),
-				felix(),
-				mavenBundle()
-		);
-	}
+ 
+    @Before
+    public void setUp() {
+       // ...
+    }
+ 
+    @After
+    public void tearDown() {
+       // ...
+    }
+ 
+    @Test
+    public void PlayTest() throws BundleException {
+		bc.getBundle().start();
+    }
 }
