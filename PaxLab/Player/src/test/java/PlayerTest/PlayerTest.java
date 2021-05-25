@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.*;
 import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.spi.container.ContainerConstants;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 

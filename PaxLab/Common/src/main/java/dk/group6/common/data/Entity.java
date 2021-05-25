@@ -1,7 +1,5 @@
 package dk.group6.common.data;
 
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.group6.common.data.entityparts.EntityPart;
 import java.io.Serializable;
 import java.util.Map;
@@ -13,15 +11,9 @@ public class Entity implements Serializable {
     private final UUID ID = UUID.randomUUID();
     private float radius;
     private Map<Class, EntityPart> parts;
-    private Sprite sprite;
 
     public Entity() {
         parts = new ConcurrentHashMap<>();
-    }
-
-    public Entity(Sprite sprite) {
-        this();
-        this.sprite = sprite;
     }
 
     public void add(EntityPart part) {
