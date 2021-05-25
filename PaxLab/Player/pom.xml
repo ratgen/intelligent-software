@@ -41,7 +41,6 @@
             <artifactId>osgi.core</artifactId>
             <version>7.0.0</version>
             <scope>test</scope>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.ops4j.pax</groupId>
@@ -96,6 +95,12 @@
 			<artifactId>pax-exam-container-native</artifactId>
 			<scope>test</scope>
 			<version>4.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.framework</artifactId>
+			<version>7.0.0</version>
+			<scope>test</scope>
 		</dependency>
     </dependencies>
 
