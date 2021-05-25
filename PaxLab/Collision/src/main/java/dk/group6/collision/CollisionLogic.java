@@ -18,8 +18,6 @@ import dk.group6.common.enemy.Enemy;
 import dk.group6.common.player.Player;
 import dk.group6.common.services.IPostEntityProcessingService;
 import dk.group6.common.shot.Shot;
-import dk.group6.common.weapon.Weapon;
-
 /**
  *
  * @author Yonus

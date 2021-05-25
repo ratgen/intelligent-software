@@ -24,11 +24,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>OSGiLibGDX</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -38,9 +33,9 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>dk.group6.build</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>CommonAI</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <type>jar</type>
         </dependency>
     </dependencies>
