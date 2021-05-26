@@ -1,8 +1,10 @@
 package PlayerTest;
 
+import dk.group6.common.services.IGamePluginService;
+import dk.group6.player.PlayerPlugin;
 import javax.inject.Inject;
 import org.junit.After;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +15,7 @@ import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Documentation for the testing framework:
@@ -34,15 +37,14 @@ public class PlayerTest {
 		System.out.println ( 
 		"Working Directory = " + System.getProperty("user.dir"));
 		return options(
-				bundle("file:///home/peter/documents/intelligent-software/PaxLab/runner/bundles/Player_1.0.0.SNAPSHOT.jar"),
-				junitBundles()
 		);
 	}
 
+	private IGamePluginService plugin;
  
     @Before
-    public void setUp() {
-       // ...
+    public void setUp() throws Exception {
+		plugin = getPluginService();
     }
  
     @After
@@ -52,11 +54,20 @@ public class PlayerTest {
 
 	@Test
 	public void assertTest() {
-		assertNotNull(bc);
+		//Assert.assertNotNull(bc);
 	}
  
     @Test
     public void PlayTest() throws BundleException {
 		bc.getBundle().start();
     }
+	
+	public IGamePluginService getPluginService() throws InterruptedException {
+		ServiceTracker tracker = new ServiceTracker(bc, IGamePluginService.class, null);
+		tracker.open();
+		IGamePluginService services = (IGamePluginService) tracker.waitForService(500);
+		tracker.close();
+		System.out.println(services);
+		return services;
+	} 
 }
