@@ -43,13 +43,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.ops4j.pax</groupId>
-            <artifactId>exam</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>org.ops4j.pax.exam</groupId>
             <artifactId>pax-exam</artifactId>
             <version>4.13.1</version>
@@ -60,13 +53,6 @@
             <artifactId>pax-exam-junit4</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.ops4j.pax.exam</groupId>
-            <artifactId>pax-exam-inject</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>dk.group6.build</groupId>
