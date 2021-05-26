@@ -9,7 +9,6 @@ import dk.group6.common.data.entityparts.PositionPart;
 import dk.group6.common.data.entityparts.SpritePart;
 import dk.group6.common.enemy.Enemy;
 import dk.group6.common.services.IEntityProcessingService;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class EnemyProcessor implements IEntityProcessingService {

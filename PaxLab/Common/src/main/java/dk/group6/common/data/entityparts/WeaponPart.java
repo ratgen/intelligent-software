@@ -21,11 +21,6 @@ public class WeaponPart implements EntityPart {
         this.ammo = ammo;
     }
 
-
-    @Override
-    public void process(GameData gameData, Entity entity) {
-
-    }
     public int getAmmo() {
         return this.ammo;
     }
@@ -50,5 +45,7 @@ public class WeaponPart implements EntityPart {
         ammo--;
     } 
 
-
+    @Override
+    public void process(GameData gameData, Entity entity) {
+    }
 }

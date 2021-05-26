@@ -10,7 +10,11 @@ public class MovingPart implements EntityPart {
     private boolean left, right, up, down, straight;
     private int acceleration = 1;
     private HashMap<String, Integer> wallDistance = new HashMap<>();
-
+    private String[] movement;
+    
+    public MovingPart() {
+    }
+    
     public boolean isLeft() {
         return left;
     }
@@ -68,8 +72,6 @@ public class MovingPart implements EntityPart {
         return wallDistance.get(direction);
     }
 
-
-
     public float getAcceleration() {
         return acceleration;
     }
@@ -77,11 +79,6 @@ public class MovingPart implements EntityPart {
     public void setAcceleration(int acceleration) {
         this.acceleration = acceleration;
     }
-    private String[] movement;
-
-    public MovingPart() {
-    }
-
 
     public String[] getMovement(){
         return this.movement;

@@ -25,11 +25,11 @@ import org.osgi.framework.FrameworkUtil;
  */
 public class SpritePart implements EntityPart {
 
-    public static final int DEFAULT_BUFFER_SIZE = 8192;
-    String image;
-    Texture texture = null;
-    Sprite sprite;
-    File file;
+    private static final int DEFAULT_BUFFER_SIZE = 8192;
+    private String image;
+    private Texture texture = null;
+    private Sprite sprite;
+    private File file;
 
     /**
      * SpritePart constructor
@@ -58,21 +58,6 @@ public class SpritePart implements EntityPart {
         catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void process(GameData gameData, Entity entity) {
-        PositionPart ps = entity.getPart(PositionPart.class);
-        if (texture == null) {
-            FileHandle fh = new FileHandle(file);
-            texture = new Texture(fh);
-        }
-        if (sprite == null) {
-            sprite = new Sprite(texture);
-        }
-        sprite.setPosition(ps.getX(), ps.getY());
-        float degrees = (float) (ps.getRadians()  * (180/Math.PI));
-        sprite.setRotation(degrees);
     }
 
     public void dispose(){
@@ -109,5 +94,20 @@ public class SpritePart implements EntityPart {
         coordinates[0] = (int) (sprite.getX() + sprite.getWidth());
         coordinates[1] = (int) (sprite.getY() + sprite.getHeight()); 
         return coordinates;
+    }
+    
+    @Override
+    public void process(GameData gameData, Entity entity) {
+        PositionPart ps = entity.getPart(PositionPart.class);
+        if (texture == null) {
+            FileHandle fh = new FileHandle(file);
+            texture = new Texture(fh);
+        }
+        if (sprite == null) {
+            sprite = new Sprite(texture);
+        }
+        sprite.setPosition(ps.getX(), ps.getY());
+        float degrees = (float) (ps.getRadians()  * (180/Math.PI));
+        sprite.setRotation(degrees);
     }
 }

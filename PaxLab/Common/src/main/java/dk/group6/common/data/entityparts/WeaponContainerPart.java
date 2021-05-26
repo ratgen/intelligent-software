@@ -17,7 +17,6 @@ public class WeaponContainerPart implements EntityPart {
 
 
     public WeaponContainerPart() {
-
     }
 
     public String getWeapon () {
@@ -34,6 +33,5 @@ public class WeaponContainerPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-
     }
 }

@@ -2,7 +2,6 @@ package dk.group6.astar;
 
 import dk.group6.common.data.World;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -124,7 +123,7 @@ public class Node {
      * Returns the path to node n from its parent, and the parent of its parent.
      *
      * @param   n   Node from which to get the path
-     * @returns     A linkedList with the path, containing doubles
+     * @return     A linkedList with the path, containing doubles
      */
     public LinkedList<Double> getPath(Node n) {
         LinkedList<Double> s = new LinkedList<>();
