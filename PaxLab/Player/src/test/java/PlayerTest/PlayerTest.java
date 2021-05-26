@@ -1,18 +1,24 @@
 package PlayerTest;
 
-import dk.group6.common.services.IGamePluginService;
-import dk.group6.player.PlayerPlugin;
-import javax.inject.Inject;
+import static org.junit.Assert.*;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import dk.group6.common.services.IGamePluginService;
+
+//Decoration for injection of bundlecontext
+import javax.inject.Inject;
+
 import org.ops4j.pax.exam.*;
 import static org.ops4j.pax.exam.CoreOptions.*;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
+
+
+
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.util.tracker.ServiceTracker;
@@ -27,8 +33,6 @@ import org.osgi.util.tracker.ServiceTracker;
 //restarts the framework for each test
 @ExamReactorStrategy(PerMethod.class)
 public class PlayerTest {
-
-
 	@Inject
 	private BundleContext bc;
 
@@ -37,6 +41,10 @@ public class PlayerTest {
 		System.out.println ( 
 		"Working Directory = " + System.getProperty("user.dir"));
 		return options(
+			provision(
+					mavenBundle().groupId("dk.group6").artifactId("Common"),
+					mavenBundle().groupId("dk.group6").artifactId("Player")
+			)
 		);
 	}
 
@@ -54,7 +62,7 @@ public class PlayerTest {
 
 	@Test
 	public void assertTest() {
-		//Assert.assertNotNull(bc);
+		assertNotNull(bc);
 	}
  
     @Test
@@ -63,6 +71,7 @@ public class PlayerTest {
     }
 	
 	public IGamePluginService getPluginService() throws InterruptedException {
+		System.out.println(bc);
 		ServiceTracker tracker = new ServiceTracker(bc, IGamePluginService.class, null);
 		tracker.open();
 		IGamePluginService services = (IGamePluginService) tracker.waitForService(500);
