@@ -63,7 +63,7 @@ public class PlayerTest {
 	@Test
 	public void assertTest() {
 		assertNotNull(bc);
-		assertNotNull(plugin);
+		//assertNotNull(plugin);
 	}
  
     @Test
