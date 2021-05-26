@@ -33,11 +33,12 @@ public class AStar implements IPathFinderSPI  {
     public LinkedList<Double> track(Entity from, Entity to, World world) {
         explored.clear();
         PositionPart positionFrom = from.getPart(PositionPart.class);
-        PositionPart positionTo = to.getPart(PositionPart.class);
-
+        
         if (to == null){
             return null;
         }
+        
+        PositionPart positionTo = to.getPart(PositionPart.class);
 
         TreeSet<Node> fringe = new TreeSet<>(new CompareTotal());
 
