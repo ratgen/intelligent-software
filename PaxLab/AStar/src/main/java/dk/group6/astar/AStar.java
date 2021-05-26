@@ -26,7 +26,7 @@ public class AStar implements IPathFinderSPI  {
      * @param   from    the entity from which to the to Entity
      * @param   to      the entity to track
      * @param   world   contains data about the entites and the map
-     * @return          LinkedList containg the path to the to Entity  
+     * @return          LinkedList containing the path to the to Entity  
      *
      */
     @Override

@@ -463,6 +463,10 @@
 [INFO] -----------------------< dk.group6.build:Player >-----------------------
 [INFO] Building Player 1.0-SNAPSHOT                                     [16/21]
 [INFO] -------------------------------[ bundle ]-------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.test.common/0.10.0/org.osgi.test.common-0.10.0.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.test.junit5/0.10.0/org.osgi.test.junit5-0.10.0.jar
+Progress (1): 2.7/88 kBProgress (2): 2.7/88 kB | 2.7/14 kBProgress (2): 5.5/88 kB | 2.7/14 kBProgress (2): 5.5/88 kB | 5.5/14 kBProgress (2): 8.2/88 kB | 5.5/14 kBProgress (2): 8.2/88 kB | 8.2/14 kBProgress (2): 11/88 kB | 8.2/14 kB Progress (2): 11/88 kB | 11/14 kB Progress (2): 14/88 kB | 11/14 kBProgress (2): 14/88 kB | 14/14 kBProgress (2): 14/88 kB | 14 kB   Progress (2): 16/88 kB | 14 kBProgress (2): 19/88 kB | 14 kBProgress (2): 22/88 kB | 14 kBProgress (2): 25/88 kB | 14 kBProgress (2): 27/88 kB | 14 kBProgress (2): 30/88 kB | 14 kBProgress (2): 33/88 kB | 14 kBProgress (2): 36/88 kB | 14 kBProgress (2): 38/88 kB | 14 kBProgress (2): 41/88 kB | 14 kBProgress (2): 44/88 kB | 14 kBProgress (2): 47/88 kB | 14 kBProgress (2): 49/88 kB | 14 kBProgress (2): 52/88 kB | 14 kBProgress (2): 55/88 kB | 14 kBProgress (2): 58/88 kB | 14 kBProgress (2): 60/88 kB | 14 kBProgress (2): 63/88 kB | 14 kBProgress (2): 66/88 kB | 14 kBProgress (2): 69/88 kB | 14 kBProgress (2): 71/88 kB | 14 kBProgress (2): 74/88 kB | 14 kBProgress (2): 77/88 kB | 14 kBProgress (2): 80/88 kB | 14 kBProgress (2): 82/88 kB | 14 kBProgress (2): 85/88 kB | 14 kBProgress (2): 88/88 kB | 14 kBProgress (2): 88 kB | 14 kB                              Downloaded from central: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.test.junit5/0.10.0/org.osgi.test.junit5-0.10.0.jar (14 kB at 32 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.test.common/0.10.0/org.osgi.test.common-0.10.0.jar (88 kB at 190 kB/s)
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Player ---
 [INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Player/target
@@ -483,272 +487,26 @@
 [INFO] 
 [INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Player ---
 [INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/Player/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Player ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running PlayerTest.PlayerTest
-Working Directory = /home/peter/documents/intelligent-software/PaxLab/Player
-
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@2198e168]...
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.extender.service]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling SLF4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Jakarta Commons Logging API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Avalon Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling JULI Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.logging.pax-logging-api]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.base]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.extender]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.lifecycle]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.tracker]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, }, ManifestEntry{ key=PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01, value=PlayerTest.PlayerTest;serviceReference }]
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d" and expression="PlayerTest.PlayerTest;assertTest"
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01 to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01" and expression="PlayerTest.PlayerTest;serviceReference"
-org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running serviceReference in reactor
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.tracker]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.lifecycle]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.extender]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.base]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling SLF4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Jakarta Commons Logging API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Avalon Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, }, ManifestEntry{ key=PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01, value=PlayerTest.PlayerTest;serviceReference }]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@6fc5429c.]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
-
-
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@54122569]...
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.extender.service]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling SLF4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Jakarta Commons Logging API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Avalon Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling JULI Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.logging.pax-logging-api]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.base]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.extender]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.lifecycle]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.tracker]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, }, ManifestEntry{ key=PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01, value=PlayerTest.PlayerTest;serviceReference }]
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d" and expression="PlayerTest.PlayerTest;assertTest"
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01 to be in PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01" and expression="PlayerTest.PlayerTest;serviceReference"
-org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running assertTest in reactor
-Registered bundle: org.apache.felix.framework
-Bundle state: 32
-Bundle registered services[Lorg.osgi.framework.ServiceReference;@2bb81790
-Bundle id0
-Bundle locationSystem Bundle
-Bundle services in use[Lorg.osgi.framework.ServiceReference;@2b413a10
---------
-Registered bundle: org.ops4j.pax.exam
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id1
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.exam_4.13.4.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.exam.inject
-Bundle state: 32
-Bundle registered services[Lorg.osgi.framework.ServiceReference;@139b11cb
-Bundle id2
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.exam.inject_4.13.4.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.exam.extender.service
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id3
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.exam.extender.service_4.13.4.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.logging.pax-logging-api
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id4
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.logging.pax-logging-api_1.10.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.base
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id5
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.base_1.5.1.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.swissbox.core
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id6
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.swissbox.core_1.8.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.swissbox.extender
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id7
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.swissbox.extender_1.8.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.swissbox.framework
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id8
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.swissbox.framework_1.8.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.swissbox.lifecycle
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id9
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.swissbox.lifecycle_1.8.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.swissbox.tracker
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id10
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.swissbox.tracker_1.8.3.jar
-Bundle services in usenull
---------
-Registered bundle: org.apache.geronimo.specs.geronimo-atinject_1.0_spec
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id11
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.apache.geronimo.specs.geronimo-atinject_1.0_spec_1.0.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.tipi.junit
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id12
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.tipi.junit_4.12.0.1.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.tipi.hamcrest.core
-Bundle state: 32
-Bundle registered servicesnull
-Bundle id13
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.tipi.hamcrest.core_1.3.0.1.jar
-Bundle services in usenull
---------
-Registered bundle: org.ops4j.pax.exam.invoker.junit
-Bundle state: 32
-Bundle registered services[Lorg.osgi.framework.ServiceReference;@14764ea8
-Bundle id14
-Bundle locationfile:/tmp/1622035552627-0/pax-exam-downloads/org.ops4j.pax.exam.invoker.junit_4.13.4.jar
-Bundle services in usenull
---------
-Registered bundle: PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1
-Bundle state: 32
-Bundle registered services[Lorg.osgi.framework.ServiceReference;@7f19df21
-Bundle id15
-Bundle locationlocal
-Bundle services in use[Lorg.osgi.framework.ServiceReference;@5d2afb68
---------
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.tracker]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.lifecycle]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.extender]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.core]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.base]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling SLF4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Jakarta Commons Logging API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Avalon Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01,PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, }, ManifestEntry{ key=PaxExam-a2e83618-5c0e-41d4-aafb-c19e9f875f2d, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-70ebdae4-e4da-4bc6-81f7-9074dabc5d01, value=PlayerTest.PlayerTest;serviceReference }]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@9b314c8.]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
-
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.375 s <<< FAILURE! - in PlayerTest.PlayerTest
-[ERROR] PlayerTest.PlayerTest.serviceReference  Time elapsed: 0.827 s  <<< ERROR!
-java.lang.ClassNotFoundException: dk.group6.common.services.IGamePluginService not found by PAXEXAM-PROBE-4d570383-393a-46fc-92ae-fa09af1851c1 [15]
-	at PlayerTest.PlayerTest.serviceReference(PlayerTest.java:76)
-
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Errors: 
-[ERROR]   PlayerTest.serviceReference:76 » ClassNotFound dk.group6.common.services.IGame...
-[INFO] 
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0
-[INFO] 
+[INFO] [recovering meta-data]
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for Game 1.0-SNAPSHOT:
 [INFO] 
-[INFO] Game ............................................... SUCCESS [  0.056 s]
-[INFO] Game - plugin configuration ........................ SUCCESS [  0.036 s]
+[INFO] Game ............................................... SUCCESS [  0.069 s]
+[INFO] Game - plugin configuration ........................ SUCCESS [  0.028 s]
 [INFO] OSGiGame - wrapper instructions .................... SUCCESS [  0.006 s]
 [INFO] OSGiGame - bundle instructions ..................... SUCCESS [  0.006 s]
-[INFO] Game - imported bundles ............................ SUCCESS [  0.009 s]
-[INFO] OSGiLibGDX ......................................... SUCCESS [  1.917 s]
+[INFO] Game - imported bundles ............................ SUCCESS [  0.005 s]
+[INFO] OSGiLibGDX ......................................... SUCCESS [  1.932 s]
 [INFO] Common ............................................. SUCCESS [  0.438 s]
-[INFO] CommonWeapon ....................................... SUCCESS [  0.275 s]
-[INFO] CommonEnemy ........................................ SUCCESS [  0.332 s]
-[INFO] CommonMap .......................................... SUCCESS [  0.234 s]
-[INFO] CommonPlayer ....................................... SUCCESS [  0.207 s]
-[INFO] Core ............................................... SUCCESS [  0.329 s]
-[INFO] CommonAI ........................................... SUCCESS [  0.251 s]
-[INFO] Enemy .............................................. SUCCESS [  0.470 s]
-[INFO] Map ................................................ SUCCESS [  0.706 s]
-[INFO] Player ............................................. FAILURE [  2.572 s]
+[INFO] CommonWeapon ....................................... SUCCESS [  0.266 s]
+[INFO] CommonEnemy ........................................ SUCCESS [  0.326 s]
+[INFO] CommonMap .......................................... SUCCESS [  0.246 s]
+[INFO] CommonPlayer ....................................... SUCCESS [  0.202 s]
+[INFO] Core ............................................... SUCCESS [  0.318 s]
+[INFO] CommonAI ........................................... SUCCESS [  0.226 s]
+[INFO] Enemy .............................................. SUCCESS [  0.480 s]
+[INFO] Map ................................................ SUCCESS [  0.719 s]
+[INFO] Player ............................................. FAILURE [  1.112 s]
 [INFO] CommonShot ......................................... SKIPPED
 [INFO] Weapon ............................................. SKIPPED
 [INFO] AStar .............................................. SKIPPED
@@ -757,13 +515,13 @@ java.lang.ClassNotFoundException: dk.group6.common.services.IGamePluginService n
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.203 s
-[INFO] Finished at: 2021-05-26T15:25:54+02:00
+[INFO] Total time:  6.728 s
+[INFO] Finished at: 2021-05-26T15:39:12+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project Player: There are test failures.
+[ERROR] Failed to execute goal org.ops4j:maven-pax-plugin:1.6.0:testCompile (default-testCompile) on project Player: Compilation failure: Compilation failure: 
+[ERROR] /home/peter/documents/intelligent-software/PaxLab/Player/src/test/java/PlayerTest/PlayerTest.java:[4,27] error: package org.osgi.test.junit5 does not exist
 [ERROR] 
-[ERROR] Please refer to /home/peter/documents/intelligent-software/PaxLab/Player/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] /home/peter/documents/intelligent-software/PaxLab/Player/src/test/java/PlayerTest/PlayerTest.java:[11,12] error: cannot find symbol
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
