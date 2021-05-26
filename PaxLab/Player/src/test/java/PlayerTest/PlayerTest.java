@@ -33,8 +33,8 @@ public class PlayerTest {
 	public Option[] config(){
 		System.out.println ( 
 		"Working Directory = " + System.getProperty("user.dir"));
-		return options(provision(
-				bundle("file://../runner/bundles/Player_1.0.0.SNAPSHOT.jar")),
+		return options(
+				bundle("file:///home/peter/documents/intelligent-software/PaxLab/runner/bundles/Player_1.0.0.SNAPSHOT.jar"),
 				junitBundles()
 		);
 	}
