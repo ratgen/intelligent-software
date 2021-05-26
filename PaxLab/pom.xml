@@ -64,9 +64,6 @@
     <module>CommonShot</module>
         
     <module>Shot</module>
-        
-    <module>dk.group6.Player.test</module>
-      
   </modules>
     
   <build>
