@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.osgi.framework.Bundle;
@@ -79,111 +80,125 @@ public class Map implements MapSPI {
             Document doc = docBuilder.parse(mapFile);
             NodeList nodeList = doc.getElementsByTagName("tileset");
 
-            ArrayList<File> tsxFileList = new ArrayList();
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                System.out.println("parsing tmx");
-                Node node = nodeList.item(i);
-                String tsxDependency =  node.getAttributes().getNamedItem("source").getTextContent();
-				if (!(Arrays.asList(dirFile.listFiles())).contains(tsxDependency)) {
-                	tsxFileList.add(loadFileToDir(dirFile, mapPath, tsxDependency));
+			ArrayList<File> tsxFileList = new ArrayList();
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				System.out.println("parsing tmx");
+				Node node = nodeList.item(i);
+				String tsxDependency =  node.getAttributes().getNamedItem("source").getTextContent();
+				List<File> list = Arrays.asList(dirFile.listFiles());
+				ArrayList<String> temp = new ArrayList<>();
+				for (File f : list) {
+					temp.add(f.getName());
 				}
-            }
-
-            for (File file : tsxFileList){
-                System.out.println("parsing the contents of tsx");
-                System.out.println(file.getName());
-                doc = docBuilder.parse(file);
-                nodeList = doc.getElementsByTagName("image");
-                for (int i = 0; i < nodeList.getLength(); i++) {
-                    System.out.println("parsing image dependendies of tsx");
-                    Node node = nodeList.item(i);
-                    String imageDependency =  node.getAttributes().getNamedItem("source").getTextContent();
-					if(!(Arrays.asList(dirFile.listFiles())).contains(imageDependency)){
-                    	loadFileToDir(dirFile, mapPath, imageDependency);
+				if (!temp.contains(tsxDependency)) {
+					tsxFileList.add(loadFileToDir(dirFile, mapPath, tsxDependency));
+				} else {
+					System.out.println("exits already in folder");
+				}
+			}
+			
+			for (File file : tsxFileList){
+				System.out.println("parsing the contents of tsx");
+				System.out.println(file.getName());
+				doc = docBuilder.parse(file);
+				nodeList = doc.getElementsByTagName("image");
+				for (int i = 0; i < nodeList.getLength(); i++) {
+					System.out.println("parsing image dependendies of tsx");
+					Node node = nodeList.item(i);
+					String imageDependency =  node.getAttributes().getNamedItem("source").getTextContent();
+					ArrayList<String> temp = new ArrayList<>();
+					List<File> list = Arrays.asList(dirFile.listFiles());
+					for (File f : list) {
+						temp.add(f.getName());
 					}
-                }
-            }
-            return mapFile;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        throw new FileNotFoundException("file could not be found, or loaded");
-    }
-
-    private File loadFileToDir(File folder, String filePath, String fileName) throws FileNotFoundException, IOException {
-        BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
-        Bundle bundle = context.getBundle();
-        URL url = bundle.getResource(filePath + fileName);
-        File newFile = new File(folder, fileName);
-        FileOutputStream fs = new FileOutputStream(newFile);
-        BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
-        while (input.available() > 0 ) {
-            int bytes = input.read();
-            fs.write(bytes);
-        }
-        fs.close();
-        input.close();
-        return newFile;
-    }
-
-    @Override
-    public OrthogonalTiledMapRenderer getRenderer() {
-        return renderer;
-    }
-
-    @Override
-    public TiledMap getMap() {
-        return map;
-}
-
-    @Override
-    public TiledMapTileLayer getMapTileLayer() {
-        return mapTileLayer;
-    }
-
-    @Override
-    public Boolean isWall(int x, int y){
-        return mapTileLayer.getCell(x/45, y/45).getTile().getProperties().containsKey("Wall");
-    }
-
-    @Override
-    public void gameLost() throws Exception {
-        if (!knownGameOver){
-            try {
-                String filePath = loadTmxFile("assets/map/", "Gameover.tmx").getAbsolutePath();
-                this.map = new TmxMapLoader().load(filePath);
-                mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-                renderer.setMap(map);
-                knownGameOver = true;
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override
-    public void gameWon() throws Exception {
-        try {
-            String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
-            this.map = new TmxMapLoader().load(filePath);
-            mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
-            renderer.setMap(map);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @Override 
-    public void unload(){
-        System.out.println("unloading map");
-        for (File i : dirFile.listFiles()){
-            System.out.println(i.getName());
-            i.delete();
-        }
-        dirFile.delete();
-    }
-
+					if (!temp.contains(imageDependency)) {
+						loadFileToDir(dirFile, mapPath, imageDependency);
+					} else {
+						System.out.println("exits already in folder");
+					}
+				}
+			}
+			return mapFile;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		throw new FileNotFoundException("file could not be found, or loaded");
+	}
+	
+	private File loadFileToDir(File folder, String filePath, String fileName) throws FileNotFoundException, IOException {
+		BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
+		Bundle bundle = context.getBundle();
+		URL url = bundle.getResource(filePath + fileName);
+		File newFile = new File(folder, fileName);
+		FileOutputStream fs = new FileOutputStream(newFile);
+		BufferedInputStream input = new BufferedInputStream(url.openConnection().getInputStream());
+		while (input.available() > 0 ) {
+			int bytes = input.read();
+			fs.write(bytes);
+		}
+		fs.close();
+		input.close();
+		return newFile;
+	}
+	
+	@Override
+	public OrthogonalTiledMapRenderer getRenderer() {
+		return renderer;
+	}
+	
+	@Override
+	public TiledMap getMap() {
+		return map;
+	}
+	
+	@Override
+	public TiledMapTileLayer getMapTileLayer() {
+		return mapTileLayer;
+	}
+	
+	@Override
+	public Boolean isWall(int x, int y){
+		return mapTileLayer.getCell(x/45, y/45).getTile().getProperties().containsKey("Wall");
+	}
+	
+	@Override
+	public void gameLost() throws Exception {
+		if (!knownGameOver){
+			try {
+				String filePath = loadTmxFile("assets/map/", "Gameover.tmx").getAbsolutePath();
+				this.map = new TmxMapLoader().load(filePath);
+				mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+				renderer.setMap(map);
+				knownGameOver = true;
+			}
+			catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	public void gameWon() throws Exception {
+		try {
+			String filePath = loadTmxFile("assets/map/", "Won.tmx").getAbsolutePath();
+			this.map = new TmxMapLoader().load(filePath);
+			mapTileLayer = (TiledMapTileLayer) this.getMap().getLayers().get("Tile Layer 1");
+			renderer.setMap(map);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void unload(){
+		System.out.println("unloading map");
+		for (File i : dirFile.listFiles()){
+			System.out.println(i.getName());
+			i.delete();
+		}
+		dirFile.delete();
+	}
+	
 }

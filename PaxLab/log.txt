@@ -1,15 +1,4 @@
 [INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for dk.group6.build:Player:bundle:1.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: ${project.groupId}:Common:jar -> duplicate declaration of version ${project.version} @ line 120, column 15
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for dk.group6.build:Collision:bundle:1.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: ${project.groupId}:Common:jar -> duplicate declaration of version ${project.version} @ line 32, column 21
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
@@ -114,6 +103,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ OSGiLibGDX ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/OSGiLibGDX/1.0-SNAPSHOT/OSGiLibGDX-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] -----------------------< dk.group6.build:Common >-----------------------
@@ -152,6 +142,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Common ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Common/1.0-SNAPSHOT/Common-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] --------------------< dk.group6.build:CommonWeapon >--------------------
@@ -190,6 +181,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonWeapon ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonWeapon/1.0-SNAPSHOT/CommonWeapon-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] --------------------< dk.group6.build:CommonEnemy >---------------------
@@ -228,6 +220,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonEnemy ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonEnemy/1.0-SNAPSHOT/CommonEnemy-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] ---------------------< dk.group6.build:CommonMap >----------------------
@@ -266,6 +259,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonMap ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonMap/1.0-SNAPSHOT/CommonMap-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] --------------------< dk.group6.build:CommonPlayer >--------------------
@@ -304,6 +298,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonPlayer ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonPlayer/1.0-SNAPSHOT/CommonPlayer-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] ------------------------< dk.group6.build:Core >------------------------
@@ -343,6 +338,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Core ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Core/1.0-SNAPSHOT/Core-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] ----------------------< dk.group6.build:CommonAI >----------------------
@@ -381,6 +377,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonAI ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonAI/1.0-SNAPSHOT/CommonAI-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] -----------------------< dk.group6.build:Enemy >------------------------
@@ -420,6 +417,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Enemy ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Enemy/1.0-SNAPSHOT/Enemy-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] ---------------------------< dk.group6:Map >----------------------------
@@ -459,6 +457,7 @@
 [INFO] 
 [INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Map ---
 [INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/Map/1.0-SNAPSHOT/Map-1.0-SNAPSHOT.jar
 [INFO] Writing OBR metadata
 [INFO] 
 [INFO] -----------------------< dk.group6.build:Player >-----------------------
@@ -493,7 +492,7 @@
 [INFO] Running PlayerTest.PlayerTest
 Working Directory = /home/peter/documents/intelligent-software/PaxLab/Player
 
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@6c409f12]...
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@3406459a]...
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
@@ -517,16 +516,17 @@ org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatc
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Player]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-1bda1433-16e4-4519-8fcd-e5f031db498d]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, }, ManifestEntry{ key=PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47, value=PlayerTest.PlayerTest;PlayTest }]
 org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc" and expression="PlayerTest.PlayerTest;assertTest"
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a" and expression="PlayerTest.PlayerTest;PlayTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62 to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62" and expression="PlayerTest.PlayerTest;assertTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47 to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47" and expression="PlayerTest.PlayerTest;PlayTest"
 org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running PlayTest in reactor
-this is it org.apache.felix.framework.BundleContextImpl@4622e44e
+this is it org.apache.felix.framework.BundleContextImpl@63ec1e52
+services tracked None
 null
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
@@ -547,16 +547,16 @@ org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] 
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@283b3d2c.]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-1bda1433-16e4-4519-8fcd-e5f031db498d]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, }, ManifestEntry{ key=PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@49c8e9de.]
 
 
-[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@2948f1cd]...
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@3406459a]...
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
 [org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
@@ -580,16 +580,17 @@ org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatc
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Player]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-1bda1433-16e4-4519-8fcd-e5f031db498d]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, }, ManifestEntry{ key=PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47, value=PlayerTest.PlayerTest;PlayTest }]
 org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc" and expression="PlayerTest.PlayerTest;assertTest"
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
-org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a" and expression="PlayerTest.PlayerTest;PlayTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62 to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62" and expression="PlayerTest.PlayerTest;assertTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47 to be in PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47" and expression="PlayerTest.PlayerTest;PlayTest"
 org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running assertTest in reactor
 this is it org.apache.felix.framework.BundleContextImpl@63ec1e52
+services tracked None
 null
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
@@ -610,68 +611,272 @@ org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] 
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@2acd8d76.]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-1bda1433-16e4-4519-8fcd-e5f031db498d]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47,PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, }, ManifestEntry{ key=PaxExam-974c2f2f-28fd-416a-a837-4f5645372a62, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-d5c37a37-0e9b-4e69-91da-29b72a1afc47, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@49c8e9de.]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
 org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
-org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
 
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.024 s <<< FAILURE! - in PlayerTest.PlayerTest
-[ERROR] PlayerTest.PlayerTest.assertTest  Time elapsed: 1.757 s  <<< FAILURE!
-java.lang.AssertionError
-	at PlayerTest.PlayerTest.assertTest(PlayerTest.java:66)
-
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.75 s - in PlayerTest.PlayerTest
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   PlayerTest.assertTest:66
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
 [INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Player ---
+[WARNING] Warning building bundle dk.group6.build:Player:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Player:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Player ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Player/target/Player-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Player/1.0-SNAPSHOT/Player-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Player/pom.xml to /home/peter/.m2/repository/dk/group6/build/Player/1.0-SNAPSHOT/Player-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Player ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Player/1.0-SNAPSHOT/Player-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ---------------------< dk.group6.build:CommonShot >---------------------
+[INFO] Building CommonShot 1.0-SNAPSHOT                                 [17/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonShot ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonShot/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonShot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonShot ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonShot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonShot/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonShot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonShot ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonShot ---
+[WARNING] Warning building bundle dk.group6.build:CommonShot:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:CommonShot:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonShot ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonShot/1.0-SNAPSHOT/CommonShot-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonShot/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonShot/1.0-SNAPSHOT/CommonShot-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonShot ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/CommonShot/1.0-SNAPSHOT/CommonShot-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] -----------------------< dk.group6.build:Weapon >-----------------------
+[INFO] Building Weapon 1.0-SNAPSHOT                                     [18/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Weapon ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Weapon/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Weapon ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 7 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Weapon ---
+[INFO] Compiling 3 source files to /home/peter/documents/intelligent-software/PaxLab/Weapon/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Weapon ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Weapon/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Weapon ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Weapon ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Weapon ---
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data, classpath: [Jar:., Jar:CommonWeapon, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect, Jar:CommonShot] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data.entityparts, classpath: [Jar:., Jar:CommonWeapon, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect, Jar:CommonShot] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.events, classpath: [Jar:., Jar:CommonWeapon, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect, Jar:CommonShot] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.services, classpath: [Jar:., Jar:CommonWeapon, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect, Jar:CommonShot] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Weapon:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Weapon ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Weapon/target/Weapon-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Weapon/1.0-SNAPSHOT/Weapon-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Weapon/pom.xml to /home/peter/.m2/repository/dk/group6/build/Weapon/1.0-SNAPSHOT/Weapon-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Weapon ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Weapon/1.0-SNAPSHOT/Weapon-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] -----------------------< dk.group6.build:AStar >------------------------
+[INFO] Building AStar 1.0-SNAPSHOT                                      [19/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ AStar ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/AStar/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ AStar ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ AStar ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/AStar/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ AStar ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/AStar/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ AStar ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ AStar ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ AStar ---
+[WARNING] Warning building bundle dk.group6.build:AStar:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:AStar:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ AStar ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/AStar/target/AStar-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/AStar/1.0-SNAPSHOT/AStar-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/AStar/pom.xml to /home/peter/.m2/repository/dk/group6/build/AStar/1.0-SNAPSHOT/AStar-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ AStar ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/AStar/1.0-SNAPSHOT/AStar-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ---------------------< dk.group6.build:Collision >----------------------
+[INFO] Building Collision 1.0-SNAPSHOT                                  [20/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Collision ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Collision/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Collision ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Collision ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/Collision/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Collision ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Collision/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Collision ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Collision ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Collision ---
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data, classpath: [Jar:., Jar:Common, Jar:CommonShot, Jar:CommonEnemy, Jar:CommonPlayer, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data.entityparts, classpath: [Jar:., Jar:Common, Jar:CommonShot, Jar:CommonEnemy, Jar:CommonPlayer, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.events, classpath: [Jar:., Jar:Common, Jar:CommonShot, Jar:CommonEnemy, Jar:CommonPlayer, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.services, classpath: [Jar:., Jar:Common, Jar:CommonShot, Jar:CommonEnemy, Jar:CommonPlayer, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/CommonShot/target/CommonShot-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Collision:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Collision ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Collision/target/Collision-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Collision/1.0-SNAPSHOT/Collision-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Collision/pom.xml to /home/peter/.m2/repository/dk/group6/build/Collision/1.0-SNAPSHOT/Collision-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Collision ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Collision/1.0-SNAPSHOT/Collision-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ------------------------< dk.group6.build:Shot >------------------------
+[INFO] Building Shot 1.0-SNAPSHOT                                       [21/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Shot ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Shot/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Shot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 7 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Shot ---
+[INFO] Compiling 3 source files to /home/peter/documents/intelligent-software/PaxLab/Shot/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Shot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Shot/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Shot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Shot ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Shot ---
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data, classpath: [Jar:., Jar:CommonShot, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/Common/target/Common-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.data.entityparts, classpath: [Jar:., Jar:CommonShot, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/Common/target/Common-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.events, classpath: [Jar:., Jar:CommonShot, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/Common/target/Common-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : There are split packages, use directive -split-package:=(merge-first|merge-last) on instruction to get rid of this warning: dk.group6.common.services, classpath: [Jar:., Jar:CommonShot, Jar:Common, Jar:OSGiLibGDX, Jar:gdx, Jar:gdx-platform, Jar:gdx-backend-lwjgl, Jar:lwjgl, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:lwjgl-platform, Jar:jinput, Jar:jutils, Jar:lwjgl_util, Jar:jlayer, Jar:jorbis, Jar:gdx-box2d, Jar:gdx-freetype, Jar:gdx-platform, Jar:gdx-box2d-platform, Jar:gdx-freetype-platform, Jar:gdx-jnigen, Jar:javaparser, Jar:com.diffplug.osgi.extension.sun.misc, Jar:com.diffplug.osgi.extension.sun.reflect] from: /home/peter/documents/intelligent-software/PaxLab/Common/target/Common-1.0-SNAPSHOT.jar
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Shot:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Shot ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Shot/target/Shot-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Shot/1.0-SNAPSHOT/Shot-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Shot/pom.xml to /home/peter/.m2/repository/dk/group6/build/Shot/1.0-SNAPSHOT/Shot-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Shot ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Installing dk/group6/build/Shot/1.0-SNAPSHOT/Shot-1.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for Game 1.0-SNAPSHOT:
 [INFO] 
-[INFO] Game ............................................... SUCCESS [  0.067 s]
-[INFO] Game - plugin configuration ........................ SUCCESS [  0.031 s]
+[INFO] Game ............................................... SUCCESS [  0.095 s]
+[INFO] Game - plugin configuration ........................ SUCCESS [  0.034 s]
 [INFO] OSGiGame - wrapper instructions .................... SUCCESS [  0.006 s]
-[INFO] OSGiGame - bundle instructions ..................... SUCCESS [  0.011 s]
-[INFO] Game - imported bundles ............................ SUCCESS [  0.006 s]
-[INFO] OSGiLibGDX ......................................... SUCCESS [  1.830 s]
-[INFO] Common ............................................. SUCCESS [  0.642 s]
-[INFO] CommonWeapon ....................................... SUCCESS [  0.135 s]
-[INFO] CommonEnemy ........................................ SUCCESS [  0.142 s]
-[INFO] CommonMap .......................................... SUCCESS [  0.130 s]
-[INFO] CommonPlayer ....................................... SUCCESS [  0.105 s]
-[INFO] Core ............................................... SUCCESS [  0.197 s]
-[INFO] CommonAI ........................................... SUCCESS [  0.117 s]
-[INFO] Enemy .............................................. SUCCESS [  0.162 s]
-[INFO] Map ................................................ SUCCESS [  0.552 s]
-[INFO] Player ............................................. FAILURE [  4.987 s]
-[INFO] CommonShot ......................................... SKIPPED
-[INFO] Weapon ............................................. SKIPPED
-[INFO] AStar .............................................. SKIPPED
-[INFO] Collision .......................................... SKIPPED
-[INFO] Shot ............................................... SKIPPED
+[INFO] OSGiGame - bundle instructions ..................... SUCCESS [  0.005 s]
+[INFO] Game - imported bundles ............................ SUCCESS [  0.007 s]
+[INFO] OSGiLibGDX ......................................... SUCCESS [  2.099 s]
+[INFO] Common ............................................. SUCCESS [  0.751 s]
+[INFO] CommonWeapon ....................................... SUCCESS [  0.209 s]
+[INFO] CommonEnemy ........................................ SUCCESS [  0.185 s]
+[INFO] CommonMap .......................................... SUCCESS [  0.170 s]
+[INFO] CommonPlayer ....................................... SUCCESS [  0.119 s]
+[INFO] Core ............................................... SUCCESS [  0.241 s]
+[INFO] CommonAI ........................................... SUCCESS [  0.161 s]
+[INFO] Enemy .............................................. SUCCESS [  0.199 s]
+[INFO] Map ................................................ SUCCESS [  0.604 s]
+[INFO] Player ............................................. SUCCESS [  4.857 s]
+[INFO] CommonShot ......................................... SUCCESS [  0.131 s]
+[INFO] Weapon ............................................. SUCCESS [  0.151 s]
+[INFO] AStar .............................................. SUCCESS [  0.160 s]
+[INFO] Collision .......................................... SUCCESS [  0.147 s]
+[INFO] Shot ............................................... SUCCESS [  0.207 s]
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.517 s
-[INFO] Finished at: 2021-05-26T11:49:49+02:00
+[INFO] Total time:  10.975 s
+[INFO] Finished at: 2021-05-26T12:51:26+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project Player: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/peter/documents/intelligent-software/PaxLab/Player/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
-[ERROR] 
-[ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn <args> -rf :Player

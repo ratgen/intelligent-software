@@ -33,8 +33,18 @@ import org.osgi.util.tracker.ServiceTracker;
 //restarts the framework for each test
 @ExamReactorStrategy(PerMethod.class)
 public class PlayerTest {
+
+	private IGamePluginService plugin;
+	private ServiceTracker tracker;
+ 
+
 	@Inject
 	private BundleContext bc;
+
+
+	//@Inject
+	//private IGamePluginService plugins;
+	
 
 	@Configuration
 	public Option[] config(){
@@ -42,14 +52,13 @@ public class PlayerTest {
 		"Working Directory = " + System.getProperty("user.dir"));
 		return options(
 			provision(
-					mavenBundle().groupId("dk.group6").artifactId("Common"),
-					mavenBundle().groupId("dk.group6").artifactId("Player")), 
-				junitBundles()
+				mavenBundle().groupId("dk.group6").artifactId("Common").version("1.0-SNAPSHOT"),
+				mavenBundle().groupId("dk.group6").artifactId("Player").version("1.0-SNAPSHOT")
+			), 
+			junitBundles()
 		);
 	}
 
-	private IGamePluginService plugin;
- 
     @Before
     public void setUp() throws Exception {
 		plugin = getPluginService();
@@ -57,13 +66,14 @@ public class PlayerTest {
  
     @After
     public void tearDown() {
-       // ...
+		tracker.close();
     }
 
 	@Test
 	public void assertTest() {
 		assertNotNull(bc);
-		//assertNotNull(plugin);
+		//System.out.println("the value of plugins is " +plugins);
+		//assertNotNull(plugins);
 	}
  
     @Test
@@ -73,10 +83,10 @@ public class PlayerTest {
 	
 	public IGamePluginService getPluginService() throws InterruptedException {
 		System.out.println("this is it " +bc);
-		ServiceTracker tracker = new ServiceTracker(bc, IGamePluginService.class, null);
+		tracker = new ServiceTracker(bc, IGamePluginService.class, null);
 		tracker.open();
 		IGamePluginService services = (IGamePluginService) tracker.waitForService(1000);
-		tracker.close();
+		System.out.println("services tracked " + (tracker.isEmpty()? "None" : "Something"));
 		System.out.println(services);
 		return services;
 	} 
