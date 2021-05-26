@@ -43,8 +43,8 @@ public class PlayerTest {
 		return options(
 			provision(
 					mavenBundle().groupId("dk.group6").artifactId("Common"),
-					mavenBundle().groupId("dk.group6").artifactId("Player")
-			)
+					mavenBundle().groupId("dk.group6").artifactId("Player")), 
+				junitBundles()
 		);
 	}
 
@@ -63,6 +63,7 @@ public class PlayerTest {
 	@Test
 	public void assertTest() {
 		assertNotNull(bc);
+		assertNotNull(plugin);
 	}
  
     @Test
@@ -71,10 +72,10 @@ public class PlayerTest {
     }
 	
 	public IGamePluginService getPluginService() throws InterruptedException {
-		System.out.println(bc);
+		System.out.println("this is it " +bc);
 		ServiceTracker tracker = new ServiceTracker(bc, IGamePluginService.class, null);
 		tracker.open();
-		IGamePluginService services = (IGamePluginService) tracker.waitForService(500);
+		IGamePluginService services = (IGamePluginService) tracker.waitForService(1000);
 		tracker.close();
 		System.out.println(services);
 		return services;

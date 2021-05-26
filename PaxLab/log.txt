@@ -1,0 +1,677 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for dk.group6.build:Player:bundle:1.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: ${project.groupId}:Common:jar -> duplicate declaration of version ${project.version} @ line 120, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for dk.group6.build:Collision:bundle:1.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: ${project.groupId}:Common:jar -> duplicate declaration of version ${project.version} @ line 32, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Game                                                               [pom]
+[INFO] Game - plugin configuration                                        [pom]
+[INFO] OSGiGame - wrapper instructions                                    [pom]
+[INFO] OSGiGame - bundle instructions                                     [pom]
+[INFO] Game - imported bundles                                            [pom]
+[INFO] OSGiLibGDX                                                      [bundle]
+[INFO] Common                                                          [bundle]
+[INFO] CommonWeapon                                                    [bundle]
+[INFO] CommonEnemy                                                     [bundle]
+[INFO] CommonMap                                                       [bundle]
+[INFO] CommonPlayer                                                    [bundle]
+[INFO] Core                                                            [bundle]
+[INFO] CommonAI                                                        [bundle]
+[INFO] Enemy                                                           [bundle]
+[INFO] Map                                                             [bundle]
+[INFO] Player                                                          [bundle]
+[INFO] CommonShot                                                      [bundle]
+[INFO] Weapon                                                          [bundle]
+[INFO] AStar                                                           [bundle]
+[INFO] Collision                                                       [bundle]
+[INFO] Shot                                                            [bundle]
+[INFO] 
+[INFO] ---------------------------< dk.group6:Game >---------------------------
+[INFO] Building Game 1.0-SNAPSHOT                                        [1/21]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Game ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ Game ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/pom.xml to /home/peter/.m2/repository/dk/group6/Game/1.0-SNAPSHOT/Game-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ---------------< dk.group6.build:shared-plugin-settings >---------------
+[INFO] Building Game - plugin configuration 1.0-SNAPSHOT                 [2/21]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ shared-plugin-settings ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ shared-plugin-settings ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/poms/pom.xml to /home/peter/.m2/repository/dk/group6/build/shared-plugin-settings/1.0-SNAPSHOT/shared-plugin-settings-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --------------< dk.group6.build:wrapper-bundle-settings >---------------
+[INFO] Building OSGiGame - wrapper instructions 1.0-SNAPSHOT             [3/21]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ wrapper-bundle-settings ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wrapper-bundle-settings ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/poms/wrappers/pom.xml to /home/peter/.m2/repository/dk/group6/build/wrapper-bundle-settings/1.0-SNAPSHOT/wrapper-bundle-settings-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --------------< dk.group6.build:compiled-bundle-settings >--------------
+[INFO] Building OSGiGame - bundle instructions 1.0-SNAPSHOT              [4/21]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ compiled-bundle-settings ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ compiled-bundle-settings ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/poms/compiled/pom.xml to /home/peter/.m2/repository/dk/group6/build/compiled-bundle-settings/1.0-SNAPSHOT/compiled-bundle-settings-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ---------------------< dk.group6.build:provision >----------------------
+[INFO] Building Game - imported bundles 1.0-SNAPSHOT                     [5/21]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ provision ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ provision ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/provision/pom.xml to /home/peter/.m2/repository/dk/group6/build/provision/1.0-SNAPSHOT/provision-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ---------------------< dk.group6.build:OSGiLibGDX >---------------------
+[INFO] Building OSGiLibGDX 1.0-SNAPSHOT                                  [6/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ OSGiLibGDX ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/OSGiLibGDX/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ OSGiLibGDX ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/OSGiLibGDX/src/main/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ OSGiLibGDX ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ OSGiLibGDX ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/OSGiLibGDX/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ OSGiLibGDX ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ OSGiLibGDX ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ OSGiLibGDX ---
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ OSGiLibGDX ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/OSGiLibGDX/target/OSGiLibGDX-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/OSGiLibGDX/1.0-SNAPSHOT/OSGiLibGDX-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/OSGiLibGDX/pom.xml to /home/peter/.m2/repository/dk/group6/build/OSGiLibGDX/1.0-SNAPSHOT/OSGiLibGDX-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ OSGiLibGDX ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] -----------------------< dk.group6.build:Common >-----------------------
+[INFO] Building Common 1.0-SNAPSHOT                                      [7/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Common ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Common/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Common ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Common/src/main/resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Common ---
+[INFO] Compiling 15 source files to /home/peter/documents/intelligent-software/PaxLab/Common/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Common ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Common/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Common ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Common ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Common ---
+[WARNING] Warning building bundle dk.group6.build:Common:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Common ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Common/target/Common-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Common/1.0-SNAPSHOT/Common-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Common/pom.xml to /home/peter/.m2/repository/dk/group6/build/Common/1.0-SNAPSHOT/Common-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Common ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] --------------------< dk.group6.build:CommonWeapon >--------------------
+[INFO] Building CommonWeapon 1.0-SNAPSHOT                                [8/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonWeapon ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonWeapon/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonWeapon ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonWeapon ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/CommonWeapon/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonWeapon ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonWeapon/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonWeapon ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonWeapon ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonWeapon ---
+[WARNING] Warning building bundle dk.group6.build:CommonWeapon:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonWeapon ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonWeapon/target/CommonWeapon-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonWeapon/1.0-SNAPSHOT/CommonWeapon-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonWeapon/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonWeapon/1.0-SNAPSHOT/CommonWeapon-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonWeapon ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] --------------------< dk.group6.build:CommonEnemy >---------------------
+[INFO] Building CommonEnemy 1.0-SNAPSHOT                                 [9/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonEnemy ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonEnemy/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonEnemy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonEnemy ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/CommonEnemy/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonEnemy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonEnemy/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonEnemy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonEnemy ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonEnemy ---
+[WARNING] Warning building bundle dk.group6.build:CommonEnemy:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonEnemy ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonEnemy/target/CommonEnemy-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonEnemy/1.0-SNAPSHOT/CommonEnemy-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonEnemy/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonEnemy/1.0-SNAPSHOT/CommonEnemy-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonEnemy ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ---------------------< dk.group6.build:CommonMap >----------------------
+[INFO] Building CommonMap 1.0-SNAPSHOT                                  [10/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonMap ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonMap/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonMap ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonMap/src/main/resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonMap ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/CommonMap/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonMap ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonMap/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonMap ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonMap ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonMap ---
+[WARNING] Warning building bundle dk.group6.build:CommonMap:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonMap ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonMap/target/CommonMap-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonMap/1.0-SNAPSHOT/CommonMap-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonMap/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonMap/1.0-SNAPSHOT/CommonMap-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonMap ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] --------------------< dk.group6.build:CommonPlayer >--------------------
+[INFO] Building CommonPlayer 1.0-SNAPSHOT                               [11/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonPlayer ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonPlayer ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/src/main/resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonPlayer ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonPlayer ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonPlayer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonPlayer ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonPlayer ---
+[WARNING] Warning building bundle dk.group6.build:CommonPlayer:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonPlayer ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/target/CommonPlayer-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonPlayer/1.0-SNAPSHOT/CommonPlayer-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonPlayer/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonPlayer/1.0-SNAPSHOT/CommonPlayer-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonPlayer ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ------------------------< dk.group6.build:Core >------------------------
+[INFO] Building Core 1.0-SNAPSHOT                                       [12/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Core ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Core/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Core ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/Core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Core ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Core/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Core ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Core ---
+[WARNING] Warning building bundle dk.group6.build:Core:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Core:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Core ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Core/target/Core-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Core/1.0-SNAPSHOT/Core-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Core/pom.xml to /home/peter/.m2/repository/dk/group6/build/Core/1.0-SNAPSHOT/Core-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Core ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ----------------------< dk.group6.build:CommonAI >----------------------
+[INFO] Building CommonAI 1.0-SNAPSHOT                                   [13/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ CommonAI ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/CommonAI/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ CommonAI ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ CommonAI ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/CommonAI/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ CommonAI ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/CommonAI/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ CommonAI ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ CommonAI ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ CommonAI ---
+[WARNING] Warning building bundle dk.group6.build:CommonAI:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ CommonAI ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonAI/target/CommonAI-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/CommonAI/1.0-SNAPSHOT/CommonAI-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/CommonAI/pom.xml to /home/peter/.m2/repository/dk/group6/build/CommonAI/1.0-SNAPSHOT/CommonAI-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ CommonAI ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] -----------------------< dk.group6.build:Enemy >------------------------
+[INFO] Building Enemy 1.0-SNAPSHOT                                      [14/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Enemy ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Enemy/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Enemy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Enemy ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/Enemy/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Enemy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Enemy/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Enemy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Enemy ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Enemy ---
+[WARNING] Warning building bundle dk.group6.build:Enemy:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6.build:Enemy:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Enemy ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Enemy/target/Enemy-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/build/Enemy/1.0-SNAPSHOT/Enemy-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Enemy/pom.xml to /home/peter/.m2/repository/dk/group6/build/Enemy/1.0-SNAPSHOT/Enemy-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Enemy ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] ---------------------------< dk.group6:Map >----------------------------
+[INFO] Building Map 1.0-SNAPSHOT                                        [15/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Map ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Map/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Map ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 14 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Map ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/Map/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Map ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Map/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Map ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Map ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:bundle (default-bundle) @ Map ---
+[WARNING] Warning building bundle dk.group6:Map:bundle:1.0-SNAPSHOT : Instructions for Export-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[WARNING] Warning building bundle dk.group6:Map:bundle:1.0-SNAPSHOT : Instructions for Private-Package that are never used: dk\.group6\.internal\..*|dk\.group6\.internal
+[INFO] 
+[INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ Map ---
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Map/target/Map-1.0-SNAPSHOT.jar to /home/peter/.m2/repository/dk/group6/Map/1.0-SNAPSHOT/Map-1.0-SNAPSHOT.jar
+[INFO] Installing /home/peter/documents/intelligent-software/PaxLab/Map/pom.xml to /home/peter/.m2/repository/dk/group6/Map/1.0-SNAPSHOT/Map-1.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-bundle-plugin:1.4.3:install (default-install) @ Map ---
+[INFO] Parsing file:/home/peter/.m2/repository/repository.xml
+[INFO] Writing OBR metadata
+[INFO] 
+[INFO] -----------------------< dk.group6.build:Player >-----------------------
+[INFO] Building Player 1.0-SNAPSHOT                                     [16/21]
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ Player ---
+[INFO] Deleting /home/peter/documents/intelligent-software/PaxLab/Player/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ Player ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:compile (default-compile) @ Player ---
+[INFO] Compiling 2 source files to /home/peter/documents/intelligent-software/PaxLab/Player/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ Player ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Using 'null' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/peter/documents/intelligent-software/PaxLab/Player/src/test/resources
+[INFO] 
+[INFO] --- maven-pax-plugin:1.6.0:testCompile (default-testCompile) @ Player ---
+[INFO] Compiling 1 source file to /home/peter/documents/intelligent-software/PaxLab/Player/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ Player ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running PlayerTest.PlayerTest
+Working Directory = /home/peter/documents/intelligent-software/PaxLab/Player
+
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@6c409f12]...
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.extender.service]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling SLF4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Jakarta Commons Logging API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Avalon Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling JULI Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.logging.pax-logging-api]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.base]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.extender]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.lifecycle]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.tracker]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Common]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Player]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc" and expression="PlayerTest.PlayerTest;assertTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a" and expression="PlayerTest.PlayerTest;PlayTest"
+org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running PlayTest in reactor
+this is it org.apache.felix.framework.BundleContextImpl@4622e44e
+null
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [dk.group6.Player]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [dk.group6.Common]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.tracker]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.lifecycle]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.extender]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.base]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling SLF4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Jakarta Commons Logging API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Avalon Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@283b3d2c.]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
+
+
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Creating bundle watcher with scanner [org.ops4j.pax.swissbox.extender.BundleManifestScanner@2948f1cd]...
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.felix.framework]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.inject]
+[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.extender.service]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling SLF4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Jakarta Commons Logging API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Avalon Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling JULI Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Enabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.logging.pax-logging-api]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.base]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.extender]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.lifecycle]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.swissbox.tracker]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Common]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [dk.group6.Player]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.tipi.hamcrest.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [org.ops4j.pax.exam.invoker.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Scanning bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Found resources [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Use timeout value: 10000
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-Executable to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc" and expression="PlayerTest.PlayerTest;assertTest"
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Test PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a to be in PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc,
+org.ops4j.pax.exam.extender.service[org.ops4j.pax.exam.raw.extender.intern.Parser] : Registering Service: org.ops4j.pax.exam.ProbeInvoker with Probe-Signature="PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a" and expression="PlayerTest.PlayerTest;PlayTest"
+org.ops4j.pax.exam.invoker.junit[org.ops4j.pax.exam.invoker.junit.internal.ContainerTestRunner] : running assertTest in reactor
+this is it org.apache.felix.framework.BundleContextImpl@63ec1e52
+null
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.invoker.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.hamcrest.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [dk.group6.Player]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [dk.group6.Common]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.tipi.junit]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.geronimo.specs.geronimo-atinject_1.0_spec]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.tracker]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.lifecycle]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.framework]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.extender]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.swissbox.core]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.base]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling SLF4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Jakarta Commons Logging API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Avalon Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling JULI Logger API support.
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.logging.internal.Activator] : Disabling Log4J v2 API support. Ignored FQCN: org.apache.logging.log4j.spi.AbstractLogger
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.logging.pax-logging-api]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [PAXEXAM-PROBE-db04086c-f072-4e48-98b0-0e2ac738f100]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Un-registering [ManifestEntry{ key=PaxExam-Executable, value=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a,PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, }, ManifestEntry{ key=PaxExam-51196528-fd41-4ee1-b0fa-665c69167fdc, value=PlayerTest.PlayerTest;assertTest }, ManifestEntry{ key=PaxExam-14d4a1c2-9370-4bef-8e4f-973a536f8b8a, value=PlayerTest.PlayerTest;PlayTest }]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.exam.raw.extender.intern.TestBundleObserver] : Unregistered testcase [org.ops4j.pax.exam.raw.extender.intern.Probe@2acd8d76.]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.extender.service]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.ops4j.pax.exam.inject]
+org.ops4j.pax.logging.pax-logging-api[org.ops4j.pax.swissbox.extender.BundleWatcher] : Releasing bundle [org.apache.felix.framework]
+
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.024 s <<< FAILURE! - in PlayerTest.PlayerTest
+[ERROR] PlayerTest.PlayerTest.assertTest  Time elapsed: 1.757 s  <<< FAILURE!
+java.lang.AssertionError
+	at PlayerTest.PlayerTest.assertTest(PlayerTest.java:66)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   PlayerTest.assertTest:66
+[INFO] 
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Game 1.0-SNAPSHOT:
+[INFO] 
+[INFO] Game ............................................... SUCCESS [  0.067 s]
+[INFO] Game - plugin configuration ........................ SUCCESS [  0.031 s]
+[INFO] OSGiGame - wrapper instructions .................... SUCCESS [  0.006 s]
+[INFO] OSGiGame - bundle instructions ..................... SUCCESS [  0.011 s]
+[INFO] Game - imported bundles ............................ SUCCESS [  0.006 s]
+[INFO] OSGiLibGDX ......................................... SUCCESS [  1.830 s]
+[INFO] Common ............................................. SUCCESS [  0.642 s]
+[INFO] CommonWeapon ....................................... SUCCESS [  0.135 s]
+[INFO] CommonEnemy ........................................ SUCCESS [  0.142 s]
+[INFO] CommonMap .......................................... SUCCESS [  0.130 s]
+[INFO] CommonPlayer ....................................... SUCCESS [  0.105 s]
+[INFO] Core ............................................... SUCCESS [  0.197 s]
+[INFO] CommonAI ........................................... SUCCESS [  0.117 s]
+[INFO] Enemy .............................................. SUCCESS [  0.162 s]
+[INFO] Map ................................................ SUCCESS [  0.552 s]
+[INFO] Player ............................................. FAILURE [  4.987 s]
+[INFO] CommonShot ......................................... SKIPPED
+[INFO] Weapon ............................................. SKIPPED
+[INFO] AStar .............................................. SKIPPED
+[INFO] Collision .......................................... SKIPPED
+[INFO] Shot ............................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.517 s
+[INFO] Finished at: 2021-05-26T11:49:49+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project Player: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/peter/documents/intelligent-software/PaxLab/Player/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :Player

@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.osgi.framework.Bundle;
@@ -83,7 +84,9 @@ public class Map implements MapSPI {
                 System.out.println("parsing tmx");
                 Node node = nodeList.item(i);
                 String tsxDependency =  node.getAttributes().getNamedItem("source").getTextContent();
-                tsxFileList.add(loadFileToDir(dirFile, mapPath, tsxDependency));
+				if (!(Arrays.asList(dirFile.listFiles())).contains(tsxDependency)) {
+                	tsxFileList.add(loadFileToDir(dirFile, mapPath, tsxDependency));
+				}
             }
 
             for (File file : tsxFileList){
@@ -95,7 +98,9 @@ public class Map implements MapSPI {
                     System.out.println("parsing image dependendies of tsx");
                     Node node = nodeList.item(i);
                     String imageDependency =  node.getAttributes().getNamedItem("source").getTextContent();
-                    loadFileToDir(dirFile, mapPath, imageDependency);
+					if(!(Arrays.asList(dirFile.listFiles())).contains(imageDependency)){
+                    	loadFileToDir(dirFile, mapPath, imageDependency);
+					}
                 }
             }
             return mapFile;
