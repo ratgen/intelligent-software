@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * @author peter
  */
 public class AStar implements IPathFinderSPI  {
-    Node current = new Node();
+    private Node current = new Node();
     protected HashSet<Node> explored = new HashSet<>();
 
     /**

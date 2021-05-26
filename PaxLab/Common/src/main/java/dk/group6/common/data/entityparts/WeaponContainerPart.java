@@ -15,7 +15,6 @@ import dk.group6.common.data.GameData;
 public class WeaponContainerPart implements EntityPart {
     private String weapon; 
 
-
     public WeaponContainerPart() {
     }
 
