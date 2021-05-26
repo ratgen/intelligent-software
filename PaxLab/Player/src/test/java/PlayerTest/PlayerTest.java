@@ -1,5 +1,9 @@
 package PlayerTest;
 
+import dk.group6.common.data.GameData;
+import dk.group6.common.data.World;
+import dk.group6.common.player.Player;
+import dk.group6.common.services.IEntityProcessingService;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -7,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import dk.group6.common.services.IGamePluginService;
+import dk.group6.player.PlayerPlugin;
 
 //Decoration for injection of bundlecontext
 import javax.inject.Inject;
@@ -16,16 +21,19 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
+import org.ops4j.pax.exam.util.Filter;
+import org.osgi.framework.Bundle;
 
 
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Documentation for the testing framework:
- * https://ops4j1.jira.com/wiki/spaces/PAXEXAM4/pages/54263870/Documentation
+// * https://ops4j1.jira.com/wiki/spaces/PAXEXAM4/pages/54263870/Documentation
  * 
  * @author peter
  */
@@ -34,17 +42,8 @@ import org.osgi.util.tracker.ServiceTracker;
 @ExamReactorStrategy(PerMethod.class)
 public class PlayerTest {
 
-	private IGamePluginService plugin;
-	private ServiceTracker tracker;
- 
-
 	@Inject
-	private BundleContext bc;
-
-
-	//@Inject
-	//private IGamePluginService plugins;
-	
+	private BundleContext context;
 
 	@Configuration
 	public Option[] config(){
@@ -61,33 +60,49 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
-		plugin = getPluginService();
     }
  
     @After
     public void tearDown() {
-		tracker.close();
     }
 
 	@Test
 	public void assertTest() {
-		assertNotNull(bc);
-		//System.out.println("the value of plugins is " +plugins);
-		//assertNotNull(plugins);
+		try {
+			Bundle commonBundle = getBundle("dk.group6.Common");
+			assertNotNull(commonBundle);
+
+			Bundle playerBundle = getBundle("dk.group6.Player");
+			assertNotNull(playerBundle);
+		} catch (BundleException e){
+			e.printStackTrace();
+		}
 	}
+
+	@Test
+	public void serviceReference() {
+		ServiceReference serviceReference = context.getServiceReference(IGamePluginService.class.getName());
+		ServiceReference serviceReferencer2 = context.getServiceReference(IEntityProcessingService.class.getName());
+		//assertNotNull(serviceReference);
+		System.out.println("service reference is: " + serviceReference);
+		System.out.println("service reference2 is: " + serviceReferencer2);
+	}
+
  
-    @Test
-    public void PlayTest() throws BundleException {
-		bc.getBundle().start();
+    private Bundle getBundle(String symbolicName) throws BundleException {
+		for (Bundle b : context.getBundles()){
+			System.out.println("Registered bundle: " + b.getSymbolicName());
+			System.out.println("Bundle state: " + b.getState());
+			System.out.println("Bundle registered services" + b.getRegisteredServices());
+			System.out.println("Bundle id" + b.getBundleId());
+			System.out.println("Bundle location" + b.getLocation());
+			System.out.println("Bundle services in use" + b.getServicesInUse());
+			System.out.println("--------");
+			if (b.getSymbolicName().equals(symbolicName)){
+				System.out.println("found the player bundle");
+				return b;
+			}
+		}
+		return null;
     }
-	
-	public IGamePluginService getPluginService() throws InterruptedException {
-		System.out.println("this is it " +bc);
-		tracker = new ServiceTracker(bc, IGamePluginService.class, null);
-		tracker.open();
-		IGamePluginService services = (IGamePluginService) tracker.waitForService(1000);
-		System.out.println("services tracked " + (tracker.isEmpty()? "None" : "Something"));
-		System.out.println(services);
-		return services;
-	} 
 }
