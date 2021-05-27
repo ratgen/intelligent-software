@@ -53,7 +53,6 @@ public class AStar implements IPathFinderSPI  {
             fringe.addAll(ways);
         }
 
-        System.out.println("returning null");
         return null;
     }
 }
