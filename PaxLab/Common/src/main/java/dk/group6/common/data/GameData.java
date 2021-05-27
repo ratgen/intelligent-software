@@ -11,7 +11,6 @@ public class GameData {
     private int displayWidth;
     private int displayHeight;
     private final GameKeys keys = new GameKeys();
-    private List<Event> events = new CopyOnWriteArrayList<>();
     private boolean gameIsWon = false;
     private boolean gameIsLost = false;
 
@@ -32,17 +31,8 @@ public class GameData {
     }
 
 
-    public void addEvent(Event e) {
-        events.add(e);
-    }
 
-    public void removeEvent(Event e) {
-        events.remove(e);
-    }
 
-    public List<Event> getEvents() {
-        return events;
-    }
 
     public GameKeys getKeys() {
         return keys;
@@ -70,15 +60,5 @@ public class GameData {
 
     public int getDisplayHeight() {
         return displayHeight;
-    }
-
-    public <E extends Event> List<Event> getEvents(Class<E> type, String sourceID) {
-        List<Event> r = new ArrayList();
-        for (Event event : events) {
-            if (event.getClass().equals(type) && event.getSource().getID().equals(sourceID)) {
-                r.add(event);
-            }
-        }
-        return r;
     }
 }

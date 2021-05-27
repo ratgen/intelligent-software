@@ -76,10 +76,6 @@ public class MovingPart implements EntityPart {
         this.acceleration = acceleration;
     }
 
-    public String[] getMovement(){
-        return this.movement;
-    }
-
     public void setStraight(boolean straight) {
         this.straight = straight;
     }
