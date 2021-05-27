@@ -41,8 +41,18 @@ public class PlayerProcessor implements IEntityProcessingService {
                     continue;
                 }
 
+                if (!weapon.hasPart(SpritePart.class)){
+                    continue;
+                }
+
                 SpritePart sp = weapon.getPart(SpritePart.class);
                 PositionPart ps = weapon.getPart(PositionPart.class);
+
+                if (sp.getSprite() == null){
+                    continue;
+                }
+
+                
 
                 int offset = 2;
 

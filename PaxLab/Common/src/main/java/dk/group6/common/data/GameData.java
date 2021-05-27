@@ -1,6 +1,5 @@
 package dk.group6.common.data;
 
-import dk.group6.common.events.Event;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
