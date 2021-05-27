@@ -19,6 +19,9 @@ public class WeaponSystem implements IWeaponSPI {
 
     @Override
     public void attack(Weapon weapon, World world) {
+		if (shotSPI == null){
+			return;
+		}
         PositionPart posPart = weapon.getPart(PositionPart.class);
         SpritePart sp = weapon.getPart(SpritePart.class);
         WeaponPart wp = weapon.getPart(WeaponPart.class);
