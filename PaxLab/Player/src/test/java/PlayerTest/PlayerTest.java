@@ -13,7 +13,9 @@ import static org.mockito.Mockito.when;
  *  Testing the player class
  * @author peter
  */
+
 public class PlayerTest{
+	
 	@Test
 	public void createPlayer(){
 		PlayerPlugin pp = new PlayerPlugin();
