@@ -2,48 +2,47 @@ package dk.group6.astar;
 
 import dk.group6.common.data.World;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Node {
-    Node previous;
-    double distance;
-    double radians;
-    int x;
-    int y;
-    boolean goal;
-    int goalX;
-    int goalY;
-    int travel;
-    double total;
+    private Node previous;
+    private double distance;
+    private double radians;
+    private int x;
+    private int y;
+    private boolean goal;
+    private int goalX;
+    private int goalY;
+    private int travel;
+    private double total;
 
+    public Node() {
+    }
+    
+    public Node(int x, int y, double distance) {
+        this.x = x;
+        this.y = y;
+        this.distance = distance;
+    }
+
+    Node(boolean b, int x, int y) {
+        this.goal = b;
+        this.goalX = x;
+        this.goalY = y;
+    }
+
+    Node(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
     public void setPrevious(Node previous) {
         this.previous = previous;
     }
 
     public void setDistance(double distance) {
         this.distance = distance;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setGoal(boolean goal) {
-        this.goal = goal;
-    }
-
-    public void setGoalX(int goalX) {
-        this.goalX = goalX;
-    }
-
-    public void setGoalY(int goalY) {
-        this.goalY = goalY;
     }
 
     public void setTravel(int travel) {
@@ -78,26 +77,6 @@ public class Node {
         return goalY;
     }
 
-    public Node() {
-    }
-
-    public Node(int x, int y, double distance) {
-        this.x = x;
-        this.y = y;
-        this.distance = distance;
-    }
-
-    Node(boolean b, int x, int y) {
-        this.goal = b;
-        this.goalX = x;
-        this.goalY = y;
-    }
-
-    Node(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
     public int getTravel() {
         return this.travel;
     }
@@ -124,7 +103,7 @@ public class Node {
      * Returns the path to node n from its parent, and the parent of its parent.
      *
      * @param   n   Node from which to get the path
-     * @returns     A linkedList with the path, containing doubles
+     * @return     A linkedList with the path, containing doubles
      */
     public LinkedList<Double> getPath(Node n) {
         LinkedList<Double> s = new LinkedList<>();

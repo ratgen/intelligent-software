@@ -20,6 +20,11 @@ public class PositionPart implements EntityPart {
 
     private ArrayList<String> directions = new ArrayList();
 
+    public PositionPart(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
     public ArrayList<String> getDirections() {
         return directions;
     }
@@ -27,12 +32,6 @@ public class PositionPart implements EntityPart {
     public void setDirections(ArrayList<String> a) {
         this.directions = a;
     }
-
-    public PositionPart(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
 
     public int getX() {
         return x;

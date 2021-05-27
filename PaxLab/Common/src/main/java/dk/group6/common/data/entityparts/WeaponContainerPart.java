@@ -15,9 +15,7 @@ import dk.group6.common.data.GameData;
 public class WeaponContainerPart implements EntityPart {
     private String weapon; 
 
-
     public WeaponContainerPart() {
-
     }
 
     public String getWeapon () {
@@ -34,6 +32,5 @@ public class WeaponContainerPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-
     }
 }

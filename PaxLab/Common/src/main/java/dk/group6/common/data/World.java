@@ -51,7 +51,6 @@ public class World {
     public TiledMapTileLayer getMapTileLayer() {
         return mapTileLayer;
     }
-    // TODO LAV METODE FOR AT HENTE ALLE EKSISTERENDE TILES SAMME MÅDE SOM getEntities()
 
     public Entity getEntity(String ID) {
         return entityMap.get(ID);
